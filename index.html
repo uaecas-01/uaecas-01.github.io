@@ -856,15 +856,15 @@
         </div>
 
         <div class="reveal reveal-delay-1">
-          <form onsubmit="handleSubmit(event)">
+         <form action="https://formspree.io/f/xdawekgq" method="POST">
             <div class="form-row">
               <div class="form-group">
                 <label>학생 이름 <span>*</span></label>
-                <input type="text" placeholder="홍길동" required />
+                <input type="text" name="학생이름" placeholder="홍길동" required />
               </div>
               <div class="form-group">
                 <label>학년 <span>*</span></label>
-                <select required>
+                <select name="학년" required>
                   <option value="">선택해주세요</option>
                   <option>초등학교 저학년</option>
                   <option>초등학교 고학년</option>
@@ -879,12 +879,12 @@
             </div>
             <div class="form-group">
               <label>학부모 연락처 <span>*</span></label>
-              <input type="tel" placeholder="010-8571-5149 (하이픈 포함)" required />
+              <input type="tel" name="연락처" placeholder="010-0000-0000 (하이픈 포함)" required />
             </div>
             <div class="form-row">
               <div class="form-group">
                 <label>희망 과목 <span>*</span></label>
-                <select required>
+                <select name="희망과목" required>
                   <option value="">선택해주세요</option>
                   <option>수학</option>
                   <option>영어</option>
@@ -896,7 +896,7 @@
               </div>
               <div class="form-group">
                 <label>수업 방식 <span>*</span></label>
-                <select required>
+                <select name="수업방식" required>
                   <option value="">선택해주세요</option>
                   <option>방문 수업</option>
                   <option>화상 수업</option>
@@ -906,19 +906,15 @@
             </div>
             <div class="form-group">
               <label>현재 주소</label>
-              <input type="text" placeholder="자택 주소 상세까지 입력 부탁드립니다." />
+              <input type="text" name="주소" placeholder="자택 주소 상세까지 입력 부탁드립니다." />
             </div>
             <div class="form-group">
               <label>문의 내용</label>
-              <textarea placeholder="학생 현재 수준, 원하시는 수업 방향, 기타 궁금한 점을 편하게 적어주세요."></textarea>
+              <textarea name="문의내용" placeholder="학생 현재 수준, 원하시는 수업 방향, 기타 궁금한 점을 편하게 적어주세요."></textarea>
             </div>
             <button type="submit" class="form-submit">무료 상담 신청하기 →</button>
             <p class="form-notice">개인정보는 수업 매칭 목적으로만 사용되며, 수업 종료 후 파기됩니다.</p>
           </form>
-        </div>
-      </div>
-    </div>
-  </section>
 
   <!-- FOOTER -->
   <footer>
