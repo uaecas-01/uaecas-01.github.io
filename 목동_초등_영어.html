@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>목동 초등 영어 과외 | 초등학교 맞춤 1:1 방문 수업</title>
+  <meta name="description" content="서울 양천구 목동 초등 영어 과외 전문. 목동 초등 영어 과외 선생님이 직접 방문합니다. 1:1 맞춤 수업으로 내신 성적을 확실히 올려드립니다." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy: #0055A3;
+      --accent: #0055A3;
+      --accent-light: #1a6fc4;
+      --gray-100: #f4f4f6;
+      --gray-200: #e8eaee;
+      --gray-400: #9ca3b0;
+      --gray-700: #3d4a5c;
+      --white: #ffffff;
+      --text: #121212;
+    }
+
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Pretendard', sans-serif; color: var(--text); background: var(--white); overflow-x: hidden; }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 5%;
+      height: 64px;
+      background: var(--navy);
+    }
+    .nav-logo {
+      font-weight: 700;
+      font-size: 1.25rem;
+      color: #fff;
+      letter-spacing: -0.5px;
+      text-decoration: none;
+    }
+    .nav-logo span { color: rgba(255,255,255,0.65); }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a {
+      color: rgba(255,255,255,0.75);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover,
+    .nav-links a.active { color: #fff; }
+    .nav-cta {
+      background: #fff;
+      color: var(--navy);
+      padding: 0.55rem 1.4rem;
+      border-radius: 50px;
+      font-size: 0.875rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .nav-cta:hover { background: #e8f0fb; transform: translateY(-1px); }
+
+    /* PAGE HERO */
+    .page-hero {
+      background: linear-gradient(135deg, var(--navy) 0%, #003d7a 100%);
+      padding: 112px 5% 56px;
+      color: #fff;
+    }
+    .page-hero-inner { max-width: 760px; margin: 0 auto; }
+    .breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      flex-wrap: wrap;
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 1.5rem;
+    }
+    .breadcrumb a { color: rgba(255,255,255,0.6); text-decoration: none; transition: color 0.2s; }
+    .breadcrumb a:hover { color: #fff; }
+    .breadcrumb span { color: rgba(255,255,255,0.9); font-weight: 600; }
+    .page-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.25);
+      color: rgba(255,255,255,0.9);
+      font-size: 0.78rem;
+      font-weight: 700;
+      padding: 0.35rem 0.9rem;
+      border-radius: 50px;
+      margin-bottom: 1.1rem;
+    }
+    .page-hero h1 {
+      font-size: 2rem;
+      font-weight: 800;
+      line-height: 1.25;
+      margin-bottom: 0.5rem;
+      color: #fff;
+    }
+    .page-hero h1 em {
+      font-style: normal;
+      color: rgba(255,255,255,0.7);
+      font-weight: 400;
+      font-size: 1.25rem;
+      display: block;
+      margin-top: 0.4rem;
+    }
+    .meta {
+      display: flex;
+      gap: 1.25rem;
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.5);
+      flex-wrap: wrap;
+      margin-top: 1.25rem;
+    }
+
+    /* CONTENT */
+    .wrap { max-width: 760px; margin: 0 auto; padding: 3rem 5% 5rem; }
+
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin-bottom: 3rem;
+    }
+    .stat-card {
+      background: var(--gray-100);
+      border-radius: 14px;
+      padding: 1.35rem 1rem;
+      text-align: center;
+    }
+    .stat-num { font-size: 1.65rem; font-weight: 800; color: var(--navy); line-height: 1; margin-bottom: 0.4rem; }
+    .stat-label { font-size: 0.76rem; color: var(--gray-400); font-weight: 600; }
+
+    h2 {
+      font-size: 1.15rem;
+      font-weight: 800;
+      margin: 2.8rem 0 0.85rem;
+      color: var(--navy);
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    h2::after {
+      content: '';
+      flex: 1;
+      height: 2px;
+      background: var(--gray-200);
+      border-radius: 2px;
+    }
+
+    p { font-size: 0.95rem; color: #444; margin-bottom: 1rem; line-height: 1.9; }
+
+    .highlight-box {
+      background: #eef4fc;
+      border-left: 4px solid var(--navy);
+      border-radius: 0 12px 12px 0;
+      padding: 1.25rem 1.5rem;
+      margin: 1.25rem 0;
+    }
+    .highlight-box strong {
+      display: block;
+      color: var(--navy);
+      font-size: 0.9rem;
+      margin-bottom: 0.5rem;
+    }
+    .highlight-box p { margin: 0; font-size: 0.9rem; color: var(--gray-700); }
+
+    .keyword-list { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1rem; }
+    .kw-tag {
+      background: #eef4fc;
+      border: 1px solid #c5d9f0;
+      border-radius: 8px;
+      padding: 0.35rem 0.85rem;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--navy);
+    }
+
+    .price-table { width: 100%; border-collapse: collapse; margin: 1rem 0 1.5rem; font-size: 0.9rem; border-radius: 12px; overflow: hidden; }
+    .price-table th { background: var(--navy); color: #fff; padding: 0.75rem 1.2rem; text-align: left; font-weight: 600; }
+    .price-table td { padding: 0.7rem 1.2rem; border-bottom: 1px solid var(--gray-200); color: #444; }
+    .price-table tr:last-child td { border-bottom: none; }
+    .price-table tr:nth-child(even) td { background: #f7faff; }
+
+    .related-section { margin-top: 2.5rem; }
+    .related-title { font-size: 0.88rem; font-weight: 700; color: var(--navy); margin-bottom: 0.75rem; }
+    .related-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .related-tags a {
+      background: var(--gray-100);
+      border: 1px solid var(--gray-200);
+      border-radius: 8px;
+      padding: 0.35rem 0.8rem;
+      font-size: 0.8rem;
+      text-decoration: none;
+      color: var(--gray-700);
+      font-weight: 500;
+      transition: all 0.2s;
+    }
+    .related-tags a:hover { background: #eef4fc; border-color: #c5d9f0; color: var(--navy); }
+    .related-tags a.main { background: var(--navy); color: #fff; border-color: var(--navy); }
+    .related-tags a.main:hover { background: var(--accent-light); }
+
+    .cta-box {
+      background: linear-gradient(135deg, var(--navy) 0%, #003d7a 100%);
+      border-radius: 20px;
+      padding: 2.5rem 2rem;
+      text-align: center;
+      margin-top: 3rem;
+    }
+    .cta-box h3 { color: #fff; font-size: 1.25rem; margin-bottom: 0.5rem; }
+    .cta-box p { color: rgba(255,255,255,0.7); font-size: 0.9rem; margin-bottom: 1.75rem; }
+    .cta-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    .cta-btn {
+      padding: 0.85rem 2.2rem;
+      border-radius: 50px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      text-decoration: none;
+      font-family: 'Pretendard', sans-serif;
+      border: none;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .cta-btn.white { background: #fff; color: var(--navy); }
+    .cta-btn.outline { background: transparent; color: rgba(255,255,255,0.85); border: 2px solid rgba(255,255,255,0.45); }
+    .cta-btn:hover { transform: translateY(-2px); opacity: 0.9; }
+
+    /* FOOTER */
+    footer {
+      background: #f0f2f5;
+      color: #6b7280;
+      padding: 2rem 5%;
+      font-size: 0.82rem;
+    }
+    .footer-inner {
+      max-width: 760px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .footer-logo { font-weight: 700; color: #1e293b; font-size: 1rem; }
+    .footer-logo span { color: var(--navy); }
+    footer a { color: var(--gray-400); text-decoration: none; }
+    footer a:hover { color: var(--navy); }
+
+    @media (max-width: 600px) {
+      .page-hero h1 { font-size: 1.45rem; }
+      .nav-links { display: none; }
+      .stats-row { gap: 0.6rem; }
+      .stat-num { font-size: 1.3rem; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">오늘의<span>학습</span></a>
+  <ul class="nav-links">
+    <li><a href="find-tutor.html">과외 찾기</a></li>
+    <li><a href="목동_초등_영어.html" class="active">교육 정보</a></li>
+    <li><a href="index.html#contact">상담 신청</a></li>
+    <li><a href="index.html#proof">수업 후기</a></li>
+  </ul>
+  <a href="tel:010-8571-5149" class="nav-cta">📞 상담하기</a>
+</nav>
+
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <div class="breadcrumb">
+      <a href="index.html">홈</a> ›
+      <a href="#">교육 정보</a> ›
+      <a href="#">서울</a> ›
+      <a href="#">양천구</a> ›
+      <a href="#">목동</a> ›
+      <span>초등 영어 과외</span>
+    </div>
+    <div class="page-badge">📍 서울 양천구 목동 · 방문 과외 전문</div>
+    <h1>목동 초등 영어 과외
+      <em>초등학교 맞춤 1:1 방문 수업</em>
+    </h1>
+    <div class="meta">
+      <span>✏️ 오늘의 학습 편집팀</span>
+      <span>📅 2025년 1월 기준</span>
+      <span>⏱ 3분</span>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+
+  <div class="stats-row">
+    <div class="stat-card">
+      <div class="stat-num">96.7%</div>
+      <div class="stat-label">수업 만족도</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">100만</div>
+      <div class="stat-label">누적 수강생</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">24시간</div>
+      <div class="stat-label">선생님 연결</div>
+    </div>
+  </div>
+
+  <h2>목동 초등 영어 과외 안내</h2>
+  <p>
+    목동 초등 영어 과외를 찾고 계신가요? 오늘의 학습은 서울 양천구 목동 지역에서 초등학교 학생을 위한 1:1 방문 영어 과외를 전문으로 운영하고 있습니다.
+    알파벳 기초부터 문법, 독해, 회화까지 단계별로 지도합니다. 내신 영어 만점을 목표로 학교 교과서 중심의 맞춤 과외를 진행합니다.
+    선생님이 직접 자택으로 방문하기 때문에 이동 시간 없이 효율적으로 수업을 받을 수 있습니다.
+  </p>
+
+  <div class="highlight-box">
+    <strong>💡 목동 초등 영어 과외, 이렇게 진행합니다!</strong>
+    <p>
+      첫 수업 전 초등학교 학생의 현재 수준과 학교 진도를 꼼꼼히 파악합니다.
+      학생 개개인의 속도에 맞춰 부족한 부분을 집중적으로 보완하며,
+      내신 시험 일정에 맞춰 유연하게 커리큘럼을 조정합니다.
+    </p>
+  </div>
+
+  <h2>목동 초등 영어 과외가 필요한 이유</h2>
+  <p>
+    초등학교 시기는 영어 기초를 탄탄히 다지는 가장 중요한 시기입니다.
+    목동 초등 영어 과외를 통해 학교 수업 내용을 완벽히 복습하고,
+    시험에 자주 출제되는 유형을 반복 훈련하면 성적 향상 속도가 눈에 띄게 빨라집니다.
+    특히 학원에서 해결하기 어려운 개인별 약점을 1:1 방문 과외로 집중 공략하면 단기간에 큰 효과를 볼 수 있습니다.
+  </p>
+  <p>
+    목동 초등 영어 과외 선생님은 해당 지역 학교의 출제 경향과 교과서를 완벽히 숙지하고 있어,
+    내신 시험 대비에 최적화된 수업을 제공합니다.
+    목동에서 초등 영어 과외를 찾고 계신다면 지금 바로 문의해 주세요.
+  </p>
+
+  <h2>목동 초등 영어 과외 주요 키워드</h2>
+  <div class="keyword-list">
+    <span class="kw-tag">목동 초등 영어 과외</span>
+    <span class="kw-tag">양천구 초등 영어 과외</span>
+    <span class="kw-tag">목동 초등학교 영어 과외</span>
+    <span class="kw-tag">목동 영어 방문 과외</span>
+    <span class="kw-tag">목동 초등 과외</span>
+    <span class="kw-tag">목동 1:1 영어 과외</span>
+    <span class="kw-tag">양천구 초등학교 방문 과외</span>
+  </div>
+
+  <h2>목동 초등 영어 과외 수업 방식</h2>
+  <p>
+    목동 초등 영어 과외는 주 1~3회 선생님이 직접 가정으로 방문하는 방식으로 진행됩니다.
+    영어 문법·독해·회화 과정을 체계적으로 학습하며, 매 수업마다 학부모님께 학습 현황을 공유합니다.
+    수업 시간은 일반적으로 1회 90분~120분이며, 학생의 집중력과 학습량에 따라 유연하게 조정합니다.
+  </p>
+
+  <h2>목동 초등 영어 과외 비용</h2>
+  <table class="price-table">
+    <tr><th>수업 횟수</th><th>월 수업료 (90분 기준)</th></tr>
+    <tr><td>주 1회</td><td>22만원 ~ 30만원</td></tr>
+    <tr><td>주 2회</td><td>38만원 ~ 52만원</td></tr>
+    <tr><td>주 3회</td><td>55만원 ~ 72만원</td></tr>
+  </table>
+  <p>
+    수업료는 선생님 경력, 학생 수준, 수업 시간에 따라 달라집니다.
+    정확한 금액은 첫 상담 시 안내드립니다.
+  </p>
+
+  <div class="related-section">
+    <div class="related-title">📚 관련 과외 정보</div>
+    <div class="related-tags">
+      <a href="목동_초등_국어.html">목동 초등 국어</a>
+      <a href="목동_초등_수학.html">목동 초등 수학</a>
+      <a href="목동_중등_국어.html">목동 중등 국어</a>
+      <a href="목동_중등_영어.html">목동 중등 영어</a>
+      <a href="목동_중등_수학.html">목동 중등 수학</a>
+      <a href="목동_고등_국어.html">목동 고등 국어</a>
+      <a href="목동_고등_영어.html">목동 고등 영어</a>
+      <a href="목동_고등_수학.html">목동 고등 수학</a>
+      <a href="목동.html" class="main">목동 전체 정보</a>
+    </div>
+  </div>
+
+  <div class="cta-box">
+    <h3>📍 목동 초등 영어 과외 선생님 연결하기</h3>
+    <p>신청하시면 빠르면 당일, 늦어도 24시간 내로 담당 선생님이 직접 연락드립니다.</p>
+    <div class="cta-btns">
+      <a href="index.html#contact" class="cta-btn white">지금 바로 신청하기</a>
+      <a href="tel:010-8571-5149" class="cta-btn outline">📞 010-8571-5149</a>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">오늘의<span>학습</span></div>
+    <span>© 2025 오늘의 학습 | <a href="index.html">홈으로</a></span>
+  </div>
+</footer>
+
+</body>
+</html>
