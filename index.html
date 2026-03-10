@@ -938,15 +938,7 @@
     }, { threshold: 0.12 });
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-    // Form submit
-    function handleSubmit(e) {
-      e.preventDefault();
-      const btn = e.target.querySelector('.form-submit');
-      btn.textContent = '✅ 상담 신청 완료! 곧 연락드릴게요.';
-      btn.style.background = '#28a745';
-      btn.disabled = true;
-    }
-
+  
     // Nav stays transparent over hero, shows blue when scrolled past
     const nav = document.querySelector('nav');
     window.addEventListener('scroll', () => {
