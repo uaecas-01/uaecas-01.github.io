@@ -1,0 +1,1988 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>학원 상담 – 오늘의 학습</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy: #0055A3;
+      --navy-dark: #003d7a;
+      --navy-light: #1a6fc4;
+      --sky: #e8f2fc;
+      --cream: #FFFFFD;
+      --gray-50: #f8f9fb;
+      --gray-100: #f4f4f6;
+      --gray-200: #e5e7eb;
+      --gray-400: #9ca3b0;
+      --gray-600: #6b7280;
+      --gray-700: #3d4a5c;
+      --text: #121212;
+      --white: #ffffff;
+      --green: #059669;
+      --amber: #d97706;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Pretendard', sans-serif;
+      color: var(--text);
+      background: var(--cream);
+      overflow-x: hidden;
+    }
+
+    /* ─── NAV ─── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 5%;
+      height: 64px;
+      background: var(--navy);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .nav-logo {
+      font-weight: 700;
+      font-size: 1.25rem;
+      color: var(--white);
+      letter-spacing: -0.5px;
+      text-decoration: none;
+    }
+    .nav-logo span { color: rgba(255,255,255,0.6); }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a {
+      color: rgba(255,255,255,0.72);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover,
+    .nav-links a.active { color: var(--white); }
+    .nav-links a.active { font-weight: 700; }
+    .nav-cta {
+      background: var(--white);
+      color: var(--navy);
+      padding: 0.5rem 1.3rem;
+      border-radius: 50px;
+      font-size: 0.875rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .nav-cta:hover { background: var(--sky); transform: translateY(-1px); }
+
+    /* ─── PAGE HERO ─── */
+    .page-hero {
+      padding-top: 64px;
+      background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy) 55%, var(--navy-light) 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    .page-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 70% 60% at 80% 50%, rgba(255,255,255,0.05) 0%, transparent 70%);
+    }
+    .page-hero-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 4rem 5% 4.5rem;
+      position: relative;
+    }
+    .page-crumb {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 1.4rem;
+    }
+    .page-crumb a { color: rgba(255,255,255,0.5); text-decoration: none; }
+    .page-crumb a:hover { color: rgba(255,255,255,0.85); }
+    .page-crumb-sep { opacity: 0.4; }
+    .page-crumb-cur { color: rgba(255,255,255,0.85); }
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 100px;
+      padding: 0.3rem 0.9rem;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: rgba(255,255,255,0.9);
+      margin-bottom: 1.2rem;
+      letter-spacing: 0.02em;
+    }
+    .hero-eyebrow-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: #4ade80;
+    }
+    .page-hero h1 {
+      font-size: clamp(1.9rem, 4vw, 2.9rem);
+      font-weight: 800;
+      color: var(--white);
+      line-height: 1.25;
+      letter-spacing: -0.03em;
+      margin-bottom: 1rem;
+    }
+    .page-hero h1 em {
+      font-style: normal;
+      background: linear-gradient(90deg, #93c5fd, #c4b5fd);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .page-hero-desc {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.7);
+      line-height: 1.75;
+      max-width: 520px;
+    }
+    .hero-stats {
+      display: flex;
+      gap: 2.5rem;
+      margin-top: 2.5rem;
+      flex-wrap: wrap;
+    }
+    .hero-stat-item { display: flex; flex-direction: column; gap: 0.15rem; }
+    .hero-stat-num {
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: var(--white);
+      letter-spacing: -0.04em;
+    }
+    .hero-stat-num sup { font-size: 0.85rem; font-weight: 600; }
+    .hero-stat-label {
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.5);
+      font-weight: 500;
+    }
+
+    /* ─── SECTION WRAPPER ─── */
+    .section { padding: 5rem 5%; }
+    .section-inner { max-width: 1100px; margin: 0 auto; }
+    .section-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--navy);
+      margin-bottom: 0.6rem;
+    }
+    .section-title {
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      font-weight: 800;
+      color: var(--text);
+      letter-spacing: -0.03em;
+      line-height: 1.25;
+    }
+    .section-sub {
+      font-size: 0.95rem;
+      color: var(--gray-600);
+      line-height: 1.75;
+      margin-top: 0.6rem;
+    }
+    .section-header { margin-bottom: 2.5rem; }
+
+    /* ─── BENEFIT CARDS ─── */
+    .benefit-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.25rem;
+    }
+    .benefit-card {
+      background: var(--white);
+      border: 1.5px solid var(--gray-200);
+      border-radius: 16px;
+      padding: 1.75rem 1.5rem;
+      transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+    }
+    .benefit-card:hover {
+      border-color: var(--navy);
+      box-shadow: 0 8px 32px rgba(0,85,163,0.1);
+      transform: translateY(-3px);
+    }
+    .benefit-icon {
+      width: 44px; height: 44px;
+      background: var(--sky);
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.3rem;
+      margin-bottom: 1rem;
+    }
+    .benefit-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 0.45rem;
+      line-height: 1.35;
+    }
+    .benefit-desc {
+      font-size: 0.82rem;
+      color: var(--gray-600);
+      line-height: 1.65;
+    }
+
+    /* ─── ACADEMY FINDER ─── */
+    .finder-section { background: var(--gray-50); }
+    .finder-layout {
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      gap: 2rem;
+      align-items: start;
+    }
+
+    /* Sidebar */
+    .finder-sidebar {
+      background: var(--white);
+      border: 1.5px solid var(--gray-200);
+      border-radius: 16px;
+      overflow: hidden;
+      position: sticky;
+      top: 80px;
+    }
+    .sidebar-header {
+      padding: 1.2rem 1.4rem 1rem;
+      border-bottom: 1px solid var(--gray-200);
+    }
+    .sidebar-header-title {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--gray-700);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+    .sidebar-search {
+      padding: 0.9rem 1.4rem;
+      border-bottom: 1px solid var(--gray-200);
+    }
+    .sidebar-search input {
+      width: 100%;
+      border: 1.5px solid var(--gray-200);
+      border-radius: 8px;
+      padding: 0.55rem 0.85rem 0.55rem 2.2rem;
+      font-family: 'Pretendard', sans-serif;
+      font-size: 0.82rem;
+      color: var(--text);
+      background: var(--gray-50) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%239ca3b0' stroke-width='2.5'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cpath d='m21 21-4.35-4.35'/%3E%3C/svg%3E") no-repeat 0.75rem center;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .sidebar-search input:focus { border-color: var(--navy); background-color: var(--white); }
+    .district-list { padding: 0.5rem 0; max-height: 440px; overflow-y: auto; }
+    .district-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.6rem 1.4rem;
+      cursor: pointer;
+      font-size: 0.875rem;
+      color: var(--gray-700);
+      transition: background 0.15s, color 0.15s;
+      border-left: 3px solid transparent;
+    }
+    .district-item:hover { background: var(--sky); color: var(--navy); }
+    .district-item.active {
+      background: var(--sky);
+      color: var(--navy);
+      font-weight: 700;
+      border-left-color: var(--navy);
+    }
+    .district-count {
+      font-size: 0.72rem;
+      font-weight: 600;
+      background: var(--gray-100);
+      color: var(--gray-400);
+      padding: 0.1rem 0.5rem;
+      border-radius: 100px;
+    }
+    .district-item.active .district-count {
+      background: rgba(0,85,163,0.12);
+      color: var(--navy);
+    }
+    /* City tabs */
+    .city-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      border-bottom: 1px solid var(--gray-200);
+      gap: 0;
+    }
+    .city-tab {
+      padding: 0.55rem 0.75rem;
+      text-align: center;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--gray-400);
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+      transition: color 0.15s, border-color 0.15s;
+      user-select: none;
+      white-space: nowrap;
+    }
+    .city-tab:hover { color: var(--gray-700); }
+    .city-tab.active { color: var(--navy); border-bottom-color: var(--navy); }
+    /* Target schools */
+    .academy-targets {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.3rem;
+      margin-top: 0.3rem;
+    }
+    .target-pill {
+      font-size: 0.68rem;
+      color: var(--gray-600);
+      background: var(--gray-100);
+      padding: 0.1rem 0.5rem;
+      border-radius: 5px;
+    }
+
+    /* Results */
+    .finder-results { display: flex; flex-direction: column; gap: 0; }
+    .results-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1.2rem;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .results-count {
+      font-size: 0.85rem;
+      color: var(--gray-600);
+    }
+    .results-count strong { color: var(--text); font-weight: 700; }
+    .grade-filter-row {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+    .grade-tag {
+      padding: 0.3rem 0.9rem;
+      border-radius: 100px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      border: 1.5px solid var(--gray-200);
+      background: var(--white);
+      color: var(--gray-600);
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+    .grade-tag:hover { border-color: var(--navy); color: var(--navy); }
+    .grade-tag.active {
+      background: var(--navy);
+      border-color: var(--navy);
+      color: var(--white);
+    }
+
+    /* Academy cards */
+    .academy-list { display: flex; flex-direction: column; gap: 1rem; }
+    .academy-card {
+      background: var(--white);
+      border: 1.5px solid var(--gray-200);
+      border-radius: 14px;
+      padding: 1.4rem 1.5rem;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 1rem;
+      align-items: center;
+      transition: border-color 0.2s, box-shadow 0.2s, transform 0.15s;
+      cursor: default;
+    }
+    .academy-card:hover {
+      border-color: var(--navy);
+      box-shadow: 0 4px 20px rgba(0,85,163,0.09);
+      transform: translateX(3px);
+    }
+    .academy-card-left { display: flex; flex-direction: column; gap: 0.5rem; }
+    .academy-meta { display: flex; align-items: center; gap: 0.6rem; flex-wrap: wrap; }
+    .academy-badge {
+      font-size: 0.68rem;
+      font-weight: 700;
+      padding: 0.15rem 0.6rem;
+      border-radius: 100px;
+    }
+    .badge-elem { background: #dcfce7; color: #166534; }
+    .badge-mid { background: #dbeafe; color: #1e40af; }
+    .badge-high { background: #ede9fe; color: #6d28d9; }
+    .badge-all { background: #fef3c7; color: #92400e; }
+    .academy-name {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text);
+      letter-spacing: -0.01em;
+    }
+    .academy-addr {
+      font-size: 0.8rem;
+      color: var(--gray-400);
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+    .academy-addr::before {
+      content: '';
+      display: inline-block;
+      width: 12px; height: 12px;
+      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%239ca3b0' stroke-width='2'%3E%3Cpath d='M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z'/%3E%3Ccircle cx='12' cy='10' r='3'/%3E%3C/svg%3E") no-repeat center;
+      flex-shrink: 0;
+    }
+    .academy-subjects {
+      display: flex;
+      gap: 0.4rem;
+      flex-wrap: wrap;
+    }
+    .subject-pill {
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: var(--navy);
+      background: var(--sky);
+      padding: 0.15rem 0.55rem;
+      border-radius: 6px;
+    }
+    .academy-card-right { display: flex; flex-direction: column; align-items: flex-end; gap: 0.6rem; }
+    .academy-open {
+      font-size: 0.72rem;
+      color: var(--green);
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+    .academy-open::before {
+      content: '';
+      width: 6px; height: 6px;
+      background: var(--green);
+      border-radius: 50%;
+    }
+    .btn-consult-mini {
+      background: var(--navy);
+      color: var(--white);
+      border: none;
+      border-radius: 8px;
+      padding: 0.5rem 1.1rem;
+      font-family: 'Pretendard', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+      white-space: nowrap;
+    }
+    .btn-consult-mini:hover { background: var(--navy-dark); transform: translateY(-1px); }
+
+    /* Empty state */
+    .finder-empty {
+      text-align: center;
+      padding: 3rem 1rem;
+      color: var(--gray-400);
+      font-size: 0.9rem;
+      display: none;
+    }
+    .finder-empty svg { margin: 0 auto 1rem; display: block; opacity: 0.3; }
+
+    /* ─── CONSULTATION WIZARD ─── */
+    .consult-section { background: var(--cream); }
+    .consult-layout {
+      display: grid;
+      grid-template-columns: 1fr 420px;
+      gap: 4rem;
+      align-items: start;
+    }
+    .consult-info { padding-top: 0.5rem; }
+    .consult-checklist {
+      margin-top: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .checklist-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.85rem;
+    }
+    .check-circle {
+      width: 28px; height: 28px;
+      border-radius: 50%;
+      background: var(--sky);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      margin-top: 0.05rem;
+    }
+    .check-circle svg { width: 14px; height: 14px; }
+    .check-text { font-size: 0.875rem; color: var(--gray-700); line-height: 1.6; }
+    .check-text strong { color: var(--text); font-weight: 700; }
+
+    /* Wizard card */
+    .wizard-card {
+      background: var(--white);
+      border: 1.5px solid var(--gray-200);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.07);
+    }
+    .wizard-header {
+      background: var(--navy);
+      padding: 1.5rem 1.75rem 1.25rem;
+    }
+    .wizard-step-row {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      margin-bottom: 1rem;
+    }
+    .wizard-step {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.4);
+      font-weight: 600;
+    }
+    .wizard-step.active { color: var(--white); }
+    .wizard-step.done { color: rgba(255,255,255,0.6); }
+    .step-num {
+      width: 22px; height: 22px;
+      border-radius: 50%;
+      border: 1.5px solid rgba(255,255,255,0.25);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.68rem;
+    }
+    .wizard-step.active .step-num {
+      background: var(--white);
+      color: var(--navy);
+      border-color: var(--white);
+    }
+    .wizard-step.done .step-num {
+      background: rgba(255,255,255,0.2);
+      border-color: rgba(255,255,255,0.3);
+    }
+    .step-divider {
+      flex: 1;
+      height: 1px;
+      background: rgba(255,255,255,0.15);
+      margin: 0 0.5rem;
+      max-width: 32px;
+    }
+    .wizard-title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--white);
+    }
+    .wizard-subtitle {
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.55);
+      margin-top: 0.2rem;
+    }
+
+    .wizard-body { padding: 1.75rem; }
+    .wizard-panel { display: none; }
+    .wizard-panel.active { display: block; }
+
+    .form-group { margin-bottom: 1.15rem; }
+    .form-label {
+      display: block;
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--gray-700);
+      margin-bottom: 0.4rem;
+    }
+    .form-label .req { color: var(--navy); margin-left: 2px; }
+    .form-input, .form-select, .form-textarea {
+      width: 100%;
+      border: 1.5px solid var(--gray-200);
+      border-radius: 10px;
+      padding: 0.65rem 0.9rem;
+      font-family: 'Pretendard', sans-serif;
+      font-size: 0.875rem;
+      color: var(--text);
+      background: var(--white);
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      -webkit-appearance: none;
+    }
+    .form-select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%239ca3b0' stroke-width='2.5'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 0.9rem center;
+      padding-right: 2.2rem;
+      cursor: pointer;
+    }
+    .form-textarea { resize: vertical; min-height: 90px; line-height: 1.6; }
+    .form-input:focus, .form-select:focus, .form-textarea:focus {
+      border-color: var(--navy);
+      box-shadow: 0 0 0 3px rgba(0,85,163,0.1);
+    }
+    .form-input.error, .form-select.error {
+      border-color: #ef4444;
+      box-shadow: 0 0 0 3px rgba(239,68,68,0.08);
+    }
+    .form-input::placeholder { color: var(--gray-400); }
+    .form-row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+
+    /* Checkbox group */
+    .check-group {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.5rem;
+    }
+    .check-option {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.55rem 0.75rem;
+      border: 1.5px solid var(--gray-200);
+      border-radius: 8px;
+      cursor: pointer;
+      transition: border-color 0.15s, background 0.15s;
+      font-size: 0.82rem;
+      color: var(--gray-700);
+      user-select: none;
+    }
+    .check-option:hover { border-color: var(--navy); color: var(--navy); }
+    .check-option input[type="checkbox"] { display: none; }
+    .check-option .check-box {
+      width: 16px; height: 16px;
+      border: 1.5px solid var(--gray-200);
+      border-radius: 4px;
+      flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+      transition: all 0.15s;
+    }
+    .check-option input:checked ~ .check-label { color: var(--navy); font-weight: 600; }
+    .check-option:has(input:checked) {
+      border-color: var(--navy);
+      background: var(--sky);
+    }
+    .check-option:has(input:checked) .check-box {
+      background: var(--navy);
+      border-color: var(--navy);
+    }
+    .check-box-tick {
+      display: none;
+    }
+    .check-option:has(input:checked) .check-box-tick {
+      display: block;
+    }
+
+    /* Time slots */
+    .time-slots {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.5rem;
+    }
+    .time-slot {
+      display: block;
+      text-align: center;
+      padding: 0.55rem 0.4rem;
+      border: 1.5px solid var(--gray-200);
+      border-radius: 8px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--gray-600);
+      cursor: pointer;
+      transition: all 0.15s;
+      user-select: none;
+    }
+    .time-slot:hover { border-color: var(--navy); color: var(--navy); }
+    .time-slot input[type="radio"] { display: none; }
+    .time-slot:has(input:checked) {
+      background: var(--navy);
+      border-color: var(--navy);
+      color: var(--white);
+    }
+
+    /* Wizard nav */
+    .wizard-nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 1.5rem;
+      gap: 0.75rem;
+    }
+    .btn-back {
+      background: transparent;
+      border: 1.5px solid var(--gray-200);
+      border-radius: 10px;
+      padding: 0.65rem 1.2rem;
+      font-family: 'Pretendard', sans-serif;
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--gray-600);
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+    .btn-back:hover { border-color: var(--gray-400); color: var(--text); }
+    .btn-next {
+      flex: 1;
+      background: var(--navy);
+      border: none;
+      border-radius: 10px;
+      padding: 0.7rem 1.5rem;
+      font-family: 'Pretendard', sans-serif;
+      font-size: 0.875rem;
+      font-weight: 700;
+      color: var(--white);
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .btn-next:hover { background: var(--navy-dark); transform: translateY(-1px); }
+    .btn-submit {
+      flex: 1;
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+      border: none;
+      border-radius: 10px;
+      padding: 0.7rem 1.5rem;
+      font-family: 'Pretendard', sans-serif;
+      font-size: 0.875rem;
+      font-weight: 700;
+      color: var(--white);
+      cursor: pointer;
+      transition: opacity 0.2s, transform 0.15s;
+      box-shadow: 0 4px 16px rgba(0,85,163,0.25);
+    }
+    .btn-submit:hover { opacity: 0.9; transform: translateY(-1px); }
+
+    /* Success */
+    .wizard-success {
+      display: none;
+      text-align: center;
+      padding: 2.5rem 1rem;
+    }
+    .success-icon {
+      width: 60px; height: 60px;
+      background: #dcfce7;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 1.25rem;
+      font-size: 1.6rem;
+    }
+    .success-title {
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: var(--text);
+      margin-bottom: 0.5rem;
+    }
+    .success-desc {
+      font-size: 0.875rem;
+      color: var(--gray-600);
+      line-height: 1.7;
+    }
+    .success-note {
+      margin-top: 1.25rem;
+      padding: 0.9rem 1.1rem;
+      background: var(--sky);
+      border-radius: 10px;
+      font-size: 0.8rem;
+      color: var(--navy);
+      font-weight: 600;
+    }
+
+    /* Agreement */
+    .agree-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.6rem;
+      margin-top: 0.5rem;
+    }
+    .agree-row input[type="checkbox"] {
+      width: 16px; height: 16px;
+      margin-top: 2px;
+      accent-color: var(--navy);
+      flex-shrink: 0;
+    }
+    .agree-row label {
+      font-size: 0.78rem;
+      color: var(--gray-600);
+      line-height: 1.55;
+      cursor: pointer;
+    }
+    .agree-row label a { color: var(--navy); text-decoration: underline; }
+
+    /* Progress bar */
+    .wizard-progress {
+      height: 3px;
+      background: rgba(255,255,255,0.15);
+      position: relative;
+      overflow: hidden;
+    }
+    .wizard-progress-fill {
+      height: 100%;
+      background: rgba(255,255,255,0.7);
+      transition: width 0.35s ease;
+      border-radius: 2px;
+    }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: #f0f2f5;
+      color: #6b7280;
+      padding: 3rem 5%;
+      font-size: 0.82rem;
+      line-height: 1.8;
+    }
+    .footer-inner { max-width: 1100px; margin: 0 auto; }
+    .footer-logo {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #1e293b;
+      margin-bottom: 1rem;
+    }
+    .footer-logo span { color: var(--navy); }
+    .footer-divider { border: none; border-top: 1px solid #d1d5db; margin: 1.5rem 0; }
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    /* ─── ANIMATIONS ─── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.55s ease, transform 0.55s ease;
+    }
+    .reveal.visible { opacity: 1; transform: none; }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 1024px) {
+      .benefit-grid { grid-template-columns: repeat(2, 1fr); }
+      .consult-layout { grid-template-columns: 1fr; gap: 2.5rem; }
+    }
+    @media (max-width: 768px) {
+      .finder-layout { grid-template-columns: 1fr; }
+      .finder-sidebar { position: static; }
+      .district-list { max-height: 200px; }
+      .academy-card { grid-template-columns: 1fr; }
+      .academy-card-right { flex-direction: row; align-items: center; }
+      .form-row-2 { grid-template-columns: 1fr; }
+      .check-group { grid-template-columns: 1fr 1fr; }
+      .nav-links { display: none; }
+      .hero-stats { gap: 1.5rem; }
+    }
+    @media (max-width: 480px) {
+      .benefit-grid { grid-template-columns: 1fr; }
+      .check-group { grid-template-columns: 1fr 1fr; }
+      .time-slots { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="index.html" class="nav-logo">오늘의<span>학습</span></a>
+    <ul class="nav-links">
+      <li><a href="find-tutor.html">과외 찾기</a></li>
+      <li><a href="education.html">교육 정보</a></li>
+      <li><a href="hagwon.html" class="active">학원 상담</a></li>
+      <li><a href="index.html#contact">상담 신청</a></li>
+      <li><a href="index.html#proof">수업 후기</a></li>
+    </ul>
+    <a href="#consult" class="nav-cta">무료 상담 신청</a>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="page-hero-inner">
+      <div class="page-crumb">
+        <a href="index.html">홈</a>
+        <span class="page-crumb-sep">›</span>
+        <span class="page-crumb-cur">학원 상담</span>
+      </div>
+      <div class="hero-eyebrow">
+        <span class="hero-eyebrow-dot"></span>
+        서울·수도권 200+ 제휴 학원 보유
+      </div>
+      <h1>우리 아이에게 딱 맞는<br /><em>학원을 한 번에 찾으세요</em></h1>
+      <p class="page-hero-desc">
+        지역별 제휴 학원을 검색하고, 맞춤 상담 신청까지<br />
+        오늘의학습이 처음부터 끝까지 도와드립니다.
+      </p>
+      <div class="hero-stats">
+        <div class="hero-stat-item">
+          <span class="hero-stat-num">200<sup>+</sup></span>
+          <span class="hero-stat-label">제휴 학원 수</span>
+        </div>
+        <div class="hero-stat-item">
+          <span class="hero-stat-num">48h</span>
+          <span class="hero-stat-label">평균 상담 연결 시간</span>
+        </div>
+        <div class="hero-stat-item">
+          <span class="hero-stat-num">4.8</span>
+          <span class="hero-stat-label">학부모 만족도 (5점 기준)</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BENEFITS -->
+  <section class="section" style="padding-bottom: 3.5rem;">
+    <div class="section-inner">
+      <div class="section-header reveal">
+        <div class="section-label">왜 오늘의학습인가</div>
+        <h2 class="section-title">학원 선택이 막막하다면,<br />저희가 먼저 확인해 드립니다</h2>
+      </div>
+      <div class="benefit-grid">
+        <div class="benefit-card reveal reveal-delay-1">
+          <div class="benefit-icon">🔍</div>
+          <div class="benefit-title">직접 검증된 제휴 학원만</div>
+          <p class="benefit-desc">수업 커리큘럼, 강사 이력, 학습 환경을 직접 검토한 학원만 목록에 포함됩니다.</p>
+        </div>
+        <div class="benefit-card reveal reveal-delay-2">
+          <div class="benefit-icon">📍</div>
+          <div class="benefit-title">내 동네 학원 빠른 탐색</div>
+          <p class="benefit-desc">구·동 단위로 세분화된 필터로 통학 거리까지 고려한 학원을 찾을 수 있습니다.</p>
+        </div>
+        <div class="benefit-card reveal reveal-delay-3">
+          <div class="benefit-icon">💬</div>
+          <div class="benefit-title">학년·과목별 맞춤 상담</div>
+          <p class="benefit-desc">단순 목록 제공이 아닌, 우리 아이 학습 상황에 맞는 학원을 전문가가 연결해 드립니다.</p>
+        </div>
+        <div class="benefit-card reveal reveal-delay-3">
+          <div class="benefit-icon">🎯</div>
+          <div class="benefit-title">상담부터 등록까지 원스톱</div>
+          <p class="benefit-desc">학원 상담 신청 후 입학 상담·수업 체험까지 모든 과정을 오늘의학습이 조율합니다.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ACADEMY FINDER -->
+  <section class="section finder-section" id="finder">
+    <div class="section-inner">
+      <div class="section-header reveal">
+        <div class="section-label">지역별 학원 찾기</div>
+        <h2 class="section-title">원하는 동네 근처로 상담 받아보세요</h2>
+        <p class="section-sub">지역을 선택하면 해당 지역 제휴 학원 목록이 표시됩니다.</p>
+      </div>
+
+      <div class="finder-layout reveal">
+        <!-- Sidebar -->
+        <aside class="finder-sidebar">
+          <div class="city-tabs" id="cityTabs">
+            <!-- populated by JS -->
+          </div>
+          <div class="sidebar-search">
+            <input type="text" id="districtSearch" placeholder="지역명으로 검색…" autocomplete="off" />
+          </div>
+          <div class="district-list" id="districtList">
+            <!-- populated by JS -->
+          </div>
+        </aside>
+
+        <!-- Results -->
+        <div class="finder-results">
+          <div class="results-bar">
+            <div class="results-count" id="resultsCount">지역을 선택하면 학원이 표시됩니다.</div>
+            <div class="grade-filter-row">
+              <button class="grade-tag active" data-grade="all">전체</button>
+              <button class="grade-tag" data-grade="elem">초등</button>
+              <button class="grade-tag" data-grade="mid">중등</button>
+              <button class="grade-tag" data-grade="high">고등</button>
+            </div>
+          </div>
+          <div class="finder-empty" id="finderEmpty" style="display:block;">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+            왼쪽에서 지역을 선택해 주세요
+          </div>
+          <div class="academy-list" id="academyList"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONSULTATION WIZARD -->
+  <section class="section consult-section" id="consult">
+    <div class="section-inner">
+      <div class="consult-layout">
+        <!-- Info side -->
+        <div class="consult-info reveal">
+          <div class="section-label">맞춤 상담 신청</div>
+          <h2 class="section-title">3단계로 빠르게<br />상담을 신청하세요</h2>
+          <p class="section-sub" style="margin-top: 0.75rem;">
+            신청 후 영업일 기준 1~2일 내로<br />담당 선생님이 직접 연락드립니다.
+          </p>
+          <div class="consult-checklist">
+            <div class="checklist-item">
+              <div class="check-circle">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#0055A3" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              </div>
+              <p class="check-text"><strong>학원 정보 사전 공유</strong><br />상담 전, 아이에게 적합한 학원 2~3곳을 미리 정리해 드립니다.</p>
+            </div>
+            <div class="checklist-item">
+              <div class="check-circle">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#0055A3" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              </div>
+              <p class="check-text"><strong>학습 수준 진단 무료 제공</strong><br />현재 학습 상태를 파악하여 맞춤 학원을 추천해 드립니다.</p>
+            </div>
+            <div class="checklist-item">
+              <div class="check-circle">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#0055A3" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              </div>
+              <p class="check-text"><strong>부담 없는 체험 수업 연결</strong><br />원하시는 경우 1회 무료 체험 수업도 예약해 드립니다.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Wizard -->
+        <div class="wizard-card reveal reveal-delay-2" id="wizardCard">
+          <div class="wizard-header">
+            <div class="wizard-step-row" id="stepRow">
+              <div class="wizard-step active" id="stepInd1">
+                <div class="step-num">1</div>
+                <span>학생 정보</span>
+              </div>
+              <div class="step-divider"></div>
+              <div class="wizard-step" id="stepInd2">
+                <div class="step-num">2</div>
+                <span>학습 니즈</span>
+              </div>
+              <div class="step-divider"></div>
+              <div class="wizard-step" id="stepInd3">
+                <div class="step-num">3</div>
+                <span>연락처</span>
+              </div>
+            </div>
+            <div class="wizard-title" id="wizardTitle">학생 기본 정보를 입력해 주세요</div>
+            <div class="wizard-subtitle" id="wizardSubtitle">맞춤 학원 추천에 활용됩니다</div>
+          </div>
+          <div class="wizard-progress">
+            <div class="wizard-progress-fill" id="progressFill" style="width: 33%"></div>
+          </div>
+
+          <div class="wizard-body">
+            <!-- STEP 1 -->
+            <div class="wizard-panel active" id="panel1">
+              <div class="form-group">
+                <label class="form-label">학생 이름 <span class="req">*</span></label>
+                <input type="text" class="form-input" id="f-name" placeholder="홍길동" />
+              </div>
+              <div class="form-row-2">
+                <div class="form-group">
+                  <label class="form-label">학년 <span class="req">*</span></label>
+                  <select class="form-select" id="f-grade">
+                    <option value="">선택</option>
+                    <optgroup label="초등">
+                      <option>초1</option><option>초2</option><option>초3</option>
+                      <option>초4</option><option>초5</option><option>초6</option>
+                    </optgroup>
+                    <optgroup label="중등">
+                      <option>중1</option><option>중2</option><option>중3</option>
+                    </optgroup>
+                    <optgroup label="고등">
+                      <option>고1</option><option>고2</option><option>고3</option>
+                    </optgroup>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label class="form-label">지역 <span class="req">*</span></label>
+                  <select class="form-select" id="f-region">
+                    <option value="">선택</option>
+                    <option>강남구</option><option>강동구</option><option>강북구</option>
+                    <option>강서구</option><option>관악구</option><option>광진구</option>
+                    <option>구로구</option><option>금천구</option><option>노원구</option>
+                    <option>도봉구</option><option>동대문구</option><option>동작구</option>
+                    <option>마포구</option><option>서대문구</option><option>서초구</option>
+                    <option>성동구</option><option>성북구</option><option>송파구</option>
+                    <option>양천구</option><option>영등포구</option><option>용산구</option>
+                    <option>은평구</option><option>종로구</option><option>중구</option>
+                    <option>중랑구</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="form-label">학교명</label>
+                <input type="text" class="form-input" id="f-school" placeholder="OO초등학교 (선택 사항)" />
+              </div>
+              <div class="wizard-nav">
+                <button class="btn-next" onclick="goStep(2)">다음 단계 →</button>
+              </div>
+            </div>
+
+            <!-- STEP 2 -->
+            <div class="wizard-panel" id="panel2">
+              <div class="form-group">
+                <label class="form-label">원하는 과목 <span class="req">*</span> <span style="font-weight:400;color:var(--gray-400)">(복수 선택 가능)</span></label>
+                <div class="check-group">
+                  <label class="check-option">
+                    <input type="checkbox" value="국어" />
+                    <span class="check-box"><svg class="check-box-tick" width="9" height="9" viewBox="0 0 10 10"><polyline points="1.5 5 4 7.5 8.5 2.5" fill="none" stroke="white" stroke-width="1.8"/></svg></span>
+                    <span class="check-label">국어</span>
+                  </label>
+                  <label class="check-option">
+                    <input type="checkbox" value="수학" />
+                    <span class="check-box"><svg class="check-box-tick" width="9" height="9" viewBox="0 0 10 10"><polyline points="1.5 5 4 7.5 8.5 2.5" fill="none" stroke="white" stroke-width="1.8"/></svg></span>
+                    <span class="check-label">수학</span>
+                  </label>
+                  <label class="check-option">
+                    <input type="checkbox" value="영어" />
+                    <span class="check-box"><svg class="check-box-tick" width="9" height="9" viewBox="0 0 10 10"><polyline points="1.5 5 4 7.5 8.5 2.5" fill="none" stroke="white" stroke-width="1.8"/></svg></span>
+                    <span class="check-label">영어</span>
+                  </label>
+                  <label class="check-option">
+                    <input type="checkbox" value="과학" />
+                    <span class="check-box"><svg class="check-box-tick" width="9" height="9" viewBox="0 0 10 10"><polyline points="1.5 5 4 7.5 8.5 2.5" fill="none" stroke="white" stroke-width="1.8"/></svg></span>
+                    <span class="check-label">과학</span>
+                  </label>
+                  <label class="check-option">
+                    <input type="checkbox" value="사회" />
+                    <span class="check-box"><svg class="check-box-tick" width="9" height="9" viewBox="0 0 10 10"><polyline points="1.5 5 4 7.5 8.5 2.5" fill="none" stroke="white" stroke-width="1.8"/></svg></span>
+                    <span class="check-label">사회</span>
+                  </label>
+                  <label class="check-option">
+                    <input type="checkbox" value="기타" />
+                    <span class="check-box"><svg class="check-box-tick" width="9" height="9" viewBox="0 0 10 10"><polyline points="1.5 5 4 7.5 8.5 2.5" fill="none" stroke="white" stroke-width="1.8"/></svg></span>
+                    <span class="check-label">기타</span>
+                  </label>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="form-label">상담 목적 <span class="req">*</span></label>
+                <select class="form-select" id="f-goal">
+                  <option value="">선택해 주세요</option>
+                  <option>내신 성적 향상</option>
+                  <option>수능·대입 준비</option>
+                  <option>선행 학습</option>
+                  <option>기초 다지기</option>
+                  <option>영어 회화·독해</option>
+                  <option>입시 컨설팅</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="form-label">선호 수업 시간대 <span class="req">*</span></label>
+                <div class="time-slots">
+                  <label class="time-slot"><input type="radio" name="timeSlot" value="평일 오후" /> 평일 오후</label>
+                  <label class="time-slot"><input type="radio" name="timeSlot" value="평일 저녁" /> 평일 저녁</label>
+                  <label class="time-slot"><input type="radio" name="timeSlot" value="토요일" /> 토요일</label>
+                  <label class="time-slot"><input type="radio" name="timeSlot" value="일요일" /> 일요일</label>
+                  <label class="time-slot"><input type="radio" name="timeSlot" value="주말 무관" /> 주말 무관</label>
+                  <label class="time-slot"><input type="radio" name="timeSlot" value="협의 가능" /> 협의 가능</label>
+                </div>
+              </div>
+              <div class="wizard-nav">
+                <button class="btn-back" onclick="goStep(1)">← 이전</button>
+                <button class="btn-next" onclick="goStep(3)">다음 단계 →</button>
+              </div>
+            </div>
+
+            <!-- STEP 3 -->
+            <div class="wizard-panel" id="panel3">
+              <div class="form-group">
+                <label class="form-label">보호자 성함 <span class="req">*</span></label>
+                <input type="text" class="form-input" id="f-parent" placeholder="홍부모" />
+              </div>
+              <div class="form-group">
+                <label class="form-label">연락처 <span class="req">*</span></label>
+                <input type="tel" class="form-input" id="f-phone" placeholder="010-0000-0000" />
+              </div>
+              <div class="form-group">
+                <label class="form-label">추가 문의 사항</label>
+                <textarea class="form-textarea" id="f-note" placeholder="학원 선택 시 중요하게 생각하는 점, 특이 사항 등을 자유롭게 적어 주세요."></textarea>
+              </div>
+              <div class="agree-row">
+                <input type="checkbox" id="agreePrivacy" />
+                <label for="agreePrivacy">
+                  <a href="#">개인정보 처리방침</a>에 동의하며, 수집된 정보는 상담 목적으로만 활용됩니다.
+                </label>
+              </div>
+              <div class="wizard-nav" style="margin-top: 1.25rem;">
+                <button class="btn-back" onclick="goStep(2)">← 이전</button>
+                <button class="btn-submit" onclick="submitForm()">상담 신청하기</button>
+              </div>
+            </div>
+
+            <!-- SUCCESS -->
+            <div class="wizard-success" id="wizardSuccess">
+              <div class="success-icon">✅</div>
+              <div class="success-title">상담 신청이 완료되었습니다!</div>
+              <p class="success-desc">입력해 주신 연락처로<br />영업일 기준 1~2일 내 담당자가 연락드립니다.</p>
+              <div class="success-note">
+                📞 빠른 상담을 원하시면 <strong>02-000-0000</strong>으로 직접 전화 주세요.
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-logo">오늘의<span>학습</span></div>
+      <p>오늘의학습 | 대표자: 홍길동 | 사업자등록번호: 000-00-00000</p>
+      <p>서울특별시 강남구 테헤란로 000 | 고객센터: 02-000-0000 | study@westudymate.com</p>
+      <hr class="footer-divider" />
+      <div class="footer-bottom">
+        <span>© 2025 오늘의학습. All rights reserved.</span>
+        <span>개인정보처리방침 | 이용약관</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    /* ── ACADEMY DATA (실제 데이터 – 전국 205개) ── */
+    const academyData = {
+      "강원 강릉시": [
+        {"name": "강릉교동점", "addr": "강원특별자치도 강릉시 정원로 44 202호 와와학습코칭학원", "subjects": ["영어", "수학"], "grade": "all", "target_elem": "율곡초, 경포초", "target_mid": "관동중, 율곡중, 해람중, 솔올중, 경포중", "target_high": "강여고, 강일여고, 명륜고, 제일고, 강릉고"},
+      ],
+      "강원 원주시": [
+        {"name": "단구점", "addr": "강원특별자치도 원주시 서원대로 406 리더스빌딩 402", "subjects": ["국어", "영어", "수학", "과학", "사회"], "grade": "all", "target_elem": "구곡초등학교, 서원주초등학교", "target_mid": "남원주중학교, 단구중학교", "target_high": "치악고등학교, 원주고등학교"},
+        {"name": "원주시청점", "addr": "강원특별자치도 원주시 시청로 22 2층 201", "subjects": ["영어", "수학", "과학"], "grade": "all", "target_elem": "만대초, 무실초", "target_mid": "대성중, 평원중, 원주여중, 남원주중", "target_high": "대성고, 육민관고, 북원여고"},
+        {"name": "혁신점", "addr": "강원특별자치도 원주시 입춘로 110 파라다이스프라자 305호", "subjects": ["영어", "수학"], "grade": "all", "target_elem": "버들초, 반고초", "target_mid": "버들중, 반곡중", "target_high": ""},
+      ],
+      "강원 춘천시": [
+        {"name": "석사점", "addr": "강원특별자치도 춘천시 지석로 85 703호", "subjects": [], "grade": "all", "target_elem": "성림초, 성원초, 봄내초", "target_mid": "대룡중, 우석중, 남춘천중, 남춘천여중, 춘천중, 강원중", "target_high": "강원고, 사대부고, 춘고, 춘여고, 봉의고, 성수여고, 유봉여고"},
+        {"name": "후평점", "addr": "강원특별자치도 춘천시 춘천로 316 춘천더샵아파트상가2동 304.305", "subjects": ["영어", "수학"], "grade": "all", "target_elem": "", "target_mid": "후평중, 봉의중, 강원중", "target_high": "강원고, 춘천여고, 봉의고"},
+      ],
+      "경기 고양시": [
+        {"name": "탄현점", "addr": "경기 고양시 일산서구 산현로17번길 23 은행프라자 4", "subjects": ["영어", "수학", "과학"], "grade": "all", "target_elem": "상탄초", "target_mid": "일산동중, 일산중, 호곡중", "target_high": "일산동고, 덕이고, 중산고, 일산동고, 중산고"},
+        {"name": "행신점", "addr": "경기 고양시 덕양구 중앙로 442 아성프라자 305호 와와학습코칭학원", "subjects": ["국어", "영어", "수학", "과학", "사회"], "grade": "all", "target_elem": "아람초, 행신초, 덕은초, 서정초", "target_mid": "서정중, 행신중, 무원중, 가람중, 덕양중", "target_high": "서정고, 행신고, 무원고"},
+        {"name": "마두점", "addr": "경기 고양시 일산동구 중앙로 1191 굿모닝법조타운 1 604호", "subjects": ["국어", "영어", "수학", "과학", "사회"], "grade": "all", "target_elem": "백신초, 호수초", "target_mid": "백석중, 저동중", "target_high": "백신고, 정발고"},
+        {"name": "화정점", "addr": "경기 고양시 덕양구 화신로 263 브릿지타워 213호, 214호 와와학습코칭학원", "subjects": ["국어", "영어", "수학", "과학"], "grade": "all", "target_elem": "", "target_mid": "화정중, 지도중, 신능중", "target_high": "화정고, 화수고, 백양고"},
+        {"name": "풍동점", "addr": "경기 고양시 일산동구 숲속마을로 44 미래타워 6", "subjects": ["국어", "영어", "수학", "과학", "사회"], "grade": "all", "target_elem": "풍산초, 다솜초, 은행초", "target_mid": "풍동중, 풍산중, 양일중", "target_high": "풍동고, 세원고"},
+        {"name": "화정점(W+)", "addr": "경기 고양시 덕양구 화중로 32-31 효원빌딩 401호 일부", "subjects": ["수학", "과학"], "grade": "all", "target_elem": "지도초", "target_mid": "화정중, 신능중", "target_high": "화정고, 서정고, 백양고"},
+        {"name": "후곡점", "addr": "경기 고양시 일산서구 일산로 511 태성상가 2층 201,202", "subjects": ["국어", "영어", "수학", "과학"], "grade": "all", "target_elem": "", "target_mid": "", "target_high": ""},
+        {"name": "후곡점(W+)", "addr": "경기 고양시 일산서구 일산로 524 202호 더블유플러스학원", "subjects": ["국어", "영어", "수학", "과학"], "grade": "all", "target_elem": "", "target_mid": "", "target_high": ""},
+        {"name": "중산점", "addr": "경기 고양시 일산동구 중산로 103 거풍프라자 202호", "subjects": ["국어", "영어", "수학"], "grade": "all", "target_elem": "모당초, 안곡초, 중산초", "target_mid": "안곡중, 중산중, 일산중", "target_high": "안곡고, 중산고"},
+        {"name": "주엽점", "addr": "경기도 고양시 일산서구 주엽동 주화로 88 502호", "subjects": ["국어", "영어", "수학", "사회"], "grade": "all", "target_elem": "강선초", "target_mid": "", "target_high": ""},
+        {"name": "주엽2호점", "addr": "경기 고양시 일산서구 중앙로 1413 동영빌딩 10층 1003", "subjects": ["영어", "수학", "과학"], "grade": "all", "target_elem": "강선초", "target_mid": "", "target_high": ""},
+        {"name": "원당점", "addr": "경기 고양시 덕양구 고양대로1384번길 7-5 서강프라자 502호", "subjects": ["국어", "영어", "수학"], "grade": "all", "target_elem": "", "target_mid": "성사중, 화수중", "target_high": ""},
+        {"name": "원흥점", "addr": "경기 고양시 덕양구 권율대로 672 원흥역봄오피스텔 217호", "subjects": ["국어", "영어", "수학"], "grade": "all", "target_elem": "원흥초, 삼송초", "target_mid": "원흥중, 고양중", "target_high": "신원고, 서정고"},
+        {"name": "덕이점", "addr": "경기 고양시 일산서구 하이파크2로 40 금문프라자 804호", "subjects": ["국어", "영어", "수학"], "grade": "all", "target_elem": "한산초, 덕이초, 백송초", "target_mid": "", "target_high": ""},
+        {"name": "삼송점", "addr": "경기 고양시 덕양구 신원로 36 명승세도나3 701호", "subjects": ["국어", "영어", "수학", "과학", "사회"], "grade": "all", "target_elem": "신원초", "target_mid": "신원중", "target_high": "신원고"},
+      ],
+      "경기 광명시": [
+        {"name": "철산점", "addr": "경기도 광명시 철산동 도덕공원로 27 삼우빌딩 2층", "subjects": ["국어", "영어", "수학", "과학"], "grade": "all", "target_elem": "", "target_mid": "", "target_high": ""},
+        {"name": "소하점", "addr": "경기 광명시 오리로 346 행운드림프라자 4층 405호", "subjects": ["국어", "영어", "수학", "과학"], "grade": "all", "target_elem": "충현초, 서면초", "target_mid": "충현중, 빛가온중", "target_high": "충현고, 광휘고, 소하고"},
+        {"name": "광명점", "addr": "경기 광명시 광명로 823 광명현대타운 7층 701호", "subjects": ["국어", "영어", "수학"], "grade": "all", "target_elem": "", "target_mid": "광남중, 광문중", "target_high": "광문고"},
+      ],
+      "경기 광주시": [
+        {"name": "탄벌점", "addr": "경기 광주시 벌원길 61 2층", "subjects": ["국어", "영어", "수학", "과학"], "grade": "all", "target_elem": "", "target_mid": "", "target_high": ""},
+      ],
+      "경기 구리시": [
+        {"name": "갈매점", "addr": "경기 구리시 갈매중앙로 79 에스엠타워 602호", "subjects": ["국어", "영어", "수학", "과학", "사회"], "grade": "all", "target_elem": "갈매초, 산마루초", "target_mid": "갈매중", "target_high": "갈매고"},
+        {"name": "인창점", "addr": "경기 구리시 건원대로 36 제 407호 와와학습코칭학원", "subjects": ["국어", "영어", "수학", "과학", "사회"], "grade": "all", "target_elem": "건원초, 동구초, 구지초", "target_mid": "인창중, 동구중", "target_high": "인창고, 수택고"},
+      ],
+      "경기 군포시": [
+        {"name": "산본점", "addr": "경기 군포시 산본로 394 대림프라자 제 6층 제602호 와와학습코칭학원", "subjects": ["국어", "영어", "수학", "과학"], "grade": "all", "target_elem": "광정초", "target_mid": "산본중, 궁내중, 수리중, 도장중, 금정중", "target_high": "흥진고, 산본고, 군포고"},
+      ],
+      "경기 김포시": [
+        {"name": "장기점", "addr": "경기도 김포시 장기동 김포한강4로 162 한강메트로 503호, 504호", "subjects": ["국어", "영어", "수학", "과학", "사회"], "grade": "all", "target_elem": "푸른솔초, 운유초", "target_mid": "장기중, 푸른솔중, 고창중", "target_high": "솔터고, 제일고, 운양고, 통진고"},
+        {"name": "사우점", "addr": "경기 김포시 사우중로 77 삼정사이버프라자 304", "subjects": ["국어", "영어", "수학", "과학", "사회"], "grade": "all", "target_elem": "금파초, 향산초", "target_mid": "금파중, 김포중", "target_high": "사우고, 풍무고, 고촌고"},
+        {"name": "운양점", "addr": "경기 김포시 김포한강11로 288-37 헤리움리버테라스 205호", "subjects": ["국어", "수학", "사회"], "grade": "all", "target_elem": "하늘빛초, 청수초", "target_mid": "하늘빛중, 운양중, 푸른솔중", "target_high": "제일고, 운양고, 운유고"},
+      ],
+      "경기 남양주시": [
+        {"name": "별내점", "addr": "경기 남양주시 순화궁로 349 삼광프라자 501호", "subjects": ["국어", "영어", "수학", "과학"], "grade": "all", "target_elem": "샛별초, 화접초, 별가람초, 한별초, 덕송초", "target_mid": "별가람중, 한별중, 한삼중", "target_high": "별가람고, 별내고, 한삼고, 퇴계원고, 청학고"},
+        {"name": "다산점(W+)", "addr": "경기 남양주시 다산순환로 350 KB골든타워 310호 더블유플러스학원", "subjects": ["수학", "과학"], "grade": "all", "target_elem": "", "target_mid": "", "target_high": ""},
+        {"name": "다산도농점", "addr": "경기 남양주시 도농로 29 604호 와와학습코칭센터", "subjects": ["국어", "영어", "수학", "과학", "사회"], "grade": "all", "target_elem": "도농초, 금교초, 미금초,", "target_mid": "동화중, 도농중, 가운중", "target_high": "도농고, 가운고, 다산고"},
+        {"name": "별가람점", "addr": "경기 남양주시 덕송1로55번길 20 503호", "subjects": ["국어", "영어", "수학", "과학", "사회"], "grade": "all", "target_elem": "덕송초, 샛별초", "target_mid": "별가람중, 화접중, 한별중", "target_high": "별내고, 별가람고"},
+        {"name": "호평점", "addr": "경기 남양주시 늘을3로 65-6 테마프라자 205호", "subjects": ["국어", "영어", "수학", "과학", "사회"], "grade": "all", "target_elem": "구룡초, 호평초, 판곡초", "target_mid": "판곡중, 호평중", "target_high": "판곡고, 호평고"},
+        {"name": "평내점", "addr": "경기 남양주시 경춘로 1256번길 9 501호", "subjects": ["국어", "영어", "수학", "과학"], "grade": "all", "target_elem": "장내초, 호평초", "target_mid": "장내중, 호평중", "target_high": "호평고, 금곡고, 판곡고"},
+        {"name": "퇴계원점", "addr": "경기 남양주시 퇴계원읍 퇴계원로 29 202호", "subjects": ["국어", "영어", "수학"], "grade": "all", "target_elem": "퇴계원초, 도제원초, 태강삼육초", "target_mid": "퇴계원중, 진건중", "target_high": "퇴계원고, 진건고"},
+        {"name": "별내중앙점(모두)", "addr": "경기도 남양주시 별내3로 66,401호", "subjects": ["영어", "수학", "과학"], "grade": "all", "target_elem": "한별초", "target_mid": "화접중, 한별중", "target_high": "별내고"},
+        {"name": "다산점", "addr": "경기 남양주시 다산중앙로146번길 12-14 다산메트로타워 604호", "subjects": ["국어", "영어", "사회"], "grade": "all", "target_elem": "다산초", "target_mid": "다산중", "target_high": "다산고, 도농고"},
+        {"name": "다산지금점", "addr": "경기 남양주시 다산지금로 139 3층 308호, 309호", "subjects": ["국어", "영어", "수학", "과학", "사회"], "grade": "all", "target_elem": "다산한강초", "target_mid": "다산한강중", "target_high": ""},
+        {"name": "진접점", "addr": "경기 남양주시 진접읍 해밀예당1로 171 제일프라자 203호", "subjects": ["국어", "영어", "수학"], "grade": "all", "target_elem": "", "target_mid": "", "target_high": ""},
+      ],
+      "경기 부천시": [
+        {"name": "중동점", "addr": "경기 부천시 원미구 길주로 191 금영프라자 제 4층 401호", "subjects": ["국어", "영어", "수학"], "grade": "all", "target_elem": "부흥초, 중흥초", "target_mid": "중흥중, 부명중", "target_high": "증흥고, 중원고, 경기예고"},
+        {"name": "중동점(W+)", "addr": "경기 부천시 원미구 길주로 219 드림빌딩 401호", "subjects": ["수학", "과학"], "grade": "all", "target_elem": "부흥초, 중흥초", "target_mid": "중흥중, 부명중", "target_high": "증흥고, 중원고, 경기예고"},
+        {"name": "신중동점", "addr": "경기 부천시 원미구 조마루로291번길 25 센터프라자 405호, 406호", "subjects": ["국어", "영어", "수학"], "grade": "all", "target_elem": "부곡초, 계남초, 심원초", "target_mid": "심원중, 계남중, 부곡중", "target_high": "계남고, 심원고, 원미고"},
+        {"name": "옥길스타점", "addr": "경기 부천시 소사구 범안로 231-15 옥길중앙타워 제2층 201호 와와학습코칭학원", "subjects": ["국어", "영어", "수학"], "grade": "all", "target_elem": "", "target_mid": "", "target_high": ""},
+        {"name": "옥길점", "addr": "경기 부천시 소사구 옥길로 116 퀸즈파크 A동 7층 718호~719", "subjects": ["국어", "영어", "수학", "사회"], "grade": "all", "target_elem": "버들초", "target_mid": "옥길중", "target_high": "범박고"},
+        {"name": "반달점", "addr": "경기 부천시 원미구 상일로 69 반달마을 제상가동 제 3층 제 304호 와와학습코칭학원", "subjects": ["영어", "수학", "과학"], "grade": "all", "target_elem": "부인초, 상도초", "target_mid": "부인중, 상동중", "target_high": "상원고"},
+        {"name": "상동점", "addr": "경기 부천시 원미구 송내대로265번길 67 월드컵타운 305호 와와학습코칭센터", "subjects": ["국어", "영어", "수학"], "grade": "all", "target_elem": "석천초  상인초", "target_mid": "석천중 상동중 상일중 부인중", "target_high": "상동고 상일고 상원고 중흥고 중원고"},
+        {"name": "범박점", "addr": "경기 부천시 소사구 은성로 132 5층", "subjects": ["국어", "영어", "수학", "과학", "사회"], "grade": "all", "target_elem": "창영초, 소안초, 소사초, 복사초", "target_mid": "일신중, 소사중, 부일중", "target_high": "시온고, 소사고, 범박고"},
+      ],
+      "경기 성남시": [
+        {"name": "미금점", "addr": "경기도 성남시 분당구 금곡동 돌마로 87 골드프라자 402호", "subjects": ["영어", "수학"], "grade": "all", "target_elem": "미금초, 청솔초, 늘푸른초", "target_mid": "불곡중, 청솔중, 늘푸른중", "target_high": "불곡고, 늘푸른고, 분당중앙고"},
+        {"name": "야탑점", "addr": "경기 성남시 중원구 양현로 461 4층", "subjects": ["국어", "영어", "수학", "과학"], "grade": "all", "target_elem": "여수초, 야탑초, 중탑초", "target_mid": "야탑중", "target_high": "아람고"},
+        {"name": "수진점", "addr": "경기 성남시 중원구 원터로 95 2층", "subjects": ["영어", "수학"], "grade": "all", "target_elem": "성남중앙초", "target_mid": "성일중, 성남중, 동광중, 풍생중", "target_high": "성남여고, 성남고, 성일고, 동광고, 효성고, 숭신여고, 복정고"},
+        {"name": "이매점", "addr": "경기도 성남시 분당구 이매동 이매로 49 4층 와와학습코칭센터", "subjects": ["국어", "영어", "수학", "과학", "사회"], "grade": "all", "target_elem": "이매초, 안말초", "target_mid": "매송중, 이매중, 송림중", "target_high": "이매고, 송림고, 태원고, 돌마고"},
+        {"name": "단대점", "addr": "경기 성남시 수정구 산성대로 423 5층", "subjects": ["국어", "영어", "수학"], "grade": "all", "target_elem": "단대초", "target_mid": "서중, 은행중", "target_high": "성남고, 성일고, 숭신여고, 동광고"},
+        {"name": "위례점", "addr": "경기 성남시 수정구 위례광장로 320 315호", "subjects": ["국어", "영어", "수학", "과학"], "grade": "all", "target_elem": "고운초, 위례중앙초, 송례초", "target_mid": "위례한빛중, 위례중앙중, 송례중", "target_high": "위례한빛고, 복정고, 문현고"},
+        {"name": "위례창곡점", "addr": "경기 성남시 수정구 위례동로 141 우성메디피아 401호", "subjects": ["국어", "영어", "수학"], "grade": "all", "target_elem": "", "target_mid": "", "target_high": ""},
+      ],
+      "경기 수원시": [
+        {"name": "호매실점", "addr": "경기 수원시 권선구 금곡로 116 유동빌딩 602호", "subjects": ["국어", "영어", "수학", "과학", "사회"], "grade": "all", "target_elem": "", "target_mid": "", "target_high": "호매실고, 영신여고, 동원고, 동우여고"},
+        {"name": "영통구청점", "addr": "경기 수원시 영통구 매탄로108번길 10 모닝프라자 602호", "subjects": ["국어", "영어", "수학", "과학", "사회"], "grade": "all", "target_elem": "매탄초,매현초", "target_mid": "매탄중,매현중", "target_high": "매탄고,효원고"},
+        {"name": "천천점", "addr": "경기 수원시 장안구 덕영대로535번길 34 천천그린프라자 제5층 제 502호 와와학습코칭학원", "subjects": ["국어", "영어", "수학", "과학", "사회"], "grade": "all", "target_elem": "천천초 정천초", "target_mid": "천천중 대평중", "target_high": "천천고 영생고 대평고"},
+        {"name": "영통점", "addr": "경기도 수원시 영통구 영통동 봉영로 1623 드림피아빌딩 301호, 302호 1/2", "subjects": ["국어", "영어", "수학", "과학", "사회"], "grade": "all", "target_elem": "영덕초", "target_mid": "흥덕중, 서천중", "target_high": "영덕고, 청명고, 태장고, 흥덕고, 서천고"},
+        {"name": "망포점", "addr": "경기도 수원시 영통구 망포동 영통로 127 센터프라자 401호", "subjects": ["국어", "영어", "수학", "과학", "사회"], "grade": "all", "target_elem": "잠원초, 망포초, 대선초", "target_mid": "영동중, 잠원중, 망포중, 동학중", "target_high": "태장고, 망포고"},
+        {"name": "서수원점", "addr": "경기 수원시 권선구 호매실로104번길 90 JD타워 205호", "subjects": ["국어", "영어", "수학", "과학", "사회"], "grade": "all", "target_elem": "능실초, 금호초", "target_mid": "오현초호매실중, 능실중, 영신중, 고색중", "target_high": "호매실고, 영신여고, 고색고, 율천고, 동우여고"},
+      ],
+      "경기 시흥시": [
+        {"name": "목감점(모두)", "addr": "경기 시흥시 수풀안길 14-23 4층 402호", "subjects": ["국어", "영어", "수학", "과학", "사회"], "grade": "all", "target_elem": "조남초, 목감초", "target_mid": "조남중", "target_high": "목감고"},
+        {"name": "배곧점", "addr": "경기 시흥시 배곧4로 22 배곧타운2 217호 와와학습코칭학원", "subjects": ["국어", "영어", "수학", "과학", "사회"], "grade": "all", "target_elem": "", "target_mid": "", "target_high": ""},
+        {"name": "장곡점", "addr": "경기 시흥시 진말로 7 중앙프라자 3층 305호, 306호", "subjects": ["영어", "수학", "과학"], "grade": "all", "target_elem": "장곡초, 진말초", "target_mid": "응곡중, 장곡중, 가온중", "target_high": "장곡고, 능곡고, 시흥고"},
+        {"name": "시흥대야점", "addr": "경기 시흥시 은행로167번길 7 크리스탈 빌딩 503호,504호", "subjects": ["국어", "영어", "수학"], "grade": "all", "target_elem": "은계초, 은행초", "target_mid": "은행중, 은계중", "target_high": "은행고"},
+      ],
+      "경기 안산시": [
+        {"name": "고잔점", "addr": "경기 안산시 단원구 광덕대로 130 폴리타운 B동 513호", "subjects": [], "grade": "all", "target_elem": "", "target_mid": "", "target_high": ""},
+      ],
+      "경기 안양시": [
+        {"name": "비산점", "addr": "경기 안양시 동안구 관악대로 91 대림타워 1102호 와와학습코칭학원", "subjects": ["국어", "영어", "수학"], "grade": "all", "target_elem": "중앙초", "target_mid": "비산중, 부흥중, 부림중, 신성중", "target_high": "양명여고, 양명고, 관양고, 성문고, 동안고"},
+      ],
+      "경기 양주시": [
+        {"name": "옥정점", "addr": "경기 양주시 옥정로 218 신운정튼튼프라자 305호 와와학습코칭학원", "subjects": ["수학", "과학"], "grade": "all", "target_elem": "", "target_mid": "", "target_high": ""},
+      ],
+      "경기 오산시": [
+        {"name": "오산점", "addr": "경기 오산시 성호대로 121 월드타워 505호", "subjects": ["국어", "영어", "수학", "과학", "사회"], "grade": "all", "target_elem": "운천초, 성호초, 운산초", "target_mid": "운암중, 운천중, 성호중", "target_high": "운암고, 운천고"},
+        {"name": "세교점", "addr": "경기 오산시 수청로 193 P&P세교프라자 402호", "subjects": ["국어", "영어", "수학", "과학", "사회"], "grade": "all", "target_elem": "", "target_mid": "문시중, 세마중", "target_high": "세교고"},
+        {"name": "오산대역점", "addr": "경기 오산시 내삼미로 85 우정프라자 2", "subjects": ["국어", "영어", "수학", "과학", "사회"], "grade": "all", "target_elem": "세미초, 화성초, 수청초", "target_mid": "매홀중, 세마중, 문시중, 대호중", "target_high": "매홀고, 세교고, 오산고, 운천고, 운암고"},
+      ],
+      "경기 용인시": [
+        {"name": "수지점", "addr": "경기 용인시 수지구 문정로 13 중수프라자 503호", "subjects": ["국어", "영어", "수학", "과학", "사회"], "grade": "all", "target_elem": "풍천초, 정평초, 이현초", "target_mid": "이현중, 수지중, 정평중", "target_high": "상현고, 신봉고, 홍천고, 성복고, 풍덕고, 수지고, 죽전고"},
+        {"name": "기흥구청점", "addr": "경기 용인시 기흥구 구갈로60번길 15 경영빌딩 3층 와와학습코칭학원", "subjects": ["국어", "영어", "수학"], "grade": "all", "target_elem": "구갈초, 산양초, 관곡초", "target_mid": "구갈중, 신갈중, 신릉중", "target_high": "기흥고, 신갈고, 성지고"},
+        {"name": "명지대역점", "addr": "경기 용인시 처인구 명지로40번길 4 링크 153 502호 와와학습코칭학원", "subjects": ["영어", "수학"], "grade": "all", "target_elem": "함박초, 서룡초", "target_mid": "용신중, 용인중", "target_high": ""},
+        {"name": "수지점(글로리드)", "addr": "경기 용인시 수지구 풍덕천로 114 3층 글로리드학습코칭학원", "subjects": ["국어", "영어", "수학", "과학", "사회"], "grade": "all", "target_elem": "풍천초, 정평초, 이현초", "target_mid": "이현중, 수지중, 정평중", "target_high": "상현고, 신봉고, 홍천고, 성복고, 풍덕고, 수지고, 죽전고"},
+        {"name": "동백점", "addr": "경기도 용인시 기흥구 중동 동백3로11번길 3 2층 201호", "subjects": ["국어", "영어", "수학", "과학"], "grade": "all", "target_elem": "석성초, 초당초", "target_mid": "초당중, 백현중, 동백중, 성지중, 어정중, 용인중", "target_high": "초당고, 백현고, 동백고, 성지고, 용인고"},
+        {"name": "신봉점", "addr": "경기 용인시 수지구 신봉2로 60 웰스톤시티엔웰스톤에비뉴 1동 103호 와와학습코칭학원", "subjects": ["국어", "영어", "수학", "과학", "사회"], "grade": "all", "target_elem": "신봉초, 신일초, 홍천초, 신리초, 성복초", "target_mid": "신봉중, 성복중, 홍천중", "target_high": "신봉고, 용인홍천고"},
+        {"name": "용인백현점(모두)", "addr": "경기 용인시 기흥구 동백7로 83 백현마을중앙프라자 제 2층 제 208호", "subjects": ["국어", "영어", "수학", "과학", "사회"], "grade": "all", "target_elem": "동막초, 동백초, 용인백현초", "target_mid": "동백중, 용인백현중", "target_high": "동백고, 용인백현고"},
+        {"name": "상현점", "addr": "경기도 용인시 수지구 상현동 만현로 120 4층 410호 와와학습코칭학원", "subjects": ["국어", "영어", "수학", "과학"], "grade": "all", "target_elem": "솔개초, 상현초, 이현초", "target_mid": "서원중, 소현중, 이현중, 성복중", "target_high": "상현고, 서원고, 풍덕고, 이의고, 홍천고"},
+        {"name": "수지점(W+)", "addr": "경기 용인시 수지구 진산로 106 훼미리빌딩 512호,513호,514호", "subjects": ["국어", "영어", "수학", "과학", "사회"], "grade": "all", "target_elem": "", "target_mid": "이현중, 수지중, 정평중", "target_high": "성복고, 풍덕고, 수지고, 죽전고"},
+        {"name": "보라점", "addr": "경기 용인시 기흥구 사은로126번길 6 신원프라자 303호", "subjects": ["국어", "영어", "수학", "과학"], "grade": "all", "target_elem": "나곡초", "target_mid": "나곡중/보라중/상갈중", "target_high": "보라고/신갈고"},
+        {"name": "흥덕점", "addr": "경기 용인시 기흥구 흥덕2로 85 우연프라자 201호", "subjects": ["국어", "영어", "수학", "과학", "사회"], "grade": "all", "target_elem": "샘말초, 석현초, 흥덕초, 매원초", "target_mid": "흥덕중, 다산중, 광교호수중, 상현중", "target_high": "흥덕고, 기흥고, 신갈고, 상현고, 매원고"},
+      ],
+      "경기 의정부시": [
+        {"name": "신곡점", "addr": "경기도 의정부시 신곡동 장곡로 626 금오종합상가 A동 302,303호", "subjects": ["국어", "영어", "수학", "과학"], "grade": "all", "target_elem": "", "target_mid": "천보중, 효자중", "target_high": "효자고, 경민it고"},
+      ],
+      "경기 이천시": [
+        {"name": "부발점", "addr": "경기 이천시 부발읍 경충대로2092번길 39-19 이천하이클래스 207,208", "subjects": ["국어", "영어", "수학", "과학", "사회"], "grade": "all", "target_elem": "아미초, 신하초", "target_mid": "효양중, 사동중", "target_high": "효양고"},
+        {"name": "갈산점", "addr": "경기도 이천시 갈산동 영창로 314 629-2외 2필지 주공프라자 504호", "subjects": ["국어", "영어", "수학", "사회"], "grade": "all", "target_elem": "안흥초, 설봉초", "target_mid": "이천중, 설봉중, 증포중", "target_high": "제일고, 이현고"},
+      ],
+      "경기 파주시": [
+        {"name": "교하점", "addr": "경기 파주시 청석로 272 센타프라자1 제8층 제803", "subjects": ["수학", "과학"], "grade": "all", "target_elem": "청석초, 석곶초, 두일초", "target_mid": "교하중, 두일중, 심학중", "target_high": "교하고, 심학고"},
+        {"name": "산내점", "addr": "경기 파주시 청암로17번길 21 월드타워5차 405호", "subjects": ["국어", "영어", "수학"], "grade": "all", "target_elem": "", "target_mid": "", "target_high": ""},
+        {"name": "운정중앙점", "addr": "경기도 파주시 양지로 131, 운정SB타워 509호,510호 (동패동)", "subjects": ["국어", "영어", "수학", "과학"], "grade": "all", "target_elem": "초롱초", "target_mid": "심학중", "target_high": "심학고"},
+        {"name": "금릉점", "addr": "경기 파주시 금빛로 24-27 제일메디컬 502", "subjects": ["국어", "영어", "수학", "과학", "사회"], "grade": "all", "target_elem": "금릉초, 금화초, 새금초, 금촌초", "target_mid": "금릉중, 금촌중, 문산중", "target_high": "금촌고, 문산제일고"},
+        {"name": "운정점", "addr": "경기 파주시 동패동 1758-1 삼융프라자2 302호", "subjects": ["국어", "영어", "수학", "과학"], "grade": "all", "target_elem": "한가람초", "target_mid": "", "target_high": ""},
+        {"name": "운정호수점", "addr": "경기 파주시 경의로1240번길 37-1 명품프라자3차 605호", "subjects": ["국어", "영어", "수학", "과학", "사회"], "grade": "all", "target_elem": "", "target_mid": "", "target_high": ""},
+      ],
+      "경기 평택시": [
+        {"name": "비전점", "addr": "경기도 평택시 비전동 평남로 937 폴리프라자 602호, 603호", "subjects": ["국어", "영어", "수학", "과학"], "grade": "all", "target_elem": "이화초 가내초 자란초", "target_mid": "비전중 한광중 한광여중 평택여중 소사벌중", "target_high": "비전고 한광고 한광여고 평택여고"},
+        {"name": "이충점", "addr": "경기 평택시 이충로 49-31 삼원프라자 201호", "subjects": ["국어", "영어", "수학", "과학"], "grade": "all", "target_elem": "", "target_mid": "효명중, 이충중, 은혜중", "target_high": "이충고, 은혜고, 효명고"},
+      ],
+      "경기 하남시": [
+        {"name": "하남풍산점", "addr": "경기 하남시 덕풍동로 119 하남프라자 501호 와와학습코칭학원", "subjects": ["영어", "수학"], "grade": "all", "target_elem": "나룰초, 하남풍산초", "target_mid": "덕풍중, 신평중, 동부중", "target_high": "풍산고, 남한고, 신장고, 감일고, 미사고, 애니고"},
+        {"name": "센트럴점", "addr": "경기 하남시 미사강변대로 84 미사탑프라자 601호", "subjects": ["국어", "영어", "수학"], "grade": "all", "target_elem": "한홀초, 청하초", "target_mid": "윤슬중, 미사중", "target_high": "미사강변고, 미사고, 신장고, 남한고, 풍산고, 강일고, 특성화고"},
+        {"name": "미사점", "addr": "경기 하남시 미사강변대로 212 미사센트럴프라자 309", "subjects": ["국어", "영어", "수학", "과학"], "grade": "all", "target_elem": "", "target_mid": "", "target_high": ""},
+      ],
+      "경기 화성시": [
+        {"name": "화성태안점", "addr": "경기 화성시 병점중앙로 87 408호 와와학습코칭학원", "subjects": ["국어", "영어", "수학"], "grade": "all", "target_elem": "", "target_mid": "", "target_high": ""},
+        {"name": "봉담점", "addr": "경기 화성시 봉담읍 상리중심상가길 28-8 713호 와와학습코칭학원", "subjects": ["국어", "영어", "수학", "과학", "사회"], "grade": "all", "target_elem": "", "target_mid": "", "target_high": ""},
+        {"name": "동탄목동점", "addr": "경기 화성시 동탄신리천로 408 M메디칼 212호", "subjects": ["국어", "영어", "수학", "과학", "사회"], "grade": "all", "target_elem": "동탄목동초, 한율초", "target_mid": "동탄목동중, 세정중", "target_high": "창의고, 정현고"},
+        {"name": "동탄호수점", "addr": "경기 화성시 동탄순환대로 127-19 에스비타운 907호", "subjects": ["국어", "영어", "수학", "과학", "사회"], "grade": "all", "target_elem": "방교초, 서연초", "target_mid": "청림중, 서연중, 방교중", "target_high": "정현고, 서연고, 창의고"},
+        {"name": "병점점", "addr": "경기 화성시 병점1로 221 화인메디컬프라자 2층 203호", "subjects": ["국어", "영어", "수학", "과학", "사회"], "grade": "all", "target_elem": "진안초, 안화초, 병점초, 송화초, 구봉초", "target_mid": "진안중, 병점중, 안화중", "target_high": "병점고, 안화고, 능동고"},
+        {"name": "향남점", "addr": "경기 화성시 향남읍 발안로 103-6 J&H빌딩 402호", "subjects": ["국어", "영어", "수학"], "grade": "all", "target_elem": "한울초, 도이초", "target_mid": "발안중, 향남중, 하길중, 화성중", "target_high": "향남고, 향일고, 하길고, 발안바이오고"},
+        {"name": "영천점", "addr": "경기 화성시 동탄순환대로 704 성산에이타워 제4층 제 403호 와와학습코칭학원", "subjects": ["국어", "영어", "수학"], "grade": "all", "target_elem": "한백초, 다원초", "target_mid": "한백중, 다원중", "target_high": "한백고, 이산고, 창의고"},
+        {"name": "반송점", "addr": "경기도 화성시 반송동 동탄원천로 163 503호", "subjects": ["국어", "영어", "수학", "과학", "사회"], "grade": "all", "target_elem": "", "target_mid": "", "target_high": ""},
+      ],
+      "경남 거제시": [
+        {"name": "거제수월점", "addr": "경남 거제시 수양로 462 3층", "subjects": ["영어", "수학"], "grade": "all", "target_elem": "수월초, 제산초", "target_mid": "수월중, 거제중앙중", "target_high": "거제중앙고, 연초고, 상문고"},
+      ],
+      "경남 창원시": [
+        {"name": "석동점", "addr": "경남 창원시 진해구 석동로 51 세븐코아 504호", "subjects": ["영어", "수학"], "grade": "all", "target_elem": "", "target_mid": "석동중", "target_high": ""},
+        {"name": "상남점", "addr": "경남 창원시 성산구 마디미동로 25 비전빌딩 302호", "subjects": ["영어", "수학"], "grade": "all", "target_elem": "외동초", "target_mid": "상남중, 토월중, 웅남중", "target_high": "창원중앙여고, 남고, 신월고, 토월고"},
+      ],
+      "경북 경산시": [
+        {"name": "사동점", "addr": "경북 경산시 백자로10길 1 402호 와와학습코칭학원", "subjects": ["국어", "영어", "수학", "과학", "사회"], "grade": "all", "target_elem": "사동초, 삼성현초, 평산초, 동부초", "target_mid": "사동중, 문명중, 삼성현중, 경산중, 경산여중, 장산중", "target_high": "사동고, 경산여고, 경산고, 문명고, 경북체고"},
+        {"name": "정평점", "addr": "경북 경산시 대학로 23 월드스퀘어 302", "subjects": ["국어", "영어", "수학", "과학", "사회"], "grade": "all", "target_elem": "사월초", "target_mid": "경산중, 사동중, 경산여중", "target_high": "경산고, 사동고, 경산여고, 문경고"},
+      ],
+      "경북 구미시": [
+        {"name": "옥계점", "addr": "경북 구미시 산호대로31길 16 2", "subjects": ["국어", "영어", "수학", "과학"], "grade": "all", "target_elem": "원당초, 옥계동부초, 해마루초", "target_mid": "옥계동부중, 해마루중, 옥계중", "target_high": "산동고, 오상고, 금오여고"},
+      ],
+      "경북 포항시": [
+        {"name": "양덕점", "addr": "경북 포항시 북구 천마로 66 환호빌딩 402호", "subjects": ["국어", "영어", "수학", "과학", "사회"], "grade": "all", "target_elem": "양덕초 양서초 장흥초", "target_mid": "양덕중 장흥중 대도중 환호여중", "target_high": "장성고 포고 포여고 유성여고"},
+        {"name": "두호점", "addr": "경상북도 포항시 북구 용두산길 32 3층", "subjects": ["국어", "영어", "수학", "과학", "사회"], "grade": "all", "target_elem": "", "target_mid": "환호여중, 대도중", "target_high": "두호고, 포여고, 장성고, 포고, 중앙고, 중앙여고, 대동고"},
+      ],
+      "광주 광산구": [
+        {"name": "수완점", "addr": "광주 광산구 임방울대로 310 아이비타워 406", "subjects": ["국어", "영어", "수학"], "grade": "all", "target_elem": "", "target_mid": "수완중, 장덕중", "target_high": "수완고, 장덕고"},
+        {"name": "첨단점", "addr": "광주 광산구 월계로 191 404호", "subjects": ["국어", "영어", "수학"], "grade": "all", "target_elem": "월봉초", "target_mid": "천곡중, 월봉중", "target_high": "장덕고"},
+        {"name": "선운점", "addr": "광주 광산구 선운로20번길 55-1 402호 와와학습코칭학원", "subjects": ["영어", "수학", "사회"], "grade": "all", "target_elem": "선운초, 본량초", "target_mid": "선운중", "target_high": "정광고, 보문고"},
+        {"name": "신창점", "addr": "광주 광산구 신창로 129 상민빌딩 302", "subjects": ["영어", "수학", "과학"], "grade": "all", "target_elem": "신창초, 수문초", "target_mid": "진흥중, 신창중, 진흥중", "target_high": "숭덕고, 성덕고, 운남고, 장덕고"},
+      ],
+      "광주 남구": [
+        {"name": "진월점", "addr": "광주 남구 광복마을길 47 4층", "subjects": ["영어", "수학"], "grade": "all", "target_elem": "진월초, 주월초", "target_mid": "동성여중, 주월중", "target_high": "대광여고, 동성고"},
+      ],
+      "광주 서구": [
+        {"name": "치평점", "addr": "광주 서구 치평로 76 대한빌딩 403호", "subjects": ["국어", "영어", "수학"], "grade": "all", "target_elem": "운천초, 계수초", "target_mid": "전남중, 동명중", "target_high": "전남고, 상무고, 광주여고, 상일여고"},
+      ],
+      "대구 달서구": [
+        {"name": "이곡점", "addr": "대구광역시 달서구 이곡동 달구벌대로259길 33 제일빌딩 5층", "subjects": ["국어", "영어", "수학", "과학", "사회"], "grade": "all", "target_elem": "와룡초", "target_mid": "성산중", "target_high": "성서고"},
+        {"name": "신월성점", "addr": "대구 달서구 월성동 1848번지 그루타워 702호", "subjects": ["국어", "영어", "수학", "과학"], "grade": "all", "target_elem": "조암초, 신월초, 월암초, 월성초", "target_mid": "조암중, 월암중, 월서중, 효성중, 영남중, 대건중, 학산중", "target_high": "영남고, 상원고, 효성여고, 송현여고, 상인고"},
+        {"name": "진천점(모두)", "addr": "대구광역시 달서구 조암남로 158,301호(유천동)", "subjects": ["국어", "영어", "수학", "과학", "사회"], "grade": "all", "target_elem": "한솔초, 한샘초", "target_mid": "월서중, 조암중", "target_high": ""},
+        {"name": "대구장기점", "addr": "대구 달서구 장기로 252 장기협성휴포레 2층 209,210", "subjects": ["국어", "영어", "수학", "과학", "사회"], "grade": "all", "target_elem": "장동초, 장기초, 성당초", "target_mid": "원화중", "target_high": ""},
+      ],
+      "대구 동구": [
+        {"name": "율하점", "addr": "대구 동구 율하동로 32 4층 와와학습코칭센터", "subjects": ["국어", "영어", "수학", "과학"], "grade": "all", "target_elem": "숙천초, 율원초, 율금초, 안일초", "target_mid": "율원중, 강동중, 안심중, 새론중, 신기중, 동원중", "target_high": "동부고, 강동고, 정동고"},
+        {"name": "이시아폴리스점", "addr": "대구 동구 팔공로51길 33 A-503호 와와학습코칭학원", "subjects": ["국어", "영어", "수학", "과학", "사회"], "grade": "all", "target_elem": "봉무초, 영신초", "target_mid": "영신중, 팔공중, 복현중, 성광중, 성화중, 동촌중", "target_high": "영신고, 경상고, 영진고, 성광고, 성화여고"},
+      ],
+      "대구 북구": [
+        {"name": "대구도남점", "addr": "대구 북구 도남중앙로7길 20-3 위너프라자 402호 와와학습코칭학원", "subjects": ["국어", "영어", "수학", "과학", "사회"], "grade": "all", "target_elem": "국우초, 도남초", "target_mid": "학남중", "target_high": "학남고"},
+        {"name": "침산점", "addr": "대구 북구 침산남로 140 엠비프라자 901", "subjects": ["국어", "영어", "수학", "과학", "사회"], "grade": "all", "target_elem": "침산초, 달산초", "target_mid": "침산중, 대구일중, 경명여중, 산격중, 대구북중", "target_high": "경명여고, 칠성고, 청구고, 사대부고, 경상고"},
+        {"name": "칠곡점", "addr": "대구 북구 구암로 149 6층", "subjects": ["국어", "영어", "수학", "과학"], "grade": "all", "target_elem": "관음초", "target_mid": "구암중, 관천중, 운암중", "target_high": "구암고, 함지고, 영송여고"},
+        {"name": "복현점", "addr": "대구 북구 동북로 247 이편한세상복현 상가동 305호 와와학습코칭학원", "subjects": ["국어", "영어", "수학"], "grade": "all", "target_elem": "복현초", "target_mid": "북중, 성광중, 산격중", "target_high": "경상고, 성광고, 영진고"},
+      ],
+      "대구 수성구": [
+        {"name": "수성2가점", "addr": "대구 수성구 명덕로 404 1동 404호 와와학습코칭학원", "subjects": ["국어", "영어", "수학", "과학", "사회"], "grade": "all", "target_elem": "동일초, 동도초, 동성초", "target_mid": "대구동중, 신명여중, 중앙중, 황금중", "target_high": "남산고, 경북고"},
+        {"name": "알파시티점", "addr": "대구 수성구 알파시티2로 19 알파N시티 2층 201호 와와학습코칭학원", "subjects": ["국어", "영어", "수학", "과학", "사회"], "grade": "all", "target_elem": "노변초, 고산초", "target_mid": "노변중, 고산중", "target_high": "시지고, 덕원고"},
+        {"name": "수성만촌점", "addr": "대구 수성구 화랑로8길 11-11 7층", "subjects": ["국어", "영어", "수학", "과학", "사회"], "grade": "all", "target_elem": "", "target_mid": "동중", "target_high": ""},
+      ],
+      "대구 중구": [
+        {"name": "반월당점", "addr": "대구 중구 대봉로 253 3층 와와학습코칭학원", "subjects": ["국어", "영어", "수학", "과학", "사회"], "grade": "all", "target_elem": "대구초, 사대부초", "target_mid": "대구제일중, 사대부중", "target_high": "사대부고, 경북여고"},
+        {"name": "대구역점", "addr": "대구 중구 서성로 99 대구역센트럴자이 상가 302호 와와학습코칭학원", "subjects": ["국어", "영어", "수학", "과학", "사회"], "grade": "all", "target_elem": "수창초, 달성초, 종로초", "target_mid": "계성중, 성명여중, 사대부중", "target_high": "사대부고, 경북여고, 신명고, 대구고, 경북예고, 칠성고"},
+        {"name": "대구역점2호관", "addr": "대구 중구 서성로 99 대구역센트럴자이 상가 203호 와와학습코칭학원", "subjects": ["국어", "영어", "수학", "과학", "사회"], "grade": "all", "target_elem": "수창초, 종로초", "target_mid": "계성중, 성명여중, 대구제일중, 사대부중", "target_high": "사대부고, 경북여고, 신명고, 칠성고"},
+      ],
+      "대전 대덕구": [
+        {"name": "송촌점", "addr": "대전 대덕구 동춘당로94번길 11-7 4층 402", "subjects": ["국어", "영어", "수학"], "grade": "all", "target_elem": "송촌초", "target_mid": "매봉중, 법동중, 송촌중", "target_high": "송촌고, 명석고, 우송고, 대전여고, 동대전고"},
+      ],
+      "대전 서구": [
+        {"name": "둔산점", "addr": "대전광역시 서구 둔산동 둔산로 142 신화빌딩 401호", "subjects": ["국어", "영어", "사회"], "grade": "all", "target_elem": "", "target_mid": "", "target_high": ""},
+        {"name": "관저점", "addr": "대전 서구 구봉로 133 1542번지 205호", "subjects": ["국어", "영어", "수학", "과학", "사회"], "grade": "all", "target_elem": "", "target_mid": "", "target_high": "서일고, 서일여고"},
+        {"name": "도안점", "addr": "대전 서구 동서대로 692 에프엠프라임 1차 501", "subjects": ["영어", "수학", "과학"], "grade": "all", "target_elem": "흥도초", "target_mid": "유성중, 봉명중, 도안중", "target_high": "유성고, 도안고, 서대전여고"},
+        {"name": "둔산점(W+)", "addr": "대전 서구 둔산로 130 803호", "subjects": ["수학", "과학"], "grade": "all", "target_elem": "", "target_mid": "", "target_high": ""},
+      ],
+      "대전 유성구": [
+        {"name": "지족점", "addr": "대전 유성구 지족동 910-7번지 401", "subjects": ["국어", "영어", "수학", "과학", "사회"], "grade": "all", "target_elem": "상지초, 지족초, 노은초, 수정초", "target_mid": "지족중, 노은중", "target_high": "반석고, 지족고, 노은고, 유성여고"},
+        {"name": "반석점", "addr": "대전 유성구 지족로 282 코오롱타워2 303,304", "subjects": ["국어", "영어", "수학"], "grade": "all", "target_elem": "새미래초, 반석초", "target_mid": "새미래중, 외삼중, 하기중", "target_high": "반석고, 노은고, 지족고, 유성고"},
+        {"name": "관평점", "addr": "대전 유성구 관평2로 46 밸리타운 501", "subjects": ["국어", "영어", "수학"], "grade": "all", "target_elem": "동화초, 관평초", "target_mid": "동화중, 관평중", "target_high": "중일고, 용산고"},
+      ],
+      "대전 중구": [
+        {"name": "태평점", "addr": "대전 중구 태평로 15 버드내마을아파트 상가 308", "subjects": ["국어", "영어", "수학"], "grade": "all", "target_elem": "버드내초", "target_mid": "버드내중, 태평중", "target_high": ""},
+      ],
+      "부산 동래구": [
+        {"name": "동래점", "addr": "부산광역시 동래구 온천동 충렬대로 129-1 한야빌딩 3", "subjects": ["국어", "영어", "수학", "과학"], "grade": "all", "target_elem": "내산초", "target_mid": "내성중,유락여중,동래중,동해중", "target_high": "내성고,중앙여고,동래고,부산전자고"},
+        {"name": "사직점", "addr": "부산 동래구 사직로 80 222동 311호 (사직쌍용예가아파트 상가)", "subjects": ["영어", "수학"], "grade": "all", "target_elem": "예원초, 사직초", "target_mid": "사직중, 사직여중", "target_high": "사직고, 사직여고, 동인고"},
+      ],
+      "부산 북구": [
+        {"name": "화명점", "addr": "부산 북구 금곡대로285번길 19 리버사이드빌딩 504", "subjects": ["국어", "영어", "수학", "과학"], "grade": "all", "target_elem": "와석초", "target_mid": "명진중, 화명중", "target_high": "화명고,  성도고"},
+      ],
+      "부산 해운대구": [
+        {"name": "좌동점", "addr": "부산광역시 해운대구 좌동 좌동로 88 울트라타워 5층 508호", "subjects": ["국어", "영어", "수학", "과학", "사회"], "grade": "all", "target_elem": "동백초, 부흥초, 신도초", "target_mid": "신도중, 부흥중, 신곡중, 해운대중, 해강중", "target_high": "신도고, 양운고, 부흥고, 해운대여고, 해강고"},
+        {"name": "반여점", "addr": "부산 해운대구 반여로 102 경성빌딩 501호", "subjects": ["국어", "영어", "수학", "과학"], "grade": "all", "target_elem": "인지초, 장산초, 무정초", "target_mid": "장산중, 인지중", "target_high": "반여고"},
+      ],
+      "서울 강동구": [
+        {"name": "명일점", "addr": "서울 강동구 양재대로 1606 3층", "subjects": ["국어", "영어", "수학"], "grade": "all", "target_elem": "", "target_mid": "천호중, 배재중, 명일중", "target_high": "명일여고, 강동고, 광문고"},
+      ],
+      "서울 강북구": [
+        {"name": "삼각산점", "addr": "서울 강북구 미아동 811-9 두산위브테라스파크 상가 402/403호", "subjects": ["국어", "영어", "수학", "과학", "사회"], "grade": "all", "target_elem": "길음초, 송천초, 미양초", "target_mid": "삼각산중, 길음중, 미양중", "target_high": "삼각산고, 미양고, 영훈고, 혜화여고"},
+      ],
+      "서울 강서구": [
+        {"name": "염창점", "addr": "서울 강서구 양천로67길 15 한희빌딩 2층 202호 와와학습코칭학원", "subjects": ["국어", "영어", "수학", "과학"], "grade": "all", "target_elem": "염경초, 염동초, 백석초", "target_mid": "", "target_high": ""},
+        {"name": "신방화점", "addr": "서울 강서구 방화대로 294 마곡더블유타워 505", "subjects": ["영어", "수학", "사회"], "grade": "all", "target_elem": "송화초, 공항초", "target_mid": "공항중, 송정중", "target_high": "한서고, 공항고"},
+        {"name": "내발산점", "addr": "서울 강서구 마곡중앙4로 74 이웰메디파크 제4층 401,402호", "subjects": ["국어", "영어", "수학", "과학", "사회"], "grade": "all", "target_elem": "가곡초, 내발산초", "target_mid": "등명중, 화곡중, 명덕중, 덕원중", "target_high": "화곡고, 명덕고, 덕원여고, 마포고"},
+      ],
+      "서울 광진구": [
+        {"name": "광장점", "addr": "서울 광진구 광나루로 584 동서울빌딩 5", "subjects": ["국어", "영어", "수학", "과학"], "grade": "all", "target_elem": "", "target_mid": "양진중, 광장중", "target_high": "광남고, 단대부고, 건대부고"},
+      ],
+      "서울 구로구": [
+        {"name": "신도림점", "addr": "서울특별시 구로구 신도림동 신도림로 20 397-2 해동빌딩 402호", "subjects": ["국어", "영어", "수학", "과학"], "grade": "all", "target_elem": "신미림초", "target_mid": "신도림중", "target_high": "신도림고, 구현고"},
+      ],
+      "서울 금천구": [
+        {"name": "금천점", "addr": "서울 금천구 금하로 763 벽산아파트 제중심상가동 3층 306-2,307,308", "subjects": ["국어", "영어", "수학", "과학", "사회"], "grade": "all", "target_elem": "탑동초", "target_mid": "동일중, 세일중", "target_high": "매그넷고, 동일여고, 금천고, 문일고"},
+      ],
+      "서울 노원구": [
+        {"name": "하계점", "addr": "서울 노원구 노원로 257 401호", "subjects": ["국어", "영어", "수학", "과학", "사회"], "grade": "all", "target_elem": "", "target_mid": "하계중, 녹천중, 상명중, 태릉중, 공릉중", "target_high": "혜성여고, 대진고, 상명고, 월계고"},
+      ],
+      "서울 동대문구": [
+        {"name": "제기점", "addr": "서울 동대문구 왕산로 61 302호 와와학습코칭학원", "subjects": ["국어", "영어", "수학", "과학", "사회"], "grade": "all", "target_elem": "용두초, 종암초, 기타사립초", "target_mid": "대광중, 성일중", "target_high": "대광고, 청량리고, 경희고"},
+      ],
+      "서울 마포구": [
+        {"name": "마포2호점", "addr": "서울 마포구 토정로 252 승지빌딩 3층", "subjects": ["국어", "영어", "수학", "사회"], "grade": "all", "target_elem": "신석초, 염리초, 용강초, 서강초, 우이초", "target_mid": "서울여중, 동도중, 신수중", "target_high": "서울여고, 숭문고, 광성고, 한성고, 배문고"},
+        {"name": "마포점", "addr": "서울특별시 마포구 염리동 독막로42길 7 173-3 2층", "subjects": ["국어", "영어", "수학", "과학", "사회"], "grade": "all", "target_elem": "염리초", "target_mid": "서울여중, 동도중, 신수중, 숭문중", "target_high": "서울여고, 숭문고, 광성고"},
+        {"name": "상암점", "addr": "서울특별시 마포구 상암동 상암산로1길 73 202호", "subjects": ["영어", "수학"], "grade": "all", "target_elem": "중동초, 상지초, 상암초", "target_mid": "상암중, 중암중, 성산중, 성사중, 덕은한강중", "target_high": "상암고, 예일여고, 대성고, 숭실고, 가재울고"},
+      ],
+      "서울 서대문구": [
+        {"name": "가좌점", "addr": "서울 서대문구 가재울로 52 승우빌딩 301호", "subjects": ["국어", "영어", "수학", "과학", "사회"], "grade": "all", "target_elem": "가재울초, 연가초", "target_mid": "", "target_high": "가재울고"},
+      ],
+      "서울 성북구": [
+        {"name": "종암점", "addr": "서울 성북구 종암로27길 13 도원프라자 501", "subjects": ["국어", "영어", "수학", "과학"], "grade": "all", "target_elem": "", "target_mid": "종암중, 사대부중, 개운중", "target_high": "사대부고, 용문고"},
+        {"name": "돈암점", "addr": "서울특별시 성북구 돈암동 동소문로 190 중앙빌딩 201호", "subjects": ["국어", "영어", "수학"], "grade": "all", "target_elem": "개운초", "target_mid": "개운중, 성신여중, 고명중", "target_high": "용문고, 사대부고, 성신여고, 고대부고"},
+        {"name": "동소문점", "addr": "서울 성북구 아리랑로7길 5 4층 와와학습코칭학원", "subjects": ["영어", "수학"], "grade": "all", "target_elem": "정덕초, 우촌초, 정수초", "target_mid": "성신여중, 동구여중, 삼선중, 고명중", "target_high": "성신여고, 홍대부고, 고대부고, 한성여고"},
+      ],
+      "서울 송파구": [
+        {"name": "송파위례점", "addr": "서울 송파구 위례광장로 188 아이온스퀘어 8층 816호 와와학습코칭학원", "subjects": ["국어", "영어", "수학", "과학"], "grade": "all", "target_elem": "송례초, 위례별초", "target_mid": "위례중, 송례중", "target_high": "위례고, 문현고, 문정고, 덕수고"},
+      ],
+      "서울 양천구": [
+        {"name": "목동점", "addr": "서울 양천구 목동동로8길 23 메리트윈 3층 305", "subjects": ["국어", "영어", "수학", "과학", "사회"], "grade": "all", "target_elem": "신목초, 서정초", "target_mid": "목일중, 신목중, 양강중, 금옥중", "target_high": "양천고, 신목고, 한광고, 서울영상고"},
+      ],
+      "서울 영등포구": [
+        {"name": "당산점", "addr": "서울 영등포구 당산로44길 3 삼성타운 504", "subjects": ["국어", "영어", "수학"], "grade": "all", "target_elem": "당서초, 영동초, 당중초", "target_mid": "당산중, 당산서중, 선유중", "target_high": "선유고, 여의도고, 여의도여고, 영등포여고, 관악고"},
+      ],
+      "서울 은평구": [
+        {"name": "은평점", "addr": "서울특별시 은평구 진관동 진관2로 29-21 드림스퀘어 제 8층 804호 805호", "subjects": ["영어", "과학", "사회"], "grade": "all", "target_elem": "은진초, 은빛초, 진관초, 신도초", "target_mid": "진관중, 신도중, 연천중", "target_high": "진관고, 신도고, 대성고, 선일여고"},
+        {"name": "은평점(글로리드)", "addr": "서울 은평구 진관2로 29-21 드림스퀘어 609호", "subjects": ["국어"], "grade": "all", "target_elem": "", "target_mid": "", "target_high": ""},
+        {"name": "은평점(W+)", "addr": "서울 은평구 진관2로 19 휴먼프라자 312호", "subjects": ["수학"], "grade": "all", "target_elem": "진관초, 신도초, 은진초", "target_mid": "진관중, 신도중, 연천중", "target_high": "진관고, 신도고, 대성고, 선일여고, 동명여고"},
+        {"name": "구산점", "addr": "서울특별시 은평구 역촌동 연서로 130 4층", "subjects": ["국어", "영어", "수학"], "grade": "all", "target_elem": "", "target_mid": "구산중, 은평중", "target_high": "예일여중고, 선일여중고"},
+      ],
+      "세종 세종시": [
+        {"name": "새롬점", "addr": "세종특별자치시 새롬중앙로 62-15 해피라움W 305호", "subjects": ["국어", "영어", "수학"], "grade": "all", "target_elem": "새뜸초, 새롬초", "target_mid": "새뜸중, 새롬중", "target_high": "새롬고, 다정고"},
+      ],
+      "울산 남구": [
+        {"name": "삼산점", "addr": "울산광역시 남구 삼산동 돋질로 300 4층", "subjects": ["국어", "영어", "수학", "과학", "사회"], "grade": "all", "target_elem": "", "target_mid": "", "target_high": ""},
+      ],
+      "울산 북구": [
+        {"name": "송정점", "addr": "울산 북구 화산로 123 골드테라스 404호", "subjects": ["국어", "영어", "수학", "과학", "사회"], "grade": "all", "target_elem": "고헌초, 송정초, 화봉초", "target_mid": "고헌중, 화봉중, 연암중", "target_high": "화봉고, 매곡고, 무룡고, 울산공고, 에너지고"},
+      ],
+      "울산 중구": [
+        {"name": "복산점", "addr": "울산 중구 번영로 461 B2동 7", "subjects": ["국어", "영어", "수학", "과학", "사회"], "grade": "all", "target_elem": "", "target_mid": "", "target_high": ""},
+        {"name": "남외점", "addr": "울산 중구 남외3길 15 남외프라자 401호", "subjects": ["국어", "영어", "수학"], "grade": "all", "target_elem": "남외초", "target_mid": "남외중,울산중", "target_high": "울산고,가온고"},
+      ],
+      "인천 남동구": [
+        {"name": "구월점", "addr": "인천 남동구 선수촌공원로23번길 6-29 다복타워 401호 와와학습코칭학원", "subjects": ["국어", "영어", "수학", "과학", "사회"], "grade": "all", "target_elem": "성리초", "target_mid": "성리중", "target_high": ""},
+        {"name": "논현점", "addr": "인천 남동구 청능대로 559 2", "subjects": ["국어", "영어", "수학"], "grade": "all", "target_elem": "동방초, 원동초", "target_mid": "고잔중", "target_high": "고잔고"},
+      ],
+      "인천 부평구": [
+        {"name": "인천삼산점", "addr": "인천 부평구 체육관로 32 하이존빌딩 8층 802", "subjects": ["국어", "영어", "수학", "과학", "사회"], "grade": "all", "target_elem": "굴포초, 진산초, 영선초", "target_mid": "진산중, 삼산중, 구산중", "target_high": "영선고, 삼산고"},
+        {"name": "부평점", "addr": "인천광역시 부평구 부평동 부흥로 264 5층 와와학습코칭센터", "subjects": ["국어", "영어", "수학", "과학", "사회"], "grade": "all", "target_elem": "부평서초,부평동초", "target_mid": "부원중,부원여중", "target_high": "부평고,부평여고"},
+      ],
+      "인천 서구": [
+        {"name": "청라점", "addr": "인천 서구 중봉대로 588 청라센트럴프라자 609", "subjects": ["국어", "영어", "수학", "과학"], "grade": "all", "target_elem": "", "target_mid": "청라중, 해원중", "target_high": "청라고, 해원고"},
+        {"name": "루원시티점", "addr": "인천 서구 새오개로111번안길 23 대릉빌딩 302호", "subjects": ["국어", "영어", "수학"], "grade": "all", "target_elem": "가현초", "target_mid": "신형중, 신현여중, 가현중", "target_high": "신현고"},
+      ],
+      "인천 연수구": [
+        {"name": "동춘점", "addr": "인천 연수구 앵고개로264번길 40 남지빌딩 4층 와와학습코칭센터", "subjects": ["국어", "영어", "수학", "과학"], "grade": "all", "target_elem": "", "target_mid": "", "target_high": "대건고, 연수여고, 연수고"},
+        {"name": "웰카운티점", "addr": "인천 연수구 인천타워대로54번길 15-5 북일프라자 2층 와와학습코칭학원", "subjects": ["국어", "영어", "수학"], "grade": "all", "target_elem": "해송초등학교", "target_mid": "해송중학교, 능허대중학교, 박문중학교", "target_high": "해송고등학교, 연송고등학교, 대건고등학교"},
+        {"name": "송도점", "addr": "인천 연수구 해돋이로 165 차오름프라자 302", "subjects": ["국어", "영어", "수학", "과학", "사회"], "grade": "all", "target_elem": "신정초", "target_mid": "신정중", "target_high": "연송고"},
+        {"name": "송도점(W+)", "addr": "인천 연수구 해돋이로 160-6 꿈에계단 702호 일부(송도동)", "subjects": ["수학", "과학"], "grade": "all", "target_elem": "신정초", "target_mid": "신정중", "target_high": "연송고"},
+      ],
+      "전북 완주군": [
+        {"name": "전주혁신점", "addr": "전북특별자치도 완주군 이서면 출판로 42 제 4층 제 402호 와와학습코칭학원", "subjects": ["영어", "수학", "과학", "사회"], "grade": "all", "target_elem": "", "target_mid": "양현중, 삼우중, 만성중", "target_high": "양현고"},
+      ],
+      "전북 전주시": [
+        {"name": "서신점", "addr": "전북특별자치도 전주시 완산구 서신로 5 4층 와와학습코칭학원", "subjects": ["영어", "수학", "과학"], "grade": "all", "target_elem": "중산초", "target_mid": "", "target_high": "한일고, 근영고"},
+        {"name": "송천점", "addr": "전북특별자치도 전주시 덕진구 솔내로 129 송천열방빌딩 501호 와와학습코칭학원", "subjects": ["국어", "영어", "수학", "과학"], "grade": "all", "target_elem": "", "target_mid": "", "target_high": ""},
+      ],
+      "제주 제주시": [
+        {"name": "노형점", "addr": "제주특별자치도 제주시 노형동 727-3 대안빌딩 3층", "subjects": ["국어", "영어", "수학", "과학", "사회"], "grade": "all", "target_elem": "노형초", "target_mid": "서중, 중앙중", "target_high": "지역내 모든 고등학교 가능"},
+      ],
+      "충남 당진시": [
+        {"name": "당진중앙점", "addr": "충남 당진시 당진중앙2로 211-5 효명프라자 404호", "subjects": ["국어", "영어", "수학", "과학", "사회"], "grade": "all", "target_elem": "탑동초", "target_mid": "호서중, 당진중", "target_high": "호서고, 당진고"},
+      ],
+      "충남 아산시": [
+        {"name": "탕정점(모두)", "addr": "충남 아산시 탕정면 한들물빛5로 5 605호 모두오름학습코칭학원", "subjects": ["국어", "영어", "수학", "과학", "사회"], "grade": "all", "target_elem": "한들물빛초", "target_mid": "한들물빛중", "target_high": "설화고"},
+      ],
+      "충남 천안시": [
+        {"name": "신방점", "addr": "충청남도 천안시 동남구 신방동 886 학산프라자 A동 3층 304호,305호", "subjects": ["국어", "영어", "수학"], "grade": "all", "target_elem": "신용초", "target_mid": "용곡중, 신방중", "target_high": "청수고, 쌍용고, 천안여고"},
+        {"name": "쌍용점", "addr": "충청남도 천안시 서북구 쌍용동 불당대로 260 319호 318호(1/2)", "subjects": ["국어", "영어", "수학"], "grade": "all", "target_elem": "쌍용초", "target_mid": "쌍용중", "target_high": "쌍용고, 월봉고, 중앙고, 천안여고"},
+        {"name": "불당점", "addr": "충남 천안시 서북구 불당33길 22 고은타워 805호", "subjects": ["국어", "영어", "수학"], "grade": "all", "target_elem": "", "target_mid": "", "target_high": ""},
+        {"name": "두정점", "addr": "충청남도 천안시 서북구 두정동 봉정로 382 성광빌딩 3층", "subjects": ["영어", "수학"], "grade": "all", "target_elem": "두정초, 신대초", "target_mid": "두정중, 성성중, 성정중,", "target_high": "오성고, 두정고, 신당고, 업성고"},
+      ],
+      "충북 청주시": [
+        {"name": "복대점", "addr": "충북 청주시 흥덕구 진재로 37 3", "subjects": ["국어", "영어", "수학", "과학"], "grade": "all", "target_elem": "증안초, 진흥초", "target_mid": "복대중, 서원중, 솔밭중", "target_high": "흥덕고, 세광고, 사대부고, 청주고, 중앙여고"},
+        {"name": "가경점", "addr": "충북 청주시 흥덕구 서현북로 18 2층 와와학습코칭학원", "subjects": ["국어", "영어", "수학", "사회"], "grade": "all", "target_elem": "서현초, 서경초", "target_mid": "서현중, 경덕중, 서현중", "target_high": "사대부고, 서원고, 청주외고"},
+        {"name": "개신점", "addr": "충청북도 청주시 서원구 개신동 경신로 31-1 402호", "subjects": ["국어", "영어", "수학", "과학"], "grade": "all", "target_elem": "개신초, 서경초, 가경초, 죽림초, 서원초", "target_mid": "가경중, 서경중, 경덕중, 사대부중, 성화중, 서원중", "target_high": "서원고, 사대부고, 청주고, 중앙여고, 운호고, 봉명고, 흥덕고, 세광고"},
+        {"name": "산남점", "addr": "충청북도 청주시 서원구 산남동 산남로 18 이화빌딩 5층", "subjects": ["국어", "영어", "수학", "과학", "사회"], "grade": "all", "target_elem": "샛별초", "target_mid": "수곡중 산남중", "target_high": "충북고 운호고 충북여고 산남고"},
+      ],
+      "충북 충주시": [
+        {"name": "칠금점", "addr": "충청북도 충주시 칠금동 계명대로 29 3층", "subjects": ["국어", "영어", "수학", "과학", "사회"], "grade": "all", "target_elem": "탄금초, 칠금초", "target_mid": "탄금중, 칠금중, 중앙중, 미덕중, 여중, 북여중, 충주중", "target_high": "국원고, 예성여고, 충주여고"},
+        {"name": "충주용산점", "addr": "충북 충주시 형설로 54-10,2층 (용산동)", "subjects": ["국어", "영어", "수학", "과학", "사회"], "grade": "all", "target_elem": "남산초, 용산초", "target_mid": "예성여중, 미덕중", "target_high": "충주여고, 예성여고, 충주고"},
+      ],
+    };
+
+    const regionMap = {
+      "경기": [
+            "고양시",
+            "광명시",
+            "광주시",
+            "구리시",
+            "군포시",
+            "김포시",
+            "남양주시",
+            "부천시",
+            "성남시",
+            "수원시",
+            "시흥시",
+            "안산시",
+            "안양시",
+            "양주시",
+            "오산시",
+            "용인시",
+            "의정부시",
+            "이천시",
+            "파주시",
+            "평택시",
+            "하남시",
+            "화성시"
+      ],
+      "경북": [
+            "경산시",
+            "구미시",
+            "포항시"
+      ],
+      "서울": [
+            "강동구",
+            "강북구",
+            "강서구",
+            "광진구",
+            "구로구",
+            "금천구",
+            "노원구",
+            "동대문구",
+            "마포구",
+            "서대문구",
+            "성북구",
+            "송파구",
+            "양천구",
+            "영등포구",
+            "은평구"
+      ],
+      "대구": [
+            "달서구",
+            "동구",
+            "북구",
+            "수성구",
+            "중구"
+      ],
+      "광주": [
+            "광산구",
+            "남구",
+            "서구"
+      ],
+      "대전": [
+            "대덕구",
+            "서구",
+            "유성구",
+            "중구"
+      ],
+      "전북": [
+            "완주군",
+            "전주시"
+      ],
+      "울산": [
+            "남구",
+            "북구",
+            "중구"
+      ],
+      "경남": [
+            "거제시",
+            "창원시"
+      ],
+      "인천": [
+            "남동구",
+            "부평구",
+            "서구",
+            "연수구"
+      ],
+      "충북": [
+            "청주시",
+            "충주시"
+      ],
+      "강원": [
+            "강릉시",
+            "원주시",
+            "춘천시"
+      ],
+      "제주": [
+            "제주시"
+      ],
+      "부산": [
+            "동래구",
+            "북구",
+            "해운대구"
+      ],
+      "충남": [
+            "당진시",
+            "아산시",
+            "천안시"
+      ],
+      "세종": [
+            "세종시"
+      ]
+};
+
+    const cityOrder = ["경기", "서울", "대구", "인천", "대전", "광주", "충북", "강원", "충남", "경북", "부산", "울산", "전북", "경남", "제주", "세종"];
+
+    const gradeBadge = {
+      elem:     '<span class="academy-badge badge-elem">초등</span>',
+      elem_mid: '<span class="academy-badge badge-elem">초등</span><span class="academy-badge badge-mid" style="margin-left:3px">중등</span>',
+      mid:      '<span class="academy-badge badge-mid">중등</span>',
+      mid_high: '<span class="academy-badge badge-mid">중등</span><span class="academy-badge badge-high" style="margin-left:3px">고등</span>',
+      high:     '<span class="academy-badge badge-high">고등</span>',
+      all:      '<span class="academy-badge badge-all">전체</span>',
+    };
+
+    let activeCity = '서울';
+    let activeDistrict = null;
+    let activeGrade = 'all';
+
+    function buildCityTabs() {
+      const tabs = document.getElementById('cityTabs');
+      tabs.innerHTML = '';
+      cityOrder.forEach(city => {
+        const count = (regionMap[city] || []).reduce((s, d) => s + (academyData[city+' '+d]||[]).length, 0);
+        const div = document.createElement('div');
+        div.className = 'city-tab' + (city === activeCity ? ' active' : '');
+        div.dataset.city = city;
+        div.textContent = city;
+        div.title = count + '개 학원';
+        div.onclick = () => selectCity(city);
+        tabs.appendChild(div);
+      });
+    }
+
+    function selectCity(city) {
+      activeCity = city;
+      activeDistrict = null;
+      buildCityTabs();
+      document.getElementById('districtSearch').value = '';
+      buildDistrictList('');
+      renderAcademies();
+    }
+
+    function buildDistrictList(filter) {
+      const list = document.getElementById('districtList');
+      list.innerHTML = '';
+      const districts = (regionMap[activeCity] || []).filter(d => d.includes(filter));
+      if (!districts.length) {
+        list.innerHTML = '<div style="padding:0.8rem 1.4rem;font-size:0.8rem;color:var(--gray-400)">검색 결과 없음</div>';
+        return;
+      }
+      districts.forEach(d => {
+        const key = activeCity + ' ' + d;
+        const count = (academyData[key] || []).length;
+        const item = document.createElement('div');
+        item.className = 'district-item' + (d === activeDistrict ? ' active' : '');
+        item.innerHTML = d + ' <span class="district-count">' + count + '</span>';
+        item.onclick = () => selectDistrict(d);
+        list.appendChild(item);
+      });
+    }
+
+    function selectDistrict(d) {
+      activeDistrict = d;
+      activeGrade = 'all';
+      document.querySelectorAll('.grade-tag').forEach(t => t.classList.toggle('active', t.dataset.grade === 'all'));
+      buildDistrictList(document.getElementById('districtSearch').value);
+      renderAcademies();
+    }
+
+    function matchGrade(a, filter) {
+      if (filter === 'all') return true;
+      if (a.grade === 'all') return true;
+      if (a.grade === filter) return true;
+      if (a.grade === 'elem_mid' && (filter === 'elem' || filter === 'mid')) return true;
+      if (a.grade === 'mid_high' && (filter === 'mid' || filter === 'high')) return true;
+      return false;
+    }
+
+    function buildTargetRow(a) {
+      const targets = [];
+      if (a.target_elem) a.target_elem.split(/[,，、]/).map(s=>s.trim()).filter(Boolean).forEach(s=>targets.push(s));
+      if (a.target_mid)  a.target_mid.split(/[,，、]/).map(s=>s.trim()).filter(Boolean).forEach(s=>targets.push(s));
+      if (a.target_high) a.target_high.split(/[,，、]/).map(s=>s.trim()).filter(Boolean).forEach(s=>targets.push(s));
+      if (!targets.length) return '';
+      const pills = targets.slice(0,5).map(t => '<span class="target-pill">' + t + '</span>').join('');
+      const more = targets.length > 5 ? '<span class="target-pill" style="color:var(--gray-400)">+' + (targets.length-5) + '</span>' : '';
+      return '<div class="academy-targets">' + pills + more + '</div>';
+    }
+
+    function renderAcademies() {
+      const list = document.getElementById('academyList');
+      const empty = document.getElementById('finderEmpty');
+      const countEl = document.getElementById('resultsCount');
+
+      if (!activeDistrict) {
+        list.innerHTML = '';
+        empty.style.display = 'block';
+        empty.innerHTML = '<svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>왼쪽에서 지역을 선택해 주세요';
+        countEl.innerHTML = '지역을 선택하면 학원이 표시됩니다.';
+        return;
+      }
+
+      const key = activeCity + ' ' + activeDistrict;
+      let data = (academyData[key] || []).filter(a => matchGrade(a, activeGrade));
+      countEl.innerHTML = '<strong>' + activeCity + ' ' + activeDistrict + '</strong> · ' + data.length + '개 학원';
+
+      if (!data.length) {
+        list.innerHTML = '';
+        empty.style.display = 'block';
+        empty.innerHTML = '<svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>해당 조건의 학원이 없습니다';
+        return;
+      }
+
+      empty.style.display = 'none';
+      list.innerHTML = data.map((a, i) => `
+        <div class="academy-card">
+          <div class="academy-card-left">
+            <div class="academy-meta">
+              ${gradeBadge[a.grade] || gradeBadge.all}
+              <span class="academy-name">${a.name}</span>
+            </div>
+            <div class="academy-addr">${a.addr}</div>
+            <div class="academy-subjects">
+              ${a.subjects.map(s => '<span class="subject-pill">'+s+'</span>').join('')}
+            </div>
+            ${buildTargetRow(a)}
+          </div>
+          <div class="academy-card-right">
+            <button class="btn-consult-mini" onclick="scrollToConsult('${a.name.replace(/'/g,'\'')}')">상담 신청</button>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function scrollToConsult(name) {
+      document.getElementById('consult').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    /* Grade filter */
+    document.querySelectorAll('.grade-tag').forEach(btn => {
+      btn.addEventListener('click', () => {
+        activeGrade = btn.dataset.grade;
+        document.querySelectorAll('.grade-tag').forEach(t => t.classList.remove('active'));
+        btn.classList.add('active');
+        renderAcademies();
+      });
+    });
+
+    /* District search */
+    document.getElementById('districtSearch').addEventListener('input', e => {
+      buildDistrictList(e.target.value);
+    });
+
+    buildCityTabs();
+    buildDistrictList('');
+    renderAcademies();
+
+    /* ── WIZARD ── */
+    const stepTitles = [
+      null,
+      ['학생 기본 정보를 입력해 주세요', '맞춤 학원 추천에 활용됩니다'],
+      ['학습 목표와 과목을 선택해 주세요', '최적의 학원을 연결해 드립니다'],
+      ['연락처를 입력해 주세요', '상담 담당자가 직접 연락드립니다'],
+    ];
+    const progressMap = { 1: '33%', 2: '66%', 3: '100%' };
+    let currentStep = 1;
+
+    function goStep(n) {
+      if (n > currentStep && !validateStep(currentStep)) return;
+      currentStep = n;
+      document.querySelectorAll('.wizard-panel').forEach((p, i) => {
+        p.classList.toggle('active', i + 1 === n);
+      });
+      ['stepInd1','stepInd2','stepInd3'].forEach((id, i) => {
+        const el = document.getElementById(id);
+        el.classList.remove('active','done');
+        if (i + 1 === n) el.classList.add('active');
+        else if (i + 1 < n) el.classList.add('done');
+      });
+      document.getElementById('wizardTitle').textContent = stepTitles[n][0];
+      document.getElementById('wizardSubtitle').textContent = stepTitles[n][1];
+      document.getElementById('progressFill').style.width = progressMap[n];
+    }
+
+    function validateStep(n) {
+      if (n === 1) {
+        const name = document.getElementById('f-name').value.trim();
+        const grade = document.getElementById('f-grade').value;
+        const region = document.getElementById('f-region').value;
+        if (!name) { highlight('f-name'); return false; }
+        if (!grade) { highlight('f-grade'); return false; }
+        if (!region) { highlight('f-region'); return false; }
+      }
+      if (n === 2) {
+        const checked = document.querySelectorAll('#panel2 input[type="checkbox"]:checked').length;
+        const goal = document.getElementById('f-goal').value;
+        const time = document.querySelector('input[name="timeSlot"]:checked');
+        if (!checked) { alert('과목을 하나 이상 선택해 주세요.'); return false; }
+        if (!goal) { highlight('f-goal'); return false; }
+        if (!time) { alert('선호 수업 시간대를 선택해 주세요.'); return false; }
+      }
+      return true;
+    }
+
+    function highlight(id) {
+      const el = document.getElementById(id);
+      el.classList.add('error');
+      el.focus();
+      el.addEventListener('input', () => el.classList.remove('error'), { once: true });
+      el.addEventListener('change', () => el.classList.remove('error'), { once: true });
+    }
+
+    /* ── Formspree 엔드포인트 (formspree.io에서 발급받은 ID로 교체) ── */
+    const FORMSPREE_ID = 'YOUR_FORM_ID';
+
+    async function submitForm() {
+      const parent = document.getElementById('f-parent').value.trim();
+      const phone  = document.getElementById('f-phone').value.trim();
+      const agree  = document.getElementById('agreePrivacy').checked;
+      if (!parent) { highlight('f-parent'); return; }
+      if (!phone)  { highlight('f-phone');  return; }
+      if (!agree)  { alert('개인정보 처리방침에 동의해 주세요.'); return; }
+
+      /* 수집 데이터 구성 */
+      const subjects = [...document.querySelectorAll('#panel2 input[type="checkbox"]:checked')]
+                        .map(el => el.value).join(', ');
+      const timeSlot = (document.querySelector('input[name="timeSlot"]:checked') || {}).value || '';
+
+      const payload = {
+        _subject: '[학원 상담 신청] ' + document.getElementById('f-name').value.trim(),
+        보호자성함:  parent,
+        연락처:      phone,
+        학생이름:    document.getElementById('f-name').value.trim(),
+        학년:        document.getElementById('f-grade').value,
+        희망지역:    document.getElementById('f-region').value,
+        학교명:      document.getElementById('f-school').value.trim(),
+        희망과목:    subjects,
+        상담목적:    document.getElementById('f-goal').value,
+        선호시간대:  timeSlot,
+        추가문의:    document.getElementById('f-note').value.trim(),
+      };
+
+      /* 제출 버튼 로딩 상태 */
+      const submitBtn = document.querySelector('.btn-submit');
+      submitBtn.disabled = true;
+      submitBtn.textContent = '전송 중…';
+
+      try {
+        const res = await fetch('https://formspree.io/f/' + FORMSPREE_ID, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify(payload),
+        });
+
+        if (res.ok) {
+          /* 성공 */
+          document.querySelectorAll('.wizard-panel').forEach(p => p.classList.remove('active'));
+          document.getElementById('wizardSuccess').style.display = 'block';
+          document.getElementById('progressFill').style.width = '100%';
+          document.querySelectorAll('.wizard-step').forEach(s => s.classList.remove('active'));
+        } else {
+          throw new Error('서버 오류');
+        }
+      } catch (e) {
+        submitBtn.disabled = false;
+        submitBtn.textContent = '상담 신청하기';
+        alert('전송 중 오류가 발생했습니다. 잠시 후 다시 시도해 주세요.');
+      }
+    }
+
+    /* ── SCROLL REVEAL ── */
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
