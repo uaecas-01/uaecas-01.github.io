@@ -4,7 +4,7 @@
   <meta name="naver-site-verification" content="06e6f7c54b7cb09562f3b3f54b6bf6b2efe50cd6" />
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>오늘의 학습 – 우리 아이 성적 쑥쑥</title>
+  <title>WeStudy 위스터디 – 우리 아이 성적 쑥쑥</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
@@ -47,14 +47,40 @@
       background: transparent;
       border-bottom: none;
     }
+
     .nav-logo {
-      font-family: 'Pretendard', sans-serif;
-      font-weight: 700;
-      font-size: 1.25rem;
-      color: var(--white);
-      letter-spacing: -0.5px;
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+      text-decoration: none;
+      flex-shrink: 0;
     }
-    .nav-logo span { color: var(--gold); }
+    .logo-mark {
+      width: 26px; height: 26px;
+      background: var(--white);
+      color: var(--navy);
+      border-radius: 6px;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 900;
+      font-size: 0.88rem;
+      letter-spacing: -0.05em;
+      flex-shrink: 0;
+    }
+    .logo-name {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--white);
+      letter-spacing: -0.04em;
+      line-height: 1;
+    }
+    .logo-sub {
+      font-size: 0.6rem;
+      font-weight: 500;
+      color: rgba(255,255,255,0.5);
+      letter-spacing: 0.03em;
+      display: block;
+      margin-top: 1px;
+    }
     .nav-links { display: flex; gap: 2rem; list-style: none; }
     .nav-links a {
       color: rgba(255,255,255,0.75);
@@ -629,7 +655,7 @@
 
   <!-- NAV -->
   <nav>
-    <div class="nav-logo">오늘의<span>학습</span></div>
+    <div class="nav-logo"><span class="logo-mark">W</span><span class="logo-name">WeStudy<span class="logo-sub">위스터디</span></span></div>
     <ul class="nav-links">
       <li><a href="find-tutor.html">과외 찾기</a></li>
       <li><a href="education.html">교육 정보</a></li>
@@ -646,7 +672,7 @@
       <div class="hero-text">
         <div class="hero-badge">2023 학부모가 뽑은 교육 브랜드 대상 수상</div>
         <h1 class="hero-title">
-          오늘의 학습과 함께라면<br />
+          WeStudy와 함께라면<br />
           <em>우리 아이 성적 쑥쑥</em>
         </h1>
         <p class="hero-desc">
@@ -759,7 +785,7 @@
           <h2 class="section-title">이미 효과가 증명된<br />수업이에요</h2>
           <p class="section-desc">
             실제 수강생의 성적 향상 사례와 학부모 후기로<br />
-            오늘의 과외의 실력을 직접 확인하세요.
+            WeStudy의 실력을 직접 확인하세요.
           </p>
           <ul class="proof-list">
             <li>수업 4주 만에 중간고사 20점 이상 향상된 사례 다수</li>
@@ -834,7 +860,7 @@
       <div class="contact-grid">
         <div class="reveal">
           <div class="contact-info">
-            <h3>오늘의 과외와 함께<br />성적을 바꿔보세요 📈</h3>
+            <h3>WeStudy와 함께<br />성적을 바꿔보세요 📈</h3>
             <p>
               학생의 현재 수준과 목표를 파악해<br />
               딱 맞는 선생님을 빠르게 연결해 드립니다.
@@ -920,11 +946,11 @@
   <!-- FOOTER -->
   <footer>
     <div class="footer-inner">
-      <div class="footer-logo">오늘의<span>학습</span></div>
+      <div class="footer-logo"><span style="display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;background:var(--navy);color:#fff;border-radius:5px;font-weight:900;font-size:0.75rem;margin-right:0.35rem">W</span>WeStudy <span style="font-weight:400;color:#9ca3b0;font-size:0.85em">위스터디</span></div>
       <p>2023 학부모가 뽑은 교육 브랜드 대상 수상 | 전국 방문·화상 과외 전문</p>
       <hr class="footer-divider" />
       <div class="footer-bottom">
-        <span>© 2024 오늘의 과외. All rights reserved.</span>
+        <span>© 2025 WeStudy 위스터디. All rights reserved.</span>
         <span>개인정보처리방침 · 이용약관</span>
       </div>
     </div>
