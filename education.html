@@ -61,6 +61,13 @@
     .nav-cta:hover{background:var(--white);color:var(--blue);border-color:var(--white)}
     .nav-mobile-btn{display:none}
 
+    /* MOBILE MENU */
+    .mobile-menu{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(10,15,30,.95);z-index:10000;flex-direction:column;align-items:center;justify-content:center;gap:.5rem}
+    .mobile-menu.open{display:flex}
+    .mobile-menu a{color:var(--white);text-decoration:none;font-size:1.25rem;font-weight:600;padding:1rem 2rem;border-radius:12px;transition:background .2s}
+    .mobile-menu a:hover{background:rgba(255,255,255,.1)}
+    .mobile-menu-close{position:absolute;top:1.25rem;right:1.5rem;background:none;border:none;color:var(--white);font-size:2rem;cursor:pointer}
+
     /* HERO */
     .page-hero{position:relative;background:var(--navy);padding:130px 5% 64px;overflow:hidden}
     .hero-dots{position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.04) 1px,transparent 1px);background-size:32px 32px}
@@ -203,8 +210,17 @@
     <li><a href="index.html#proof">수업 후기</a></li>
   </ul>
   <a href="index.html#cta" class="nav-cta">무료 상담 신청</a>
-  <button class="nav-mobile-btn" aria-label="메뉴">☰</button>
+  <button class="nav-mobile-btn" id="mobileBtn" aria-label="메뉴">☰</button>
 </nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-menu-close" id="mobileMenuClose">✕</button>
+  <a href="find-tutor.html">과외 찾기</a>
+  <a href="education.html">교육 정보</a>
+  <a href="hagwon.html">학원 상담</a>
+  <a href="index.html#cta">상담 신청</a>
+  <a href="index.html#proof">수업 후기</a>
+</div>
 
 <section class="page-hero">
   <div class="hero-dots"></div>
@@ -491,6 +507,8 @@
 
 <script>
   const nav=document.getElementById('mainNav');
+  document.getElementById('mobileBtn').addEventListener('click',()=>{document.getElementById('mobileMenu').classList.add('open')});
+  document.getElementById('mobileMenuClose').addEventListener('click',()=>{document.getElementById('mobileMenu').classList.remove('open')});
   window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>40)});
   const observer=new IntersectionObserver(e=>{e.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target)}})},{threshold:.08});
   document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
