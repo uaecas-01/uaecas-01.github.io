@@ -1,0 +1,21 @@
+User-agent: *
+Allow: /
+Disallow: /articles/*.draft
+
+# Search engine bots explicit allow
+User-agent: Googlebot
+Allow: /
+
+User-agent: Yeti
+Allow: /
+
+User-agent: NaverBot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Daumoa
+Allow: /
+
+Sitemap: https://westudymate.com/sitemap.xml
