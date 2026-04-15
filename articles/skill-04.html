@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>단순 반복 암기 말고 더 좋은 방법은 없을까? – WeStudy</title>
+<meta name="description" content="이미지 연상, 스토리텔링, 위치법 등 과학적으로 검증된 기억 테크닉 5가지를 소개합니다.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--navy:#0A1628;--blue:#1D4ED8;--blue-mid:#2563EB;--amber:#F59E0B;--bg:#F8FAFF;--white:#FFFFFF;--text:#111827;--gray-100:#F3F4F6;--gray-300:#D1D5DB;--gray-400:#9CA3AF;--gray-500:#6B7280;--gray-700:#374151}
+html{scroll-behavior:smooth}
+body{font-family:'Pretendard',sans-serif;color:var(--text);background:var(--bg);overflow-x:hidden}
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:0 5%;height:64px;background:var(--navy);transition:background .3s,box-shadow .3s}
+nav.scrolled{background:var(--white);box-shadow:0 2px 20px rgba(0,0,0,.08)}
+.nav-logo{display:flex;align-items:center;gap:.5rem;text-decoration:none}
+.logo-mark{background:var(--blue-mid);color:var(--white);width:32px;height:32px;border-radius:8px;display:grid;place-items:center;font-weight:900;font-size:1rem}
+.logo-name{color:var(--white);font-weight:800;font-size:1.1rem}
+nav.scrolled .logo-name{color:var(--navy)}
+.nav-links{display:flex;list-style:none;gap:2rem}
+.nav-links a{color:rgba(255,255,255,.8);text-decoration:none;font-size:.9rem;font-weight:500;transition:color .2s}
+.nav-links a:hover,.nav-links a.active{color:var(--white);font-weight:700}
+nav.scrolled .nav-links a{color:var(--gray-500)}
+nav.scrolled .nav-links a:hover,nav.scrolled .nav-links a.active{color:var(--navy)}
+.nav-cta{background:rgba(255,255,255,.15);color:var(--white);padding:.55rem 1.4rem;border-radius:50px;font-size:.875rem;font-weight:700;text-decoration:none;border:1.5px solid rgba(255,255,255,.35);transition:background .25s,color .25s}
+.nav-cta:hover{background:var(--white);color:var(--blue)}
+nav.scrolled .nav-cta{background:var(--blue);color:var(--white);border-color:var(--blue)}
+.nav-mobile-btn{display:none}
+.mobile-menu{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(10,15,30,.95);z-index:10000;flex-direction:column;align-items:center;justify-content:center;gap:.5rem}
+.mobile-menu.open{display:flex}
+.mobile-menu a{color:var(--white);text-decoration:none;font-size:1.25rem;font-weight:600;padding:1rem 2rem;border-radius:12px;transition:background .2s}
+.mobile-menu a:hover{background:rgba(255,255,255,.1)}
+.mobile-menu-close{position:absolute;top:1.25rem;right:1.5rem;background:none;border:none;color:var(--white);font-size:2rem;cursor:pointer}
+.article-hero{background:var(--navy);padding:120px 5% 60px;text-align:center}
+.article-hero .breadcrumb{color:rgba(255,255,255,.6);font-size:.85rem;margin-bottom:1rem}
+.article-hero .breadcrumb a{color:rgba(255,255,255,.6);text-decoration:none}
+.article-hero .breadcrumb a:hover{color:var(--white)}
+.article-hero h1{color:var(--white);font-size:2rem;font-weight:800;line-height:1.4;max-width:720px;margin:0 auto .75rem}
+.article-hero .meta{color:rgba(255,255,255,.5);font-size:.85rem;display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+.article-tags{display:flex;gap:.5rem;justify-content:center;margin-bottom:1rem}
+.article-tag{padding:.25rem .75rem;border-radius:50px;font-size:.75rem;font-weight:600}
+.tg-blue{background:rgba(29,78,216,.15);color:#60A5FA}
+.tg-amber{background:rgba(245,158,11,.15);color:#FBBF24}
+.tg-green{background:rgba(5,150,105,.15);color:#34D399}
+.tg-cyan{background:rgba(6,182,212,.15);color:#22D3EE}
+.tg-rose{background:rgba(244,63,94,.15);color:#FB7185}
+.article-body{max-width:720px;margin:0 auto;padding:3rem 1.5rem}
+.article-body h2{font-size:1.4rem;font-weight:800;color:var(--navy);margin:2.5rem 0 1rem;padding-bottom:.5rem;border-bottom:2px solid var(--gray-100)}
+.article-body h3{font-size:1.15rem;font-weight:700;color:var(--blue-mid);margin:1.5rem 0 .75rem}
+.article-body p{font-size:1rem;line-height:1.85;color:var(--gray-700);margin-bottom:1.25rem}
+.article-body ul,.article-body ol{margin:1rem 0 1.5rem 1.5rem;line-height:1.85;color:var(--gray-700)}
+.article-body li{margin-bottom:.5rem}
+.article-body .tip-box{background:linear-gradient(135deg,#EFF6FF,#F0F9FF);border-left:4px solid var(--blue-mid);padding:1.25rem 1.5rem;border-radius:0 12px 12px 0;margin:1.5rem 0;font-size:.95rem;line-height:1.7}
+.article-body .tip-box strong{color:var(--blue-mid)}
+.article-body .highlight-box{background:linear-gradient(135deg,#FEF3C7,#FFFBEB);border-left:4px solid var(--amber);padding:1.25rem 1.5rem;border-radius:0 12px 12px 0;margin:1.5rem 0;font-size:.95rem;line-height:1.7}
+.article-cta{text-align:center;padding:3rem 1.5rem 4rem;background:var(--gray-100);margin-top:2rem}
+.article-cta h2{font-size:1.4rem;font-weight:800;color:var(--navy);margin-bottom:.75rem}
+.article-cta p{color:var(--gray-500);margin-bottom:1.5rem;font-size:.95rem}
+.article-cta .cta-btn{display:inline-block;background:var(--blue);color:var(--white);padding:.9rem 2.5rem;border-radius:50px;font-weight:700;font-size:1rem;text-decoration:none;transition:background .2s}
+.article-cta .cta-btn:hover{background:var(--navy)}
+footer{background:var(--navy);color:rgba(255,255,255,.5);text-align:center;padding:2rem 5%;font-size:.8rem}
+footer a{color:rgba(255,255,255,.6);text-decoration:none}
+@media(max-width:768px){
+  .nav-links,.nav-cta{display:none}
+  .nav-mobile-btn{display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.12);border:1.5px solid rgba(255,255,255,.25);border-radius:8px;width:40px;height:40px;cursor:pointer;color:var(--white);font-size:1.2rem}
+  nav.scrolled .nav-mobile-btn{color:var(--navy);border-color:var(--gray-300);background:var(--gray-100)}
+  .article-hero h1{font-size:1.5rem}
+  .article-body{padding:2rem 1.25rem}
+}
+</style>
+</head>
+<body>
+<nav id="mainNav">
+  <a href="../index.html" class="nav-logo"><span class="logo-mark">W</span><span class="logo-name">WeStudy</span></a>
+  <ul class="nav-links">
+    <li><a href="../find-tutor.html">과외 찾기</a></li>
+    <li><a href="../education.html" class="active">교육 정보</a></li>
+    <li><a href="../hagwon.html">학원 상담</a></li>
+    <li><a href="../index.html#cta">상담 신청</a></li>
+    <li><a href="../index.html#proof">수업 후기</a></li>
+  </ul>
+  <a href="../index.html#cta" class="nav-cta">무료 상담 신청</a>
+  <button class="nav-mobile-btn" id="mobileBtn" aria-label="메뉴">☰</button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-menu-close" id="mobileMenuClose">✕</button>
+  <a href="../find-tutor.html">과외 찾기</a>
+  <a href="../education.html">교육 정보</a>
+  <a href="../hagwon.html">학원 상담</a>
+  <a href="../index.html#cta">상담 신청</a>
+  <a href="../index.html#proof">수업 후기</a>
+</div>
+
+<section class="article-hero">
+  <div class="breadcrumb"><a href="../index.html">홈</a> › <a href="../education.html">교육 정보</a> › 학습 스킬</div>
+  <div class="article-tags"><span class="article-tag tg-cyan">암기</span></div>
+  <h1>단순 반복 암기 말고 더 좋은 방법은 없을까?</h1>
+  <div class="meta"><span>⏱ 4분 읽기</span><span>📅 2026.03</span></div>
+</section>
+
+<article class="article-body">
+  <p>영어 단어를 100번 쓰며 외웠는데 다음 날이면 까먹고, 역사 연표를 반복해서 읽었는데 시험장에선 순서가 뒤죽박죽이 되는 경험. 대부분의 학생이 겪는 이 문제의 원인은 "단순 반복"에만 의존하기 때문입니다. 인지과학 연구에 따르면, 정보에 의미를 부여하고 기존 지식과 연결할 때 기억이 훨씬 오래 유지됩니다. 여기서 소개하는 5가지 기억 테크닉은 모두 이 원리를 기반으로 합니다.</p>
+
+  <h2>테크닉 1: 이미지 연상법 (Visualization)</h2>
+  <p>인간의 뇌는 텍스트보다 시각적 이미지를 훨씬 잘 기억합니다. 이를 "그림 우월 효과"라고 합니다. 외워야 할 정보를 생생한 이미지로 변환하면 기억 유지율이 크게 향상됩니다.</p>
+  <h3>활용 방법</h3>
+  <ul>
+    <li>영어 단어 "abandon(버리다)"을 외울 때, 버스 정류장(a ban)에 강아지를 버리고 떠나는 장면(don)을 상상합니다.</li>
+    <li>과학 개념을 외울 때, 해당 현상이 눈앞에서 벌어지는 것처럼 구체적으로 시각화합니다.</li>
+    <li>이미지가 과장되고 재미있을수록 기억에 잘 남습니다. 평범한 장면보다 엉뚱한 장면이 효과적입니다.</li>
+  </ul>
+
+  <div class="tip-box">
+    <strong>💡 실전 팁:</strong> 이미지를 머릿속으로만 그리지 말고, 실제로 간단한 그림을 노트에 스케치해보세요. 그리는 행위 자체가 뇌의 여러 영역을 활성화해서 기억을 더 강하게 만듭니다.
+  </div>
+
+  <h2>테크닉 2: 스토리텔링법 (Narrative Method)</h2>
+  <p>관련 없어 보이는 여러 개의 정보를 하나의 이야기로 연결하는 방법입니다. 우리 뇌는 독립적인 단어 목록보다 이야기 형태의 정보를 7배 이상 잘 기억한다는 연구 결과가 있습니다.</p>
+  <h3>활용 방법</h3>
+  <p>역사에서 조선 시대 주요 사건 순서를 외워야 한다면, 각 사건을 등장인물의 여정처럼 연결합니다. 단순히 연도를 나열하는 것이 아니라, 왜 이 사건이 다음 사건으로 이어졌는지 인과관계를 중심으로 이야기를 만듭니다.</p>
+  <ul>
+    <li>외워야 할 항목들을 순서대로 나열합니다.</li>
+    <li>첫 번째 항목부터 시작해서 다음 항목으로 자연스럽게 연결되는 이야기를 만듭니다.</li>
+    <li>이야기에 감정, 갈등, 반전을 넣으면 더 효과적입니다.</li>
+  </ul>
+
+  <h2>테크닉 3: 장소법 / 기억의 궁전 (Method of Loci)</h2>
+  <p>고대 그리스부터 사용된 가장 오래된 기억술 중 하나입니다. 자신이 잘 아는 장소(집, 학교 가는 길 등)의 특정 위치에 외워야 할 정보를 배치하는 방법입니다. 세계 기억력 챔피언십 참가자들이 가장 많이 사용하는 기법이기도 합니다.</p>
+  <h3>활용 방법</h3>
+  <ol>
+    <li><strong>익숙한 경로 선택:</strong> 집 현관부터 자기 방까지의 동선, 또는 학교 정문부터 교실까지의 경로를 정합니다.</li>
+    <li><strong>거점 설정:</strong> 경로 위에 5~10개의 뚜렷한 지점(현관문, 신발장, 거실 소파, 냉장고 등)을 정합니다.</li>
+    <li><strong>정보 배치:</strong> 외워야 할 각 항목을 해당 거점에 시각적으로 배치합니다. 예를 들어 "광합성"을 현관문에 배치한다면, 현관문에 거대한 나뭇잎이 자라고 있는 장면을 상상합니다.</li>
+    <li><strong>인출:</strong> 경로를 머릿속으로 걸으며 각 거점에 배치한 이미지를 떠올립니다.</li>
+  </ol>
+
+  <h2>테크닉 4: 청킹법 (Chunking)</h2>
+  <p>긴 정보를 의미 있는 덩어리(chunk)로 묶어서 기억하는 방법입니다. 인간의 단기 기억은 한 번에 약 7개(플러스마이너스 2개)의 항목만 처리할 수 있지만, 청킹을 통해 각 덩어리를 하나의 항목으로 취급하면 실질적으로 기억할 수 있는 총량이 늘어납니다.</p>
+  <h3>활용 방법</h3>
+  <ul>
+    <li><strong>전화번호 방식:</strong> 01012345678을 010-1234-5678로 나누듯, 긴 숫자나 정보를 3~4개씩 묶습니다.</li>
+    <li><strong>두문자어(Acronym):</strong> 여러 항목의 첫 글자를 모아 하나의 단어나 문장을 만듭니다. 예를 들어 태양계 행성 순서를 "수금지화목토천해"로 외웁니다.</li>
+    <li><strong>범주화:</strong> 외워야 할 30개의 영어 단어를 "동물", "음식", "감정" 등 범주별로 나누어 5~6개씩 묶으면 훨씬 쉽게 외울 수 있습니다.</li>
+  </ul>
+
+  <div class="highlight-box">
+    <strong>⚠️ 주의:</strong> 청킹은 이미 어느 정도 이해하고 있는 정보에 가장 효과적입니다. 전혀 모르는 내용을 억지로 묶으면 의미 없는 덩어리가 되어 오히려 혼란스러울 수 있습니다. 기본 개념 이해 후 청킹을 적용하세요.
+  </div>
+
+  <h2>테크닉 5: 정교화 전략 (Elaboration)</h2>
+  <p>새로운 정보에 자신만의 설명, 예시, 비유를 추가하여 풍부하게 만드는 방법입니다. 단순히 정보를 받아들이는 것이 아니라, 자신의 경험과 기존 지식에 연결하면 기억의 갈고리가 많아져 더 쉽게 떠올릴 수 있습니다.</p>
+  <h3>활용 방법</h3>
+  <ul>
+    <li><strong>"왜?"라고 질문하기:</strong> 모든 개념에 "왜 이렇게 되는 걸까?"를 질문하고 답을 찾습니다.</li>
+    <li><strong>자기 경험 연결:</strong> "이건 내가 ~했을 때의 경험과 비슷하다"와 같이 개인적 경험과 연결합니다.</li>
+    <li><strong>비유 만들기:</strong> "세포의 미토콘드리아는 공장의 발전기와 같다"처럼 익숙한 개념으로 비유합니다.</li>
+    <li><strong>다른 과목과 연결:</strong> 과학에서 배운 에너지 보존 법칙을 경제학의 자원 배분 개념과 연결해봅니다.</li>
+  </ul>
+
+  <h2>상황별 테크닉 선택 가이드</h2>
+  <ul>
+    <li><strong>단어/용어 암기:</strong> 이미지 연상법 + 간격 반복</li>
+    <li><strong>순서가 있는 정보:</strong> 스토리텔링법 또는 장소법</li>
+    <li><strong>대량의 목록:</strong> 청킹법 + 두문자어</li>
+    <li><strong>개념 이해 + 암기:</strong> 정교화 전략</li>
+    <li><strong>시험 직전 최종 복습:</strong> 장소법으로 핵심 개념 배치</li>
+  </ul>
+
+  <div class="tip-box">
+    <strong>💡 핵심 정리:</strong> 단순 반복은 가장 비효율적인 암기 방법입니다. 이미지 연상, 스토리텔링, 장소법, 청킹, 정교화 중 자신에게 맞는 2~3가지를 조합하여 사용하면 같은 시간에 2~3배 더 효과적으로 기억할 수 있습니다. 중요한 것은 한 가지라도 직접 시도해보는 것입니다.
+  </div>
+</article>
+
+<section class="article-cta">
+  <h2>우리 아이 맞춤 학습 전략이 필요하다면?</h2>
+  <p>WeStudy 학습 코치가 학생의 학습 유형에 맞는 암기 전략을 설계해 드립니다.</p>
+  <a href="../index.html#cta" class="cta-btn">무료 상담 신청하기 →</a>
+</section>
+
+<footer>
+  <div>© 2025 WeStudy 위스터디. All rights reserved. | <a href="../index.html">홈으로</a></div>
+</footer>
+
+<script>
+document.getElementById('mobileBtn').addEventListener('click',()=>{document.getElementById('mobileMenu').classList.add('open')});
+document.getElementById('mobileMenuClose').addEventListener('click',()=>{document.getElementById('mobileMenu').classList.remove('open')});
+const nav=document.getElementById('mainNav');
+window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>40)});
+</script>
+</body>
+</html>

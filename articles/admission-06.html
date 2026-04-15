@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>교과전형으로 가려면 내신 몇 등급이어야 할까? – WeStudy</title>
+<meta name="description" content="교과전형의 내신 반영 방식과 등급별 지원 가능 대학, 실전 지원 전략을 안내합니다.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--navy:#0A1628;--blue:#1D4ED8;--blue-mid:#2563EB;--amber:#F59E0B;--bg:#F8FAFF;--white:#FFFFFF;--text:#111827;--gray-100:#F3F4F6;--gray-300:#D1D5DB;--gray-400:#9CA3AF;--gray-500:#6B7280;--gray-700:#374151}
+html{scroll-behavior:smooth}
+body{font-family:'Pretendard',sans-serif;color:var(--text);background:var(--bg);overflow-x:hidden}
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:0 5%;height:64px;background:var(--navy);transition:background .3s,box-shadow .3s}
+nav.scrolled{background:var(--white);box-shadow:0 2px 20px rgba(0,0,0,.08)}
+.nav-logo{display:flex;align-items:center;gap:.5rem;text-decoration:none}
+.logo-mark{background:var(--blue-mid);color:var(--white);width:32px;height:32px;border-radius:8px;display:grid;place-items:center;font-weight:900;font-size:1rem}
+.logo-name{color:var(--white);font-weight:800;font-size:1.1rem}
+nav.scrolled .logo-name{color:var(--navy)}
+.nav-links{display:flex;list-style:none;gap:2rem}
+.nav-links a{color:rgba(255,255,255,.8);text-decoration:none;font-size:.9rem;font-weight:500;transition:color .2s}
+.nav-links a:hover,.nav-links a.active{color:var(--white);font-weight:700}
+nav.scrolled .nav-links a{color:var(--gray-500)}
+nav.scrolled .nav-links a:hover,nav.scrolled .nav-links a.active{color:var(--navy)}
+.nav-cta{background:rgba(255,255,255,.15);color:var(--white);padding:.55rem 1.4rem;border-radius:50px;font-size:.875rem;font-weight:700;text-decoration:none;border:1.5px solid rgba(255,255,255,.35);transition:background .25s,color .25s}
+.nav-cta:hover{background:var(--white);color:var(--blue)}
+nav.scrolled .nav-cta{background:var(--blue);color:var(--white);border-color:var(--blue)}
+.nav-mobile-btn{display:none}
+.mobile-menu{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(10,15,30,.95);z-index:10000;flex-direction:column;align-items:center;justify-content:center;gap:.5rem}
+.mobile-menu.open{display:flex}
+.mobile-menu a{color:var(--white);text-decoration:none;font-size:1.25rem;font-weight:600;padding:1rem 2rem;border-radius:12px;transition:background .2s}
+.mobile-menu a:hover{background:rgba(255,255,255,.1)}
+.mobile-menu-close{position:absolute;top:1.25rem;right:1.5rem;background:none;border:none;color:var(--white);font-size:2rem;cursor:pointer}
+.article-hero{background:var(--navy);padding:120px 5% 60px;text-align:center}
+.article-hero .breadcrumb{color:rgba(255,255,255,.6);font-size:.85rem;margin-bottom:1rem}
+.article-hero .breadcrumb a{color:rgba(255,255,255,.6);text-decoration:none}
+.article-hero .breadcrumb a:hover{color:var(--white)}
+.article-hero h1{color:var(--white);font-size:2rem;font-weight:800;line-height:1.4;max-width:720px;margin:0 auto .75rem}
+.article-hero .meta{color:rgba(255,255,255,.5);font-size:.85rem;display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+.article-tags{display:flex;gap:.5rem;justify-content:center;margin-bottom:1rem}
+.article-tag{padding:.25rem .75rem;border-radius:50px;font-size:.75rem;font-weight:600}
+.tg-blue{background:rgba(29,78,216,.15);color:#60A5FA}
+.tg-amber{background:rgba(245,158,11,.15);color:#FBBF24}
+.tg-green{background:rgba(5,150,105,.15);color:#34D399}
+.tg-cyan{background:rgba(6,182,212,.15);color:#22D3EE}
+.tg-rose{background:rgba(244,63,94,.15);color:#FB7185}
+.article-body{max-width:720px;margin:0 auto;padding:3rem 1.5rem}
+.article-body h2{font-size:1.4rem;font-weight:800;color:var(--navy);margin:2.5rem 0 1rem;padding-bottom:.5rem;border-bottom:2px solid var(--gray-100)}
+.article-body h3{font-size:1.15rem;font-weight:700;color:var(--blue-mid);margin:1.5rem 0 .75rem}
+.article-body p{font-size:1rem;line-height:1.85;color:var(--gray-700);margin-bottom:1.25rem}
+.article-body ul,.article-body ol{margin:1rem 0 1.5rem 1.5rem;line-height:1.85;color:var(--gray-700)}
+.article-body li{margin-bottom:.5rem}
+.article-body .tip-box{background:linear-gradient(135deg,#EFF6FF,#F0F9FF);border-left:4px solid var(--blue-mid);padding:1.25rem 1.5rem;border-radius:0 12px 12px 0;margin:1.5rem 0;font-size:.95rem;line-height:1.7}
+.article-body .tip-box strong{color:var(--blue-mid)}
+.article-body .highlight-box{background:linear-gradient(135deg,#FEF3C7,#FFFBEB);border-left:4px solid var(--amber);padding:1.25rem 1.5rem;border-radius:0 12px 12px 0;margin:1.5rem 0;font-size:.95rem;line-height:1.7}
+.article-cta{text-align:center;padding:3rem 1.5rem 4rem;background:var(--gray-100);margin-top:2rem}
+.article-cta h2{font-size:1.4rem;font-weight:800;color:var(--navy);margin-bottom:.75rem}
+.article-cta p{color:var(--gray-500);margin-bottom:1.5rem;font-size:.95rem}
+.article-cta .cta-btn{display:inline-block;background:var(--blue);color:var(--white);padding:.9rem 2.5rem;border-radius:50px;font-weight:700;font-size:1rem;text-decoration:none;transition:background .2s}
+.article-cta .cta-btn:hover{background:var(--navy)}
+footer{background:var(--navy);color:rgba(255,255,255,.5);text-align:center;padding:2rem 5%;font-size:.8rem}
+footer a{color:rgba(255,255,255,.6);text-decoration:none}
+@media(max-width:768px){
+  .nav-links,.nav-cta{display:none}
+  .nav-mobile-btn{display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.12);border:1.5px solid rgba(255,255,255,.25);border-radius:8px;width:40px;height:40px;cursor:pointer;color:var(--white);font-size:1.2rem}
+  nav.scrolled .nav-mobile-btn{color:var(--navy);border-color:var(--gray-300);background:var(--gray-100)}
+  .article-hero h1{font-size:1.5rem}
+  .article-body{padding:2rem 1.25rem}
+}
+</style>
+</head>
+<body>
+<nav id="mainNav">
+  <a href="../index.html" class="nav-logo"><span class="logo-mark">W</span><span class="logo-name">WeStudy</span></a>
+  <ul class="nav-links">
+    <li><a href="../find-tutor.html">과외 찾기</a></li>
+    <li><a href="../education.html" class="active">교육 정보</a></li>
+    <li><a href="../hagwon.html">학원 상담</a></li>
+    <li><a href="../index.html#cta">상담 신청</a></li>
+    <li><a href="../index.html#proof">수업 후기</a></li>
+  </ul>
+  <a href="../index.html#cta" class="nav-cta">무료 상담 신청</a>
+  <button class="nav-mobile-btn" id="mobileBtn" aria-label="메뉴">☰</button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-menu-close" id="mobileMenuClose">✕</button>
+  <a href="../find-tutor.html">과외 찾기</a>
+  <a href="../education.html">교육 정보</a>
+  <a href="../hagwon.html">학원 상담</a>
+  <a href="../index.html#cta">상담 신청</a>
+  <a href="../index.html#proof">수업 후기</a>
+</div>
+
+<section class="article-hero">
+  <div class="breadcrumb"><a href="../index.html">홈</a> › <a href="../education.html">교육 정보</a> › 입시·진로</div>
+  <div class="article-tags"><span class="article-tag tg-blue">입시</span></div>
+  <h1>교과전형으로 가려면 내신 몇 등급이어야 할까?</h1>
+  <div class="meta"><span>⏱ 5분 읽기</span><span>📅 2026.03</span></div>
+</section>
+
+<article class="article-body">
+  <p>교과전형은 학생부교과 성적을 중심으로 합격을 결정하는 전형으로, 내신 관리가 곧 합격 전략입니다. 하지만 같은 내신 등급이라도 대학마다 반영 방식이 달라서 유불리가 크게 갈릴 수 있습니다. 이 글에서는 교과전형의 내신 반영 방식을 상세히 분석하고, 등급별 지원 가능 범위와 실전 전략을 안내합니다.</p>
+
+  <h2>교과전형의 내신 반영 방식 이해하기</h2>
+  <p>교과전형에서 내신을 반영하는 방식은 대학마다 상당히 다릅니다. 단순히 전체 평균 등급만 보는 것이 아니라, 어떤 과목을 어떤 비율로 반영하는지에 따라 자신에게 유리한 대학이 달라집니다.</p>
+
+  <h3>반영 교과 유형</h3>
+  <ul>
+    <li><strong>전 교과 반영:</strong> 국어, 영어, 수학, 사회, 과학 등 전체 교과의 성적을 반영합니다. 모든 과목에서 고른 성적이 필요합니다.</li>
+    <li><strong>주요 교과 반영:</strong> 국어, 영어, 수학, 사회(또는 과학) 등 주요 교과만 반영합니다. 예체능 교과가 약한 학생에게 유리합니다.</li>
+    <li><strong>계열별 반영:</strong> 인문계열은 국어, 영어, 사회를, 자연계열은 수학, 영어, 과학을 높은 비율로 반영하는 방식입니다.</li>
+  </ul>
+
+  <h3>학년별 반영 비율</h3>
+  <p>대학에 따라 학년별 반영 비율이 다릅니다. 일부 대학은 1학년 20%, 2학년 40%, 3학년 40%로 반영하여 상위 학년의 성적에 더 큰 가중치를 둡니다. 반면 학년 구분 없이 전체 성적을 균등하게 반영하는 대학도 있습니다. 고1 성적이 좋지 않다면 상위 학년 비중이 높은 대학을 노리는 것이 전략적입니다.</p>
+
+  <h3>석차등급 vs 성취도 반영</h3>
+  <p>2025학년도부터 진로선택과목은 석차등급 대신 성취도(A, B, C)로 반영됩니다. 대학마다 성취도를 점수로 변환하는 방식이 다르므로, 진로선택과목의 성취도가 좋다면 이를 유리하게 반영하는 대학을 찾아야 합니다.</p>
+
+  <div class="tip-box">
+    <strong>💡 핵심 전략:</strong> 교과전형 지원 시 가장 먼저 해야 할 일은 지원 대학의 내신 반영 방식을 정확히 파악하는 것입니다. 대학 입학처 홈페이지에서 전형 요강을 다운로드하여 반영 교과, 반영 비율, 성적 산출 공식을 꼼꼼히 확인하세요.
+  </div>
+
+  <h2>등급별 지원 가능 범위 (일반적 기준)</h2>
+  <p>아래는 인문계열 교과전형 기준의 일반적인 가이드라인입니다. 실제 합격선은 대학, 학과, 연도에 따라 변동됩니다.</p>
+
+  <h3>1등급대 (1.0~1.9)</h3>
+  <p>서울 소재 상위권 대학의 교과전형에 지원할 수 있는 성적대입니다. 다만 서울 최상위 대학의 인기 학과는 교과전형 합격선이 1.2 이내로 매우 높으므로, 자신의 세부 성적을 정확히 계산해야 합니다.</p>
+
+  <h3>2등급대 (2.0~2.9)</h3>
+  <p>서울 중상위권 대학과 수도권 주요 대학에 지원할 수 있습니다. 이 구간에서는 대학별 내신 반영 방식의 차이를 활용하여 유리한 대학을 찾는 것이 중요합니다.</p>
+
+  <h3>3등급대 (3.0~3.9)</h3>
+  <p>서울 중위권 대학과 수도권 대학, 지방 거점 국립대에 지원할 수 있습니다. 학과에 따라 합격선 편차가 크므로 학과별 합격선을 개별적으로 확인해야 합니다.</p>
+
+  <h3>4등급 이하</h3>
+  <p>수도권 일부 대학과 지방 대학에 지원할 수 있습니다. 이 구간에서는 교과전형보다 학생부종합전형이나 정시전형을 병행하여 가능성을 넓히는 것이 좋습니다.</p>
+
+  <div class="highlight-box">
+    <strong>⚠️ 주의:</strong> 위 가이드라인은 평균적인 경향이며, 동일 등급이라도 반영 교과에 따라 환산 점수가 크게 달라질 수 있습니다. 예를 들어 국어 1등급, 수학 4등급인 학생의 평균은 2.5등급이지만, 국어 비중이 높은 대학과 수학 비중이 높은 대학에서의 환산점수는 매우 다릅니다.
+  </div>
+
+  <h2>교과전형 내신 관리 실전 전략</h2>
+  <p>교과전형을 목표로 한다면 내신 관리가 입시 준비의 핵심입니다. 다음의 전략을 참고하세요.</p>
+  <ol>
+    <li><strong>약한 과목 집중 보강:</strong> 전체 평균을 올리려면 이미 1등급인 과목보다 3~4등급인 과목의 성적을 올리는 것이 효과적입니다. 약한 과목에 학습 시간을 더 배분하세요.</li>
+    <li><strong>선택과목 전략:</strong> 선택과목을 정할 때 자신의 강점과 해당 과목의 수강 인원, 등급 분포를 함께 고려합니다. 수강 인원이 너무 적으면 1등급 받기가 어려울 수 있습니다.</li>
+    <li><strong>내신 시험 대비 루틴:</strong> 시험 3주 전부터 체계적으로 준비합니다. 교과서, 수업 필기, 프린트를 중심으로 개념을 정리하고, 기출문제와 예상문제를 반복 풀이합니다.</li>
+    <li><strong>수행평가 관리:</strong> 수행평가도 내신에 포함되므로 소홀히 하면 안 됩니다. 제출 기한을 엄수하고, 최대한 완성도 높은 결과물을 제출하세요.</li>
+    <li><strong>등급 추이 관리:</strong> 성적이 하락하는 추세보다 상승하는 추세가 유리합니다. 매 시험 후 성적을 분석하고 다음 시험의 개선 전략을 세우세요.</li>
+  </ol>
+
+  <div class="tip-box">
+    <strong>💡 마무리 조언:</strong> 교과전형은 가장 명확한 기준으로 합불이 결정되는 전형입니다. 자신의 내신 성적에 맞는 대학을 정확히 분석하고, 내신 반영 방식의 차이를 활용하여 최적의 지원 전략을 세우세요. 0.1등급의 차이가 합격을 가르기도 하므로 세밀한 계산이 중요합니다.
+  </div>
+</article>
+
+<section class="article-cta">
+  <h2>내신 등급에 맞는 대학 찾기가 어려우신가요?</h2>
+  <p>WeStudy 입시 전문가가 학생의 내신 프로필을 분석하여 최적의 교과전형 지원 전략을 설계합니다.</p>
+  <a href="../index.html#cta" class="cta-btn">무료 상담 신청하기 →</a>
+</section>
+
+<footer>
+  <div>© 2025 WeStudy 위스터디. All rights reserved. | <a href="../index.html">홈으로</a></div>
+</footer>
+
+<script>
+document.getElementById('mobileBtn').addEventListener('click',()=>{document.getElementById('mobileMenu').classList.add('open')});
+document.getElementById('mobileMenuClose').addEventListener('click',()=>{document.getElementById('mobileMenu').classList.remove('open')});
+const nav=document.getElementById('mainNav');
+window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>40)});
+</script>
+</body>
+</html>

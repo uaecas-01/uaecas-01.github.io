@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>공부하다 자꾸 폰을 보게 되는데, 어떡할까? – WeStudy</title>
+<meta name="description" content="공부 중 스마트폰 유혹을 차단하는 환경설정 방법과 디지털 디톡스 전략을 안내합니다.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--navy:#0A1628;--blue:#1D4ED8;--blue-mid:#2563EB;--amber:#F59E0B;--bg:#F8FAFF;--white:#FFFFFF;--text:#111827;--gray-100:#F3F4F6;--gray-300:#D1D5DB;--gray-400:#9CA3AF;--gray-500:#6B7280;--gray-700:#374151}
+html{scroll-behavior:smooth}
+body{font-family:'Pretendard',sans-serif;color:var(--text);background:var(--bg);overflow-x:hidden}
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:0 5%;height:64px;background:var(--navy);transition:background .3s,box-shadow .3s}
+nav.scrolled{background:var(--white);box-shadow:0 2px 20px rgba(0,0,0,.08)}
+.nav-logo{display:flex;align-items:center;gap:.5rem;text-decoration:none}
+.logo-mark{background:var(--blue-mid);color:var(--white);width:32px;height:32px;border-radius:8px;display:grid;place-items:center;font-weight:900;font-size:1rem}
+.logo-name{color:var(--white);font-weight:800;font-size:1.1rem}
+nav.scrolled .logo-name{color:var(--navy)}
+.nav-links{display:flex;list-style:none;gap:2rem}
+.nav-links a{color:rgba(255,255,255,.8);text-decoration:none;font-size:.9rem;font-weight:500;transition:color .2s}
+.nav-links a:hover,.nav-links a.active{color:var(--white);font-weight:700}
+nav.scrolled .nav-links a{color:var(--gray-500)}
+nav.scrolled .nav-links a:hover,nav.scrolled .nav-links a.active{color:var(--navy)}
+.nav-cta{background:rgba(255,255,255,.15);color:var(--white);padding:.55rem 1.4rem;border-radius:50px;font-size:.875rem;font-weight:700;text-decoration:none;border:1.5px solid rgba(255,255,255,.35);transition:background .25s,color .25s}
+.nav-cta:hover{background:var(--white);color:var(--blue)}
+nav.scrolled .nav-cta{background:var(--blue);color:var(--white);border-color:var(--blue)}
+.nav-mobile-btn{display:none}
+.mobile-menu{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(10,15,30,.95);z-index:10000;flex-direction:column;align-items:center;justify-content:center;gap:.5rem}
+.mobile-menu.open{display:flex}
+.mobile-menu a{color:var(--white);text-decoration:none;font-size:1.25rem;font-weight:600;padding:1rem 2rem;border-radius:12px;transition:background .2s}
+.mobile-menu a:hover{background:rgba(255,255,255,.1)}
+.mobile-menu-close{position:absolute;top:1.25rem;right:1.5rem;background:none;border:none;color:var(--white);font-size:2rem;cursor:pointer}
+.article-hero{background:var(--navy);padding:120px 5% 60px;text-align:center}
+.article-hero .breadcrumb{color:rgba(255,255,255,.6);font-size:.85rem;margin-bottom:1rem}
+.article-hero .breadcrumb a{color:rgba(255,255,255,.6);text-decoration:none}
+.article-hero .breadcrumb a:hover{color:var(--white)}
+.article-hero h1{color:var(--white);font-size:2rem;font-weight:800;line-height:1.4;max-width:720px;margin:0 auto .75rem}
+.article-hero .meta{color:rgba(255,255,255,.5);font-size:.85rem;display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+.article-tags{display:flex;gap:.5rem;justify-content:center;margin-bottom:1rem}
+.article-tag{padding:.25rem .75rem;border-radius:50px;font-size:.75rem;font-weight:600}
+.tg-blue{background:rgba(29,78,216,.15);color:#60A5FA}
+.tg-amber{background:rgba(245,158,11,.15);color:#FBBF24}
+.tg-green{background:rgba(5,150,105,.15);color:#34D399}
+.tg-cyan{background:rgba(6,182,212,.15);color:#22D3EE}
+.tg-rose{background:rgba(244,63,94,.15);color:#FB7185}
+.article-body{max-width:720px;margin:0 auto;padding:3rem 1.5rem}
+.article-body h2{font-size:1.4rem;font-weight:800;color:var(--navy);margin:2.5rem 0 1rem;padding-bottom:.5rem;border-bottom:2px solid var(--gray-100)}
+.article-body h3{font-size:1.15rem;font-weight:700;color:var(--blue-mid);margin:1.5rem 0 .75rem}
+.article-body p{font-size:1rem;line-height:1.85;color:var(--gray-700);margin-bottom:1.25rem}
+.article-body ul,.article-body ol{margin:1rem 0 1.5rem 1.5rem;line-height:1.85;color:var(--gray-700)}
+.article-body li{margin-bottom:.5rem}
+.article-body .tip-box{background:linear-gradient(135deg,#EFF6FF,#F0F9FF);border-left:4px solid var(--blue-mid);padding:1.25rem 1.5rem;border-radius:0 12px 12px 0;margin:1.5rem 0;font-size:.95rem;line-height:1.7}
+.article-body .tip-box strong{color:var(--blue-mid)}
+.article-body .highlight-box{background:linear-gradient(135deg,#FEF3C7,#FFFBEB);border-left:4px solid var(--amber);padding:1.25rem 1.5rem;border-radius:0 12px 12px 0;margin:1.5rem 0;font-size:.95rem;line-height:1.7}
+.article-cta{text-align:center;padding:3rem 1.5rem 4rem;background:var(--gray-100);margin-top:2rem}
+.article-cta h2{font-size:1.4rem;font-weight:800;color:var(--navy);margin-bottom:.75rem}
+.article-cta p{color:var(--gray-500);margin-bottom:1.5rem;font-size:.95rem}
+.article-cta .cta-btn{display:inline-block;background:var(--blue);color:var(--white);padding:.9rem 2.5rem;border-radius:50px;font-weight:700;font-size:1rem;text-decoration:none;transition:background .2s}
+.article-cta .cta-btn:hover{background:var(--navy)}
+footer{background:var(--navy);color:rgba(255,255,255,.5);text-align:center;padding:2rem 5%;font-size:.8rem}
+footer a{color:rgba(255,255,255,.6);text-decoration:none}
+@media(max-width:768px){
+  .nav-links,.nav-cta{display:none}
+  .nav-mobile-btn{display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.12);border:1.5px solid rgba(255,255,255,.25);border-radius:8px;width:40px;height:40px;cursor:pointer;color:var(--white);font-size:1.2rem}
+  nav.scrolled .nav-mobile-btn{color:var(--navy);border-color:var(--gray-300);background:var(--gray-100)}
+  .article-hero h1{font-size:1.5rem}
+  .article-body{padding:2rem 1.25rem}
+}
+</style>
+</head>
+<body>
+<nav id="mainNav">
+  <a href="../index.html" class="nav-logo"><span class="logo-mark">W</span><span class="logo-name">WeStudy</span></a>
+  <ul class="nav-links">
+    <li><a href="../find-tutor.html">과외 찾기</a></li>
+    <li><a href="../education.html" class="active">교육 정보</a></li>
+    <li><a href="../hagwon.html">학원 상담</a></li>
+    <li><a href="../index.html#cta">상담 신청</a></li>
+    <li><a href="../index.html#proof">수업 후기</a></li>
+  </ul>
+  <a href="../index.html#cta" class="nav-cta">무료 상담 신청</a>
+  <button class="nav-mobile-btn" id="mobileBtn" aria-label="메뉴">☰</button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-menu-close" id="mobileMenuClose">✕</button>
+  <a href="../find-tutor.html">과외 찾기</a>
+  <a href="../education.html">교육 정보</a>
+  <a href="../hagwon.html">학원 상담</a>
+  <a href="../index.html#cta">상담 신청</a>
+  <a href="../index.html#proof">수업 후기</a>
+</div>
+
+<section class="article-hero">
+  <div class="breadcrumb"><a href="../index.html">홈</a> › <a href="../education.html">교육 정보</a> › 학습 습관 &amp; 루틴</div>
+  <div class="article-tags"><span class="article-tag tg-rose">집중</span></div>
+  <h1>공부하다 자꾸 폰을 보게 되는데, 어떡할까?</h1>
+  <div class="meta"><span>⏱ 3분 읽기</span><span>📅 2026.03</span></div>
+</section>
+
+<article class="article-body">
+  <p>공부를 시작한 지 10분도 안 돼서 손이 저절로 스마트폰으로 향하는 경험, 누구나 해봤을 것입니다. 알림 하나를 확인하려다 SNS를 30분 넘게 스크롤하고, 다시 책상으로 돌아오면 집중력은 이미 바닥입니다. 스마트폰은 의지력만으로 이기기 어려운 상대입니다. 환경을 바꿔야 합니다.</p>
+
+  <h2>왜 의지력만으로는 부족한가?</h2>
+  <p>스마트폰은 뇌의 보상 회로를 자극하도록 설계되어 있습니다. 새 알림이 올 때마다 뇌에서 도파민이 분비되고, 이 쾌감을 다시 느끼고 싶어서 반복적으로 폰을 확인하게 됩니다. 이것은 의지의 문제가 아니라 뇌 구조의 문제입니다.</p>
+  <p>연구에 따르면 스마트폰이 시야에 보이기만 해도 인지 능력이 저하됩니다. 폰이 책상 위에 엎어져 있어도, 주머니 안에 있어도, 뇌의 일부가 계속 폰을 의식합니다. 따라서 물리적으로 폰을 멀리 두는 것이 가장 효과적인 첫 번째 전략입니다.</p>
+
+  <h2>물리적 격리: 가장 강력한 방법</h2>
+  <p>디지털 기기 유혹을 차단하는 가장 확실한 방법은 물리적으로 접근성을 낮추는 것입니다.</p>
+  <ul>
+    <li><strong>다른 방에 두기:</strong> 공부하는 방이 아닌 다른 방에 폰을 놓아둡니다. 거리가 멀수록 폰을 확인하려는 충동이 약해집니다.</li>
+    <li><strong>폰 보관함 사용:</strong> 타이머 잠금 기능이 있는 폰 보관함을 구매하면 설정한 시간 동안 물리적으로 폰을 꺼낼 수 없습니다.</li>
+    <li><strong>가방 안에 넣고 지퍼 잠그기:</strong> 다른 방에 둘 수 없는 환경이라면 가방 깊숙이 넣고 지퍼를 잠가서 꺼내는 데 여러 단계가 필요하도록 만듭니다.</li>
+  </ul>
+
+  <div class="tip-box">
+    <strong>💡 실전 팁:</strong> 폰을 꺼내기까지 걸리는 단계가 많을수록 효과적입니다. "서랍 열기 → 파우치 열기 → 전원 켜기"처럼 3단계 이상의 장벽을 만들면 충동적으로 폰을 잡는 행동이 크게 줄어듭니다.
+  </div>
+
+  <h2>소프트웨어 설정: 디지털 환경 세팅</h2>
+  <p>물리적 격리가 어려운 상황이라면 폰 자체의 설정을 조정해서 유혹을 줄일 수 있습니다.</p>
+  <ul>
+    <li><strong>집중 모드 활용:</strong> 아이폰의 "집중 모드"나 안드로이드의 "디지털 웰빙" 기능을 사용해 공부 시간 동안 SNS와 게임 앱의 알림을 차단합니다.</li>
+    <li><strong>앱 타이머 설정:</strong> 유튜브, 인스타그램 등 자주 사용하는 앱에 일일 사용 시간 제한을 설정합니다. 하루 30분 이내로 제한하면 자연스럽게 사용량이 줄어듭니다.</li>
+    <li><strong>흑백 모드 전환:</strong> 화면을 흑백으로 전환하면 시각적 자극이 줄어들어 폰의 매력이 크게 떨어집니다. 대부분의 스마트폰에서 접근성 설정에서 변경 가능합니다.</li>
+    <li><strong>홈 화면 정리:</strong> 첫 번째 화면에는 사전, 계산기 같은 학습용 앱만 남기고 SNS와 게임은 폴더 깊숙이 숨깁니다.</li>
+  </ul>
+
+  <h2>대체 행동 만들기</h2>
+  <p>폰을 보고 싶은 충동이 들 때, 그 에너지를 다른 곳으로 돌릴 대체 행동을 미리 정해두면 효과적입니다.</p>
+  <ol>
+    <li><strong>스트레칭 루틴:</strong> 폰이 보고 싶을 때 30초 스트레칭을 합니다. 몸을 움직이면 뇌의 주의가 전환됩니다.</li>
+    <li><strong>물 마시기:</strong> 물병을 책상에 두고, 폰 대신 물을 마시는 습관을 들입니다.</li>
+    <li><strong>짧은 메모 쓰기:</strong> 궁금한 것이 떠오르면 폰으로 검색하는 대신 포스트잇에 적어두고 공부 끝난 후에 확인합니다.</li>
+    <li><strong>타이머 확인:</strong> 뽀모도로 타이머의 남은 시간을 확인하며 "조금만 더"라는 동기를 부여합니다.</li>
+  </ol>
+
+  <div class="highlight-box">
+    <strong>⚠️ 주의:</strong> "공부할 때 폰으로 음악만 듣겠다"는 다짐은 대부분 실패합니다. 음악은 블루투스 스피커나 MP3 플레이어를 활용하고, 폰은 반드시 분리하세요.
+  </div>
+
+  <h2>부모님과 함께하는 약속 시스템</h2>
+  <p>혼자서 폰 사용을 통제하기 어렵다면, 가족과 함께하는 약속 시스템이 도움이 됩니다.</p>
+  <ul>
+    <li><strong>공부 시간 폰 맡기기:</strong> 공부 시작 전 부모님께 폰을 맡기고, 공부가 끝나면 돌려받는 방식입니다. 이때 부모님이 폰을 확인하지 않겠다는 상호 약속이 중요합니다.</li>
+    <li><strong>보상 연동:</strong> 일주일 동안 공부 시간에 폰을 보지 않으면, 주말에 추가 스마트폰 사용 시간을 보상으로 받는 구조를 만듭니다.</li>
+    <li><strong>가족 디지털 디톡스:</strong> 저녁 식사 시간이나 특정 시간대에 가족 모두가 폰을 모아두는 규칙을 만들면 아이만 규제하는 느낌이 줄어듭니다.</li>
+  </ul>
+
+  <div class="tip-box">
+    <strong>💡 핵심 정리:</strong> 스마트폰 유혹은 의지력이 아닌 환경 설계로 해결해야 합니다. 물리적 격리, 소프트웨어 설정, 대체 행동, 가족 약속 이 네 가지를 조합하면 공부 중 폰 사용을 효과적으로 줄일 수 있습니다.
+  </div>
+</article>
+
+<section class="article-cta">
+  <h2>우리 아이 집중력 향상이 필요하다면?</h2>
+  <p>WeStudy 학습 코치가 학생 맞춤 집중력 관리 전략을 함께 설계해 드립니다.</p>
+  <a href="../index.html#cta" class="cta-btn">무료 상담 신청하기 →</a>
+</section>
+
+<footer>
+  <div>© 2025 WeStudy 위스터디. All rights reserved. | <a href="../index.html">홈으로</a></div>
+</footer>
+
+<script>
+document.getElementById('mobileBtn').addEventListener('click',()=>{document.getElementById('mobileMenu').classList.add('open')});
+document.getElementById('mobileMenuClose').addEventListener('click',()=>{document.getElementById('mobileMenu').classList.remove('open')});
+const nav=document.getElementById('mainNav');
+window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>40)});
+</script>
+</body>
+</html>

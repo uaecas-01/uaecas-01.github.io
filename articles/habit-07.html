@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>"열심히 하자" 대신 어떤 목표를 세워야 할까? – WeStudy</title>
+<meta name="description" content="SMART 기법을 활용해 구체적이고 달성 가능한 학습 목표를 설정하는 방법을 안내합니다.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--navy:#0A1628;--blue:#1D4ED8;--blue-mid:#2563EB;--amber:#F59E0B;--bg:#F8FAFF;--white:#FFFFFF;--text:#111827;--gray-100:#F3F4F6;--gray-300:#D1D5DB;--gray-400:#9CA3AF;--gray-500:#6B7280;--gray-700:#374151}
+html{scroll-behavior:smooth}
+body{font-family:'Pretendard',sans-serif;color:var(--text);background:var(--bg);overflow-x:hidden}
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:0 5%;height:64px;background:var(--navy);transition:background .3s,box-shadow .3s}
+nav.scrolled{background:var(--white);box-shadow:0 2px 20px rgba(0,0,0,.08)}
+.nav-logo{display:flex;align-items:center;gap:.5rem;text-decoration:none}
+.logo-mark{background:var(--blue-mid);color:var(--white);width:32px;height:32px;border-radius:8px;display:grid;place-items:center;font-weight:900;font-size:1rem}
+.logo-name{color:var(--white);font-weight:800;font-size:1.1rem}
+nav.scrolled .logo-name{color:var(--navy)}
+.nav-links{display:flex;list-style:none;gap:2rem}
+.nav-links a{color:rgba(255,255,255,.8);text-decoration:none;font-size:.9rem;font-weight:500;transition:color .2s}
+.nav-links a:hover,.nav-links a.active{color:var(--white);font-weight:700}
+nav.scrolled .nav-links a{color:var(--gray-500)}
+nav.scrolled .nav-links a:hover,nav.scrolled .nav-links a.active{color:var(--navy)}
+.nav-cta{background:rgba(255,255,255,.15);color:var(--white);padding:.55rem 1.4rem;border-radius:50px;font-size:.875rem;font-weight:700;text-decoration:none;border:1.5px solid rgba(255,255,255,.35);transition:background .25s,color .25s}
+.nav-cta:hover{background:var(--white);color:var(--blue)}
+nav.scrolled .nav-cta{background:var(--blue);color:var(--white);border-color:var(--blue)}
+.nav-mobile-btn{display:none}
+.mobile-menu{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(10,15,30,.95);z-index:10000;flex-direction:column;align-items:center;justify-content:center;gap:.5rem}
+.mobile-menu.open{display:flex}
+.mobile-menu a{color:var(--white);text-decoration:none;font-size:1.25rem;font-weight:600;padding:1rem 2rem;border-radius:12px;transition:background .2s}
+.mobile-menu a:hover{background:rgba(255,255,255,.1)}
+.mobile-menu-close{position:absolute;top:1.25rem;right:1.5rem;background:none;border:none;color:var(--white);font-size:2rem;cursor:pointer}
+.article-hero{background:var(--navy);padding:120px 5% 60px;text-align:center}
+.article-hero .breadcrumb{color:rgba(255,255,255,.6);font-size:.85rem;margin-bottom:1rem}
+.article-hero .breadcrumb a{color:rgba(255,255,255,.6);text-decoration:none}
+.article-hero .breadcrumb a:hover{color:var(--white)}
+.article-hero h1{color:var(--white);font-size:2rem;font-weight:800;line-height:1.4;max-width:720px;margin:0 auto .75rem}
+.article-hero .meta{color:rgba(255,255,255,.5);font-size:.85rem;display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+.article-tags{display:flex;gap:.5rem;justify-content:center;margin-bottom:1rem}
+.article-tag{padding:.25rem .75rem;border-radius:50px;font-size:.75rem;font-weight:600}
+.tg-blue{background:rgba(29,78,216,.15);color:#60A5FA}
+.tg-amber{background:rgba(245,158,11,.15);color:#FBBF24}
+.tg-green{background:rgba(5,150,105,.15);color:#34D399}
+.tg-cyan{background:rgba(6,182,212,.15);color:#22D3EE}
+.tg-rose{background:rgba(244,63,94,.15);color:#FB7185}
+.article-body{max-width:720px;margin:0 auto;padding:3rem 1.5rem}
+.article-body h2{font-size:1.4rem;font-weight:800;color:var(--navy);margin:2.5rem 0 1rem;padding-bottom:.5rem;border-bottom:2px solid var(--gray-100)}
+.article-body h3{font-size:1.15rem;font-weight:700;color:var(--blue-mid);margin:1.5rem 0 .75rem}
+.article-body p{font-size:1rem;line-height:1.85;color:var(--gray-700);margin-bottom:1.25rem}
+.article-body ul,.article-body ol{margin:1rem 0 1.5rem 1.5rem;line-height:1.85;color:var(--gray-700)}
+.article-body li{margin-bottom:.5rem}
+.article-body .tip-box{background:linear-gradient(135deg,#EFF6FF,#F0F9FF);border-left:4px solid var(--blue-mid);padding:1.25rem 1.5rem;border-radius:0 12px 12px 0;margin:1.5rem 0;font-size:.95rem;line-height:1.7}
+.article-body .tip-box strong{color:var(--blue-mid)}
+.article-body .highlight-box{background:linear-gradient(135deg,#FEF3C7,#FFFBEB);border-left:4px solid var(--amber);padding:1.25rem 1.5rem;border-radius:0 12px 12px 0;margin:1.5rem 0;font-size:.95rem;line-height:1.7}
+.article-cta{text-align:center;padding:3rem 1.5rem 4rem;background:var(--gray-100);margin-top:2rem}
+.article-cta h2{font-size:1.4rem;font-weight:800;color:var(--navy);margin-bottom:.75rem}
+.article-cta p{color:var(--gray-500);margin-bottom:1.5rem;font-size:.95rem}
+.article-cta .cta-btn{display:inline-block;background:var(--blue);color:var(--white);padding:.9rem 2.5rem;border-radius:50px;font-weight:700;font-size:1rem;text-decoration:none;transition:background .2s}
+.article-cta .cta-btn:hover{background:var(--navy)}
+footer{background:var(--navy);color:rgba(255,255,255,.5);text-align:center;padding:2rem 5%;font-size:.8rem}
+footer a{color:rgba(255,255,255,.6);text-decoration:none}
+@media(max-width:768px){
+  .nav-links,.nav-cta{display:none}
+  .nav-mobile-btn{display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.12);border:1.5px solid rgba(255,255,255,.25);border-radius:8px;width:40px;height:40px;cursor:pointer;color:var(--white);font-size:1.2rem}
+  nav.scrolled .nav-mobile-btn{color:var(--navy);border-color:var(--gray-300);background:var(--gray-100)}
+  .article-hero h1{font-size:1.5rem}
+  .article-body{padding:2rem 1.25rem}
+}
+</style>
+</head>
+<body>
+<nav id="mainNav">
+  <a href="../index.html" class="nav-logo"><span class="logo-mark">W</span><span class="logo-name">WeStudy</span></a>
+  <ul class="nav-links">
+    <li><a href="../find-tutor.html">과외 찾기</a></li>
+    <li><a href="../education.html" class="active">교육 정보</a></li>
+    <li><a href="../hagwon.html">학원 상담</a></li>
+    <li><a href="../index.html#cta">상담 신청</a></li>
+    <li><a href="../index.html#proof">수업 후기</a></li>
+  </ul>
+  <a href="../index.html#cta" class="nav-cta">무료 상담 신청</a>
+  <button class="nav-mobile-btn" id="mobileBtn" aria-label="메뉴">☰</button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-menu-close" id="mobileMenuClose">✕</button>
+  <a href="../find-tutor.html">과외 찾기</a>
+  <a href="../education.html">교육 정보</a>
+  <a href="../hagwon.html">학원 상담</a>
+  <a href="../index.html#cta">상담 신청</a>
+  <a href="../index.html#proof">수업 후기</a>
+</div>
+
+<section class="article-hero">
+  <div class="breadcrumb"><a href="../index.html">홈</a> › <a href="../education.html">교육 정보</a> › 학습 습관 &amp; 루틴</div>
+  <div class="article-tags"><span class="article-tag tg-green">목표</span></div>
+  <h1>"열심히 하자" 대신 어떤 목표를 세워야 할까?</h1>
+  <div class="meta"><span>⏱ 4분 읽기</span><span>📅 2026.04</span></div>
+</section>
+
+<article class="article-body">
+  <p>"이번 학기에는 열심히 공부할 거야"라는 다짐을 해본 적 있나요? 이런 목표는 의욕은 높지만 실행력이 떨어집니다. 무엇을, 얼마나, 언제까지 해야 하는지 기준이 없기 때문입니다. 구체적인 목표가 있어야 매일의 행동이 달라지고, 결과를 측정할 수 있습니다. SMART 기법은 모호한 다짐을 실행 가능한 계획으로 바꿔주는 검증된 목표 설정 방법입니다.</p>
+
+  <h2>SMART 기법이란?</h2>
+  <p>SMART는 효과적인 목표가 갖춰야 할 다섯 가지 조건의 앞글자를 딴 것입니다. 각 조건을 학습 목표에 적용하는 방법을 살펴보겠습니다.</p>
+
+  <h3>S - Specific (구체적)</h3>
+  <p>목표는 누가 봐도 같은 의미로 해석할 수 있을 만큼 구체적이어야 합니다.</p>
+  <ul>
+    <li><strong>나쁜 예:</strong> "수학을 열심히 하겠다"</li>
+    <li><strong>좋은 예:</strong> "수학 이차함수 단원의 교과서 문제와 유형별 문제집을 풀겠다"</li>
+  </ul>
+  <p>구체적인 목표에는 과목명, 단원명, 사용할 교재, 해야 할 행동이 포함되어 있습니다. 목표를 읽었을 때 당장 무엇을 해야 하는지 알 수 있어야 합니다.</p>
+
+  <h3>M - Measurable (측정 가능한)</h3>
+  <p>달성 여부를 숫자로 확인할 수 있어야 합니다.</p>
+  <ul>
+    <li><strong>나쁜 예:</strong> "영어 단어를 많이 외우겠다"</li>
+    <li><strong>좋은 예:</strong> "영어 단어 하루 30개씩, 일주일에 총 210개를 외우겠다"</li>
+  </ul>
+  <p>숫자가 있으면 매일 진행 상황을 체크할 수 있고, 목표 달성 여부를 명확하게 판단할 수 있습니다. 또한 달성률을 기록하면 다음 목표 설정 시 현실적인 기준이 됩니다.</p>
+
+  <h3>A - Achievable (달성 가능한)</h3>
+  <p>너무 쉬우면 성장이 없고, 너무 어려우면 포기하게 됩니다. 현재 수준에서 노력하면 도달할 수 있는 적절한 난이도를 찾아야 합니다.</p>
+  <ul>
+    <li><strong>나쁜 예:</strong> 현재 수학 60점인 학생이 "다음 시험 100점 맞겠다"</li>
+    <li><strong>좋은 예:</strong> 현재 수학 60점인 학생이 "다음 시험 75점 이상 맞겠다"</li>
+  </ul>
+  <p>15점 상승은 충분히 도전적이면서도 현실적인 목표입니다. 이 목표를 달성한 후에 다시 15점 상승을 목표로 세우는 단계적 접근이 효과적입니다.</p>
+
+  <div class="tip-box">
+    <strong>💡 실전 팁:</strong> 목표가 달성 가능한지 판단하는 기준은 "현재 점수에서 10~20% 향상"입니다. 60점이면 66~72점, 80점이면 88~96점을 목표로 잡으세요. 이 범위를 벗어나면 비현실적이거나 너무 쉬운 목표입니다.
+  </div>
+
+  <h3>R - Relevant (관련성 있는)</h3>
+  <p>목표가 나의 전체 학습 방향과 연결되어 있어야 합니다. 시험에 나오지 않는 내용을 열심히 공부하거나, 당장 급하지 않은 과목에 시간을 쏟는 것은 비효율적입니다.</p>
+  <ul>
+    <li><strong>관련성 체크 질문:</strong> "이 목표를 달성하면 시험 점수(또는 내신 등급)에 직접적으로 도움이 되는가?"</li>
+    <li><strong>우선순위:</strong> 내신 반영 비율이 높은 과목, 현재 가장 취약한 과목의 목표가 우선입니다.</li>
+  </ul>
+
+  <h3>T - Time-bound (기한이 있는)</h3>
+  <p>마감 기한이 없는 목표는 영원히 미뤄지게 됩니다. 반드시 구체적인 날짜를 정합니다.</p>
+  <ul>
+    <li><strong>나쁜 예:</strong> "언젠가 영어 문법책을 끝내겠다"</li>
+    <li><strong>좋은 예:</strong> "4월 30일까지 영어 문법책 Chapter 1~5를 끝내겠다"</li>
+  </ul>
+  <p>기한이 있으면 역산 계획이 가능합니다. 4주 안에 5챕터를 끝내야 하면, 일주일에 1.25챕터, 하루에 약 5페이지라는 일일 목표가 자동으로 나옵니다.</p>
+
+  <h2>SMART 목표 작성 실전 예시</h2>
+  <p>위의 다섯 가지 요소를 모두 포함한 완성된 목표 예시를 살펴보겠습니다.</p>
+  <ol>
+    <li><strong>수학:</strong> "5월 중간고사(T)까지 이차함수 단원(S)의 유형별 문제 80개(M)를 풀고, 정답률 85% 이상(A)을 달성하여 수학 내신 2등급을 확보한다(R)"</li>
+    <li><strong>영어:</strong> "이번 달 말(T)까지 수능 영단어 Day 1~30(S)의 900개 단어(M)를 암기하고, 테스트에서 80% 이상 맞추어(A) 모의고사 독해 점수를 올린다(R)"</li>
+    <li><strong>과학:</strong> "기말고사 2주 전(T)까지 화학 반응식 단원(S)의 개념 정리 노트 10페이지(M)를 완성하고 기본 문제를 모두 풀어(A) 과학 내신을 보완한다(R)"</li>
+  </ol>
+
+  <div class="highlight-box">
+    <strong>⚠️ 주의:</strong> 한 번에 5개 이상의 SMART 목표를 세우면 관리가 어려워집니다. 가장 중요한 2~3개 목표에 집중하고, 달성 후에 새로운 목표를 추가하는 방식이 효과적입니다.
+  </div>
+
+  <h2>목표를 눈에 보이게 만들기</h2>
+  <p>목표를 세운 뒤 가장 중요한 것은 매일 눈에 띄는 곳에 두는 것입니다.</p>
+  <ul>
+    <li><strong>책상 앞 포스터:</strong> SMART 목표를 A4 용지에 적어 책상 앞에 붙입니다.</li>
+    <li><strong>폰 잠금 화면:</strong> 이번 달 핵심 목표를 잠금 화면 배경으로 설정합니다.</li>
+    <li><strong>학습 다이어리 첫 페이지:</strong> 다이어리를 펼칠 때마다 목표를 확인할 수 있도록 첫 페이지에 적어둡니다.</li>
+    <li><strong>진행률 시각화:</strong> 목표 달성률을 막대그래프나 체크리스트로 시각화하면 동기 부여 효과가 큽니다.</li>
+  </ul>
+
+  <div class="tip-box">
+    <strong>💡 핵심 정리:</strong> "열심히 하겠다"는 목표가 아닙니다. SMART 기법으로 구체적이고, 측정 가능하고, 달성 가능하고, 관련성 있고, 기한이 있는 목표를 세우세요. 모호한 다짐 10개보다 SMART 목표 2개가 훨씬 강력합니다.
+  </div>
+</article>
+
+<section class="article-cta">
+  <h2>우리 아이 맞춤 학습 목표 설정이 필요하다면?</h2>
+  <p>WeStudy 학습 코치가 학생의 현재 수준에 맞는 구체적인 목표와 실행 계획을 세워드립니다.</p>
+  <a href="../index.html#cta" class="cta-btn">무료 상담 신청하기 →</a>
+</section>
+
+<footer>
+  <div>© 2025 WeStudy 위스터디. All rights reserved. | <a href="../index.html">홈으로</a></div>
+</footer>
+
+<script>
+document.getElementById('mobileBtn').addEventListener('click',()=>{document.getElementById('mobileMenu').classList.add('open')});
+document.getElementById('mobileMenuClose').addEventListener('click',()=>{document.getElementById('mobileMenu').classList.remove('open')});
+const nav=document.getElementById('mainNav');
+window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>40)});
+</script>
+</body>
+</html>

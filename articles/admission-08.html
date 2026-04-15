@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>이공계와 인문계, 어떤 기준으로 결정해야 할까? – WeStudy</title>
+<meta name="description" content="성적, 흥미, 직업전망을 종합적으로 고려하여 이공계와 인문계를 결정하는 체크리스트를 안내합니다.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--navy:#0A1628;--blue:#1D4ED8;--blue-mid:#2563EB;--amber:#F59E0B;--bg:#F8FAFF;--white:#FFFFFF;--text:#111827;--gray-100:#F3F4F6;--gray-300:#D1D5DB;--gray-400:#9CA3AF;--gray-500:#6B7280;--gray-700:#374151}
+html{scroll-behavior:smooth}
+body{font-family:'Pretendard',sans-serif;color:var(--text);background:var(--bg);overflow-x:hidden}
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:0 5%;height:64px;background:var(--navy);transition:background .3s,box-shadow .3s}
+nav.scrolled{background:var(--white);box-shadow:0 2px 20px rgba(0,0,0,.08)}
+.nav-logo{display:flex;align-items:center;gap:.5rem;text-decoration:none}
+.logo-mark{background:var(--blue-mid);color:var(--white);width:32px;height:32px;border-radius:8px;display:grid;place-items:center;font-weight:900;font-size:1rem}
+.logo-name{color:var(--white);font-weight:800;font-size:1.1rem}
+nav.scrolled .logo-name{color:var(--navy)}
+.nav-links{display:flex;list-style:none;gap:2rem}
+.nav-links a{color:rgba(255,255,255,.8);text-decoration:none;font-size:.9rem;font-weight:500;transition:color .2s}
+.nav-links a:hover,.nav-links a.active{color:var(--white);font-weight:700}
+nav.scrolled .nav-links a{color:var(--gray-500)}
+nav.scrolled .nav-links a:hover,nav.scrolled .nav-links a.active{color:var(--navy)}
+.nav-cta{background:rgba(255,255,255,.15);color:var(--white);padding:.55rem 1.4rem;border-radius:50px;font-size:.875rem;font-weight:700;text-decoration:none;border:1.5px solid rgba(255,255,255,.35);transition:background .25s,color .25s}
+.nav-cta:hover{background:var(--white);color:var(--blue)}
+nav.scrolled .nav-cta{background:var(--blue);color:var(--white);border-color:var(--blue)}
+.nav-mobile-btn{display:none}
+.mobile-menu{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(10,15,30,.95);z-index:10000;flex-direction:column;align-items:center;justify-content:center;gap:.5rem}
+.mobile-menu.open{display:flex}
+.mobile-menu a{color:var(--white);text-decoration:none;font-size:1.25rem;font-weight:600;padding:1rem 2rem;border-radius:12px;transition:background .2s}
+.mobile-menu a:hover{background:rgba(255,255,255,.1)}
+.mobile-menu-close{position:absolute;top:1.25rem;right:1.5rem;background:none;border:none;color:var(--white);font-size:2rem;cursor:pointer}
+.article-hero{background:var(--navy);padding:120px 5% 60px;text-align:center}
+.article-hero .breadcrumb{color:rgba(255,255,255,.6);font-size:.85rem;margin-bottom:1rem}
+.article-hero .breadcrumb a{color:rgba(255,255,255,.6);text-decoration:none}
+.article-hero .breadcrumb a:hover{color:var(--white)}
+.article-hero h1{color:var(--white);font-size:2rem;font-weight:800;line-height:1.4;max-width:720px;margin:0 auto .75rem}
+.article-hero .meta{color:rgba(255,255,255,.5);font-size:.85rem;display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+.article-tags{display:flex;gap:.5rem;justify-content:center;margin-bottom:1rem}
+.article-tag{padding:.25rem .75rem;border-radius:50px;font-size:.75rem;font-weight:600}
+.tg-blue{background:rgba(29,78,216,.15);color:#60A5FA}
+.tg-amber{background:rgba(245,158,11,.15);color:#FBBF24}
+.tg-green{background:rgba(5,150,105,.15);color:#34D399}
+.tg-cyan{background:rgba(6,182,212,.15);color:#22D3EE}
+.tg-rose{background:rgba(244,63,94,.15);color:#FB7185}
+.article-body{max-width:720px;margin:0 auto;padding:3rem 1.5rem}
+.article-body h2{font-size:1.4rem;font-weight:800;color:var(--navy);margin:2.5rem 0 1rem;padding-bottom:.5rem;border-bottom:2px solid var(--gray-100)}
+.article-body h3{font-size:1.15rem;font-weight:700;color:var(--blue-mid);margin:1.5rem 0 .75rem}
+.article-body p{font-size:1rem;line-height:1.85;color:var(--gray-700);margin-bottom:1.25rem}
+.article-body ul,.article-body ol{margin:1rem 0 1.5rem 1.5rem;line-height:1.85;color:var(--gray-700)}
+.article-body li{margin-bottom:.5rem}
+.article-body .tip-box{background:linear-gradient(135deg,#EFF6FF,#F0F9FF);border-left:4px solid var(--blue-mid);padding:1.25rem 1.5rem;border-radius:0 12px 12px 0;margin:1.5rem 0;font-size:.95rem;line-height:1.7}
+.article-body .tip-box strong{color:var(--blue-mid)}
+.article-body .highlight-box{background:linear-gradient(135deg,#FEF3C7,#FFFBEB);border-left:4px solid var(--amber);padding:1.25rem 1.5rem;border-radius:0 12px 12px 0;margin:1.5rem 0;font-size:.95rem;line-height:1.7}
+.article-cta{text-align:center;padding:3rem 1.5rem 4rem;background:var(--gray-100);margin-top:2rem}
+.article-cta h2{font-size:1.4rem;font-weight:800;color:var(--navy);margin-bottom:.75rem}
+.article-cta p{color:var(--gray-500);margin-bottom:1.5rem;font-size:.95rem}
+.article-cta .cta-btn{display:inline-block;background:var(--blue);color:var(--white);padding:.9rem 2.5rem;border-radius:50px;font-weight:700;font-size:1rem;text-decoration:none;transition:background .2s}
+.article-cta .cta-btn:hover{background:var(--navy)}
+footer{background:var(--navy);color:rgba(255,255,255,.5);text-align:center;padding:2rem 5%;font-size:.8rem}
+footer a{color:rgba(255,255,255,.6);text-decoration:none}
+@media(max-width:768px){
+  .nav-links,.nav-cta{display:none}
+  .nav-mobile-btn{display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.12);border:1.5px solid rgba(255,255,255,.25);border-radius:8px;width:40px;height:40px;cursor:pointer;color:var(--white);font-size:1.2rem}
+  nav.scrolled .nav-mobile-btn{color:var(--navy);border-color:var(--gray-300);background:var(--gray-100)}
+  .article-hero h1{font-size:1.5rem}
+  .article-body{padding:2rem 1.25rem}
+}
+</style>
+</head>
+<body>
+<nav id="mainNav">
+  <a href="../index.html" class="nav-logo"><span class="logo-mark">W</span><span class="logo-name">WeStudy</span></a>
+  <ul class="nav-links">
+    <li><a href="../find-tutor.html">과외 찾기</a></li>
+    <li><a href="../education.html" class="active">교육 정보</a></li>
+    <li><a href="../hagwon.html">학원 상담</a></li>
+    <li><a href="../index.html#cta">상담 신청</a></li>
+    <li><a href="../index.html#proof">수업 후기</a></li>
+  </ul>
+  <a href="../index.html#cta" class="nav-cta">무료 상담 신청</a>
+  <button class="nav-mobile-btn" id="mobileBtn" aria-label="메뉴">☰</button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-menu-close" id="mobileMenuClose">✕</button>
+  <a href="../find-tutor.html">과외 찾기</a>
+  <a href="../education.html">교육 정보</a>
+  <a href="../hagwon.html">학원 상담</a>
+  <a href="../index.html#cta">상담 신청</a>
+  <a href="../index.html#proof">수업 후기</a>
+</div>
+
+<section class="article-hero">
+  <div class="breadcrumb"><a href="../index.html">홈</a> › <a href="../education.html">교육 정보</a> › 입시·진로</div>
+  <div class="article-tags"><span class="article-tag tg-green">진로</span></div>
+  <h1>이공계와 인문계, 어떤 기준으로 결정해야 할까?</h1>
+  <div class="meta"><span>⏱ 5분 읽기</span><span>📅 2026.03</span></div>
+</section>
+
+<article class="article-body">
+  <p>고등학교에 입학하면 가장 먼저 마주하는 중요한 선택 중 하나가 바로 문이과 선택입니다. 2015 개정 교육과정 이후 공식적인 문이과 구분은 사라졌지만, 선택과목 조합에 따라 사실상 인문 계열과 자연 계열로 나뉘게 됩니다. 이 결정이 대학 진학과 이후 진로에 큰 영향을 미치므로 신중하게 생각해야 합니다.</p>
+
+  <h2>성적만으로 결정하면 안 되는 이유</h2>
+  <p>많은 학생들이 수학 성적이 좋으면 이공계, 국어 성적이 좋으면 인문계라고 단순하게 생각합니다. 하지만 성적은 여러 판단 기준 중 하나일 뿐이며, 가장 중요한 것은 자신이 어떤 공부를 할 때 즐거움을 느끼는가입니다.</p>
+  <p>수학을 잘하지만 수학 문제 풀이 자체에 흥미가 없는 학생이 이공계를 선택하면, 대학에서 전공 수업을 따라가기 어려울 수 있습니다. 반대로 국어 성적이 다소 낮더라도 사회 현상을 분석하고 글로 표현하는 것에 흥미가 있다면 인문 계열에서 충분히 성장할 수 있습니다.</p>
+
+  <div class="tip-box">
+    <strong>💡 핵심 원칙:</strong> 계열 선택의 우선순위는 "흥미와 적성 > 성적 > 취업 전망" 순서입니다. 흥미가 있어야 꾸준히 공부할 수 있고, 꾸준히 공부해야 전문성이 쌓이며, 전문성이 있어야 좋은 직업을 가질 수 있습니다.
+  </div>
+
+  <h2>계열 선택 종합 체크리스트</h2>
+  <p>다음 항목들을 하나씩 체크하며 자신의 성향을 파악해 보세요.</p>
+
+  <h3>흥미와 적성 영역</h3>
+  <ol>
+    <li><strong>문제 해결 방식:</strong> 정답이 명확한 논리적 문제를 푸는 것이 좋은가(이공계 성향), 아니면 다양한 관점에서 해석하고 토론하는 것이 좋은가(인문계 성향)?</li>
+    <li><strong>관심 분야:</strong> 자연 현상의 원리, 기술, 프로그래밍에 관심이 있는가, 아니면 사회 현상, 역사, 언어, 문화에 관심이 있는가?</li>
+    <li><strong>선호하는 과목:</strong> 수학, 물리, 화학, 생물 수업이 재미있는가, 아니면 국어, 사회, 역사, 윤리 수업이 더 흥미로운가?</li>
+    <li><strong>여가 시간 활용:</strong> 실험이나 코딩을 하며 시간을 보내는 것이 즐거운가, 아니면 책을 읽거나 글을 쓰는 것이 더 좋은가?</li>
+  </ol>
+
+  <h3>성적과 학습 능력 영역</h3>
+  <ol>
+    <li><strong>수학 적응도:</strong> 수학 개념 이해와 응용 문제 풀이에 어려움이 없는가? 이공계는 대학에서도 수학이 필수입니다.</li>
+    <li><strong>과학 탐구 능력:</strong> 과학 과목에서 실험 설계와 데이터 분석이 흥미롭고 잘 수행할 수 있는가?</li>
+    <li><strong>언어 능력:</strong> 긴 지문을 읽고 분석하는 것, 논리적으로 글을 쓰는 것에 자신이 있는가?</li>
+    <li><strong>암기와 이해의 균형:</strong> 개념을 이해하고 적용하는 것이 편한가, 아니면 풍부한 지식을 쌓고 연결하는 것이 편한가?</li>
+  </ol>
+
+  <h3>직업 전망 영역</h3>
+  <ul>
+    <li><strong>이공계 진출 분야:</strong> 공학, IT, 의약학, 자연과학 연구, 데이터 분석, AI 개발 등. 최근 기술 분야의 인력 수요가 높아 취업에 유리한 측면이 있습니다.</li>
+    <li><strong>인문계 진출 분야:</strong> 법학, 경영, 미디어, 교육, 행정, 외교, 금융, 콘텐츠 기획 등. 전문성과 경험에 따라 다양한 분야로 진출할 수 있습니다.</li>
+    <li><strong>융합 분야:</strong> 최근에는 문이과 경계가 무너지는 추세입니다. 경영학과에서 데이터 분석을 하고, 공학과에서 경영 전략을 배우는 등 융합 역량이 중요해지고 있습니다.</li>
+  </ul>
+
+  <div class="highlight-box">
+    <strong>⚠️ 주의:</strong> 취업률이나 연봉만 보고 계열을 선택하면 대학 4년 동안 흥미 없는 공부를 해야 할 수 있습니다. 또한 직업 시장은 계속 변화하기 때문에 현재의 트렌드가 졸업 후에도 유지될 것이라고 단정할 수 없습니다. 자신의 적성에 맞는 선택이 결국 가장 경쟁력 있는 선택입니다.
+  </div>
+
+  <h2>결정이 어려울 때의 해결법</h2>
+  <p>체크리스트를 작성해도 결정이 어려운 것은 자연스러운 일입니다. 다음의 방법을 시도해 보세요.</p>
+  <ul>
+    <li><strong>체험 활동 참여:</strong> 대학의 학과 체험 프로그램, 진로 캠프 등에 참여하여 양쪽 분야를 직접 경험해 봅니다.</li>
+    <li><strong>선배 상담:</strong> 각 계열을 선택한 선배들에게 실제 경험담을 들어봅니다. 예상과 달랐던 점, 좋았던 점을 물어보세요.</li>
+    <li><strong>선택과목 시뮬레이션:</strong> 이공계와 인문계 각각의 선택과목 조합을 만들어보고, 어느 쪽이 더 공부하고 싶은 과목이 많은지 비교합니다.</li>
+    <li><strong>진로 상담:</strong> 학교 진로 상담 교사나 외부 전문가에게 적성검사 결과를 가지고 상담을 받아봅니다.</li>
+  </ul>
+
+  <div class="tip-box">
+    <strong>💡 마무리 조언:</strong> 문이과 선택에 정답은 없습니다. 다만 이 선택이 이후의 선택과목, 대학 지원, 직업 선택에 영향을 미치므로 충분한 탐색과 고민 끝에 결정하되, 한번 결정한 후에는 그 방향에서 최선을 다하는 것이 중요합니다. 선택 후에도 방향을 수정할 기회는 충분히 있으니 너무 큰 부담을 갖지 마세요.
+  </div>
+</article>
+
+<section class="article-cta">
+  <h2>계열 선택이 고민이신가요?</h2>
+  <p>WeStudy 진로 상담사가 학생의 적성과 성적을 종합 분석하여 최적의 방향을 제안합니다.</p>
+  <a href="../index.html#cta" class="cta-btn">무료 상담 신청하기 →</a>
+</section>
+
+<footer>
+  <div>© 2025 WeStudy 위스터디. All rights reserved. | <a href="../index.html">홈으로</a></div>
+</footer>
+
+<script>
+document.getElementById('mobileBtn').addEventListener('click',()=>{document.getElementById('mobileMenu').classList.add('open')});
+document.getElementById('mobileMenuClose').addEventListener('click',()=>{document.getElementById('mobileMenu').classList.remove('open')});
+const nav=document.getElementById('mainNav');
+window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>40)});
+</script>
+</body>
+</html>

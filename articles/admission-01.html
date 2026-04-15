@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>학생부 종합전형, 고1부터 뭘 준비해야 할까? – WeStudy</title>
+<meta name="description" content="학생부종합전형의 평가요소와 고등학교 1학년부터 단계별로 준비하는 전략을 안내합니다.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--navy:#0A1628;--blue:#1D4ED8;--blue-mid:#2563EB;--amber:#F59E0B;--bg:#F8FAFF;--white:#FFFFFF;--text:#111827;--gray-100:#F3F4F6;--gray-300:#D1D5DB;--gray-400:#9CA3AF;--gray-500:#6B7280;--gray-700:#374151}
+html{scroll-behavior:smooth}
+body{font-family:'Pretendard',sans-serif;color:var(--text);background:var(--bg);overflow-x:hidden}
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:0 5%;height:64px;background:var(--navy);transition:background .3s,box-shadow .3s}
+nav.scrolled{background:var(--white);box-shadow:0 2px 20px rgba(0,0,0,.08)}
+.nav-logo{display:flex;align-items:center;gap:.5rem;text-decoration:none}
+.logo-mark{background:var(--blue-mid);color:var(--white);width:32px;height:32px;border-radius:8px;display:grid;place-items:center;font-weight:900;font-size:1rem}
+.logo-name{color:var(--white);font-weight:800;font-size:1.1rem}
+nav.scrolled .logo-name{color:var(--navy)}
+.nav-links{display:flex;list-style:none;gap:2rem}
+.nav-links a{color:rgba(255,255,255,.8);text-decoration:none;font-size:.9rem;font-weight:500;transition:color .2s}
+.nav-links a:hover,.nav-links a.active{color:var(--white);font-weight:700}
+nav.scrolled .nav-links a{color:var(--gray-500)}
+nav.scrolled .nav-links a:hover,nav.scrolled .nav-links a.active{color:var(--navy)}
+.nav-cta{background:rgba(255,255,255,.15);color:var(--white);padding:.55rem 1.4rem;border-radius:50px;font-size:.875rem;font-weight:700;text-decoration:none;border:1.5px solid rgba(255,255,255,.35);transition:background .25s,color .25s}
+.nav-cta:hover{background:var(--white);color:var(--blue)}
+nav.scrolled .nav-cta{background:var(--blue);color:var(--white);border-color:var(--blue)}
+.nav-mobile-btn{display:none}
+.mobile-menu{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(10,15,30,.95);z-index:10000;flex-direction:column;align-items:center;justify-content:center;gap:.5rem}
+.mobile-menu.open{display:flex}
+.mobile-menu a{color:var(--white);text-decoration:none;font-size:1.25rem;font-weight:600;padding:1rem 2rem;border-radius:12px;transition:background .2s}
+.mobile-menu a:hover{background:rgba(255,255,255,.1)}
+.mobile-menu-close{position:absolute;top:1.25rem;right:1.5rem;background:none;border:none;color:var(--white);font-size:2rem;cursor:pointer}
+.article-hero{background:var(--navy);padding:120px 5% 60px;text-align:center}
+.article-hero .breadcrumb{color:rgba(255,255,255,.6);font-size:.85rem;margin-bottom:1rem}
+.article-hero .breadcrumb a{color:rgba(255,255,255,.6);text-decoration:none}
+.article-hero .breadcrumb a:hover{color:var(--white)}
+.article-hero h1{color:var(--white);font-size:2rem;font-weight:800;line-height:1.4;max-width:720px;margin:0 auto .75rem}
+.article-hero .meta{color:rgba(255,255,255,.5);font-size:.85rem;display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+.article-tags{display:flex;gap:.5rem;justify-content:center;margin-bottom:1rem}
+.article-tag{padding:.25rem .75rem;border-radius:50px;font-size:.75rem;font-weight:600}
+.tg-blue{background:rgba(29,78,216,.15);color:#60A5FA}
+.tg-amber{background:rgba(245,158,11,.15);color:#FBBF24}
+.tg-green{background:rgba(5,150,105,.15);color:#34D399}
+.tg-cyan{background:rgba(6,182,212,.15);color:#22D3EE}
+.tg-rose{background:rgba(244,63,94,.15);color:#FB7185}
+.article-body{max-width:720px;margin:0 auto;padding:3rem 1.5rem}
+.article-body h2{font-size:1.4rem;font-weight:800;color:var(--navy);margin:2.5rem 0 1rem;padding-bottom:.5rem;border-bottom:2px solid var(--gray-100)}
+.article-body h3{font-size:1.15rem;font-weight:700;color:var(--blue-mid);margin:1.5rem 0 .75rem}
+.article-body p{font-size:1rem;line-height:1.85;color:var(--gray-700);margin-bottom:1.25rem}
+.article-body ul,.article-body ol{margin:1rem 0 1.5rem 1.5rem;line-height:1.85;color:var(--gray-700)}
+.article-body li{margin-bottom:.5rem}
+.article-body .tip-box{background:linear-gradient(135deg,#EFF6FF,#F0F9FF);border-left:4px solid var(--blue-mid);padding:1.25rem 1.5rem;border-radius:0 12px 12px 0;margin:1.5rem 0;font-size:.95rem;line-height:1.7}
+.article-body .tip-box strong{color:var(--blue-mid)}
+.article-body .highlight-box{background:linear-gradient(135deg,#FEF3C7,#FFFBEB);border-left:4px solid var(--amber);padding:1.25rem 1.5rem;border-radius:0 12px 12px 0;margin:1.5rem 0;font-size:.95rem;line-height:1.7}
+.article-cta{text-align:center;padding:3rem 1.5rem 4rem;background:var(--gray-100);margin-top:2rem}
+.article-cta h2{font-size:1.4rem;font-weight:800;color:var(--navy);margin-bottom:.75rem}
+.article-cta p{color:var(--gray-500);margin-bottom:1.5rem;font-size:.95rem}
+.article-cta .cta-btn{display:inline-block;background:var(--blue);color:var(--white);padding:.9rem 2.5rem;border-radius:50px;font-weight:700;font-size:1rem;text-decoration:none;transition:background .2s}
+.article-cta .cta-btn:hover{background:var(--navy)}
+footer{background:var(--navy);color:rgba(255,255,255,.5);text-align:center;padding:2rem 5%;font-size:.8rem}
+footer a{color:rgba(255,255,255,.6);text-decoration:none}
+@media(max-width:768px){
+  .nav-links,.nav-cta{display:none}
+  .nav-mobile-btn{display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.12);border:1.5px solid rgba(255,255,255,.25);border-radius:8px;width:40px;height:40px;cursor:pointer;color:var(--white);font-size:1.2rem}
+  nav.scrolled .nav-mobile-btn{color:var(--navy);border-color:var(--gray-300);background:var(--gray-100)}
+  .article-hero h1{font-size:1.5rem}
+  .article-body{padding:2rem 1.25rem}
+}
+</style>
+</head>
+<body>
+<nav id="mainNav">
+  <a href="../index.html" class="nav-logo"><span class="logo-mark">W</span><span class="logo-name">WeStudy</span></a>
+  <ul class="nav-links">
+    <li><a href="../find-tutor.html">과외 찾기</a></li>
+    <li><a href="../education.html" class="active">교육 정보</a></li>
+    <li><a href="../hagwon.html">학원 상담</a></li>
+    <li><a href="../index.html#cta">상담 신청</a></li>
+    <li><a href="../index.html#proof">수업 후기</a></li>
+  </ul>
+  <a href="../index.html#cta" class="nav-cta">무료 상담 신청</a>
+  <button class="nav-mobile-btn" id="mobileBtn" aria-label="메뉴">☰</button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-menu-close" id="mobileMenuClose">✕</button>
+  <a href="../find-tutor.html">과외 찾기</a>
+  <a href="../education.html">교육 정보</a>
+  <a href="../hagwon.html">학원 상담</a>
+  <a href="../index.html#cta">상담 신청</a>
+  <a href="../index.html#proof">수업 후기</a>
+</div>
+
+<section class="article-hero">
+  <div class="breadcrumb"><a href="../index.html">홈</a> › <a href="../education.html">교육 정보</a> › 입시·진로</div>
+  <div class="article-tags"><span class="article-tag tg-blue">입시</span></div>
+  <h1>학생부 종합전형, 고1부터 뭘 준비해야 할까?</h1>
+  <div class="meta"><span>⏱ 6분 읽기</span><span>📅 2026.04</span></div>
+</section>
+
+<article class="article-body">
+  <p>학생부종합전형은 단순히 성적만으로 합격이 결정되지 않는 전형입니다. 학업역량, 진로역량, 공동체역량 등 다양한 평가요소를 종합적으로 살펴보기 때문에 고등학교 1학년부터 체계적으로 준비하는 것이 매우 중요합니다. 이 글에서는 학생부종합전형의 핵심 평가요소를 분석하고, 학년별로 어떤 준비를 해야 하는지 구체적인 전략을 안내합니다.</p>
+
+  <h2>학생부종합전형, 무엇을 평가하는가?</h2>
+  <p>대부분의 대학에서 학생부종합전형은 크게 세 가지 역량을 평가합니다. 첫째는 학업역량으로 교과 성적뿐만 아니라 학업에 대한 태도와 탐구 능력을 봅니다. 둘째는 진로역량으로 자신의 진로에 대한 관심과 탐색 노력을 평가합니다. 셋째는 공동체역량으로 협업 능력, 리더십, 나눔과 배려의 실천을 살핍니다.</p>
+
+  <h3>학업역량: 단순 성적 그 이상</h3>
+  <p>학업역량에서 중요한 것은 내신 등급 자체보다 학업의 깊이와 성장 추이입니다. 예를 들어 고1 때 3등급이었던 학생이 고3 때 1등급까지 올랐다면, 이는 꾸준한 학업 노력과 성장 가능성을 보여주는 강력한 근거가 됩니다. 또한 수업 시간에 질문하고 탐구 활동에 적극적으로 참여하는 모습이 세부능력특기사항에 기록되는 것도 중요합니다.</p>
+
+  <h3>진로역량: 일관된 관심의 흐름</h3>
+  <p>대학은 지원자가 해당 학과에 왜 지원했는지, 그 관심이 진정성 있는 것인지를 판단합니다. 이를 위해서는 고등학교 3년간 일관된 진로 탐색 활동이 기록되어야 합니다. 동아리 활동, 독서 기록, 수업 중 탐구 주제 등이 하나의 방향성을 가지고 연결되어야 설득력이 생깁니다.</p>
+
+  <h3>공동체역량: 함께 성장하는 모습</h3>
+  <p>개인의 우수성뿐 아니라 다른 사람과 협력하고, 공동체에 기여하는 모습도 중요한 평가 대상입니다. 학급 임원 활동, 모둠 프로젝트에서의 역할, 봉사활동 등을 통해 이 역량을 보여줄 수 있습니다.</p>
+
+  <div class="tip-box">
+    <strong>💡 핵심 포인트:</strong> 학생부종합전형에서 가장 중요한 것은 '진정성'입니다. 스펙을 쌓기 위한 활동이 아니라, 자신의 관심사를 깊이 있게 탐구하고 성장해 나가는 과정이 학생부에 자연스럽게 드러나야 합니다.
+  </div>
+
+  <h2>고1: 기초 다지기와 탐색의 해</h2>
+  <p>고등학교 1학년은 본격적인 입시 준비의 시작점입니다. 이 시기에는 두 가지에 집중해야 합니다. 내신 관리의 기반을 잡는 것과 다양한 분야를 탐색하며 자신의 관심 영역을 찾는 것입니다.</p>
+  <ul>
+    <li><strong>내신 기반 확보:</strong> 고1 내신은 전체 학생부에서 큰 비중을 차지합니다. 특히 국어, 영어, 수학 주요 교과의 기초를 단단히 잡아야 이후 학년에서의 성적 상승이 가능합니다.</li>
+    <li><strong>다양한 활동 참여:</strong> 아직 진로가 확정되지 않은 시기이므로 여러 동아리, 교내 대회, 봉사활동에 참여하며 자신이 어떤 분야에 흥미를 느끼는지 탐색합니다.</li>
+    <li><strong>독서 습관 형성:</strong> 관심 분야와 관련된 책을 읽고 독서 기록을 남깁니다. 이때의 독서 경험이 이후 자기소개서와 면접에서 중요한 소재가 됩니다.</li>
+    <li><strong>세특 기록 의식하기:</strong> 수업 시간에 발표, 질문, 탐구 보고서 작성 등에 적극 참여하여 세부능력특기사항에 의미 있는 기록이 남도록 합니다.</li>
+  </ul>
+
+  <h2>고2: 방향 설정과 심화의 해</h2>
+  <p>고등학교 2학년은 진로 방향을 구체화하고 관련 활동을 심화하는 시기입니다. 고1 때 탐색한 관심 분야 중에서 가장 끌리는 영역을 선택하고, 이를 중심으로 활동의 깊이를 더해야 합니다.</p>
+  <ul>
+    <li><strong>진로 방향 확정:</strong> 관심 학과를 2~3개로 좁히고, 해당 학과의 교육과정과 졸업 후 진로를 조사합니다. 대학 홈페이지의 학과 소개, 선배 인터뷰 등을 활용합니다.</li>
+    <li><strong>심화 탐구 활동:</strong> 선택한 진로 분야와 관련된 심화 탐구를 진행합니다. 수업 내용과 연계하여 소논문을 작성하거나, 실험을 설계하고 결과를 분석하는 활동이 효과적입니다.</li>
+    <li><strong>내신 성적 관리 강화:</strong> 고2 내신은 대입에서 가장 중요한 비중을 차지하는 경우가 많습니다. 특히 지원 학과와 관련된 교과목에서 높은 성적을 받는 것이 유리합니다.</li>
+    <li><strong>리더십 활동:</strong> 동아리 부장, 학급 임원 등의 역할을 맡아 공동체역량을 보여줄 수 있는 경험을 쌓습니다.</li>
+  </ul>
+
+  <div class="highlight-box">
+    <strong>⚠️ 주의:</strong> 활동의 양보다 질이 중요합니다. 10개의 피상적인 활동보다 2~3개의 활동을 깊이 있게 수행하고, 그 과정에서 배우고 성장한 점을 구체적으로 기록하는 것이 훨씬 효과적입니다.
+  </div>
+
+  <h2>고3: 완성과 지원 전략의 해</h2>
+  <p>고등학교 3학년은 그동안 쌓아온 학생부를 정리하고 최적의 지원 전략을 세우는 시기입니다. 이 시기에는 새로운 활동을 시작하기보다 기존 활동을 마무리하고, 자기소개서와 면접을 준비하는 데 집중해야 합니다.</p>
+  <ul>
+    <li><strong>학생부 점검:</strong> 고1부터 고3까지의 학생부를 통째로 읽어보며 활동의 일관성, 성장 스토리가 잘 드러나는지 확인합니다. 부족한 부분이 있다면 1학기 안에 보완합니다.</li>
+    <li><strong>지원 대학과 전형 선택:</strong> 자신의 학생부 프로필에 가장 유리한 대학과 전형을 선택합니다. 대학마다 평가 기준이 다르므로 입학처 홈페이지의 전형 안내를 꼼꼼히 확인합니다.</li>
+    <li><strong>자기소개서 작성:</strong> 학생부에 기록된 활동 중 가장 의미 있었던 경험을 중심으로 자신만의 이야기를 구성합니다. 여러 차례 수정과 피드백을 거쳐 완성도를 높입니다.</li>
+    <li><strong>면접 준비:</strong> 지원 대학의 면접 유형을 파악하고, 예상 질문에 대한 답변을 준비합니다. 실전처럼 모의 면접을 반복하며 자신감을 기릅니다.</li>
+  </ul>
+
+  <h2>학년별 체크리스트 요약</h2>
+  <ol>
+    <li><strong>고1:</strong> 내신 기반 확보, 다양한 활동 탐색, 독서 습관 형성, 세특 기록 시작</li>
+    <li><strong>고2:</strong> 진로 방향 확정, 심화 탐구 활동, 내신 관리 강화, 리더십 경험 확보</li>
+    <li><strong>고3:</strong> 학생부 점검 및 보완, 지원 전략 수립, 자기소개서 작성, 면접 준비</li>
+  </ol>
+
+  <div class="tip-box">
+    <strong>💡 최종 조언:</strong> 학생부종합전형은 단기간에 준비할 수 없는 전형입니다. 고1부터 꾸준히 자신의 관심사를 탐구하고, 성장 과정을 기록하며, 진정성 있는 학생부를 만들어 나가는 것이 합격의 핵심 열쇠입니다. 주변의 성공 사례를 무작정 따라하기보다 자신만의 이야기를 만들어 가세요.
+  </div>
+</article>
+
+<section class="article-cta">
+  <h2>학생부종합전형, 전문가와 함께 준비하세요</h2>
+  <p>WeStudy 입시 컨설턴트가 학생의 현재 상황에 맞는 맞춤 로드맵을 설계해 드립니다.</p>
+  <a href="../index.html#cta" class="cta-btn">무료 상담 신청하기 →</a>
+</section>
+
+<footer>
+  <div>© 2025 WeStudy 위스터디. All rights reserved. | <a href="../index.html">홈으로</a></div>
+</footer>
+
+<script>
+document.getElementById('mobileBtn').addEventListener('click',()=>{document.getElementById('mobileMenu').classList.add('open')});
+document.getElementById('mobileMenuClose').addEventListener('click',()=>{document.getElementById('mobileMenu').classList.remove('open')});
+const nav=document.getElementById('mainNav');
+window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>40)});
+</script>
+</body>
+</html>

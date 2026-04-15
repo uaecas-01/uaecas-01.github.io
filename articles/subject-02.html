@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>킬러 문항을 보면 바로 포기하는 습관, 고칠 수 있을까? – WeStudy</title>
+<meta name="description" content="수능 수학 고난도 킬러 문항에서 포기하지 않고 실마리를 찾는 사고 훈련법을 단계별로 안내합니다.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--navy:#0A1628;--blue:#1D4ED8;--blue-mid:#2563EB;--amber:#F59E0B;--bg:#F8FAFF;--white:#FFFFFF;--text:#111827;--gray-100:#F3F4F6;--gray-300:#D1D5DB;--gray-400:#9CA3AF;--gray-500:#6B7280;--gray-700:#374151}
+html{scroll-behavior:smooth}
+body{font-family:'Pretendard',sans-serif;color:var(--text);background:var(--bg);overflow-x:hidden}
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:0 5%;height:64px;background:var(--navy);transition:background .3s,box-shadow .3s}
+nav.scrolled{background:var(--white);box-shadow:0 2px 20px rgba(0,0,0,.08)}
+.nav-logo{display:flex;align-items:center;gap:.5rem;text-decoration:none}
+.logo-mark{background:var(--blue-mid);color:var(--white);width:32px;height:32px;border-radius:8px;display:grid;place-items:center;font-weight:900;font-size:1rem}
+.logo-name{color:var(--white);font-weight:800;font-size:1.1rem}
+nav.scrolled .logo-name{color:var(--navy)}
+.nav-links{display:flex;list-style:none;gap:2rem}
+.nav-links a{color:rgba(255,255,255,.8);text-decoration:none;font-size:.9rem;font-weight:500;transition:color .2s}
+.nav-links a:hover,.nav-links a.active{color:var(--white);font-weight:700}
+nav.scrolled .nav-links a{color:var(--gray-500)}
+nav.scrolled .nav-links a:hover,nav.scrolled .nav-links a.active{color:var(--navy)}
+.nav-cta{background:rgba(255,255,255,.15);color:var(--white);padding:.55rem 1.4rem;border-radius:50px;font-size:.875rem;font-weight:700;text-decoration:none;border:1.5px solid rgba(255,255,255,.35);transition:background .25s,color .25s}
+.nav-cta:hover{background:var(--white);color:var(--blue)}
+nav.scrolled .nav-cta{background:var(--blue);color:var(--white);border-color:var(--blue)}
+.nav-mobile-btn{display:none}
+.mobile-menu{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(10,15,30,.95);z-index:10000;flex-direction:column;align-items:center;justify-content:center;gap:.5rem}
+.mobile-menu.open{display:flex}
+.mobile-menu a{color:var(--white);text-decoration:none;font-size:1.25rem;font-weight:600;padding:1rem 2rem;border-radius:12px;transition:background .2s}
+.mobile-menu a:hover{background:rgba(255,255,255,.1)}
+.mobile-menu-close{position:absolute;top:1.25rem;right:1.5rem;background:none;border:none;color:var(--white);font-size:2rem;cursor:pointer}
+.article-hero{background:var(--navy);padding:120px 5% 60px;text-align:center}
+.article-hero .breadcrumb{color:rgba(255,255,255,.6);font-size:.85rem;margin-bottom:1rem}
+.article-hero .breadcrumb a{color:rgba(255,255,255,.6);text-decoration:none}
+.article-hero .breadcrumb a:hover{color:var(--white)}
+.article-hero h1{color:var(--white);font-size:2rem;font-weight:800;line-height:1.4;max-width:720px;margin:0 auto .75rem}
+.article-hero .meta{color:rgba(255,255,255,.5);font-size:.85rem;display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+.article-tags{display:flex;gap:.5rem;justify-content:center;margin-bottom:1rem}
+.article-tag{padding:.25rem .75rem;border-radius:50px;font-size:.75rem;font-weight:600}
+.tg-blue{background:rgba(29,78,216,.15);color:#60A5FA}
+.tg-amber{background:rgba(245,158,11,.15);color:#FBBF24}
+.tg-green{background:rgba(5,150,105,.15);color:#34D399}
+.tg-cyan{background:rgba(6,182,212,.15);color:#22D3EE}
+.tg-rose{background:rgba(244,63,94,.15);color:#FB7185}
+.article-body{max-width:720px;margin:0 auto;padding:3rem 1.5rem}
+.article-body h2{font-size:1.4rem;font-weight:800;color:var(--navy);margin:2.5rem 0 1rem;padding-bottom:.5rem;border-bottom:2px solid var(--gray-100)}
+.article-body h3{font-size:1.15rem;font-weight:700;color:var(--blue-mid);margin:1.5rem 0 .75rem}
+.article-body p{font-size:1rem;line-height:1.85;color:var(--gray-700);margin-bottom:1.25rem}
+.article-body ul,.article-body ol{margin:1rem 0 1.5rem 1.5rem;line-height:1.85;color:var(--gray-700)}
+.article-body li{margin-bottom:.5rem}
+.article-body .tip-box{background:linear-gradient(135deg,#EFF6FF,#F0F9FF);border-left:4px solid var(--blue-mid);padding:1.25rem 1.5rem;border-radius:0 12px 12px 0;margin:1.5rem 0;font-size:.95rem;line-height:1.7}
+.article-body .tip-box strong{color:var(--blue-mid)}
+.article-body .highlight-box{background:linear-gradient(135deg,#FEF3C7,#FFFBEB);border-left:4px solid var(--amber);padding:1.25rem 1.5rem;border-radius:0 12px 12px 0;margin:1.5rem 0;font-size:.95rem;line-height:1.7}
+.article-cta{text-align:center;padding:3rem 1.5rem 4rem;background:var(--gray-100);margin-top:2rem}
+.article-cta h2{font-size:1.4rem;font-weight:800;color:var(--navy);margin-bottom:.75rem}
+.article-cta p{color:var(--gray-500);margin-bottom:1.5rem;font-size:.95rem}
+.article-cta .cta-btn{display:inline-block;background:var(--blue);color:var(--white);padding:.9rem 2.5rem;border-radius:50px;font-weight:700;font-size:1rem;text-decoration:none;transition:background .2s}
+.article-cta .cta-btn:hover{background:var(--navy)}
+footer{background:var(--navy);color:rgba(255,255,255,.5);text-align:center;padding:2rem 5%;font-size:.8rem}
+footer a{color:rgba(255,255,255,.6);text-decoration:none}
+@media(max-width:768px){
+  .nav-links,.nav-cta{display:none}
+  .nav-mobile-btn{display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.12);border:1.5px solid rgba(255,255,255,.25);border-radius:8px;width:40px;height:40px;cursor:pointer;color:var(--white);font-size:1.2rem}
+  nav.scrolled .nav-mobile-btn{color:var(--navy);border-color:var(--gray-300);background:var(--gray-100)}
+  .article-hero h1{font-size:1.5rem}
+  .article-body{padding:2rem 1.25rem}
+}
+</style>
+</head>
+<body>
+<nav id="mainNav">
+  <a href="../index.html" class="nav-logo"><span class="logo-mark">W</span><span class="logo-name">WeStudy</span></a>
+  <ul class="nav-links">
+    <li><a href="../find-tutor.html">과외 찾기</a></li>
+    <li><a href="../education.html" class="active">교육 정보</a></li>
+    <li><a href="../hagwon.html">학원 상담</a></li>
+    <li><a href="../index.html#cta">상담 신청</a></li>
+    <li><a href="../index.html#proof">수업 후기</a></li>
+  </ul>
+  <a href="../index.html#cta" class="nav-cta">무료 상담 신청</a>
+  <button class="nav-mobile-btn" id="mobileBtn" aria-label="메뉴">☰</button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-menu-close" id="mobileMenuClose">✕</button>
+  <a href="../find-tutor.html">과외 찾기</a>
+  <a href="../education.html">교육 정보</a>
+  <a href="../hagwon.html">학원 상담</a>
+  <a href="../index.html#cta">상담 신청</a>
+  <a href="../index.html#proof">수업 후기</a>
+</div>
+
+<section class="article-hero">
+  <div class="breadcrumb"><a href="../index.html">홈</a> › <a href="../education.html">교육 정보</a> › 과목별 공부법</div>
+  <div class="article-tags"><span class="article-tag tg-blue">수학</span><span class="article-tag tg-amber">고난도</span></div>
+  <h1>킬러 문항을 보면 바로 포기하는 습관, 고칠 수 있을까?</h1>
+  <div class="meta"><span>⏱ 6분 읽기</span><span>📅 2026.03</span></div>
+</section>
+
+<article class="article-body">
+  <p>수능 수학 시험장에서 21번, 22번, 29번, 30번 같은 고난도 킬러 문항을 보면 아예 읽지도 않고 넘기는 학생이 적지 않습니다. 이른바 '킬러 포기 습관'은 단순히 실력 부족의 문제가 아니라, 심리적 회피와 전략 부재가 결합된 복합적 현상입니다. 이 글에서는 킬러 문항에서 실마리를 찾는 사고 훈련법을 구체적으로 소개합니다.</p>
+
+  <h2>왜 킬러 문항만 보면 포기하게 될까?</h2>
+  <p>킬러 문항 포기 습관의 근본 원인은 크게 세 가지로 나뉩니다.</p>
+  <ol>
+    <li><strong>학습된 무기력:</strong> 과거 킬러 문항에 도전했다가 반복적으로 실패한 경험이 쌓이면, 뇌는 자동으로 "이건 못 푸는 문제"라고 분류합니다. 심리학에서 말하는 학습된 무기력(learned helplessness) 상태입니다.</li>
+    <li><strong>시간 압박에 대한 공포:</strong> 킬러 문항에 시간을 쏟으면 다른 문제를 못 풀게 될까 봐 두려워합니다. 하지만 실제로는 킬러 문항 한 문제의 배점이 다른 문제 2~3개에 해당하므로, 전략적으로 도전할 가치가 충분합니다.</li>
+    <li><strong>문제 구조 파악 능력 부족:</strong> 킬러 문항은 여러 개념이 복합적으로 얽혀 있어 문제 구조를 파악하는 것 자체가 어렵습니다. 구조를 읽는 훈련이 되어 있지 않으면 시작점을 찾지 못해 바로 포기하게 됩니다.</li>
+  </ol>
+
+  <h2>1단계: 심리적 장벽 낮추기</h2>
+  <p>킬러 문항 훈련의 첫 단계는 심리적 접근입니다. 풀이 완성이 아니라 '시작하기'에 목표를 둡니다.</p>
+  <ul>
+    <li><strong>3분 규칙:</strong> 킬러 문항을 보면 최소 3분간 조건을 분석합니다. 3분 안에 풀이 방향이 안 보여도 괜찮습니다. 중요한 것은 '읽고 생각하는 습관'을 만드는 것입니다.</li>
+    <li><strong>부분 점수 사고:</strong> 킬러 문항도 중간 과정에서 부분 점수를 받을 수 있습니다. 완벽한 풀이가 아니라 첫 번째 조건을 수식으로 바꾸는 것만으로도 의미 있는 진전입니다.</li>
+    <li><strong>성장 일지 작성:</strong> 매주 킬러 문항에 도전한 기록을 남깁니다. 처음에는 조건 정리까지만 성공했더라도, 몇 주 후에는 풀이의 절반까지 도달하는 자신을 발견하게 됩니다.</li>
+  </ul>
+
+  <div class="tip-box">
+    <strong>💡 실전 팁:</strong> 처음에는 시간 제한 없이 킬러 문항을 풀어보세요. 시간 압박을 제거하면 사고의 폭이 넓어지고, 점차 문제 구조를 파악하는 눈이 길러집니다. 시간 제한은 구조 파악이 익숙해진 후에 도입하세요.
+  </div>
+
+  <h2>2단계: 킬러 문항의 구조 읽기</h2>
+  <p>킬러 문항에는 일정한 출제 구조가 있습니다. 이 구조를 파악하면 실마리를 찾는 시간이 크게 단축됩니다.</p>
+
+  <h3>킬러 문항의 전형적 구조</h3>
+  <ol>
+    <li><strong>핵심 개념 제시:</strong> 문제의 배경이 되는 주요 개념이 제시됩니다. 대부분 교과서에 나오는 개념이지만, 익숙하지 않은 형태로 표현됩니다.</li>
+    <li><strong>조건의 연쇄:</strong> 여러 개의 조건이 순차적으로 주어지며, 각 조건은 서로 연결되어 있습니다. 조건 사이의 관계를 파악하는 것이 핵심입니다.</li>
+    <li><strong>최종 질문:</strong> 앞서 주어진 조건들을 종합하여 특정 값이나 범위를 구하도록 합니다.</li>
+  </ol>
+
+  <h3>구조 파악 실전 훈련법</h3>
+  <ul>
+    <li><strong>조건 번호 매기기:</strong> 문제의 각 조건에 번호를 매기고, 조건 간의 관계를 화살표로 연결합니다.</li>
+    <li><strong>숨은 조건 찾기:</strong> 명시적으로 쓰여 있지 않지만 문맥상 당연히 성립하는 조건을 찾습니다. 예를 들어 "실수 전체에서 정의된 함수"라는 표현에는 분모가 0이 되지 않는다는 조건이 숨어 있습니다.</li>
+    <li><strong>거꾸로 사고하기:</strong> 최종 질문에서 출발하여 "이걸 구하려면 무엇이 필요한가?"를 역추적합니다.</li>
+  </ul>
+
+  <h2>3단계: 핵심 도구 카드 만들기</h2>
+  <p>킬러 문항에서 자주 사용되는 수학적 도구들을 카드 형태로 정리해두면, 문제를 볼 때 떠올릴 수 있는 선택지가 늘어납니다.</p>
+  <ul>
+    <li><strong>미적분 킬러 도구:</strong> 중간값 정리, 평균값 정리, 롤의 정리, 함수의 극한에서의 부정형 해결법</li>
+    <li><strong>확률과 통계 킬러 도구:</strong> 중복조합과 분할, 조건부 확률의 연쇄, 이항분포와 정규분포의 전환</li>
+    <li><strong>기하 킬러 도구:</strong> 벡터의 내적과 정사영, 공간좌표에서의 거리 공식, 이면각 계산</li>
+  </ul>
+
+  <div class="highlight-box">
+    <strong>⚠️ 주의:</strong> 킬러 문항 훈련은 기본기가 탄탄한 상태에서 시작해야 합니다. 기본 문제의 정답률이 80% 이하라면, 킬러 문항 훈련보다 기본 개념과 중급 문제 풀이에 먼저 집중하세요. 기초 없이 킬러만 연습하면 오히려 자신감만 떨어집니다.
+  </div>
+
+  <h2>4단계: 체계적 복기 루틴</h2>
+  <p>킬러 문항은 풀이 후 복기가 풀이 자체보다 더 중요합니다. 다음의 복기 루틴을 매 문제마다 적용하세요.</p>
+  <ol>
+    <li><strong>풀이 경로 시각화:</strong> 자신의 풀이 과정을 플로차트로 그려봅니다. 어디서 막혔는지, 어디서 잘못된 방향으로 갔는지 한눈에 보입니다.</li>
+    <li><strong>모범 풀이 비교:</strong> 자신의 풀이 경로와 모범 풀이를 비교하여, 놓친 핵심 발상이 무엇인지 파악합니다.</li>
+    <li><strong>핵심 발상 카드 추가:</strong> 해당 문제에서 사용된 핵심 발상을 도구 카드에 추가합니다. 예를 들어 "조건에 절대값이 있으면 경우를 나눈다"와 같은 사고 패턴을 기록합니다.</li>
+    <li><strong>유사 문제 1개 풀기:</strong> 복기 후 같은 유형의 문제를 하나 더 풀어 발상이 정착되었는지 확인합니다.</li>
+  </ol>
+
+  <h2>실전 시험에서의 킬러 문항 전략</h2>
+  <p>실제 시험에서는 시간 관리와 병행해야 합니다. 다음 전략을 참고하세요.</p>
+  <ul>
+    <li>1회독에서 킬러 문항의 조건만 빠르게 읽고 사용할 개념을 표시해둡니다.</li>
+    <li>나머지 문제를 모두 풀고 검토한 후, 남은 시간에 킬러 문항에 도전합니다.</li>
+    <li>킬러 문항에 배정할 최소 시간은 10분입니다. 10분 미만이면 부분 풀이에 집중합니다.</li>
+    <li>5지선다라면 조건 분석으로 선택지를 2~3개로 좁히는 것만으로도 정답 확률이 크게 올라갑니다.</li>
+  </ul>
+
+  <div class="tip-box">
+    <strong>💡 핵심 정리:</strong> 킬러 문항 포기 습관은 심리적 장벽 낮추기, 문제 구조 읽기 훈련, 도구 카드 축적, 체계적 복기의 4단계로 교정할 수 있습니다. 매주 2~3문제씩 킬러 문항을 시간 제한 없이 분석하는 습관부터 시작하세요.
+  </div>
+</article>
+
+<section class="article-cta">
+  <h2>고난도 문항 돌파가 필요한 학생이라면?</h2>
+  <p>WeStudy 수학 전문 코치가 킬러 문항 사고력 훈련 맞춤 플랜을 설계해 드립니다.</p>
+  <a href="../index.html#cta" class="cta-btn">무료 상담 신청하기 →</a>
+</section>
+
+<footer>
+  <div>© 2025 WeStudy 위스터디. All rights reserved. | <a href="../index.html">홈으로</a></div>
+</footer>
+
+<script>
+document.getElementById('mobileBtn').addEventListener('click',()=>{document.getElementById('mobileMenu').classList.add('open')});
+document.getElementById('mobileMenuClose').addEventListener('click',()=>{document.getElementById('mobileMenu').classList.remove('open')});
+const nav=document.getElementById('mainNav');
+window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>40)});
+</script>
+</body>
+</html>

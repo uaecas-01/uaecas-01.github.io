@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>잠을 줄여서 공부하면 성적이 오를까? – WeStudy</title>
+<meta name="description" content="수면과 기억 정착의 관계, 학생에게 최적인 수면 패턴과 시간을 과학적으로 안내합니다.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--navy:#0A1628;--blue:#1D4ED8;--blue-mid:#2563EB;--amber:#F59E0B;--bg:#F8FAFF;--white:#FFFFFF;--text:#111827;--gray-100:#F3F4F6;--gray-300:#D1D5DB;--gray-400:#9CA3AF;--gray-500:#6B7280;--gray-700:#374151}
+html{scroll-behavior:smooth}
+body{font-family:'Pretendard',sans-serif;color:var(--text);background:var(--bg);overflow-x:hidden}
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:0 5%;height:64px;background:var(--navy);transition:background .3s,box-shadow .3s}
+nav.scrolled{background:var(--white);box-shadow:0 2px 20px rgba(0,0,0,.08)}
+.nav-logo{display:flex;align-items:center;gap:.5rem;text-decoration:none}
+.logo-mark{background:var(--blue-mid);color:var(--white);width:32px;height:32px;border-radius:8px;display:grid;place-items:center;font-weight:900;font-size:1rem}
+.logo-name{color:var(--white);font-weight:800;font-size:1.1rem}
+nav.scrolled .logo-name{color:var(--navy)}
+.nav-links{display:flex;list-style:none;gap:2rem}
+.nav-links a{color:rgba(255,255,255,.8);text-decoration:none;font-size:.9rem;font-weight:500;transition:color .2s}
+.nav-links a:hover,.nav-links a.active{color:var(--white);font-weight:700}
+nav.scrolled .nav-links a{color:var(--gray-500)}
+nav.scrolled .nav-links a:hover,nav.scrolled .nav-links a.active{color:var(--navy)}
+.nav-cta{background:rgba(255,255,255,.15);color:var(--white);padding:.55rem 1.4rem;border-radius:50px;font-size:.875rem;font-weight:700;text-decoration:none;border:1.5px solid rgba(255,255,255,.35);transition:background .25s,color .25s}
+.nav-cta:hover{background:var(--white);color:var(--blue)}
+nav.scrolled .nav-cta{background:var(--blue);color:var(--white);border-color:var(--blue)}
+.nav-mobile-btn{display:none}
+.mobile-menu{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(10,15,30,.95);z-index:10000;flex-direction:column;align-items:center;justify-content:center;gap:.5rem}
+.mobile-menu.open{display:flex}
+.mobile-menu a{color:var(--white);text-decoration:none;font-size:1.25rem;font-weight:600;padding:1rem 2rem;border-radius:12px;transition:background .2s}
+.mobile-menu a:hover{background:rgba(255,255,255,.1)}
+.mobile-menu-close{position:absolute;top:1.25rem;right:1.5rem;background:none;border:none;color:var(--white);font-size:2rem;cursor:pointer}
+.article-hero{background:var(--navy);padding:120px 5% 60px;text-align:center}
+.article-hero .breadcrumb{color:rgba(255,255,255,.6);font-size:.85rem;margin-bottom:1rem}
+.article-hero .breadcrumb a{color:rgba(255,255,255,.6);text-decoration:none}
+.article-hero .breadcrumb a:hover{color:var(--white)}
+.article-hero h1{color:var(--white);font-size:2rem;font-weight:800;line-height:1.4;max-width:720px;margin:0 auto .75rem}
+.article-hero .meta{color:rgba(255,255,255,.5);font-size:.85rem;display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+.article-tags{display:flex;gap:.5rem;justify-content:center;margin-bottom:1rem}
+.article-tag{padding:.25rem .75rem;border-radius:50px;font-size:.75rem;font-weight:600}
+.tg-blue{background:rgba(29,78,216,.15);color:#60A5FA}
+.tg-amber{background:rgba(245,158,11,.15);color:#FBBF24}
+.tg-green{background:rgba(5,150,105,.15);color:#34D399}
+.tg-cyan{background:rgba(6,182,212,.15);color:#22D3EE}
+.tg-rose{background:rgba(244,63,94,.15);color:#FB7185}
+.article-body{max-width:720px;margin:0 auto;padding:3rem 1.5rem}
+.article-body h2{font-size:1.4rem;font-weight:800;color:var(--navy);margin:2.5rem 0 1rem;padding-bottom:.5rem;border-bottom:2px solid var(--gray-100)}
+.article-body h3{font-size:1.15rem;font-weight:700;color:var(--blue-mid);margin:1.5rem 0 .75rem}
+.article-body p{font-size:1rem;line-height:1.85;color:var(--gray-700);margin-bottom:1.25rem}
+.article-body ul,.article-body ol{margin:1rem 0 1.5rem 1.5rem;line-height:1.85;color:var(--gray-700)}
+.article-body li{margin-bottom:.5rem}
+.article-body .tip-box{background:linear-gradient(135deg,#EFF6FF,#F0F9FF);border-left:4px solid var(--blue-mid);padding:1.25rem 1.5rem;border-radius:0 12px 12px 0;margin:1.5rem 0;font-size:.95rem;line-height:1.7}
+.article-body .tip-box strong{color:var(--blue-mid)}
+.article-body .highlight-box{background:linear-gradient(135deg,#FEF3C7,#FFFBEB);border-left:4px solid var(--amber);padding:1.25rem 1.5rem;border-radius:0 12px 12px 0;margin:1.5rem 0;font-size:.95rem;line-height:1.7}
+.article-cta{text-align:center;padding:3rem 1.5rem 4rem;background:var(--gray-100);margin-top:2rem}
+.article-cta h2{font-size:1.4rem;font-weight:800;color:var(--navy);margin-bottom:.75rem}
+.article-cta p{color:var(--gray-500);margin-bottom:1.5rem;font-size:.95rem}
+.article-cta .cta-btn{display:inline-block;background:var(--blue);color:var(--white);padding:.9rem 2.5rem;border-radius:50px;font-weight:700;font-size:1rem;text-decoration:none;transition:background .2s}
+.article-cta .cta-btn:hover{background:var(--navy)}
+footer{background:var(--navy);color:rgba(255,255,255,.5);text-align:center;padding:2rem 5%;font-size:.8rem}
+footer a{color:rgba(255,255,255,.6);text-decoration:none}
+@media(max-width:768px){
+  .nav-links,.nav-cta{display:none}
+  .nav-mobile-btn{display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.12);border:1.5px solid rgba(255,255,255,.25);border-radius:8px;width:40px;height:40px;cursor:pointer;color:var(--white);font-size:1.2rem}
+  nav.scrolled .nav-mobile-btn{color:var(--navy);border-color:var(--gray-300);background:var(--gray-100)}
+  .article-hero h1{font-size:1.5rem}
+  .article-body{padding:2rem 1.25rem}
+}
+</style>
+</head>
+<body>
+<nav id="mainNav">
+  <a href="../index.html" class="nav-logo"><span class="logo-mark">W</span><span class="logo-name">WeStudy</span></a>
+  <ul class="nav-links">
+    <li><a href="../find-tutor.html">과외 찾기</a></li>
+    <li><a href="../education.html" class="active">교육 정보</a></li>
+    <li><a href="../hagwon.html">학원 상담</a></li>
+    <li><a href="../index.html#cta">상담 신청</a></li>
+    <li><a href="../index.html#proof">수업 후기</a></li>
+  </ul>
+  <a href="../index.html#cta" class="nav-cta">무료 상담 신청</a>
+  <button class="nav-mobile-btn" id="mobileBtn" aria-label="메뉴">☰</button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-menu-close" id="mobileMenuClose">✕</button>
+  <a href="../find-tutor.html">과외 찾기</a>
+  <a href="../education.html">교육 정보</a>
+  <a href="../hagwon.html">학원 상담</a>
+  <a href="../index.html#cta">상담 신청</a>
+  <a href="../index.html#proof">수업 후기</a>
+</div>
+
+<section class="article-hero">
+  <div class="breadcrumb"><a href="../index.html">홈</a> › <a href="../education.html">교육 정보</a> › 학습 습관 &amp; 루틴</div>
+  <div class="article-tags"><span class="article-tag tg-blue">수면</span></div>
+  <h1>잠을 줄여서 공부하면 성적이 오를까?</h1>
+  <div class="meta"><span>⏱ 4분 읽기</span><span>📅 2026.03</span></div>
+</section>
+
+<article class="article-body">
+  <p>시험이 다가오면 잠을 줄여서라도 공부 시간을 늘리고 싶은 마음이 듭니다. 하지만 수면을 줄이는 것은 성적 향상에 도움이 되지 않을 뿐 아니라, 오히려 학습 효율을 크게 떨어뜨립니다. 수면은 공부와 반대되는 행위가 아니라, 공부의 필수적인 마무리 단계입니다.</p>
+
+  <h2>수면 중에 뇌가 하는 일</h2>
+  <p>잠을 자는 동안 뇌는 멈추지 않습니다. 오히려 낮에 입력된 정보를 정리하고 저장하는 가장 중요한 작업이 수면 중에 이루어집니다.</p>
+  <ul>
+    <li><strong>기억 공고화:</strong> 낮 동안 학습한 정보는 해마(hippocampus)에 임시 저장됩니다. 수면 중, 특히 깊은 수면 단계에서 이 정보가 대뇌피질로 이동하여 장기 기억으로 변환됩니다.</li>
+    <li><strong>시냅스 정리:</strong> 깨어 있는 동안 뇌의 시냅스 연결은 계속 강화됩니다. 수면 중에 불필요한 연결은 제거되고 중요한 연결만 남기는 시냅스 가지치기가 일어납니다.</li>
+    <li><strong>노폐물 제거:</strong> 뇌척수액이 뇌를 순환하며 신경 활동으로 생긴 노폐물을 제거합니다. 이 과정이 부족하면 다음 날 집중력과 사고력이 떨어집니다.</li>
+  </ul>
+
+  <div class="highlight-box">
+    <strong>⚠️ 핵심 사실:</strong> 수면을 6시간 이하로 줄인 상태에서 공부하면, 8시간 잔 상태보다 기억 유지율이 40% 이상 감소합니다. 밤새 외운 내용이 시험장에서 기억나지 않는 이유가 바로 이것입니다.
+  </div>
+
+  <h2>연령별 최적 수면 시간</h2>
+  <p>학생의 나이에 따라 필요한 수면 시간이 다릅니다. 아래는 전문 기관에서 권장하는 수면 시간입니다.</p>
+  <ul>
+    <li><strong>초등학생 (6~12세):</strong> 9~12시간</li>
+    <li><strong>중학생 (13~15세):</strong> 8~10시간</li>
+    <li><strong>고등학생 (16~18세):</strong> 8~9시간</li>
+  </ul>
+  <p>현실적으로 고등학생이 9시간 수면을 확보하기는 어렵습니다. 하지만 최소 7시간은 반드시 지켜야 다음 날 수업 집중과 자기주도학습이 가능합니다. 7시간 미만 수면이 2주 이상 지속되면 만성 수면 부족 상태에 빠져 학습 능력이 전반적으로 저하됩니다.</p>
+
+  <h2>최적의 수면 패턴 만들기</h2>
+  <p>단순히 오래 자는 것이 아니라, 수면의 질을 높이는 것이 중요합니다. 아래 습관을 실천하면 같은 시간을 자도 더 개운하고 기억력이 좋아집니다.</p>
+
+  <h3>취침 전 1시간 루틴</h3>
+  <ol>
+    <li><strong>디지털 기기 차단:</strong> 취침 1시간 전부터 스마트폰, 태블릿, 노트북 사용을 중단합니다. 블루라이트가 멜라토닌 분비를 억제하여 잠들기 어렵게 만듭니다.</li>
+    <li><strong>가벼운 복습:</strong> 오늘 공부한 핵심 키워드를 노트에서 가볍게 훑어봅니다. 자기 직전에 본 내용은 수면 중 기억 공고화 우선순위가 높아집니다.</li>
+    <li><strong>조명 낮추기:</strong> 방의 조명을 어둡게 하거나 따뜻한 색 조명으로 바꿉니다. 밝은 형광등은 뇌를 각성 상태로 유지합니다.</li>
+    <li><strong>체온 조절:</strong> 미지근한 물로 샤워하면 체온이 살짝 내려가면서 자연스럽게 졸음이 옵니다.</li>
+  </ol>
+
+  <h3>일정한 취침-기상 시간</h3>
+  <p>매일 같은 시간에 자고 같은 시간에 일어나는 것이 수면의 질을 높이는 가장 중요한 요소입니다. 주말에도 평일과 1시간 이상 차이나지 않도록 관리합니다. 주말에 몰아서 자는 "수면 보상"은 오히려 월요일의 컨디션을 악화시킵니다.</p>
+
+  <div class="tip-box">
+    <strong>💡 실전 팁:</strong> 기상 시간을 먼저 고정하고, 거기서 역으로 취침 시간을 계산하세요. 예를 들어 오전 6시 30분 기상이 필요하다면, 취침은 밤 11시가 됩니다. 이 시간을 알람으로 설정해서 지키는 것이 핵심입니다.
+  </div>
+
+  <h2>낮잠은 도움이 될까?</h2>
+  <p>점심 식사 후 짧은 낮잠은 오후 학습 효율을 높이는 데 매우 효과적입니다. 다만 올바른 낮잠에는 조건이 있습니다.</p>
+  <ul>
+    <li><strong>시간 제한:</strong> 15~20분이 최적입니다. 30분을 넘기면 깊은 수면에 빠져 일어났을 때 오히려 더 피곤합니다.</li>
+    <li><strong>시간대:</strong> 오후 1시~3시 사이가 가장 좋습니다. 오후 4시 이후의 낮잠은 밤 수면에 영향을 줍니다.</li>
+    <li><strong>커피 낮잠 기법:</strong> 낮잠 직전에 커피를 마시면 카페인이 흡수되는 20분 후 자연스럽게 깨어나며 더 개운합니다. 다만 카페인에 민감한 학생은 피하세요.</li>
+  </ul>
+
+  <h2>시험 직전 밤샘, 정말 하면 안 되나?</h2>
+  <p>밤샘 공부는 단기적으로 공부 시간을 늘려주지만, 시험 성적에는 역효과를 줍니다. 밤새 외운 내용은 단기 기억에만 머물러 시험 도중 기억이 혼란스러워지고, 판단력 저하로 이미 알던 문제도 틀리게 됩니다.</p>
+  <ul>
+    <li><strong>집중력 저하:</strong> 24시간 깨어 있으면 혈중 알코올 농도 0.1%에 해당하는 인지 능력 저하가 발생합니다.</li>
+    <li><strong>실수 증가:</strong> 피로한 상태에서는 계산 실수와 문제 독해 오류가 2~3배 늘어납니다.</li>
+    <li><strong>감정 조절 어려움:</strong> 수면 부족은 시험 불안을 증폭시키고, 작은 어려움에도 쉽게 포기하게 만듭니다.</li>
+  </ul>
+
+  <div class="tip-box">
+    <strong>💡 핵심 정리:</strong> 수면은 학습의 방해물이 아니라 필수 요소입니다. 최소 7시간 수면을 지키고, 일정한 취침-기상 시간을 유지하며, 취침 전 블루라이트를 차단하는 세 가지 습관만으로도 학습 효율이 크게 달라집니다.
+  </div>
+</article>
+
+<section class="article-cta">
+  <h2>우리 아이 학습 컨디션 관리가 필요하다면?</h2>
+  <p>WeStudy 학습 코치가 수면과 학습을 균형 있게 설계하는 맞춤 플랜을 안내합니다.</p>
+  <a href="../index.html#cta" class="cta-btn">무료 상담 신청하기 →</a>
+</section>
+
+<footer>
+  <div>© 2025 WeStudy 위스터디. All rights reserved. | <a href="../index.html">홈으로</a></div>
+</footer>
+
+<script>
+document.getElementById('mobileBtn').addEventListener('click',()=>{document.getElementById('mobileMenu').classList.add('open')});
+document.getElementById('mobileMenuClose').addEventListener('click',()=>{document.getElementById('mobileMenu').classList.remove('open')});
+const nav=document.getElementById('mainNav');
+window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>40)});
+</script>
+</body>
+</html>

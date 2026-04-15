@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>개별 개념은 아는데 응용 문제에서 막히는 이유는? – WeStudy</title>
+<meta name="description" content="개념 연결고리를 만들어 응용력을 키우는 구체적인 전략을 소개합니다.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--navy:#0A1628;--blue:#1D4ED8;--blue-mid:#2563EB;--amber:#F59E0B;--bg:#F8FAFF;--white:#FFFFFF;--text:#111827;--gray-100:#F3F4F6;--gray-300:#D1D5DB;--gray-400:#9CA3AF;--gray-500:#6B7280;--gray-700:#374151}
+html{scroll-behavior:smooth}
+body{font-family:'Pretendard',sans-serif;color:var(--text);background:var(--bg);overflow-x:hidden}
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:0 5%;height:64px;background:var(--navy);transition:background .3s,box-shadow .3s}
+nav.scrolled{background:var(--white);box-shadow:0 2px 20px rgba(0,0,0,.08)}
+.nav-logo{display:flex;align-items:center;gap:.5rem;text-decoration:none}
+.logo-mark{background:var(--blue-mid);color:var(--white);width:32px;height:32px;border-radius:8px;display:grid;place-items:center;font-weight:900;font-size:1rem}
+.logo-name{color:var(--white);font-weight:800;font-size:1.1rem}
+nav.scrolled .logo-name{color:var(--navy)}
+.nav-links{display:flex;list-style:none;gap:2rem}
+.nav-links a{color:rgba(255,255,255,.8);text-decoration:none;font-size:.9rem;font-weight:500;transition:color .2s}
+.nav-links a:hover,.nav-links a.active{color:var(--white);font-weight:700}
+nav.scrolled .nav-links a{color:var(--gray-500)}
+nav.scrolled .nav-links a:hover,nav.scrolled .nav-links a.active{color:var(--navy)}
+.nav-cta{background:rgba(255,255,255,.15);color:var(--white);padding:.55rem 1.4rem;border-radius:50px;font-size:.875rem;font-weight:700;text-decoration:none;border:1.5px solid rgba(255,255,255,.35);transition:background .25s,color .25s}
+.nav-cta:hover{background:var(--white);color:var(--blue)}
+nav.scrolled .nav-cta{background:var(--blue);color:var(--white);border-color:var(--blue)}
+.nav-mobile-btn{display:none}
+.mobile-menu{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(10,15,30,.95);z-index:10000;flex-direction:column;align-items:center;justify-content:center;gap:.5rem}
+.mobile-menu.open{display:flex}
+.mobile-menu a{color:var(--white);text-decoration:none;font-size:1.25rem;font-weight:600;padding:1rem 2rem;border-radius:12px;transition:background .2s}
+.mobile-menu a:hover{background:rgba(255,255,255,.1)}
+.mobile-menu-close{position:absolute;top:1.25rem;right:1.5rem;background:none;border:none;color:var(--white);font-size:2rem;cursor:pointer}
+.article-hero{background:var(--navy);padding:120px 5% 60px;text-align:center}
+.article-hero .breadcrumb{color:rgba(255,255,255,.6);font-size:.85rem;margin-bottom:1rem}
+.article-hero .breadcrumb a{color:rgba(255,255,255,.6);text-decoration:none}
+.article-hero .breadcrumb a:hover{color:var(--white)}
+.article-hero h1{color:var(--white);font-size:2rem;font-weight:800;line-height:1.4;max-width:720px;margin:0 auto .75rem}
+.article-hero .meta{color:rgba(255,255,255,.5);font-size:.85rem;display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+.article-tags{display:flex;gap:.5rem;justify-content:center;margin-bottom:1rem}
+.article-tag{padding:.25rem .75rem;border-radius:50px;font-size:.75rem;font-weight:600}
+.tg-blue{background:rgba(29,78,216,.15);color:#60A5FA}
+.tg-amber{background:rgba(245,158,11,.15);color:#FBBF24}
+.tg-green{background:rgba(5,150,105,.15);color:#34D399}
+.tg-cyan{background:rgba(6,182,212,.15);color:#22D3EE}
+.tg-rose{background:rgba(244,63,94,.15);color:#FB7185}
+.article-body{max-width:720px;margin:0 auto;padding:3rem 1.5rem}
+.article-body h2{font-size:1.4rem;font-weight:800;color:var(--navy);margin:2.5rem 0 1rem;padding-bottom:.5rem;border-bottom:2px solid var(--gray-100)}
+.article-body h3{font-size:1.15rem;font-weight:700;color:var(--blue-mid);margin:1.5rem 0 .75rem}
+.article-body p{font-size:1rem;line-height:1.85;color:var(--gray-700);margin-bottom:1.25rem}
+.article-body ul,.article-body ol{margin:1rem 0 1.5rem 1.5rem;line-height:1.85;color:var(--gray-700)}
+.article-body li{margin-bottom:.5rem}
+.article-body .tip-box{background:linear-gradient(135deg,#EFF6FF,#F0F9FF);border-left:4px solid var(--blue-mid);padding:1.25rem 1.5rem;border-radius:0 12px 12px 0;margin:1.5rem 0;font-size:.95rem;line-height:1.7}
+.article-body .tip-box strong{color:var(--blue-mid)}
+.article-body .highlight-box{background:linear-gradient(135deg,#FEF3C7,#FFFBEB);border-left:4px solid var(--amber);padding:1.25rem 1.5rem;border-radius:0 12px 12px 0;margin:1.5rem 0;font-size:.95rem;line-height:1.7}
+.article-cta{text-align:center;padding:3rem 1.5rem 4rem;background:var(--gray-100);margin-top:2rem}
+.article-cta h2{font-size:1.4rem;font-weight:800;color:var(--navy);margin-bottom:.75rem}
+.article-cta p{color:var(--gray-500);margin-bottom:1.5rem;font-size:.95rem}
+.article-cta .cta-btn{display:inline-block;background:var(--blue);color:var(--white);padding:.9rem 2.5rem;border-radius:50px;font-weight:700;font-size:1rem;text-decoration:none;transition:background .2s}
+.article-cta .cta-btn:hover{background:var(--navy)}
+footer{background:var(--navy);color:rgba(255,255,255,.5);text-align:center;padding:2rem 5%;font-size:.8rem}
+footer a{color:rgba(255,255,255,.6);text-decoration:none}
+@media(max-width:768px){
+  .nav-links,.nav-cta{display:none}
+  .nav-mobile-btn{display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.12);border:1.5px solid rgba(255,255,255,.25);border-radius:8px;width:40px;height:40px;cursor:pointer;color:var(--white);font-size:1.2rem}
+  nav.scrolled .nav-mobile-btn{color:var(--navy);border-color:var(--gray-300);background:var(--gray-100)}
+  .article-hero h1{font-size:1.5rem}
+  .article-body{padding:2rem 1.25rem}
+}
+</style>
+</head>
+<body>
+<nav id="mainNav">
+  <a href="../index.html" class="nav-logo"><span class="logo-mark">W</span><span class="logo-name">WeStudy</span></a>
+  <ul class="nav-links">
+    <li><a href="../find-tutor.html">과외 찾기</a></li>
+    <li><a href="../education.html" class="active">교육 정보</a></li>
+    <li><a href="../hagwon.html">학원 상담</a></li>
+    <li><a href="../index.html#cta">상담 신청</a></li>
+    <li><a href="../index.html#proof">수업 후기</a></li>
+  </ul>
+  <a href="../index.html#cta" class="nav-cta">무료 상담 신청</a>
+  <button class="nav-mobile-btn" id="mobileBtn" aria-label="메뉴">☰</button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-menu-close" id="mobileMenuClose">✕</button>
+  <a href="../find-tutor.html">과외 찾기</a>
+  <a href="../education.html">교육 정보</a>
+  <a href="../hagwon.html">학원 상담</a>
+  <a href="../index.html#cta">상담 신청</a>
+  <a href="../index.html#proof">수업 후기</a>
+</div>
+
+<section class="article-hero">
+  <div class="breadcrumb"><a href="../index.html">홈</a> › <a href="../education.html">교육 정보</a> › 학습 스킬</div>
+  <div class="article-tags"><span class="article-tag tg-cyan">사고</span></div>
+  <h1>개별 개념은 아는데 응용 문제에서 막히는 이유는?</h1>
+  <div class="meta"><span>⏱ 5분 읽기</span><span>📅 2026.03</span></div>
+</section>
+
+<article class="article-body">
+  <p>시험 범위의 개념을 다 외웠는데, 막상 시험에 나온 응용 문제를 보면 어떻게 풀어야 할지 모르겠다. 이 고민은 성적 중위권 학생들에게 특히 흔합니다. 개별 개념은 알고 있지만, 그 개념들을 연결해서 새로운 상황에 적용하는 능력이 부족한 것입니다. 이 글에서는 개념 간 연결고리를 만들어 응용력을 키우는 구체적인 전략을 소개합니다.</p>
+
+  <h2>왜 개념을 알아도 응용이 안 될까?</h2>
+  <p>인지심리학에서는 지식을 "선언적 지식"과 "절차적 지식"으로 구분합니다. 선언적 지식은 "무엇"을 아는 것(예: 피타고라스 정리의 공식)이고, 절차적 지식은 "어떻게" 적용하는지 아는 것(예: 어떤 문제에서 피타고라스 정리를 써야 하는지 판단하고 실제로 적용하는 과정)입니다.</p>
+  <p>많은 학생들이 선언적 지식(개념 암기)에만 집중하고, 절차적 지식(적용 방법) 학습을 소홀히 합니다. 응용 문제는 여러 개의 선언적 지식을 절차적 지식으로 엮어서 풀어야 하므로, 개별 개념만 외워서는 해결할 수 없습니다.</p>
+
+  <div class="highlight-box">
+    <strong>⚠️ 핵심 포인트:</strong> 개념을 "안다"는 것에는 3가지 수준이 있습니다. (1) 정의를 말할 수 있다, (2) 예시를 들 수 있다, (3) 새로운 상황에 적용할 수 있다. 대부분의 학생이 1단계에서 멈추고, 응용 문제는 3단계를 요구합니다.
+  </div>
+
+  <h2>전략 1: 개념 연결 지도 만들기</h2>
+  <p>개별 개념들이 서로 어떤 관계에 있는지를 시각화하는 방법입니다. 단원의 모든 핵심 개념을 종이 한 장에 배치하고, 개념들 사이에 화살표를 그어 관계를 표시합니다.</p>
+
+  <h3>작성 방법</h3>
+  <ol>
+    <li>해당 단원의 핵심 개념 10~15개를 동그라미 안에 적습니다.</li>
+    <li>관련 있는 개념끼리 선으로 연결합니다.</li>
+    <li>연결선 위에 관계를 설명하는 짧은 문구를 적습니다. 예: "~의 특수한 경우", "~를 이용하여 유도", "~와 반대"</li>
+    <li>완성 후, 어떤 두 개념이든 연결 경로를 따라 설명할 수 있는지 테스트합니다.</li>
+  </ol>
+  <p>예를 들어 수학의 이차함수 단원이라면, "이차함수 → 이차방정식 → 판별식 → 근의 공식 → 근과 계수의 관계 → 이차부등식"처럼 개념들이 어떻게 연결되는지 한눈에 보입니다. 응용 문제는 대부분 이 연결 경로 위의 여러 개념을 동시에 활용해야 합니다.</p>
+
+  <h2>전략 2: "만약에" 질문법</h2>
+  <p>개념을 공부할 때 "만약 조건이 바뀌면 결과가 어떻게 달라질까?"를 스스로 질문하는 방법입니다. 이 질문은 개념의 적용 범위와 한계를 이해하게 해주며, 응용 문제에서 조건이 변형되어 출제되었을 때 대응력을 키워줍니다.</p>
+  <ul>
+    <li><strong>수학:</strong> "만약 이 함수의 최고차 항의 계수가 음수라면?", "만약 정의역이 제한된다면?"</li>
+    <li><strong>과학:</strong> "만약 온도가 두 배로 올라가면?", "만약 촉매를 넣지 않으면?"</li>
+    <li><strong>사회:</strong> "만약 이 정책이 시행되지 않았다면?", "만약 다른 나라에서 같은 상황이 발생한다면?"</li>
+  </ul>
+
+  <div class="tip-box">
+    <strong>💡 실전 팁:</strong> 공부할 때 "만약에" 질문을 최소 3개씩 만들어보세요. 처음에는 어색하지만, 습관이 되면 문제를 볼 때 자연스럽게 조건 변화를 감지하고 유연하게 대응할 수 있게 됩니다.
+  </div>
+
+  <h2>전략 3: 역방향 풀이 연습</h2>
+  <p>일반적인 문제 풀이가 "조건 → 풀이 과정 → 답"이라면, 역방향 풀이는 "답 → 풀이 과정 → 조건"으로 거꾸로 추적하는 연습입니다. 답이 주어졌을 때 어떤 조건과 과정이 필요한지 역추적하면, 문제의 구조를 꿰뚫는 능력이 길러집니다.</p>
+
+  <h3>실전 적용</h3>
+  <ol>
+    <li>교과서나 문제집에서 풀이가 있는 문제를 선택합니다.</li>
+    <li>답부터 봅니다.</li>
+    <li>"이 답이 나오려면 마지막 단계에서 무엇을 계산했을까?"를 추론합니다.</li>
+    <li>한 단계씩 거꾸로 올라가며 각 단계의 이유를 파악합니다.</li>
+    <li>최종적으로 "문제가 이런 형태로 출제된 이유"를 이해합니다.</li>
+  </ol>
+
+  <h2>전략 4: 다른 단원 개념으로 같은 문제 풀기</h2>
+  <p>하나의 문제를 서로 다른 방법으로 풀어보는 연습입니다. 예를 들어 기하 문제를 좌표를 설정하여 대수적으로 풀 수도 있고, 순수 기하학적으로 풀 수도 있습니다. 같은 문제를 다양한 방법으로 풀면 개념 간의 연결고리가 자연스럽게 만들어집니다.</p>
+  <ul>
+    <li>수학: 같은 문제를 공식 대입, 그래프 분석, 대수적 변환 등 다른 방법으로 풀어봅니다.</li>
+    <li>과학: 같은 현상을 에너지 관점, 힘의 관점, 입자 관점 등 다른 프레임으로 설명해봅니다.</li>
+    <li>사회: 같은 사건을 정치적, 경제적, 문화적 관점에서 각각 분석해봅니다.</li>
+  </ul>
+
+  <h2>전략 5: 문제 만들기</h2>
+  <p>가장 고차원적인 연습입니다. 배운 개념들을 조합하여 직접 문제를 만들어보세요. 문제를 만들려면 어떤 개념들이 함께 사용될 수 있는지, 어떤 조건을 넣으면 문제가 성립하는지를 깊이 생각해야 합니다. 이 과정에서 개념 연결 능력이 비약적으로 향상됩니다.</p>
+
+  <h3>문제 만들기 단계</h3>
+  <ol>
+    <li>사용할 개념 2~3개를 선택합니다.</li>
+    <li>이 개념들이 자연스럽게 연결되는 상황을 구상합니다.</li>
+    <li>문제 조건과 질문을 작성합니다.</li>
+    <li>직접 풀어보며 문제가 성립하는지 확인합니다.</li>
+    <li>친구와 문제를 교환하여 풀어봅니다.</li>
+  </ol>
+
+  <div class="tip-box">
+    <strong>💡 핵심 정리:</strong> 응용력의 핵심은 개별 개념을 더 많이 외우는 것이 아니라, 개념 간의 연결고리를 만드는 것입니다. 개념 연결 지도, "만약에" 질문법, 역방향 풀이, 다양한 풀이법 시도, 문제 만들기 이 5가지 전략을 활용하면 개념 지식이 응용 능력으로 전환됩니다.
+  </div>
+</article>
+
+<section class="article-cta">
+  <h2>우리 아이 맞춤 학습 전략이 필요하다면?</h2>
+  <p>WeStudy 학습 코치가 학생의 사고력을 키우는 심화 학습 전략을 설계해 드립니다.</p>
+  <a href="../index.html#cta" class="cta-btn">무료 상담 신청하기 →</a>
+</section>
+
+<footer>
+  <div>© 2025 WeStudy 위스터디. All rights reserved. | <a href="../index.html">홈으로</a></div>
+</footer>
+
+<script>
+document.getElementById('mobileBtn').addEventListener('click',()=>{document.getElementById('mobileMenu').classList.add('open')});
+document.getElementById('mobileMenuClose').addEventListener('click',()=>{document.getElementById('mobileMenu').classList.remove('open')});
+const nav=document.getElementById('mainNav');
+window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>40)});
+</script>
+</body>
+</html>

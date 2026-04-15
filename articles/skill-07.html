@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>시험 직전에 A4 한 장으로 총정리할 수 있을까? – WeStudy</title>
+<meta name="description" content="시험 전 A4 요약 시트 제작 노하우를 알려드립니다. 한 장에 핵심을 압축하는 실전 방법.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--navy:#0A1628;--blue:#1D4ED8;--blue-mid:#2563EB;--amber:#F59E0B;--bg:#F8FAFF;--white:#FFFFFF;--text:#111827;--gray-100:#F3F4F6;--gray-300:#D1D5DB;--gray-400:#9CA3AF;--gray-500:#6B7280;--gray-700:#374151}
+html{scroll-behavior:smooth}
+body{font-family:'Pretendard',sans-serif;color:var(--text);background:var(--bg);overflow-x:hidden}
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:0 5%;height:64px;background:var(--navy);transition:background .3s,box-shadow .3s}
+nav.scrolled{background:var(--white);box-shadow:0 2px 20px rgba(0,0,0,.08)}
+.nav-logo{display:flex;align-items:center;gap:.5rem;text-decoration:none}
+.logo-mark{background:var(--blue-mid);color:var(--white);width:32px;height:32px;border-radius:8px;display:grid;place-items:center;font-weight:900;font-size:1rem}
+.logo-name{color:var(--white);font-weight:800;font-size:1.1rem}
+nav.scrolled .logo-name{color:var(--navy)}
+.nav-links{display:flex;list-style:none;gap:2rem}
+.nav-links a{color:rgba(255,255,255,.8);text-decoration:none;font-size:.9rem;font-weight:500;transition:color .2s}
+.nav-links a:hover,.nav-links a.active{color:var(--white);font-weight:700}
+nav.scrolled .nav-links a{color:var(--gray-500)}
+nav.scrolled .nav-links a:hover,nav.scrolled .nav-links a.active{color:var(--navy)}
+.nav-cta{background:rgba(255,255,255,.15);color:var(--white);padding:.55rem 1.4rem;border-radius:50px;font-size:.875rem;font-weight:700;text-decoration:none;border:1.5px solid rgba(255,255,255,.35);transition:background .25s,color .25s}
+.nav-cta:hover{background:var(--white);color:var(--blue)}
+nav.scrolled .nav-cta{background:var(--blue);color:var(--white);border-color:var(--blue)}
+.nav-mobile-btn{display:none}
+.mobile-menu{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(10,15,30,.95);z-index:10000;flex-direction:column;align-items:center;justify-content:center;gap:.5rem}
+.mobile-menu.open{display:flex}
+.mobile-menu a{color:var(--white);text-decoration:none;font-size:1.25rem;font-weight:600;padding:1rem 2rem;border-radius:12px;transition:background .2s}
+.mobile-menu a:hover{background:rgba(255,255,255,.1)}
+.mobile-menu-close{position:absolute;top:1.25rem;right:1.5rem;background:none;border:none;color:var(--white);font-size:2rem;cursor:pointer}
+.article-hero{background:var(--navy);padding:120px 5% 60px;text-align:center}
+.article-hero .breadcrumb{color:rgba(255,255,255,.6);font-size:.85rem;margin-bottom:1rem}
+.article-hero .breadcrumb a{color:rgba(255,255,255,.6);text-decoration:none}
+.article-hero .breadcrumb a:hover{color:var(--white)}
+.article-hero h1{color:var(--white);font-size:2rem;font-weight:800;line-height:1.4;max-width:720px;margin:0 auto .75rem}
+.article-hero .meta{color:rgba(255,255,255,.5);font-size:.85rem;display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+.article-tags{display:flex;gap:.5rem;justify-content:center;margin-bottom:1rem}
+.article-tag{padding:.25rem .75rem;border-radius:50px;font-size:.75rem;font-weight:600}
+.tg-blue{background:rgba(29,78,216,.15);color:#60A5FA}
+.tg-amber{background:rgba(245,158,11,.15);color:#FBBF24}
+.tg-green{background:rgba(5,150,105,.15);color:#34D399}
+.tg-cyan{background:rgba(6,182,212,.15);color:#22D3EE}
+.tg-rose{background:rgba(244,63,94,.15);color:#FB7185}
+.article-body{max-width:720px;margin:0 auto;padding:3rem 1.5rem}
+.article-body h2{font-size:1.4rem;font-weight:800;color:var(--navy);margin:2.5rem 0 1rem;padding-bottom:.5rem;border-bottom:2px solid var(--gray-100)}
+.article-body h3{font-size:1.15rem;font-weight:700;color:var(--blue-mid);margin:1.5rem 0 .75rem}
+.article-body p{font-size:1rem;line-height:1.85;color:var(--gray-700);margin-bottom:1.25rem}
+.article-body ul,.article-body ol{margin:1rem 0 1.5rem 1.5rem;line-height:1.85;color:var(--gray-700)}
+.article-body li{margin-bottom:.5rem}
+.article-body .tip-box{background:linear-gradient(135deg,#EFF6FF,#F0F9FF);border-left:4px solid var(--blue-mid);padding:1.25rem 1.5rem;border-radius:0 12px 12px 0;margin:1.5rem 0;font-size:.95rem;line-height:1.7}
+.article-body .tip-box strong{color:var(--blue-mid)}
+.article-body .highlight-box{background:linear-gradient(135deg,#FEF3C7,#FFFBEB);border-left:4px solid var(--amber);padding:1.25rem 1.5rem;border-radius:0 12px 12px 0;margin:1.5rem 0;font-size:.95rem;line-height:1.7}
+.article-cta{text-align:center;padding:3rem 1.5rem 4rem;background:var(--gray-100);margin-top:2rem}
+.article-cta h2{font-size:1.4rem;font-weight:800;color:var(--navy);margin-bottom:.75rem}
+.article-cta p{color:var(--gray-500);margin-bottom:1.5rem;font-size:.95rem}
+.article-cta .cta-btn{display:inline-block;background:var(--blue);color:var(--white);padding:.9rem 2.5rem;border-radius:50px;font-weight:700;font-size:1rem;text-decoration:none;transition:background .2s}
+.article-cta .cta-btn:hover{background:var(--navy)}
+footer{background:var(--navy);color:rgba(255,255,255,.5);text-align:center;padding:2rem 5%;font-size:.8rem}
+footer a{color:rgba(255,255,255,.6);text-decoration:none}
+@media(max-width:768px){
+  .nav-links,.nav-cta{display:none}
+  .nav-mobile-btn{display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.12);border:1.5px solid rgba(255,255,255,.25);border-radius:8px;width:40px;height:40px;cursor:pointer;color:var(--white);font-size:1.2rem}
+  nav.scrolled .nav-mobile-btn{color:var(--navy);border-color:var(--gray-300);background:var(--gray-100)}
+  .article-hero h1{font-size:1.5rem}
+  .article-body{padding:2rem 1.25rem}
+}
+</style>
+</head>
+<body>
+<nav id="mainNav">
+  <a href="../index.html" class="nav-logo"><span class="logo-mark">W</span><span class="logo-name">WeStudy</span></a>
+  <ul class="nav-links">
+    <li><a href="../find-tutor.html">과외 찾기</a></li>
+    <li><a href="../education.html" class="active">교육 정보</a></li>
+    <li><a href="../hagwon.html">학원 상담</a></li>
+    <li><a href="../index.html#cta">상담 신청</a></li>
+    <li><a href="../index.html#proof">수업 후기</a></li>
+  </ul>
+  <a href="../index.html#cta" class="nav-cta">무료 상담 신청</a>
+  <button class="nav-mobile-btn" id="mobileBtn" aria-label="메뉴">☰</button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-menu-close" id="mobileMenuClose">✕</button>
+  <a href="../find-tutor.html">과외 찾기</a>
+  <a href="../education.html">교육 정보</a>
+  <a href="../hagwon.html">학원 상담</a>
+  <a href="../index.html#cta">상담 신청</a>
+  <a href="../index.html#proof">수업 후기</a>
+</div>
+
+<section class="article-hero">
+  <div class="breadcrumb"><a href="../index.html">홈</a> › <a href="../education.html">교육 정보</a> › 학습 스킬</div>
+  <div class="article-tags"><span class="article-tag tg-green">정리</span></div>
+  <h1>시험 직전에 A4 한 장으로 총정리할 수 있을까?</h1>
+  <div class="meta"><span>⏱ 3분 읽기</span><span>📅 2026.04</span></div>
+</section>
+
+<article class="article-body">
+  <p>시험 전날, 두꺼운 교과서와 노트를 펼쳐놓고 막막한 기분을 느낀 적이 있나요? 수십 페이지의 학습 내용을 A4 한 장에 압축하는 요약 시트는 시험 직전 최종 복습의 최강 도구입니다. 단순히 작은 글씨로 빼곡히 적는 것이 아니라, 전략적으로 내용을 선별하고 배치하는 방법을 알려드립니다.</p>
+
+  <h2>A4 요약 시트가 효과적인 이유</h2>
+  <p>요약 시트의 효과는 "만드는 과정" 자체에 있습니다. 방대한 학습 내용을 한 장에 담기 위해서는 무엇이 핵심이고 무엇이 부수적인지 판단해야 합니다. 이 선별 과정 자체가 고차원적인 학습 활동입니다. 또한 정보를 압축하고 구조화하는 과정에서 개념 간의 관계를 다시 한번 정리하게 되어, 만드는 행위만으로도 상당한 복습 효과를 얻을 수 있습니다.</p>
+
+  <h2>준비물과 기본 설정</h2>
+  <ul>
+    <li><strong>A4 용지:</strong> 가로 방향(Landscape)으로 사용하면 시야가 넓어져 전체 내용을 한눈에 파악하기 좋습니다.</li>
+    <li><strong>색 펜 3~4색:</strong> 검정(기본 내용), 파랑(핵심 개념), 빨강(주의사항/자주 틀리는 것), 초록(보조 정보)으로 구분합니다.</li>
+    <li><strong>0.3mm 이하 가는 펜:</strong> 많은 내용을 담아야 하므로 가는 펜이 필수입니다.</li>
+    <li><strong>연필과 자:</strong> 영역을 나눌 때 사용합니다.</li>
+  </ul>
+
+  <h2>영역 배치 전략</h2>
+  <p>A4 용지를 무작정 채우면 나중에 필요한 내용을 찾기 어렵습니다. 미리 영역을 나누는 것이 핵심입니다.</p>
+
+  <h3>4분할 레이아웃</h3>
+  <p>A4를 가로로 놓고 세로선과 가로선으로 4등분합니다. 각 칸에 과목의 주요 단원을 하나씩 배정합니다. 시험 범위가 4개 단원이라면 딱 맞고, 그보다 많으면 관련 단원끼리 묶어서 배치합니다.</p>
+
+  <h3>중앙 강조 레이아웃</h3>
+  <p>가운데에 가장 중요한 공식이나 핵심 개념을 크게 적고, 주변에 관련 세부 내용을 배치합니다. 마인드맵과 비슷한 구조로, 개념 간의 관계를 시각적으로 보여줄 수 있습니다.</p>
+
+  <div class="tip-box">
+    <strong>💡 실전 팁:</strong> 과목 특성에 따라 레이아웃을 다르게 적용하세요. 수학은 공식 모음 + 자주 틀리는 유형 정리가 효과적이고, 사회/과학은 개념 간 관계를 보여주는 다이어그램 형태가 좋습니다. 국어는 작품별 핵심 키워드 표 형태가 효율적입니다.
+  </div>
+
+  <h2>내용 선별 기준: 무엇을 넣고 무엇을 뺄까?</h2>
+  <p>한 장에 모든 것을 담을 수 없으므로, 내용 선별이 가장 중요합니다.</p>
+
+  <h3>반드시 넣어야 할 것</h3>
+  <ol>
+    <li><strong>핵심 공식과 정의:</strong> 시험에서 직접 사용하는 공식, 법칙, 정의를 적습니다.</li>
+    <li><strong>자주 틀리는 포인트:</strong> 오답 노트에서 반복적으로 틀렸던 내용을 빨간색으로 적습니다.</li>
+    <li><strong>선생님 강조 사항:</strong> 수업 중 "시험에 나온다"고 했던 내용을 우선 배치합니다.</li>
+    <li><strong>혼동하기 쉬운 개념 비교:</strong> 비슷하지만 다른 개념을 나란히 적어 구분합니다.</li>
+  </ol>
+
+  <h3>넣지 않아야 할 것</h3>
+  <ul>
+    <li>이미 완전히 외운 내용 (공간 낭비)</li>
+    <li>교과서 문장을 그대로 옮긴 것 (키워드로 압축해야 함)</li>
+    <li>시험 범위에 포함되지 않는 참고 사항</li>
+  </ul>
+
+  <div class="highlight-box">
+    <strong>⚠️ 주의:</strong> A4 요약 시트는 시험 전날에 처음 만들면 안 됩니다. 적어도 시험 3일 전부터 초안을 작성하고, 2일 전에 수정 보완하며, 전날에는 완성된 시트를 반복해서 읽는 것이 이상적입니다.
+  </div>
+
+  <h2>과목별 A4 요약 시트 작성 요령</h2>
+
+  <h3>수학</h3>
+  <p>공식을 단원별로 정리하되, 각 공식 옆에 적용 조건과 자주 틀리는 부분을 함께 적습니다. 공식만 나열하면 시험장에서 어떤 상황에 어떤 공식을 써야 하는지 판단이 안 됩니다. "이 공식은 ~일 때 사용" 형태로 적는 것이 핵심입니다.</p>
+
+  <h3>영어</h3>
+  <p>핵심 문법 규칙과 예외 사항, 자주 출제되는 숙어와 표현을 정리합니다. 본문의 주제문과 핵심 어휘도 포함합니다.</p>
+
+  <h3>사회/역사</h3>
+  <p>시간순 흐름도나 인과관계 다이어그램 형태가 효과적입니다. 핵심 사건, 인물, 의의를 키워드로 압축합니다.</p>
+
+  <h3>과학</h3>
+  <p>실험 과정과 결과를 간단한 도식으로 그리고, 관련 공식과 단위를 함께 정리합니다.</p>
+
+  <div class="tip-box">
+    <strong>💡 핵심 정리:</strong> A4 요약 시트의 핵심은 "만드는 과정이 곧 복습"이라는 점입니다. 가로 방향으로 영역을 나누고, 핵심 공식/자주 틀리는 것/선생님 강조 사항을 우선 배치하세요. 시험 3일 전부터 초안을 만들고, 전날에는 완성본으로 최종 복습합니다.
+  </div>
+</article>
+
+<section class="article-cta">
+  <h2>우리 아이 맞춤 학습 전략이 필요하다면?</h2>
+  <p>WeStudy 학습 코치가 과목별 최적의 요약 정리 방법을 코칭해 드립니다.</p>
+  <a href="../index.html#cta" class="cta-btn">무료 상담 신청하기 →</a>
+</section>
+
+<footer>
+  <div>© 2025 WeStudy 위스터디. All rights reserved. | <a href="../index.html">홈으로</a></div>
+</footer>
+
+<script>
+document.getElementById('mobileBtn').addEventListener('click',()=>{document.getElementById('mobileMenu').classList.add('open')});
+document.getElementById('mobileMenuClose').addEventListener('click',()=>{document.getElementById('mobileMenu').classList.remove('open')});
+const nav=document.getElementById('mainNav');
+window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>40)});
+</script>
+</body>
+</html>

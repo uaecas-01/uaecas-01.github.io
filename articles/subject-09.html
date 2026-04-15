@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>국어 문법, 외워도 헷갈리는 개념은 어떻게? – WeStudy</title>
+<meta name="description" content="음운변동, 품사분류, 문장성분 등 국어 문법의 핵심 개념을 체계적으로 정리하고 혼동을 줄이는 학습법을 안내합니다.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--navy:#0A1628;--blue:#1D4ED8;--blue-mid:#2563EB;--amber:#F59E0B;--bg:#F8FAFF;--white:#FFFFFF;--text:#111827;--gray-100:#F3F4F6;--gray-300:#D1D5DB;--gray-400:#9CA3AF;--gray-500:#6B7280;--gray-700:#374151}
+html{scroll-behavior:smooth}
+body{font-family:'Pretendard',sans-serif;color:var(--text);background:var(--bg);overflow-x:hidden}
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:0 5%;height:64px;background:var(--navy);transition:background .3s,box-shadow .3s}
+nav.scrolled{background:var(--white);box-shadow:0 2px 20px rgba(0,0,0,.08)}
+.nav-logo{display:flex;align-items:center;gap:.5rem;text-decoration:none}
+.logo-mark{background:var(--blue-mid);color:var(--white);width:32px;height:32px;border-radius:8px;display:grid;place-items:center;font-weight:900;font-size:1rem}
+.logo-name{color:var(--white);font-weight:800;font-size:1.1rem}
+nav.scrolled .logo-name{color:var(--navy)}
+.nav-links{display:flex;list-style:none;gap:2rem}
+.nav-links a{color:rgba(255,255,255,.8);text-decoration:none;font-size:.9rem;font-weight:500;transition:color .2s}
+.nav-links a:hover,.nav-links a.active{color:var(--white);font-weight:700}
+nav.scrolled .nav-links a{color:var(--gray-500)}
+nav.scrolled .nav-links a:hover,nav.scrolled .nav-links a.active{color:var(--navy)}
+.nav-cta{background:rgba(255,255,255,.15);color:var(--white);padding:.55rem 1.4rem;border-radius:50px;font-size:.875rem;font-weight:700;text-decoration:none;border:1.5px solid rgba(255,255,255,.35);transition:background .25s,color .25s}
+.nav-cta:hover{background:var(--white);color:var(--blue)}
+nav.scrolled .nav-cta{background:var(--blue);color:var(--white);border-color:var(--blue)}
+.nav-mobile-btn{display:none}
+.mobile-menu{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(10,15,30,.95);z-index:10000;flex-direction:column;align-items:center;justify-content:center;gap:.5rem}
+.mobile-menu.open{display:flex}
+.mobile-menu a{color:var(--white);text-decoration:none;font-size:1.25rem;font-weight:600;padding:1rem 2rem;border-radius:12px;transition:background .2s}
+.mobile-menu a:hover{background:rgba(255,255,255,.1)}
+.mobile-menu-close{position:absolute;top:1.25rem;right:1.5rem;background:none;border:none;color:var(--white);font-size:2rem;cursor:pointer}
+.article-hero{background:var(--navy);padding:120px 5% 60px;text-align:center}
+.article-hero .breadcrumb{color:rgba(255,255,255,.6);font-size:.85rem;margin-bottom:1rem}
+.article-hero .breadcrumb a{color:rgba(255,255,255,.6);text-decoration:none}
+.article-hero .breadcrumb a:hover{color:var(--white)}
+.article-hero h1{color:var(--white);font-size:2rem;font-weight:800;line-height:1.4;max-width:720px;margin:0 auto .75rem}
+.article-hero .meta{color:rgba(255,255,255,.5);font-size:.85rem;display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+.article-tags{display:flex;gap:.5rem;justify-content:center;margin-bottom:1rem}
+.article-tag{padding:.25rem .75rem;border-radius:50px;font-size:.75rem;font-weight:600}
+.tg-blue{background:rgba(29,78,216,.15);color:#60A5FA}
+.tg-amber{background:rgba(245,158,11,.15);color:#FBBF24}
+.tg-green{background:rgba(5,150,105,.15);color:#34D399}
+.tg-cyan{background:rgba(6,182,212,.15);color:#22D3EE}
+.tg-rose{background:rgba(244,63,94,.15);color:#FB7185}
+.article-body{max-width:720px;margin:0 auto;padding:3rem 1.5rem}
+.article-body h2{font-size:1.4rem;font-weight:800;color:var(--navy);margin:2.5rem 0 1rem;padding-bottom:.5rem;border-bottom:2px solid var(--gray-100)}
+.article-body h3{font-size:1.15rem;font-weight:700;color:var(--blue-mid);margin:1.5rem 0 .75rem}
+.article-body p{font-size:1rem;line-height:1.85;color:var(--gray-700);margin-bottom:1.25rem}
+.article-body ul,.article-body ol{margin:1rem 0 1.5rem 1.5rem;line-height:1.85;color:var(--gray-700)}
+.article-body li{margin-bottom:.5rem}
+.article-body .tip-box{background:linear-gradient(135deg,#EFF6FF,#F0F9FF);border-left:4px solid var(--blue-mid);padding:1.25rem 1.5rem;border-radius:0 12px 12px 0;margin:1.5rem 0;font-size:.95rem;line-height:1.7}
+.article-body .tip-box strong{color:var(--blue-mid)}
+.article-body .highlight-box{background:linear-gradient(135deg,#FEF3C7,#FFFBEB);border-left:4px solid var(--amber);padding:1.25rem 1.5rem;border-radius:0 12px 12px 0;margin:1.5rem 0;font-size:.95rem;line-height:1.7}
+.article-cta{text-align:center;padding:3rem 1.5rem 4rem;background:var(--gray-100);margin-top:2rem}
+.article-cta h2{font-size:1.4rem;font-weight:800;color:var(--navy);margin-bottom:.75rem}
+.article-cta p{color:var(--gray-500);margin-bottom:1.5rem;font-size:.95rem}
+.article-cta .cta-btn{display:inline-block;background:var(--blue);color:var(--white);padding:.9rem 2.5rem;border-radius:50px;font-weight:700;font-size:1rem;text-decoration:none;transition:background .2s}
+.article-cta .cta-btn:hover{background:var(--navy)}
+footer{background:var(--navy);color:rgba(255,255,255,.5);text-align:center;padding:2rem 5%;font-size:.8rem}
+footer a{color:rgba(255,255,255,.6);text-decoration:none}
+@media(max-width:768px){
+  .nav-links,.nav-cta{display:none}
+  .nav-mobile-btn{display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.12);border:1.5px solid rgba(255,255,255,.25);border-radius:8px;width:40px;height:40px;cursor:pointer;color:var(--white);font-size:1.2rem}
+  nav.scrolled .nav-mobile-btn{color:var(--navy);border-color:var(--gray-300);background:var(--gray-100)}
+  .article-hero h1{font-size:1.5rem}
+  .article-body{padding:2rem 1.25rem}
+}
+</style>
+</head>
+<body>
+<nav id="mainNav">
+  <a href="../index.html" class="nav-logo"><span class="logo-mark">W</span><span class="logo-name">WeStudy</span></a>
+  <ul class="nav-links">
+    <li><a href="../find-tutor.html">과외 찾기</a></li>
+    <li><a href="../education.html" class="active">교육 정보</a></li>
+    <li><a href="../hagwon.html">학원 상담</a></li>
+    <li><a href="../index.html#cta">상담 신청</a></li>
+    <li><a href="../index.html#proof">수업 후기</a></li>
+  </ul>
+  <a href="../index.html#cta" class="nav-cta">무료 상담 신청</a>
+  <button class="nav-mobile-btn" id="mobileBtn" aria-label="메뉴">☰</button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-menu-close" id="mobileMenuClose">✕</button>
+  <a href="../find-tutor.html">과외 찾기</a>
+  <a href="../education.html">교육 정보</a>
+  <a href="../hagwon.html">학원 상담</a>
+  <a href="../index.html#cta">상담 신청</a>
+  <a href="../index.html#proof">수업 후기</a>
+</div>
+
+<section class="article-hero">
+  <div class="breadcrumb"><a href="../index.html">홈</a> › <a href="../education.html">교육 정보</a> › 과목별 공부법</div>
+  <div class="article-tags"><span class="article-tag tg-rose">국어</span><span class="article-tag tg-amber">문법</span></div>
+  <h1>국어 문법, 외워도 헷갈리는 개념은 어떻게?</h1>
+  <div class="meta"><span>⏱ 7분 읽기</span><span>📅 2026.03</span></div>
+</section>
+
+<article class="article-body">
+  <p>국어 문법은 수능과 내신에서 매년 빠지지 않고 출제되지만, 많은 학생들이 가장 어려워하는 영역이기도 합니다. 음운변동, 품사 분류, 문장 성분, 높임법, 시제 등 외울 것이 많고, 외워도 비슷한 개념끼리 헷갈리기 때문입니다. 이 글에서는 국어 문법의 핵심 혼동 포인트를 정리하고, 확실하게 구분하는 학습법을 안내합니다.</p>
+
+  <h2>음운변동: 가장 많이 출제되는 핵심 영역</h2>
+  <p>음운변동은 수능에서 거의 매년 출제되는 핵심 문법 단원입니다. 음운변동의 종류를 체계적으로 분류하면 혼동을 크게 줄일 수 있습니다.</p>
+
+  <h3>교체 (바뀜)</h3>
+  <p>하나의 음운이 다른 음운으로 바뀌는 현상입니다. 음운의 개수는 변하지 않습니다.</p>
+  <ul>
+    <li><strong>비음화:</strong> 받침 'ㄱ, ㄷ, ㅂ' 뒤에 'ㄴ, ㅁ'이 오면 받침이 비음으로 변합니다. 예: 국물[궁물], 받는[반는]</li>
+    <li><strong>유음화:</strong> 'ㄴ'이 'ㄹ' 앞이나 뒤에서 'ㄹ'로 변합니다. 예: 신라[실라], 칼날[칼랄]</li>
+    <li><strong>구개음화:</strong> 받침 'ㄷ, ㅌ' 뒤에 'ㅣ'가 오면 'ㅈ, ㅊ'으로 변합니다. 예: 굳이[구지], 같이[가치]</li>
+  </ul>
+
+  <h3>탈락 (빠짐)</h3>
+  <p>음운 하나가 없어지는 현상입니다. 음운의 개수가 줄어듭니다.</p>
+  <ul>
+    <li><strong>자음군 단순화:</strong> 겹받침에서 자음 하나가 탈락합니다. 예: 닭[닥], 읽다[익따]</li>
+    <li><strong>'ㅎ' 탈락:</strong> 'ㅎ' 뒤에 모음이 오면 'ㅎ'이 탈락합니다. 예: 좋아[조아], 놓아[노아]</li>
+    <li><strong>'ㅡ' 탈락:</strong> 어간의 'ㅡ' 뒤에 '-아/-어'가 오면 'ㅡ'가 탈락합니다. 예: 쓰다 → 써</li>
+  </ul>
+
+  <h3>첨가 (더해짐)</h3>
+  <p>없던 음운이 새로 생기는 현상입니다. 음운의 개수가 늘어납니다.</p>
+  <ul>
+    <li><strong>'ㄴ' 첨가:</strong> 합성어나 파생어에서 뒤 요소의 첫소리 'ㅣ, ㅑ, ㅕ, ㅛ, ㅠ' 앞에 'ㄴ'이 첨가됩니다. 예: 솜이불[솜니불], 색연필[생년필]</li>
+  </ul>
+
+  <h3>축약 (합쳐짐)</h3>
+  <p>두 음운이 합쳐져 하나의 다른 음운이 되는 현상입니다. 음운의 개수가 줄어듭니다.</p>
+  <ul>
+    <li><strong>거센소리되기:</strong> 'ㅎ'과 'ㄱ, ㄷ, ㅂ, ㅈ'이 만나면 거센소리가 됩니다. 예: 놓다[노타], 좋고[조코]</li>
+    <li><strong>모음 축약:</strong> 두 모음이 합쳐져 하나가 됩니다. 예: 가+아서 → 가서(ㅏ+ㅏ→ㅏ), 보+아서 → 봐서(ㅗ+ㅏ→ㅘ)</li>
+  </ul>
+
+  <div class="tip-box">
+    <strong>💡 실전 팁:</strong> 음운변동 문제를 풀 때는 반드시 "음운의 개수가 변했는가?"를 먼저 확인하세요. 개수가 같으면 교체, 줄었으면 탈락이나 축약, 늘었으면 첨가입니다. 탈락과 축약의 차이는 "두 음운이 합쳐져 새 음운이 생겼는가?"로 구분합니다.
+  </div>
+
+  <h2>품사 분류: 혼동하기 쉬운 품사 구분</h2>
+  <p>국어의 9품사를 분류할 때 가장 많이 혼동하는 경우를 정리합니다.</p>
+
+  <h3>관형사 vs 형용사</h3>
+  <ul>
+    <li><strong>관형사:</strong> 체언 앞에서 꾸미는 말로, 형태가 변하지 않습니다(불변어). 예: 새 옷, 헌 책, 온 세상</li>
+    <li><strong>형용사:</strong> 활용(형태 변화)이 가능합니다. 예: 새롭다 → 새로운, 새로워서</li>
+    <li><strong>구분 기준:</strong> "~다"를 붙여 활용할 수 있으면 형용사, 없으면 관형사입니다.</li>
+  </ul>
+
+  <h3>부사 vs 관형사</h3>
+  <ul>
+    <li><strong>부사:</strong> 용언, 문장 전체, 다른 부사 등을 꾸밉니다. 예: 매우, 아주, 꼭</li>
+    <li><strong>관형사:</strong> 체언만 꾸밉니다. 예: 새, 헌, 모든</li>
+    <li><strong>구분 기준:</strong> 뒤에 오는 말이 체언이면 관형사, 용언이면 부사입니다.</li>
+  </ul>
+
+  <h3>조사 vs 어미 구분</h3>
+  <ul>
+    <li><strong>조사:</strong> 체언(명사, 대명사, 수사) 뒤에 붙습니다. 예: 꽃이, 나를, 학교에서</li>
+    <li><strong>어미:</strong> 용언(동사, 형용사)의 어간 뒤에 붙습니다. 예: 먹었다, 예쁜, 가면서</li>
+  </ul>
+
+  <div class="highlight-box">
+    <strong>⚠️ 자주 출제되는 함정:</strong> "이/가"를 조사로만 알면 안 됩니다. "이 책"에서 '이'는 관형사이고, "책이"에서 '이'는 주격 조사입니다. 같은 글자라도 위치와 기능에 따라 품사가 달라질 수 있으므로, 반드시 문맥에서의 역할을 확인하세요.
+  </div>
+
+  <h2>문장 성분: 핵심 구분법</h2>
+  <p>문장 성분은 주성분, 부속 성분, 독립 성분으로 나뉩니다.</p>
+
+  <h3>주성분 (반드시 필요한 성분)</h3>
+  <ul>
+    <li><strong>주어:</strong> 동작이나 상태의 주체. "누가/무엇이"에 해당합니다.</li>
+    <li><strong>서술어:</strong> 주어의 동작, 상태, 성질을 서술합니다.</li>
+    <li><strong>목적어:</strong> 동작의 대상. "무엇을"에 해당합니다.</li>
+    <li><strong>보어:</strong> "되다", "아니다" 앞에서 보충하는 말입니다. 예: "물이 얼음이 되다"에서 '얼음이'가 보어입니다.</li>
+  </ul>
+
+  <h3>부속 성분</h3>
+  <ul>
+    <li><strong>관형어:</strong> 체언을 꾸미는 말. "어떤, 무슨, 새"</li>
+    <li><strong>부사어:</strong> 용언이나 문장 전체를 꾸미는 말. "빠르게, 매우, 아마"</li>
+  </ul>
+
+  <h3>필수 부사어 vs 수의 부사어</h3>
+  <p>부사어 중에서 서술어가 반드시 요구하는 것을 필수 부사어라고 합니다. 이것은 시험에서 자주 출제되는 포인트입니다.</p>
+  <ul>
+    <li>"나는 서울에서 부산으로 갔다" → '부산으로'는 '가다'가 요구하는 필수 부사어</li>
+    <li>"그는 의사가 되었다" → '의사가'는 보어(필수 부사어가 아님에 주의)</li>
+    <li>"날씨가 봄과 다르다" → '봄과'는 '다르다'가 요구하는 필수 부사어</li>
+  </ul>
+
+  <h2>문법 학습의 효과적 전략</h2>
+
+  <h3>1. 대비 학습법</h3>
+  <p>혼동되는 개념은 따로 외우지 말고 반드시 함께 놓고 비교하며 학습하세요. 예를 들어 교체와 축약을 따로 공부하면 시험에서 혼동하기 쉽지만, 둘을 나란히 비교하면서 공부하면 차이가 명확해집니다.</p>
+
+  <h3>2. 예문 중심 학습</h3>
+  <p>추상적인 규칙만 외우면 실전에서 적용하기 어렵습니다. 반드시 구체적인 예문을 통해 학습하고, 새로운 예문에서도 규칙을 적용할 수 있는지 확인하세요.</p>
+
+  <h3>3. 기출 변형 훈련</h3>
+  <p>문법 기출 문제를 풀고, 선택지의 예시를 다른 단어로 바꿔서 같은 규칙이 적용되는지 확인하는 훈련을 합니다. 이 과정에서 규칙의 적용 범위를 정확히 이해하게 됩니다.</p>
+
+  <div class="tip-box">
+    <strong>💡 핵심 정리:</strong> 국어 문법의 핵심은 분류 기준을 정확히 이해하는 것입니다. 음운변동은 음운 개수 변화 여부로, 품사는 형태 변화 가능 여부와 수식 대상으로, 문장 성분은 문장에서의 기능으로 분류합니다. 대비 학습법과 예문 중심 학습을 병행하면 헷갈리는 개념을 확실히 잡을 수 있습니다.
+  </div>
+</article>
+
+<section class="article-cta">
+  <h2>국어 문법을 확실히 잡고 싶다면?</h2>
+  <p>WeStudy 국어 전문 코치가 문법 취약 영역 맞춤 학습 플랜을 설계해 드립니다.</p>
+  <a href="../index.html#cta" class="cta-btn">무료 상담 신청하기 →</a>
+</section>
+
+<footer>
+  <div>© 2025 WeStudy 위스터디. All rights reserved. | <a href="../index.html">홈으로</a></div>
+</footer>
+
+<script>
+document.getElementById('mobileBtn').addEventListener('click',()=>{document.getElementById('mobileMenu').classList.add('open')});
+document.getElementById('mobileMenuClose').addEventListener('click',()=>{document.getElementById('mobileMenu').classList.remove('open')});
+const nav=document.getElementById('mainNav');
+window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>40)});
+</script>
+</body>
+</html>

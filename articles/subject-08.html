@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>문학 작품은 어떻게 분석해야 시험에 나올까? – WeStudy</title>
+<meta name="description" content="시, 소설, 수필의 체계적 분석 틀을 통해 문학 시험을 효과적으로 대비하는 방법을 안내합니다.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--navy:#0A1628;--blue:#1D4ED8;--blue-mid:#2563EB;--amber:#F59E0B;--bg:#F8FAFF;--white:#FFFFFF;--text:#111827;--gray-100:#F3F4F6;--gray-300:#D1D5DB;--gray-400:#9CA3AF;--gray-500:#6B7280;--gray-700:#374151}
+html{scroll-behavior:smooth}
+body{font-family:'Pretendard',sans-serif;color:var(--text);background:var(--bg);overflow-x:hidden}
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:0 5%;height:64px;background:var(--navy);transition:background .3s,box-shadow .3s}
+nav.scrolled{background:var(--white);box-shadow:0 2px 20px rgba(0,0,0,.08)}
+.nav-logo{display:flex;align-items:center;gap:.5rem;text-decoration:none}
+.logo-mark{background:var(--blue-mid);color:var(--white);width:32px;height:32px;border-radius:8px;display:grid;place-items:center;font-weight:900;font-size:1rem}
+.logo-name{color:var(--white);font-weight:800;font-size:1.1rem}
+nav.scrolled .logo-name{color:var(--navy)}
+.nav-links{display:flex;list-style:none;gap:2rem}
+.nav-links a{color:rgba(255,255,255,.8);text-decoration:none;font-size:.9rem;font-weight:500;transition:color .2s}
+.nav-links a:hover,.nav-links a.active{color:var(--white);font-weight:700}
+nav.scrolled .nav-links a{color:var(--gray-500)}
+nav.scrolled .nav-links a:hover,nav.scrolled .nav-links a.active{color:var(--navy)}
+.nav-cta{background:rgba(255,255,255,.15);color:var(--white);padding:.55rem 1.4rem;border-radius:50px;font-size:.875rem;font-weight:700;text-decoration:none;border:1.5px solid rgba(255,255,255,.35);transition:background .25s,color .25s}
+.nav-cta:hover{background:var(--white);color:var(--blue)}
+nav.scrolled .nav-cta{background:var(--blue);color:var(--white);border-color:var(--blue)}
+.nav-mobile-btn{display:none}
+.mobile-menu{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(10,15,30,.95);z-index:10000;flex-direction:column;align-items:center;justify-content:center;gap:.5rem}
+.mobile-menu.open{display:flex}
+.mobile-menu a{color:var(--white);text-decoration:none;font-size:1.25rem;font-weight:600;padding:1rem 2rem;border-radius:12px;transition:background .2s}
+.mobile-menu a:hover{background:rgba(255,255,255,.1)}
+.mobile-menu-close{position:absolute;top:1.25rem;right:1.5rem;background:none;border:none;color:var(--white);font-size:2rem;cursor:pointer}
+.article-hero{background:var(--navy);padding:120px 5% 60px;text-align:center}
+.article-hero .breadcrumb{color:rgba(255,255,255,.6);font-size:.85rem;margin-bottom:1rem}
+.article-hero .breadcrumb a{color:rgba(255,255,255,.6);text-decoration:none}
+.article-hero .breadcrumb a:hover{color:var(--white)}
+.article-hero h1{color:var(--white);font-size:2rem;font-weight:800;line-height:1.4;max-width:720px;margin:0 auto .75rem}
+.article-hero .meta{color:rgba(255,255,255,.5);font-size:.85rem;display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+.article-tags{display:flex;gap:.5rem;justify-content:center;margin-bottom:1rem}
+.article-tag{padding:.25rem .75rem;border-radius:50px;font-size:.75rem;font-weight:600}
+.tg-blue{background:rgba(29,78,216,.15);color:#60A5FA}
+.tg-amber{background:rgba(245,158,11,.15);color:#FBBF24}
+.tg-green{background:rgba(5,150,105,.15);color:#34D399}
+.tg-cyan{background:rgba(6,182,212,.15);color:#22D3EE}
+.tg-rose{background:rgba(244,63,94,.15);color:#FB7185}
+.article-body{max-width:720px;margin:0 auto;padding:3rem 1.5rem}
+.article-body h2{font-size:1.4rem;font-weight:800;color:var(--navy);margin:2.5rem 0 1rem;padding-bottom:.5rem;border-bottom:2px solid var(--gray-100)}
+.article-body h3{font-size:1.15rem;font-weight:700;color:var(--blue-mid);margin:1.5rem 0 .75rem}
+.article-body p{font-size:1rem;line-height:1.85;color:var(--gray-700);margin-bottom:1.25rem}
+.article-body ul,.article-body ol{margin:1rem 0 1.5rem 1.5rem;line-height:1.85;color:var(--gray-700)}
+.article-body li{margin-bottom:.5rem}
+.article-body .tip-box{background:linear-gradient(135deg,#EFF6FF,#F0F9FF);border-left:4px solid var(--blue-mid);padding:1.25rem 1.5rem;border-radius:0 12px 12px 0;margin:1.5rem 0;font-size:.95rem;line-height:1.7}
+.article-body .tip-box strong{color:var(--blue-mid)}
+.article-body .highlight-box{background:linear-gradient(135deg,#FEF3C7,#FFFBEB);border-left:4px solid var(--amber);padding:1.25rem 1.5rem;border-radius:0 12px 12px 0;margin:1.5rem 0;font-size:.95rem;line-height:1.7}
+.article-cta{text-align:center;padding:3rem 1.5rem 4rem;background:var(--gray-100);margin-top:2rem}
+.article-cta h2{font-size:1.4rem;font-weight:800;color:var(--navy);margin-bottom:.75rem}
+.article-cta p{color:var(--gray-500);margin-bottom:1.5rem;font-size:.95rem}
+.article-cta .cta-btn{display:inline-block;background:var(--blue);color:var(--white);padding:.9rem 2.5rem;border-radius:50px;font-weight:700;font-size:1rem;text-decoration:none;transition:background .2s}
+.article-cta .cta-btn:hover{background:var(--navy)}
+footer{background:var(--navy);color:rgba(255,255,255,.5);text-align:center;padding:2rem 5%;font-size:.8rem}
+footer a{color:rgba(255,255,255,.6);text-decoration:none}
+@media(max-width:768px){
+  .nav-links,.nav-cta{display:none}
+  .nav-mobile-btn{display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.12);border:1.5px solid rgba(255,255,255,.25);border-radius:8px;width:40px;height:40px;cursor:pointer;color:var(--white);font-size:1.2rem}
+  nav.scrolled .nav-mobile-btn{color:var(--navy);border-color:var(--gray-300);background:var(--gray-100)}
+  .article-hero h1{font-size:1.5rem}
+  .article-body{padding:2rem 1.25rem}
+}
+</style>
+</head>
+<body>
+<nav id="mainNav">
+  <a href="../index.html" class="nav-logo"><span class="logo-mark">W</span><span class="logo-name">WeStudy</span></a>
+  <ul class="nav-links">
+    <li><a href="../find-tutor.html">과외 찾기</a></li>
+    <li><a href="../education.html" class="active">교육 정보</a></li>
+    <li><a href="../hagwon.html">학원 상담</a></li>
+    <li><a href="../index.html#cta">상담 신청</a></li>
+    <li><a href="../index.html#proof">수업 후기</a></li>
+  </ul>
+  <a href="../index.html#cta" class="nav-cta">무료 상담 신청</a>
+  <button class="nav-mobile-btn" id="mobileBtn" aria-label="메뉴">☰</button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-menu-close" id="mobileMenuClose">✕</button>
+  <a href="../find-tutor.html">과외 찾기</a>
+  <a href="../education.html">교육 정보</a>
+  <a href="../hagwon.html">학원 상담</a>
+  <a href="../index.html#cta">상담 신청</a>
+  <a href="../index.html#proof">수업 후기</a>
+</div>
+
+<section class="article-hero">
+  <div class="breadcrumb"><a href="../index.html">홈</a> › <a href="../education.html">교육 정보</a> › 과목별 공부법</div>
+  <div class="article-tags"><span class="article-tag tg-rose">국어</span></div>
+  <h1>문학 작품은 어떻게 분석해야 시험에 나올까?</h1>
+  <div class="meta"><span>⏱ 6분 읽기</span><span>📅 2026.04</span></div>
+</section>
+
+<article class="article-body">
+  <p>문학 영역은 많은 학생들이 감으로 풀려고 하는 분야입니다. 작품을 읽고 느낌대로 선택지를 고르다 보면 맞을 때도 있고 틀릴 때도 있어 점수가 불안정합니다. 하지만 시험에 출제되는 문학 문제는 명확한 분석 기준이 있습니다. 시, 소설, 수필 각각의 분석 틀을 익히면 문학을 체계적으로 공부할 수 있습니다.</p>
+
+  <h2>시(詩) 분석 틀: TIMER 프레임</h2>
+  <p>시를 분석할 때는 다음 다섯 가지 요소를 체계적으로 파악합니다.</p>
+
+  <h3>T - Theme (주제)</h3>
+  <p>시가 궁극적으로 전달하려는 메시지입니다. 주제는 대개 마지막 연이나 반복되는 시구에서 드러납니다. 주제를 한 문장으로 요약하는 연습을 하면 문제 풀이의 정확도가 크게 올라갑니다.</p>
+
+  <h3>I - Imagery (심상/이미지)</h3>
+  <p>시에 사용된 감각적 이미지를 파악합니다. 시각, 청각, 촉각, 후각, 미각 이미지 중 어떤 것이 중심인지, 그리고 이미지가 어떤 분위기나 정서를 만들어내는지를 분석합니다.</p>
+
+  <h3>M - Mood (분위기/정서)</h3>
+  <p>시의 전체적인 분위기와 화자의 감정 상태를 파악합니다. 시험에서는 정서를 나타내는 표현이나 분위기 변화를 묻는 문제가 자주 출제됩니다.</p>
+
+  <h3>E - Expression (표현기법)</h3>
+  <p>시에 사용된 표현기법을 파악합니다. 수능에서 자주 출제되는 표현기법은 다음과 같습니다.</p>
+  <ul>
+    <li><strong>은유/직유:</strong> 대상을 다른 것에 빗대어 표현하는 기법</li>
+    <li><strong>의인법:</strong> 사물이나 추상적 개념에 인격을 부여하는 기법</li>
+    <li><strong>역설:</strong> 겉으로는 모순되지만 깊은 진실을 담고 있는 표현</li>
+    <li><strong>반복/대구:</strong> 특정 어구나 문장 구조를 반복하여 리듬감과 강조 효과를 내는 기법</li>
+    <li><strong>도치:</strong> 어순을 바꾸어 특정 의미를 강조하는 기법</li>
+  </ul>
+
+  <h3>R - Rhythm (운율)</h3>
+  <p>시의 음악적 요소로, 음보율, 음수율, 각운, 두운 등을 파악합니다. 전통 시가에서는 3음보, 4음보의 율격이 중요하고, 현대시에서는 내재율을 살펴봅니다.</p>
+
+  <div class="tip-box">
+    <strong>💡 실전 팁:</strong> 시 작품을 분석할 때 TIMER의 각 항목을 체크리스트처럼 활용하세요. 5개 항목을 모두 정리하는 데 5분이면 충분하며, 이 과정을 거치면 시에 대한 감상이 아닌 분석적 이해가 가능해집니다.
+  </div>
+
+  <h2>소설 분석 틀: CPST 프레임</h2>
+  <p>소설 분석의 핵심은 서사 구조를 체계적으로 파악하는 것입니다.</p>
+
+  <h3>C - Character (인물)</h3>
+  <ul>
+    <li><strong>인물의 성격:</strong> 직접 제시(서술자가 설명)와 간접 제시(행동, 대화, 외양으로 드러남)를 구분합니다.</li>
+    <li><strong>인물 간 관계:</strong> 대립, 협력, 갈등, 화해 등의 관계를 파악합니다.</li>
+    <li><strong>인물의 변화:</strong> 작품 속에서 인물이 어떻게 변화하는지 추적합니다.</li>
+  </ul>
+
+  <h3>P - Plot (구성/서사)</h3>
+  <ul>
+    <li>발단-전개-위기-절정-결말의 구조에서 제시된 부분이 어디에 해당하는지 파악합니다.</li>
+    <li>시간 순서대로 전개되는지, 역순행적 구성인지, 액자 구성인지를 분석합니다.</li>
+    <li>복선과 반전이 있다면 어떤 요소가 그 역할을 하는지 찾습니다.</li>
+  </ul>
+
+  <h3>S - Setting (배경)</h3>
+  <ul>
+    <li><strong>시간적 배경:</strong> 시대, 계절, 시간대가 작품의 분위기와 주제에 어떤 영향을 미치는지 분석합니다.</li>
+    <li><strong>공간적 배경:</strong> 장소가 인물의 심리나 갈등 구조와 어떻게 연결되는지 파악합니다.</li>
+    <li><strong>사회적 배경:</strong> 시대의 사회적 조건이 인물의 행동과 갈등에 어떻게 작용하는지 살펴봅니다.</li>
+  </ul>
+
+  <h3>T - Theme & Technique (주제와 서술 기법)</h3>
+  <ul>
+    <li>작품의 주제를 한 문장으로 정리합니다.</li>
+    <li>서술 시점(1인칭 주인공/관찰자, 3인칭 전지적/제한적)을 파악합니다.</li>
+    <li>서술자의 태도(객관적/주관적, 동정적/비판적)를 분석합니다.</li>
+  </ul>
+
+  <div class="highlight-box">
+    <strong>⚠️ 주의:</strong> 소설 문제에서 가장 많이 틀리는 유형은 "서술상의 특징"을 묻는 문제입니다. 이 유형은 서술 시점, 서술자의 개입 정도, 장면 전환 방식 등을 정확히 이해해야 풀 수 있습니다. 작품을 읽을 때 내용뿐 아니라 '어떻게 서술되고 있는가'에도 주의를 기울이세요.
+  </div>
+
+  <h2>수필 분석 틀</h2>
+  <p>수필은 시험에서 비중은 작지만, 분석 방법을 알면 확실한 점수를 확보할 수 있습니다.</p>
+  <ul>
+    <li><strong>글쓴이의 체험:</strong> 어떤 경험이나 사건을 다루고 있는지 파악합니다.</li>
+    <li><strong>성찰과 깨달음:</strong> 체험을 통해 글쓴이가 얻은 교훈이나 깨달음을 찾습니다.</li>
+    <li><strong>글쓴이의 태도:</strong> 대상이나 세계에 대한 글쓴이의 태도(긍정적/비판적/성찰적)를 파악합니다.</li>
+    <li><strong>문체적 특징:</strong> 독백체, 고백체, 서간체 등 수필의 문체적 특징을 분석합니다.</li>
+  </ul>
+
+  <h2>문학 공부 실전 루틴</h2>
+  <ol>
+    <li><strong>매일 1작품:</strong> 수능 기출 문학 작품을 하루에 1개씩 분석 틀로 정리합니다.</li>
+    <li><strong>분석 노트 작성:</strong> 작품명, 장르, 분석 틀 항목별 정리, 출제 포인트를 한 페이지에 정리합니다.</li>
+    <li><strong>선택지 분석:</strong> 문제를 풀고 나서 오답 선택지가 왜 틀린지까지 분석합니다.</li>
+    <li><strong>주간 복습:</strong> 한 주간 분석한 작품들의 핵심 특징을 비교하며 복습합니다.</li>
+  </ol>
+
+  <div class="tip-box">
+    <strong>💡 핵심 정리:</strong> 문학 분석의 핵심은 감으로 풀지 않고 체계적 분석 틀을 적용하는 것입니다. 시는 TIMER(주제-심상-분위기-표현-운율), 소설은 CPST(인물-구성-배경-주제/기법) 프레임을 활용하면 모든 문학 문제를 논리적으로 풀 수 있습니다.
+  </div>
+</article>
+
+<section class="article-cta">
+  <h2>문학 분석 능력을 체계적으로 키우고 싶다면?</h2>
+  <p>WeStudy 국어 전문 코치가 문학 분석 훈련 맞춤 커리큘럼을 설계해 드립니다.</p>
+  <a href="../index.html#cta" class="cta-btn">무료 상담 신청하기 →</a>
+</section>
+
+<footer>
+  <div>© 2025 WeStudy 위스터디. All rights reserved. | <a href="../index.html">홈으로</a></div>
+</footer>
+
+<script>
+document.getElementById('mobileBtn').addEventListener('click',()=>{document.getElementById('mobileMenu').classList.add('open')});
+document.getElementById('mobileMenuClose').addEventListener('click',()=>{document.getElementById('mobileMenu').classList.remove('open')});
+const nav=document.getElementById('mainNav');
+window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>40)});
+</script>
+</body>
+</html>

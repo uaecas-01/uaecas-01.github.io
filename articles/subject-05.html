@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>단어를 외워도 자꾸 까먹는 이유는? – WeStudy</title>
+<meta name="description" content="영어 단어 암기가 지속되지 않는 원인을 분석하고, 어원분석, 연상법, 간격반복 전략을 활용한 효과적인 어휘 학습법을 소개합니다.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--navy:#0A1628;--blue:#1D4ED8;--blue-mid:#2563EB;--amber:#F59E0B;--bg:#F8FAFF;--white:#FFFFFF;--text:#111827;--gray-100:#F3F4F6;--gray-300:#D1D5DB;--gray-400:#9CA3AF;--gray-500:#6B7280;--gray-700:#374151}
+html{scroll-behavior:smooth}
+body{font-family:'Pretendard',sans-serif;color:var(--text);background:var(--bg);overflow-x:hidden}
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:0 5%;height:64px;background:var(--navy);transition:background .3s,box-shadow .3s}
+nav.scrolled{background:var(--white);box-shadow:0 2px 20px rgba(0,0,0,.08)}
+.nav-logo{display:flex;align-items:center;gap:.5rem;text-decoration:none}
+.logo-mark{background:var(--blue-mid);color:var(--white);width:32px;height:32px;border-radius:8px;display:grid;place-items:center;font-weight:900;font-size:1rem}
+.logo-name{color:var(--white);font-weight:800;font-size:1.1rem}
+nav.scrolled .logo-name{color:var(--navy)}
+.nav-links{display:flex;list-style:none;gap:2rem}
+.nav-links a{color:rgba(255,255,255,.8);text-decoration:none;font-size:.9rem;font-weight:500;transition:color .2s}
+.nav-links a:hover,.nav-links a.active{color:var(--white);font-weight:700}
+nav.scrolled .nav-links a{color:var(--gray-500)}
+nav.scrolled .nav-links a:hover,nav.scrolled .nav-links a.active{color:var(--navy)}
+.nav-cta{background:rgba(255,255,255,.15);color:var(--white);padding:.55rem 1.4rem;border-radius:50px;font-size:.875rem;font-weight:700;text-decoration:none;border:1.5px solid rgba(255,255,255,.35);transition:background .25s,color .25s}
+.nav-cta:hover{background:var(--white);color:var(--blue)}
+nav.scrolled .nav-cta{background:var(--blue);color:var(--white);border-color:var(--blue)}
+.nav-mobile-btn{display:none}
+.mobile-menu{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(10,15,30,.95);z-index:10000;flex-direction:column;align-items:center;justify-content:center;gap:.5rem}
+.mobile-menu.open{display:flex}
+.mobile-menu a{color:var(--white);text-decoration:none;font-size:1.25rem;font-weight:600;padding:1rem 2rem;border-radius:12px;transition:background .2s}
+.mobile-menu a:hover{background:rgba(255,255,255,.1)}
+.mobile-menu-close{position:absolute;top:1.25rem;right:1.5rem;background:none;border:none;color:var(--white);font-size:2rem;cursor:pointer}
+.article-hero{background:var(--navy);padding:120px 5% 60px;text-align:center}
+.article-hero .breadcrumb{color:rgba(255,255,255,.6);font-size:.85rem;margin-bottom:1rem}
+.article-hero .breadcrumb a{color:rgba(255,255,255,.6);text-decoration:none}
+.article-hero .breadcrumb a:hover{color:var(--white)}
+.article-hero h1{color:var(--white);font-size:2rem;font-weight:800;line-height:1.4;max-width:720px;margin:0 auto .75rem}
+.article-hero .meta{color:rgba(255,255,255,.5);font-size:.85rem;display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+.article-tags{display:flex;gap:.5rem;justify-content:center;margin-bottom:1rem}
+.article-tag{padding:.25rem .75rem;border-radius:50px;font-size:.75rem;font-weight:600}
+.tg-blue{background:rgba(29,78,216,.15);color:#60A5FA}
+.tg-amber{background:rgba(245,158,11,.15);color:#FBBF24}
+.tg-green{background:rgba(5,150,105,.15);color:#34D399}
+.tg-cyan{background:rgba(6,182,212,.15);color:#22D3EE}
+.tg-rose{background:rgba(244,63,94,.15);color:#FB7185}
+.article-body{max-width:720px;margin:0 auto;padding:3rem 1.5rem}
+.article-body h2{font-size:1.4rem;font-weight:800;color:var(--navy);margin:2.5rem 0 1rem;padding-bottom:.5rem;border-bottom:2px solid var(--gray-100)}
+.article-body h3{font-size:1.15rem;font-weight:700;color:var(--blue-mid);margin:1.5rem 0 .75rem}
+.article-body p{font-size:1rem;line-height:1.85;color:var(--gray-700);margin-bottom:1.25rem}
+.article-body ul,.article-body ol{margin:1rem 0 1.5rem 1.5rem;line-height:1.85;color:var(--gray-700)}
+.article-body li{margin-bottom:.5rem}
+.article-body .tip-box{background:linear-gradient(135deg,#EFF6FF,#F0F9FF);border-left:4px solid var(--blue-mid);padding:1.25rem 1.5rem;border-radius:0 12px 12px 0;margin:1.5rem 0;font-size:.95rem;line-height:1.7}
+.article-body .tip-box strong{color:var(--blue-mid)}
+.article-body .highlight-box{background:linear-gradient(135deg,#FEF3C7,#FFFBEB);border-left:4px solid var(--amber);padding:1.25rem 1.5rem;border-radius:0 12px 12px 0;margin:1.5rem 0;font-size:.95rem;line-height:1.7}
+.article-cta{text-align:center;padding:3rem 1.5rem 4rem;background:var(--gray-100);margin-top:2rem}
+.article-cta h2{font-size:1.4rem;font-weight:800;color:var(--navy);margin-bottom:.75rem}
+.article-cta p{color:var(--gray-500);margin-bottom:1.5rem;font-size:.95rem}
+.article-cta .cta-btn{display:inline-block;background:var(--blue);color:var(--white);padding:.9rem 2.5rem;border-radius:50px;font-weight:700;font-size:1rem;text-decoration:none;transition:background .2s}
+.article-cta .cta-btn:hover{background:var(--navy)}
+footer{background:var(--navy);color:rgba(255,255,255,.5);text-align:center;padding:2rem 5%;font-size:.8rem}
+footer a{color:rgba(255,255,255,.6);text-decoration:none}
+@media(max-width:768px){
+  .nav-links,.nav-cta{display:none}
+  .nav-mobile-btn{display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.12);border:1.5px solid rgba(255,255,255,.25);border-radius:8px;width:40px;height:40px;cursor:pointer;color:var(--white);font-size:1.2rem}
+  nav.scrolled .nav-mobile-btn{color:var(--navy);border-color:var(--gray-300);background:var(--gray-100)}
+  .article-hero h1{font-size:1.5rem}
+  .article-body{padding:2rem 1.25rem}
+}
+</style>
+</head>
+<body>
+<nav id="mainNav">
+  <a href="../index.html" class="nav-logo"><span class="logo-mark">W</span><span class="logo-name">WeStudy</span></a>
+  <ul class="nav-links">
+    <li><a href="../find-tutor.html">과외 찾기</a></li>
+    <li><a href="../education.html" class="active">교육 정보</a></li>
+    <li><a href="../hagwon.html">학원 상담</a></li>
+    <li><a href="../index.html#cta">상담 신청</a></li>
+    <li><a href="../index.html#proof">수업 후기</a></li>
+  </ul>
+  <a href="../index.html#cta" class="nav-cta">무료 상담 신청</a>
+  <button class="nav-mobile-btn" id="mobileBtn" aria-label="메뉴">☰</button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-menu-close" id="mobileMenuClose">✕</button>
+  <a href="../find-tutor.html">과외 찾기</a>
+  <a href="../education.html">교육 정보</a>
+  <a href="../hagwon.html">학원 상담</a>
+  <a href="../index.html#cta">상담 신청</a>
+  <a href="../index.html#proof">수업 후기</a>
+</div>
+
+<section class="article-hero">
+  <div class="breadcrumb"><a href="../index.html">홈</a> › <a href="../education.html">교육 정보</a> › 과목별 공부법</div>
+  <div class="article-tags"><span class="article-tag tg-green">영어</span></div>
+  <h1>단어를 외워도 자꾸 까먹는 이유는?</h1>
+  <div class="meta"><span>⏱ 4분 읽기</span><span>📅 2026.04</span></div>
+</section>
+
+<article class="article-body">
+  <p>영어 단어장을 하루에 50개씩 외우는데, 일주일 뒤에 테스트하면 절반도 기억나지 않는 경험이 있으신가요? 단어 암기는 단순 반복만으로는 한계가 있습니다. 기억의 원리를 이해하고, 어원분석, 연상법, 간격반복이라는 세 가지 과학적 전략을 활용하면 같은 시간을 투자해도 훨씬 오래 기억할 수 있습니다.</p>
+
+  <h2>단어가 기억에서 사라지는 과학적 이유</h2>
+  <p>에빙하우스의 망각 곡선(Forgetting Curve)에 따르면, 새로 학습한 정보는 20분 후 42%, 1시간 후 56%, 하루 후 67%, 한 달 후 79%가 망각됩니다. 이 곡선은 단순 반복 암기에 특히 가파릅니다.</p>
+  <p>그런데 흥미로운 점은 모든 정보가 같은 속도로 잊히지 않는다는 것입니다. 기존 지식과 연결된 정보, 감정이 동반된 정보, 여러 감각으로 인코딩된 정보는 망각 속도가 현저히 느립니다. 효과적인 단어 암기법은 바로 이 원리를 활용합니다.</p>
+
+  <h3>비효율적인 암기 습관 체크</h3>
+  <ul>
+    <li>단어장을 앞에서부터 순서대로 반복해서 읽기만 하는 경우</li>
+    <li>영어 단어 옆에 한국어 뜻 하나만 적어 외우는 경우</li>
+    <li>한 번에 대량의 단어를 외우고 복습하지 않는 경우</li>
+    <li>발음을 모르는 상태에서 철자만 외우는 경우</li>
+  </ul>
+
+  <h2>전략 1: 어원분석(Etymology) 활용법</h2>
+  <p>영어 단어의 약 60%는 라틴어와 그리스어에서 유래했습니다. 어원(접두사, 어근, 접미사)을 알면 처음 보는 단어의 의미도 추론할 수 있고, 관련 단어를 묶어서 기억할 수 있습니다.</p>
+
+  <h3>필수 접두사 10개</h3>
+  <ul>
+    <li><strong>pre- (미리):</strong> predict(예측하다), prevent(예방하다), precaution(예방책)</li>
+    <li><strong>re- (다시):</strong> rebuild(재건하다), reconsider(재고하다), restore(복원하다)</li>
+    <li><strong>un-/in-/im- (부정):</strong> unable, invisible, impossible</li>
+    <li><strong>trans- (넘어서):</strong> transport(운반하다), transform(변형하다)</li>
+    <li><strong>sub- (아래):</strong> subway(지하철), submarine(잠수함), subscribe(구독하다)</li>
+  </ul>
+
+  <div class="tip-box">
+    <strong>💡 실전 팁:</strong> 새로운 단어를 만나면 먼저 접두사, 어근, 접미사로 분해해보세요. 예를 들어 "unprecedented"는 un(부정) + pre(미리) + ced(가다) + ent(형용사) + ed로 분해하면 "이전에 간 적 없는 → 전례 없는"이라는 뜻을 유추할 수 있습니다.
+  </div>
+
+  <h2>전략 2: 연상법(Mnemonic) 활용법</h2>
+  <p>연상법은 새로운 정보를 기존에 알고 있는 이미지나 이야기와 연결하는 기법입니다. 뇌는 추상적인 정보보다 구체적인 이미지와 스토리를 훨씬 잘 기억합니다.</p>
+
+  <h3>효과적인 연상법 유형</h3>
+  <ol>
+    <li><strong>발음 연상:</strong> 영어 단어의 발음이 한국어와 비슷한 경우를 활용합니다. 예를 들어 "diligent(부지런한)"는 "딜리전트 → 딜리(배달) 전문 → 배달 전문가는 부지런해야 한다"로 연결합니다.</li>
+    <li><strong>이미지 연상:</strong> 단어의 의미를 강렬한 이미지로 떠올립니다. "devastate(황폐화하다)"를 외울 때 폐허가 된 도시의 이미지를 머릿속에 그립니다.</li>
+    <li><strong>스토리 연상:</strong> 여러 단어를 하나의 이야기로 엮습니다. 한 번에 외울 5~7개의 단어를 짧은 에피소드로 만들면 기억력이 크게 향상됩니다.</li>
+  </ol>
+
+  <div class="highlight-box">
+    <strong>⚠️ 주의:</strong> 연상법은 초기 기억에는 매우 효과적이지만, 장기 기억으로 전환하려면 반드시 간격 반복과 병행해야 합니다. 연상만 만들고 복습하지 않으면 연상 자체를 잊어버리게 됩니다.
+  </div>
+
+  <h2>전략 3: 간격반복(Spaced Repetition) 시스템</h2>
+  <p>간격반복은 망각 곡선을 역이용하는 학습법입니다. 잊어버리기 직전에 복습하면 기억의 유지 기간이 점점 길어진다는 원리를 활용합니다.</p>
+
+  <h3>실전 간격반복 스케줄</h3>
+  <ul>
+    <li><strong>1차 복습:</strong> 학습 후 10분 이내 - 방금 외운 단어를 한 번 더 떠올립니다.</li>
+    <li><strong>2차 복습:</strong> 학습 당일 저녁 - 그날 외운 단어 전체를 테스트합니다.</li>
+    <li><strong>3차 복습:</strong> 다음 날 - 전날 외운 단어 중 기억나지 않는 것을 집중 복습합니다.</li>
+    <li><strong>4차 복습:</strong> 3일 후 - 기억나는 단어는 넘기고, 안 되는 단어만 반복합니다.</li>
+    <li><strong>5차 복습:</strong> 7일 후 - 전체를 빠르게 훑으며 최종 확인합니다.</li>
+    <li><strong>6차 복습:</strong> 14일 후 - 장기 기억 정착을 위한 마지막 복습입니다.</li>
+  </ul>
+
+  <h2>매일 실천하는 단어 학습 루틴</h2>
+  <p>위의 세 가지 전략을 통합한 매일 20분 루틴을 소개합니다.</p>
+  <ol>
+    <li><strong>5분 - 새 단어 학습:</strong> 오늘 외울 15~20개 단어를 어원 분석과 함께 학습합니다.</li>
+    <li><strong>5분 - 연상 만들기:</strong> 각 단어마다 발음 연상 또는 이미지 연상을 만듭니다.</li>
+    <li><strong>5분 - 간격반복 복습:</strong> 이전에 학습한 단어 중 오늘 복습할 것들을 테스트합니다.</li>
+    <li><strong>5분 - 문맥 학습:</strong> 오늘 외운 단어가 포함된 예문을 읽거나 짧은 지문에서 해당 단어를 찾습니다.</li>
+  </ol>
+
+  <div class="tip-box">
+    <strong>💡 핵심 정리:</strong> 단어 암기의 비결은 단순 반복이 아니라 '깊은 처리(deep processing)'입니다. 어원분석으로 단어의 구조를 이해하고, 연상법으로 기존 기억에 연결하고, 간격반복으로 장기 기억에 정착시키세요. 매일 20분이면 한 달에 400개 이상의 단어를 장기 기억으로 저장할 수 있습니다.
+  </div>
+</article>
+
+<section class="article-cta">
+  <h2>영어 어휘력을 체계적으로 키우고 싶다면?</h2>
+  <p>WeStudy 영어 전문 코치가 수준별 어휘 학습 플랜을 설계해 드립니다.</p>
+  <a href="../index.html#cta" class="cta-btn">무료 상담 신청하기 →</a>
+</section>
+
+<footer>
+  <div>© 2025 WeStudy 위스터디. All rights reserved. | <a href="../index.html">홈으로</a></div>
+</footer>
+
+<script>
+document.getElementById('mobileBtn').addEventListener('click',()=>{document.getElementById('mobileMenu').classList.add('open')});
+document.getElementById('mobileMenuClose').addEventListener('click',()=>{document.getElementById('mobileMenu').classList.remove('open')});
+const nav=document.getElementById('mainNav');
+window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>40)});
+</script>
+</body>
+</html>

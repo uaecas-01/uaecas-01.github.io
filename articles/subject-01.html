@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>개념은 아는데 왜 문제가 안 풀릴까? – WeStudy</title>
+<meta name="description" content="수학 개념을 이해했다고 생각하지만 문제 풀이에서 막히는 학생을 위한 개념-문제 연결 훈련법을 소개합니다.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--navy:#0A1628;--blue:#1D4ED8;--blue-mid:#2563EB;--amber:#F59E0B;--bg:#F8FAFF;--white:#FFFFFF;--text:#111827;--gray-100:#F3F4F6;--gray-300:#D1D5DB;--gray-400:#9CA3AF;--gray-500:#6B7280;--gray-700:#374151}
+html{scroll-behavior:smooth}
+body{font-family:'Pretendard',sans-serif;color:var(--text);background:var(--bg);overflow-x:hidden}
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:0 5%;height:64px;background:var(--navy);transition:background .3s,box-shadow .3s}
+nav.scrolled{background:var(--white);box-shadow:0 2px 20px rgba(0,0,0,.08)}
+.nav-logo{display:flex;align-items:center;gap:.5rem;text-decoration:none}
+.logo-mark{background:var(--blue-mid);color:var(--white);width:32px;height:32px;border-radius:8px;display:grid;place-items:center;font-weight:900;font-size:1rem}
+.logo-name{color:var(--white);font-weight:800;font-size:1.1rem}
+nav.scrolled .logo-name{color:var(--navy)}
+.nav-links{display:flex;list-style:none;gap:2rem}
+.nav-links a{color:rgba(255,255,255,.8);text-decoration:none;font-size:.9rem;font-weight:500;transition:color .2s}
+.nav-links a:hover,.nav-links a.active{color:var(--white);font-weight:700}
+nav.scrolled .nav-links a{color:var(--gray-500)}
+nav.scrolled .nav-links a:hover,nav.scrolled .nav-links a.active{color:var(--navy)}
+.nav-cta{background:rgba(255,255,255,.15);color:var(--white);padding:.55rem 1.4rem;border-radius:50px;font-size:.875rem;font-weight:700;text-decoration:none;border:1.5px solid rgba(255,255,255,.35);transition:background .25s,color .25s}
+.nav-cta:hover{background:var(--white);color:var(--blue)}
+nav.scrolled .nav-cta{background:var(--blue);color:var(--white);border-color:var(--blue)}
+.nav-mobile-btn{display:none}
+.mobile-menu{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(10,15,30,.95);z-index:10000;flex-direction:column;align-items:center;justify-content:center;gap:.5rem}
+.mobile-menu.open{display:flex}
+.mobile-menu a{color:var(--white);text-decoration:none;font-size:1.25rem;font-weight:600;padding:1rem 2rem;border-radius:12px;transition:background .2s}
+.mobile-menu a:hover{background:rgba(255,255,255,.1)}
+.mobile-menu-close{position:absolute;top:1.25rem;right:1.5rem;background:none;border:none;color:var(--white);font-size:2rem;cursor:pointer}
+.article-hero{background:var(--navy);padding:120px 5% 60px;text-align:center}
+.article-hero .breadcrumb{color:rgba(255,255,255,.6);font-size:.85rem;margin-bottom:1rem}
+.article-hero .breadcrumb a{color:rgba(255,255,255,.6);text-decoration:none}
+.article-hero .breadcrumb a:hover{color:var(--white)}
+.article-hero h1{color:var(--white);font-size:2rem;font-weight:800;line-height:1.4;max-width:720px;margin:0 auto .75rem}
+.article-hero .meta{color:rgba(255,255,255,.5);font-size:.85rem;display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+.article-tags{display:flex;gap:.5rem;justify-content:center;margin-bottom:1rem}
+.article-tag{padding:.25rem .75rem;border-radius:50px;font-size:.75rem;font-weight:600}
+.tg-blue{background:rgba(29,78,216,.15);color:#60A5FA}
+.tg-amber{background:rgba(245,158,11,.15);color:#FBBF24}
+.tg-green{background:rgba(5,150,105,.15);color:#34D399}
+.tg-cyan{background:rgba(6,182,212,.15);color:#22D3EE}
+.tg-rose{background:rgba(244,63,94,.15);color:#FB7185}
+.article-body{max-width:720px;margin:0 auto;padding:3rem 1.5rem}
+.article-body h2{font-size:1.4rem;font-weight:800;color:var(--navy);margin:2.5rem 0 1rem;padding-bottom:.5rem;border-bottom:2px solid var(--gray-100)}
+.article-body h3{font-size:1.15rem;font-weight:700;color:var(--blue-mid);margin:1.5rem 0 .75rem}
+.article-body p{font-size:1rem;line-height:1.85;color:var(--gray-700);margin-bottom:1.25rem}
+.article-body ul,.article-body ol{margin:1rem 0 1.5rem 1.5rem;line-height:1.85;color:var(--gray-700)}
+.article-body li{margin-bottom:.5rem}
+.article-body .tip-box{background:linear-gradient(135deg,#EFF6FF,#F0F9FF);border-left:4px solid var(--blue-mid);padding:1.25rem 1.5rem;border-radius:0 12px 12px 0;margin:1.5rem 0;font-size:.95rem;line-height:1.7}
+.article-body .tip-box strong{color:var(--blue-mid)}
+.article-body .highlight-box{background:linear-gradient(135deg,#FEF3C7,#FFFBEB);border-left:4px solid var(--amber);padding:1.25rem 1.5rem;border-radius:0 12px 12px 0;margin:1.5rem 0;font-size:.95rem;line-height:1.7}
+.article-cta{text-align:center;padding:3rem 1.5rem 4rem;background:var(--gray-100);margin-top:2rem}
+.article-cta h2{font-size:1.4rem;font-weight:800;color:var(--navy);margin-bottom:.75rem}
+.article-cta p{color:var(--gray-500);margin-bottom:1.5rem;font-size:.95rem}
+.article-cta .cta-btn{display:inline-block;background:var(--blue);color:var(--white);padding:.9rem 2.5rem;border-radius:50px;font-weight:700;font-size:1rem;text-decoration:none;transition:background .2s}
+.article-cta .cta-btn:hover{background:var(--navy)}
+footer{background:var(--navy);color:rgba(255,255,255,.5);text-align:center;padding:2rem 5%;font-size:.8rem}
+footer a{color:rgba(255,255,255,.6);text-decoration:none}
+@media(max-width:768px){
+  .nav-links,.nav-cta{display:none}
+  .nav-mobile-btn{display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.12);border:1.5px solid rgba(255,255,255,.25);border-radius:8px;width:40px;height:40px;cursor:pointer;color:var(--white);font-size:1.2rem}
+  nav.scrolled .nav-mobile-btn{color:var(--navy);border-color:var(--gray-300);background:var(--gray-100)}
+  .article-hero h1{font-size:1.5rem}
+  .article-body{padding:2rem 1.25rem}
+}
+</style>
+</head>
+<body>
+<nav id="mainNav">
+  <a href="../index.html" class="nav-logo"><span class="logo-mark">W</span><span class="logo-name">WeStudy</span></a>
+  <ul class="nav-links">
+    <li><a href="../find-tutor.html">과외 찾기</a></li>
+    <li><a href="../education.html" class="active">교육 정보</a></li>
+    <li><a href="../hagwon.html">학원 상담</a></li>
+    <li><a href="../index.html#cta">상담 신청</a></li>
+    <li><a href="../index.html#proof">수업 후기</a></li>
+  </ul>
+  <a href="../index.html#cta" class="nav-cta">무료 상담 신청</a>
+  <button class="nav-mobile-btn" id="mobileBtn" aria-label="메뉴">☰</button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-menu-close" id="mobileMenuClose">✕</button>
+  <a href="../find-tutor.html">과외 찾기</a>
+  <a href="../education.html">교육 정보</a>
+  <a href="../hagwon.html">학원 상담</a>
+  <a href="../index.html#cta">상담 신청</a>
+  <a href="../index.html#proof">수업 후기</a>
+</div>
+
+<section class="article-hero">
+  <div class="breadcrumb"><a href="../index.html">홈</a> › <a href="../education.html">교육 정보</a> › 과목별 공부법</div>
+  <div class="article-tags"><span class="article-tag tg-blue">수학</span></div>
+  <h1>개념은 아는데 왜 문제가 안 풀릴까?</h1>
+  <div class="meta"><span>⏱ 5분 읽기</span><span>📅 2026.04</span></div>
+</section>
+
+<article class="article-body">
+  <p>수학 시험을 준비하면서 교과서 개념을 분명히 이해했다고 생각했는데, 막상 문제를 풀면 손이 멈추는 경험을 해본 학생이 많습니다. 개념을 '아는 것'과 문제에 '적용하는 것' 사이에는 생각보다 큰 간극이 존재합니다. 이 글에서는 그 갭이 왜 생기는지 원인을 분석하고, 실전에서 개념을 자유자재로 활용할 수 있도록 연결 훈련법을 단계별로 안내합니다.</p>
+
+  <h2>개념 이해와 문제 풀이 사이의 갭은 왜 생길까?</h2>
+  <p>인지심리학에서는 지식을 '선언적 지식(declarative knowledge)'과 '절차적 지식(procedural knowledge)'으로 구분합니다. 교과서에서 공식과 정의를 읽고 이해하는 것은 선언적 지식에 해당합니다. 반면 문제 풀이는 절차적 지식, 즉 '어떤 상황에서 어떤 도구를 꺼내 쓸 것인가'를 판단하는 능력입니다.</p>
+  <p>예를 들어 이차방정식의 근의 공식을 외우고 있더라도, 문제에서 "두 근의 합과 곱이 주어졌을 때 원래 이차방정식을 구하라"고 하면 근과 계수의 관계를 떠올려야 합니다. 이처럼 개념을 문제 상황에 매칭하는 훈련이 부족하면 개념은 알지만 문제는 못 푸는 현상이 반복됩니다.</p>
+
+  <h3>대표적인 원인 3가지</h3>
+  <ol>
+    <li><strong>개념의 피상적 이해:</strong> 공식을 외웠지만 그 공식이 왜 성립하는지, 어떤 조건에서 사용하는지를 모릅니다. 예컨대 코사인 법칙을 알면서도 어떤 삼각형 조건에서 코사인 법칙이 필요한지 판단하지 못하는 경우입니다.</li>
+    <li><strong>문제 유형 분류 경험 부족:</strong> 같은 개념이라도 문제는 다양한 형태로 출제됩니다. 충분히 다양한 유형을 접해보지 않으면 새로운 형태의 문제에서 개념을 연결하지 못합니다.</li>
+    <li><strong>풀이 전략 수립 훈련 미비:</strong> 문제를 읽고 바로 풀이에 돌입하는 습관이 있으면, 어떤 개념을 사용해야 하는지 전략을 세우는 단계를 건너뛰게 됩니다.</li>
+  </ol>
+
+  <h2>1단계: 개념을 '설명할 수 있는 수준'으로 끌어올리기</h2>
+  <p>단순히 공식을 읽고 넘어가는 것이 아니라, 그 개념을 다른 사람에게 설명할 수 있는 수준으로 이해해야 합니다. 이를 인지과학에서는 '정교화(elaboration)' 전략이라고 합니다.</p>
+  <ul>
+    <li><strong>자기 설명법(Self-explanation):</strong> 교과서를 읽을 때 각 단계마다 "왜 이렇게 되지?"라고 스스로 질문하고 답합니다. 연구에 따르면 자기 설명을 하는 학생은 그렇지 않은 학생보다 문제 풀이 정확도가 평균 30% 이상 높습니다.</li>
+    <li><strong>빈 종이 테스트:</strong> 교과서를 덮고 빈 종이에 해당 단원의 핵심 개념, 공식, 그리고 각 공식의 사용 조건을 적어봅니다. 적지 못하는 부분이 실제로 이해하지 못한 부분입니다.</li>
+    <li><strong>연결 지도 만들기:</strong> 하나의 단원 안에서 개념들이 어떻게 연결되는지 마인드맵 형태로 정리합니다. 예를 들어, '이차함수 → 꼭짓점 → 축의 방정식 → 판별식 → 근의 공식'처럼 흐름을 시각화합니다.</li>
+  </ul>
+
+  <div class="tip-box">
+    <strong>💡 실전 팁:</strong> 개념 설명을 녹음해서 다시 들어보세요. 설명이 막히는 지점이 정확히 이해가 부족한 지점입니다. 이 방법은 특히 혼자 공부하는 학생에게 매우 효과적입니다.
+  </div>
+
+  <h2>2단계: 문제 유형 분류 훈련하기</h2>
+  <p>같은 개념이라도 문제의 출제 방식은 다양합니다. 개념을 완전히 이해한 후에는 해당 개념이 어떤 유형의 문제로 변형되는지를 파악하는 훈련이 필요합니다.</p>
+
+  <h3>유형 분류 방법</h3>
+  <ol>
+    <li><strong>문제 모으기:</strong> 하나의 개념에 대해 교과서, 문제집, 기출에서 관련 문제를 10개 이상 모읍니다.</li>
+    <li><strong>출제 패턴 분석:</strong> 모은 문제들을 "직접 대입형", "조건 추론형", "그래프 해석형", "증명·서술형" 등으로 분류합니다.</li>
+    <li><strong>패턴별 풀이 전략 정리:</strong> 각 유형마다 첫 번째로 해야 할 행동을 명확히 적습니다. 예를 들어 "조건 추론형이면 주어진 조건을 수식으로 변환하는 것부터 시작한다"처럼 구체적으로 정리합니다.</li>
+  </ol>
+
+  <div class="highlight-box">
+    <strong>⚠️ 주의:</strong> 유형 분류는 기계적 암기가 아닙니다. "이런 유형이면 이 공식"이라고 외우는 것이 아니라, "이런 조건이 주어지면 이 개념이 필요하겠다"라고 판단하는 사고 과정을 훈련하는 것입니다. 수능에서는 단순 유형 암기로는 풀 수 없는 융합 문제가 출제됩니다.
+  </div>
+
+  <h2>3단계: 문제 읽기 전략 바꾸기</h2>
+  <p>많은 학생이 문제를 읽자마자 바로 풀이를 시작합니다. 하지만 상위권 학생들은 문제를 읽는 단계에서 이미 풀이 전략을 수립합니다.</p>
+  <ul>
+    <li><strong>조건 밑줄 긋기:</strong> 문제에서 주어진 조건에 밑줄을 긋고, 각 조건이 어떤 개념과 연결되는지 옆에 메모합니다.</li>
+    <li><strong>구하는 것 명확히 하기:</strong> "결국 이 문제가 요구하는 것은 무엇인가?"를 한 문장으로 정리합니다. 의외로 많은 학생이 문제가 무엇을 묻고 있는지를 정확히 파악하지 못한 채 풀이를 시작합니다.</li>
+    <li><strong>풀이 로드맵 구상:</strong> 실제 계산에 들어가기 전에 "조건 정리 → 사용할 개념 → 예상 풀이 단계"를 30초간 머릿속으로 그려봅니다.</li>
+  </ul>
+
+  <h2>4단계: 오답에서 '연결 실패 지점' 찾기</h2>
+  <p>틀린 문제를 분석할 때 단순히 "계산 실수"로 분류하지 마세요. 대부분의 오답은 개념과 문제 사이의 연결이 끊어진 지점에서 발생합니다.</p>
+  <ul>
+    <li><strong>오답 원인 세분화:</strong> 틀린 문제마다 다음 중 어디에서 막혔는지를 기록합니다. (1) 어떤 개념을 써야 하는지 몰랐다 (2) 개념은 떠올렸지만 적용 방법을 몰랐다 (3) 적용은 했지만 계산 과정에서 실수했다 (4) 조건을 잘못 해석했다.</li>
+    <li><strong>패턴 발견:</strong> 오답 원인을 2주 이상 기록하면 자신만의 취약 패턴이 보입니다. (1)번이 많다면 개념 정리가 부족한 것이고, (2)번이 많다면 유형 훈련이 필요한 것입니다.</li>
+  </ul>
+
+  <h2>5단계: 간격 반복으로 연결 강화하기</h2>
+  <p>한 번 연결에 성공한 개념-문제 쌍도 시간이 지나면 다시 끊어질 수 있습니다. 에빙하우스의 망각 곡선에 따르면, 학습 후 24시간 이내에 복습하지 않으면 70% 이상을 잊습니다. 따라서 간격을 두고 반복하는 전략이 필수적입니다.</p>
+  <ul>
+    <li><strong>1일 후:</strong> 틀린 문제를 다시 풀어봅니다.</li>
+    <li><strong>3일 후:</strong> 같은 개념의 다른 유형 문제를 풀어봅니다.</li>
+    <li><strong>7일 후:</strong> 해당 개념이 포함된 종합 문제를 풀어봅니다.</li>
+    <li><strong>14일 후:</strong> 모의고사 형태의 실전 문제에서 해당 개념을 적용해봅니다.</li>
+  </ul>
+
+  <div class="tip-box">
+    <strong>💡 핵심 정리:</strong> 개념과 문제 풀이의 갭을 메우려면 "깊이 있는 이해 → 유형 분류 → 전략적 문제 읽기 → 오답 연결 분석 → 간격 반복"의 5단계 훈련이 필요합니다. 단순히 문제를 많이 푸는 것이 아니라, 개념이 문제 속에서 어떻게 변형되는지를 의식적으로 추적하는 습관이 핵심입니다.
+  </div>
+</article>
+
+<section class="article-cta">
+  <h2>우리 아이 맞춤 학습 전략이 필요하다면?</h2>
+  <p>WeStudy 수학 전문 코치가 개념-문제 연결 훈련 맞춤 플랜을 설계해 드립니다.</p>
+  <a href="../index.html#cta" class="cta-btn">무료 상담 신청하기 →</a>
+</section>
+
+<footer>
+  <div>© 2025 WeStudy 위스터디. All rights reserved. | <a href="../index.html">홈으로</a></div>
+</footer>
+
+<script>
+document.getElementById('mobileBtn').addEventListener('click',()=>{document.getElementById('mobileMenu').classList.add('open')});
+document.getElementById('mobileMenuClose').addEventListener('click',()=>{document.getElementById('mobileMenu').classList.remove('open')});
+const nav=document.getElementById('mainNav');
+window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>40)});
+</script>
+</body>
+</html>

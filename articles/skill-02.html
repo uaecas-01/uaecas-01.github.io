@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>외운 것을 오래 기억하려면 어떻게 복습해야 할까? – WeStudy</title>
+<meta name="description" content="에빙하우스 망각곡선과 간격반복 복습 주기를 활용한 장기 기억 전략을 소개합니다.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--navy:#0A1628;--blue:#1D4ED8;--blue-mid:#2563EB;--amber:#F59E0B;--bg:#F8FAFF;--white:#FFFFFF;--text:#111827;--gray-100:#F3F4F6;--gray-300:#D1D5DB;--gray-400:#9CA3AF;--gray-500:#6B7280;--gray-700:#374151}
+html{scroll-behavior:smooth}
+body{font-family:'Pretendard',sans-serif;color:var(--text);background:var(--bg);overflow-x:hidden}
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:0 5%;height:64px;background:var(--navy);transition:background .3s,box-shadow .3s}
+nav.scrolled{background:var(--white);box-shadow:0 2px 20px rgba(0,0,0,.08)}
+.nav-logo{display:flex;align-items:center;gap:.5rem;text-decoration:none}
+.logo-mark{background:var(--blue-mid);color:var(--white);width:32px;height:32px;border-radius:8px;display:grid;place-items:center;font-weight:900;font-size:1rem}
+.logo-name{color:var(--white);font-weight:800;font-size:1.1rem}
+nav.scrolled .logo-name{color:var(--navy)}
+.nav-links{display:flex;list-style:none;gap:2rem}
+.nav-links a{color:rgba(255,255,255,.8);text-decoration:none;font-size:.9rem;font-weight:500;transition:color .2s}
+.nav-links a:hover,.nav-links a.active{color:var(--white);font-weight:700}
+nav.scrolled .nav-links a{color:var(--gray-500)}
+nav.scrolled .nav-links a:hover,nav.scrolled .nav-links a.active{color:var(--navy)}
+.nav-cta{background:rgba(255,255,255,.15);color:var(--white);padding:.55rem 1.4rem;border-radius:50px;font-size:.875rem;font-weight:700;text-decoration:none;border:1.5px solid rgba(255,255,255,.35);transition:background .25s,color .25s}
+.nav-cta:hover{background:var(--white);color:var(--blue)}
+nav.scrolled .nav-cta{background:var(--blue);color:var(--white);border-color:var(--blue)}
+.nav-mobile-btn{display:none}
+.mobile-menu{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(10,15,30,.95);z-index:10000;flex-direction:column;align-items:center;justify-content:center;gap:.5rem}
+.mobile-menu.open{display:flex}
+.mobile-menu a{color:var(--white);text-decoration:none;font-size:1.25rem;font-weight:600;padding:1rem 2rem;border-radius:12px;transition:background .2s}
+.mobile-menu a:hover{background:rgba(255,255,255,.1)}
+.mobile-menu-close{position:absolute;top:1.25rem;right:1.5rem;background:none;border:none;color:var(--white);font-size:2rem;cursor:pointer}
+.article-hero{background:var(--navy);padding:120px 5% 60px;text-align:center}
+.article-hero .breadcrumb{color:rgba(255,255,255,.6);font-size:.85rem;margin-bottom:1rem}
+.article-hero .breadcrumb a{color:rgba(255,255,255,.6);text-decoration:none}
+.article-hero .breadcrumb a:hover{color:var(--white)}
+.article-hero h1{color:var(--white);font-size:2rem;font-weight:800;line-height:1.4;max-width:720px;margin:0 auto .75rem}
+.article-hero .meta{color:rgba(255,255,255,.5);font-size:.85rem;display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+.article-tags{display:flex;gap:.5rem;justify-content:center;margin-bottom:1rem}
+.article-tag{padding:.25rem .75rem;border-radius:50px;font-size:.75rem;font-weight:600}
+.tg-blue{background:rgba(29,78,216,.15);color:#60A5FA}
+.tg-amber{background:rgba(245,158,11,.15);color:#FBBF24}
+.tg-green{background:rgba(5,150,105,.15);color:#34D399}
+.tg-cyan{background:rgba(6,182,212,.15);color:#22D3EE}
+.tg-rose{background:rgba(244,63,94,.15);color:#FB7185}
+.article-body{max-width:720px;margin:0 auto;padding:3rem 1.5rem}
+.article-body h2{font-size:1.4rem;font-weight:800;color:var(--navy);margin:2.5rem 0 1rem;padding-bottom:.5rem;border-bottom:2px solid var(--gray-100)}
+.article-body h3{font-size:1.15rem;font-weight:700;color:var(--blue-mid);margin:1.5rem 0 .75rem}
+.article-body p{font-size:1rem;line-height:1.85;color:var(--gray-700);margin-bottom:1.25rem}
+.article-body ul,.article-body ol{margin:1rem 0 1.5rem 1.5rem;line-height:1.85;color:var(--gray-700)}
+.article-body li{margin-bottom:.5rem}
+.article-body .tip-box{background:linear-gradient(135deg,#EFF6FF,#F0F9FF);border-left:4px solid var(--blue-mid);padding:1.25rem 1.5rem;border-radius:0 12px 12px 0;margin:1.5rem 0;font-size:.95rem;line-height:1.7}
+.article-body .tip-box strong{color:var(--blue-mid)}
+.article-body .highlight-box{background:linear-gradient(135deg,#FEF3C7,#FFFBEB);border-left:4px solid var(--amber);padding:1.25rem 1.5rem;border-radius:0 12px 12px 0;margin:1.5rem 0;font-size:.95rem;line-height:1.7}
+.article-cta{text-align:center;padding:3rem 1.5rem 4rem;background:var(--gray-100);margin-top:2rem}
+.article-cta h2{font-size:1.4rem;font-weight:800;color:var(--navy);margin-bottom:.75rem}
+.article-cta p{color:var(--gray-500);margin-bottom:1.5rem;font-size:.95rem}
+.article-cta .cta-btn{display:inline-block;background:var(--blue);color:var(--white);padding:.9rem 2.5rem;border-radius:50px;font-weight:700;font-size:1rem;text-decoration:none;transition:background .2s}
+.article-cta .cta-btn:hover{background:var(--navy)}
+footer{background:var(--navy);color:rgba(255,255,255,.5);text-align:center;padding:2rem 5%;font-size:.8rem}
+footer a{color:rgba(255,255,255,.6);text-decoration:none}
+@media(max-width:768px){
+  .nav-links,.nav-cta{display:none}
+  .nav-mobile-btn{display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.12);border:1.5px solid rgba(255,255,255,.25);border-radius:8px;width:40px;height:40px;cursor:pointer;color:var(--white);font-size:1.2rem}
+  nav.scrolled .nav-mobile-btn{color:var(--navy);border-color:var(--gray-300);background:var(--gray-100)}
+  .article-hero h1{font-size:1.5rem}
+  .article-body{padding:2rem 1.25rem}
+}
+</style>
+</head>
+<body>
+<nav id="mainNav">
+  <a href="../index.html" class="nav-logo"><span class="logo-mark">W</span><span class="logo-name">WeStudy</span></a>
+  <ul class="nav-links">
+    <li><a href="../find-tutor.html">과외 찾기</a></li>
+    <li><a href="../education.html" class="active">교육 정보</a></li>
+    <li><a href="../hagwon.html">학원 상담</a></li>
+    <li><a href="../index.html#cta">상담 신청</a></li>
+    <li><a href="../index.html#proof">수업 후기</a></li>
+  </ul>
+  <a href="../index.html#cta" class="nav-cta">무료 상담 신청</a>
+  <button class="nav-mobile-btn" id="mobileBtn" aria-label="메뉴">☰</button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-menu-close" id="mobileMenuClose">✕</button>
+  <a href="../find-tutor.html">과외 찾기</a>
+  <a href="../education.html">교육 정보</a>
+  <a href="../hagwon.html">학원 상담</a>
+  <a href="../index.html#cta">상담 신청</a>
+  <a href="../index.html#proof">수업 후기</a>
+</div>
+
+<section class="article-hero">
+  <div class="breadcrumb"><a href="../index.html">홈</a> › <a href="../education.html">교육 정보</a> › 학습 스킬</div>
+  <div class="article-tags"><span class="article-tag tg-cyan">암기</span></div>
+  <h1>외운 것을 오래 기억하려면 어떻게 복습해야 할까?</h1>
+  <div class="meta"><span>⏱ 5분 읽기</span><span>📅 2026.03</span></div>
+</section>
+
+<article class="article-body">
+  <p>단어장을 수십 번 반복했는데 시험장에 들어가면 기억이 나지 않는 경험, 누구나 한 번쯤 해봤을 것입니다. 열심히 외웠는데 금방 잊어버리는 이유는 의지력이나 머리 문제가 아닙니다. 우리 뇌가 정보를 저장하고 잊어버리는 메커니즘을 이해하면, 같은 시간을 투자해도 훨씬 오래 기억하는 복습법을 설계할 수 있습니다.</p>
+
+  <h2>에빙하우스 망각곡선이란?</h2>
+  <p>독일의 심리학자 헤르만 에빙하우스는 1885년 인간의 기억과 망각에 관한 실험을 진행했습니다. 그 결과 새로운 정보를 학습한 후 시간이 지남에 따라 기억이 급격히 감소한다는 사실을 발견했습니다. 구체적으로 학습 직후 20분이 지나면 약 42%를 잊어버리고, 1시간 후에는 약 56%, 하루가 지나면 약 67%, 한 달 후에는 약 79%를 잊어버립니다.</p>
+  <p>중요한 점은 망각이 일정한 속도로 진행되는 것이 아니라, 학습 직후에 가장 빠르게 일어나고 시간이 갈수록 느려진다는 것입니다. 이것이 바로 "복습 타이밍"이 중요한 이유입니다. 기억이 사라지기 직전에 복습하면, 같은 내용을 처음부터 다시 외우는 것보다 훨씬 적은 노력으로 기억을 회복할 수 있습니다.</p>
+
+  <div class="tip-box">
+    <strong>💡 핵심 원리:</strong> 망각곡선의 핵심 교훈은 "한 번에 오래 공부하는 것보다, 여러 번 나눠서 복습하는 것이 기억 유지에 훨씬 효과적"이라는 점입니다. 이것이 간격 반복(Spaced Repetition)의 과학적 근거입니다.
+  </div>
+
+  <h2>간격 반복 복습법: 최적의 복습 주기</h2>
+  <p>간격 반복은 복습 사이의 간격을 점차 늘려가며 반복 학습하는 방법입니다. 이 방법을 사용하면 동일한 학습 시간으로 기억 유지 기간을 극적으로 늘릴 수 있습니다.</p>
+
+  <h3>실전 복습 스케줄</h3>
+  <ol>
+    <li><strong>1차 복습 – 학습 당일 (10분 이내):</strong> 수업이 끝나자마자 또는 자습 직후, 오늘 배운 핵심 내용을 노트를 보지 않고 떠올려봅니다. 기억나지 않는 부분만 확인합니다.</li>
+    <li><strong>2차 복습 – 1일 후 (10분):</strong> 다음 날 같은 시간대에 전날 학습 내용을 다시 떠올립니다. 이 시점에서 기억률이 가장 급격하게 떨어지므로 반드시 복습해야 합니다.</li>
+    <li><strong>3차 복습 – 3일 후 (5~10분):</strong> 핵심 키워드와 개념을 빠르게 훑습니다. 이미 2번 복습한 내용이므로 떠올리는 속도가 빨라져 있을 것입니다.</li>
+    <li><strong>4차 복습 – 7일 후 (5분):</strong> 1주일 후 복습입니다. 이때까지 기억이 유지되는 내용은 장기 기억으로 전환되기 시작합니다.</li>
+    <li><strong>5차 복습 – 14일 후 (5분):</strong> 2주 후 최종 복습입니다. 이 시점에서도 기억하고 있다면 해당 내용은 장기 기억에 안정적으로 저장된 것입니다.</li>
+  </ol>
+
+  <h2>복습할 때 "그냥 읽기"는 효과가 없다</h2>
+  <p>많은 학생들이 복습이라고 하면 노트를 다시 읽는 것을 떠올립니다. 하지만 단순히 읽기만 하는 것은 "인출 연습(Retrieval Practice)"이 되지 않아 기억 강화 효과가 미미합니다. 인출 연습이란 기억 속에서 정보를 꺼내는 과정을 의미하는데, 이 과정 자체가 기억을 강화합니다.</p>
+
+  <h3>효과적인 복습 방법 4가지</h3>
+  <ul>
+    <li><strong>백지 복습법:</strong> 빈 종이에 오늘 배운 내용을 기억나는 대로 모두 적어봅니다. 적지 못한 부분이 바로 취약 포인트입니다.</li>
+    <li><strong>자기 테스트:</strong> 스스로 문제를 만들어 풀어봅니다. "~는 무엇인가?", "~의 차이점은?", "~의 3단계는?" 같은 질문을 만들면 됩니다.</li>
+    <li><strong>설명하기:</strong> 배운 내용을 소리 내어 설명해봅니다. 설명이 매끄럽지 않은 부분이 이해가 부족한 부분입니다.</li>
+    <li><strong>연결 짓기:</strong> 새로 배운 내용을 이미 알고 있는 지식과 연결합니다. "이건 이전에 배운 ~와 비슷하다", "~와 반대 개념이다" 같은 연결을 만듭니다.</li>
+  </ul>
+
+  <div class="highlight-box">
+    <strong>⚠️ 주의:</strong> 형광펜으로 밑줄을 긋거나 노트를 반복해서 읽는 것은 공부한 느낌은 주지만 실제 기억 형성에는 거의 도움이 되지 않습니다. 반드시 "떠올리기"가 포함된 복습을 하세요.
+  </div>
+
+  <h2>과목별 간격 반복 적용 전략</h2>
+
+  <h3>영어 단어</h3>
+  <p>하루 30개씩 새 단어를 학습하면서 동시에 1일 전, 3일 전, 7일 전에 학습한 단어를 복습합니다. 플래시카드를 활용하면 편리합니다. 앞면에 영어 단어, 뒷면에 뜻을 적고, 맞힌 카드와 틀린 카드를 분리합니다. 틀린 카드는 복습 간격을 짧게, 맞힌 카드는 간격을 점점 늘립니다.</p>
+
+  <h3>사회/역사 (서술형 대비)</h3>
+  <p>핵심 사건이나 개념을 키워드 3개로 요약하여 기록합니다. 복습할 때는 키워드만 보고 전체 내용을 설명해봅니다. 서술형 시험 대비에는 이 방법이 특히 효과적입니다.</p>
+
+  <h3>수학/과학 공식</h3>
+  <p>공식 자체보다 공식이 적용되는 문제 상황을 함께 기억합니다. "이 공식은 ~한 상황에서 사용한다"라는 맥락과 함께 외우면 시험에서 적절한 공식을 떠올리기가 쉬워집니다.</p>
+
+  <h2>간격 반복을 습관으로 만드는 방법</h2>
+  <p>가장 좋은 방법은 복습을 일과표에 고정하는 것입니다. 매일 자습 시간의 처음 20분을 "복습 시간"으로 정해두면 자연스럽게 습관이 됩니다.</p>
+  <ul>
+    <li>복습 전용 노트를 만들어 날짜별로 복습할 내용을 미리 적어둡니다.</li>
+    <li>플래너에 "오늘의 복습 과목"을 표시합니다.</li>
+    <li>복습 완료 후 체크 표시를 하면 성취감이 쌓여 습관 형성에 도움이 됩니다.</li>
+  </ul>
+
+  <div class="tip-box">
+    <strong>💡 핵심 정리:</strong> 기억의 비밀은 "반복의 횟수"가 아니라 "반복의 간격"에 있습니다. 당일-1일-3일-7일-14일 간격으로 복습하고, 복습할 때는 단순히 읽지 말고 반드시 떠올리기(인출 연습)를 하세요. 이 두 가지 원칙만 지켜도 암기 효율이 극적으로 향상됩니다.
+  </div>
+</article>
+
+<section class="article-cta">
+  <h2>우리 아이 맞춤 학습 전략이 필요하다면?</h2>
+  <p>WeStudy 학습 코치가 학생에게 최적화된 복습 스케줄을 설계해 드립니다.</p>
+  <a href="../index.html#cta" class="cta-btn">무료 상담 신청하기 →</a>
+</section>
+
+<footer>
+  <div>© 2025 WeStudy 위스터디. All rights reserved. | <a href="../index.html">홈으로</a></div>
+</footer>
+
+<script>
+document.getElementById('mobileBtn').addEventListener('click',()=>{document.getElementById('mobileMenu').classList.add('open')});
+document.getElementById('mobileMenuClose').addEventListener('click',()=>{document.getElementById('mobileMenu').classList.remove('open')});
+const nav=document.getElementById('mainNav');
+window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>40)});
+</script>
+</body>
+</html>

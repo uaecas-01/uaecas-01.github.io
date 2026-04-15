@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>공부에 도움 되는 앱이 있을까? – WeStudy</title>
+<meta name="description" content="타이머, 플래너, 오답관리 등 학습에 도움이 되는 앱을 목적별로 추천합니다.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--navy:#0A1628;--blue:#1D4ED8;--blue-mid:#2563EB;--amber:#F59E0B;--bg:#F8FAFF;--white:#FFFFFF;--text:#111827;--gray-100:#F3F4F6;--gray-300:#D1D5DB;--gray-400:#9CA3AF;--gray-500:#6B7280;--gray-700:#374151}
+html{scroll-behavior:smooth}
+body{font-family:'Pretendard',sans-serif;color:var(--text);background:var(--bg);overflow-x:hidden}
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:0 5%;height:64px;background:var(--navy);transition:background .3s,box-shadow .3s}
+nav.scrolled{background:var(--white);box-shadow:0 2px 20px rgba(0,0,0,.08)}
+.nav-logo{display:flex;align-items:center;gap:.5rem;text-decoration:none}
+.logo-mark{background:var(--blue-mid);color:var(--white);width:32px;height:32px;border-radius:8px;display:grid;place-items:center;font-weight:900;font-size:1rem}
+.logo-name{color:var(--white);font-weight:800;font-size:1.1rem}
+nav.scrolled .logo-name{color:var(--navy)}
+.nav-links{display:flex;list-style:none;gap:2rem}
+.nav-links a{color:rgba(255,255,255,.8);text-decoration:none;font-size:.9rem;font-weight:500;transition:color .2s}
+.nav-links a:hover,.nav-links a.active{color:var(--white);font-weight:700}
+nav.scrolled .nav-links a{color:var(--gray-500)}
+nav.scrolled .nav-links a:hover,nav.scrolled .nav-links a.active{color:var(--navy)}
+.nav-cta{background:rgba(255,255,255,.15);color:var(--white);padding:.55rem 1.4rem;border-radius:50px;font-size:.875rem;font-weight:700;text-decoration:none;border:1.5px solid rgba(255,255,255,.35);transition:background .25s,color .25s}
+.nav-cta:hover{background:var(--white);color:var(--blue)}
+nav.scrolled .nav-cta{background:var(--blue);color:var(--white);border-color:var(--blue)}
+.nav-mobile-btn{display:none}
+.mobile-menu{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(10,15,30,.95);z-index:10000;flex-direction:column;align-items:center;justify-content:center;gap:.5rem}
+.mobile-menu.open{display:flex}
+.mobile-menu a{color:var(--white);text-decoration:none;font-size:1.25rem;font-weight:600;padding:1rem 2rem;border-radius:12px;transition:background .2s}
+.mobile-menu a:hover{background:rgba(255,255,255,.1)}
+.mobile-menu-close{position:absolute;top:1.25rem;right:1.5rem;background:none;border:none;color:var(--white);font-size:2rem;cursor:pointer}
+.article-hero{background:var(--navy);padding:120px 5% 60px;text-align:center}
+.article-hero .breadcrumb{color:rgba(255,255,255,.6);font-size:.85rem;margin-bottom:1rem}
+.article-hero .breadcrumb a{color:rgba(255,255,255,.6);text-decoration:none}
+.article-hero .breadcrumb a:hover{color:var(--white)}
+.article-hero h1{color:var(--white);font-size:2rem;font-weight:800;line-height:1.4;max-width:720px;margin:0 auto .75rem}
+.article-hero .meta{color:rgba(255,255,255,.5);font-size:.85rem;display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+.article-tags{display:flex;gap:.5rem;justify-content:center;margin-bottom:1rem}
+.article-tag{padding:.25rem .75rem;border-radius:50px;font-size:.75rem;font-weight:600}
+.tg-blue{background:rgba(29,78,216,.15);color:#60A5FA}
+.tg-amber{background:rgba(245,158,11,.15);color:#FBBF24}
+.tg-green{background:rgba(5,150,105,.15);color:#34D399}
+.tg-cyan{background:rgba(6,182,212,.15);color:#22D3EE}
+.tg-rose{background:rgba(244,63,94,.15);color:#FB7185}
+.article-body{max-width:720px;margin:0 auto;padding:3rem 1.5rem}
+.article-body h2{font-size:1.4rem;font-weight:800;color:var(--navy);margin:2.5rem 0 1rem;padding-bottom:.5rem;border-bottom:2px solid var(--gray-100)}
+.article-body h3{font-size:1.15rem;font-weight:700;color:var(--blue-mid);margin:1.5rem 0 .75rem}
+.article-body p{font-size:1rem;line-height:1.85;color:var(--gray-700);margin-bottom:1.25rem}
+.article-body ul,.article-body ol{margin:1rem 0 1.5rem 1.5rem;line-height:1.85;color:var(--gray-700)}
+.article-body li{margin-bottom:.5rem}
+.article-body .tip-box{background:linear-gradient(135deg,#EFF6FF,#F0F9FF);border-left:4px solid var(--blue-mid);padding:1.25rem 1.5rem;border-radius:0 12px 12px 0;margin:1.5rem 0;font-size:.95rem;line-height:1.7}
+.article-body .tip-box strong{color:var(--blue-mid)}
+.article-body .highlight-box{background:linear-gradient(135deg,#FEF3C7,#FFFBEB);border-left:4px solid var(--amber);padding:1.25rem 1.5rem;border-radius:0 12px 12px 0;margin:1.5rem 0;font-size:.95rem;line-height:1.7}
+.article-cta{text-align:center;padding:3rem 1.5rem 4rem;background:var(--gray-100);margin-top:2rem}
+.article-cta h2{font-size:1.4rem;font-weight:800;color:var(--navy);margin-bottom:.75rem}
+.article-cta p{color:var(--gray-500);margin-bottom:1.5rem;font-size:.95rem}
+.article-cta .cta-btn{display:inline-block;background:var(--blue);color:var(--white);padding:.9rem 2.5rem;border-radius:50px;font-weight:700;font-size:1rem;text-decoration:none;transition:background .2s}
+.article-cta .cta-btn:hover{background:var(--navy)}
+footer{background:var(--navy);color:rgba(255,255,255,.5);text-align:center;padding:2rem 5%;font-size:.8rem}
+footer a{color:rgba(255,255,255,.6);text-decoration:none}
+@media(max-width:768px){
+  .nav-links,.nav-cta{display:none}
+  .nav-mobile-btn{display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.12);border:1.5px solid rgba(255,255,255,.25);border-radius:8px;width:40px;height:40px;cursor:pointer;color:var(--white);font-size:1.2rem}
+  nav.scrolled .nav-mobile-btn{color:var(--navy);border-color:var(--gray-300);background:var(--gray-100)}
+  .article-hero h1{font-size:1.5rem}
+  .article-body{padding:2rem 1.25rem}
+}
+</style>
+</head>
+<body>
+<nav id="mainNav">
+  <a href="../index.html" class="nav-logo"><span class="logo-mark">W</span><span class="logo-name">WeStudy</span></a>
+  <ul class="nav-links">
+    <li><a href="../find-tutor.html">과외 찾기</a></li>
+    <li><a href="../education.html" class="active">교육 정보</a></li>
+    <li><a href="../hagwon.html">학원 상담</a></li>
+    <li><a href="../index.html#cta">상담 신청</a></li>
+    <li><a href="../index.html#proof">수업 후기</a></li>
+  </ul>
+  <a href="../index.html#cta" class="nav-cta">무료 상담 신청</a>
+  <button class="nav-mobile-btn" id="mobileBtn" aria-label="메뉴">☰</button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-menu-close" id="mobileMenuClose">✕</button>
+  <a href="../find-tutor.html">과외 찾기</a>
+  <a href="../education.html">교육 정보</a>
+  <a href="../hagwon.html">학원 상담</a>
+  <a href="../index.html#cta">상담 신청</a>
+  <a href="../index.html#proof">수업 후기</a>
+</div>
+
+<section class="article-hero">
+  <div class="breadcrumb"><a href="../index.html">홈</a> › <a href="../education.html">교육 정보</a> › 학습 스킬</div>
+  <div class="article-tags"><span class="article-tag tg-green">도구</span></div>
+  <h1>공부에 도움 되는 앱이 있을까?</h1>
+  <div class="meta"><span>⏱ 3분 읽기</span><span>📅 2026.02</span></div>
+</section>
+
+<article class="article-body">
+  <p>스마트폰은 공부의 적이라는 이미지가 강하지만, 잘 활용하면 강력한 학습 도구가 됩니다. 핵심은 스마트폰을 "유혹의 도구"에서 "학습의 도구"로 전환하는 것입니다. 이 글에서는 실제 학생들이 효과를 본 학습 앱을 목적별로 분류하여 소개하고, 각 앱을 효과적으로 활용하는 방법을 알려드립니다.</p>
+
+  <h2>집중력 관리: 타이머 앱</h2>
+  <p>공부할 때 가장 중요한 것은 집중력입니다. 타이머 앱은 집중과 휴식을 체계적으로 관리해줍니다.</p>
+
+  <h3>포모도로 타이머 계열</h3>
+  <p>포모도로 기법은 25분 집중 + 5분 휴식을 반복하는 시간 관리 방법입니다. 4세트를 완료하면 15~30분의 긴 휴식을 가집니다. 이 기법을 지원하는 타이머 앱을 사용하면 집중 시간을 자연스럽게 늘릴 수 있습니다.</p>
+  <ul>
+    <li><strong>특징:</strong> 집중/휴식 시간 커스터마이즈, 일별/주별 집중 시간 통계, 알림음 설정</li>
+    <li><strong>추천 대상:</strong> 집중력이 30분 이상 유지되지 않는 학생</li>
+    <li><strong>활용 팁:</strong> 처음에는 25분이 길게 느껴질 수 있으니 15분부터 시작해서 점진적으로 늘리세요.</li>
+  </ul>
+
+  <h3>스톱워치형 학습 타이머</h3>
+  <p>과목별로 공부 시간을 기록하고 통계를 보여주는 앱입니다. 자신이 어떤 과목에 얼마나 시간을 투자했는지 객관적으로 파악할 수 있어 시간 배분을 조정하는 데 도움이 됩니다.</p>
+  <ul>
+    <li><strong>특징:</strong> 과목별 타이머, 일별/주별/월별 통계 그래프, 목표 시간 설정</li>
+    <li><strong>추천 대상:</strong> 공부 시간 관리를 하고 싶은 모든 학생</li>
+    <li><strong>활용 팁:</strong> 공부를 시작할 때마다 타이머를 켜는 습관을 들이면, 자연스럽게 시간 낭비가 줄어듭니다.</li>
+  </ul>
+
+  <div class="tip-box">
+    <strong>💡 실전 팁:</strong> 타이머 앱을 사용할 때는 스마트폰의 다른 알림을 모두 끄세요. "방해 금지 모드"를 함께 활성화하면 타이머만 작동하는 집중 환경을 만들 수 있습니다.
+  </div>
+
+  <h2>계획 관리: 플래너 앱</h2>
+  <p>종이 플래너를 선호하는 학생도 있지만, 디지털 플래너는 수정이 쉽고 알림 기능이 있어 계획 실행률을 높이는 데 유리합니다.</p>
+
+  <h3>학습 전용 플래너</h3>
+  <p>학생의 일정에 맞춰 설계된 플래너 앱은 시간표 연동, 과목별 할 일 관리, 시험 D-day 카운트다운 등 학습에 최적화된 기능을 제공합니다.</p>
+  <ul>
+    <li><strong>핵심 기능:</strong> 시간표 입력, 과목별 투두리스트, 시험 일정 관리, 학습 목표 설정</li>
+    <li><strong>추천 대상:</strong> 학원과 학교 일정이 복잡한 학생</li>
+    <li><strong>활용 팁:</strong> 매주 일요일 저녁에 다음 주 계획을 입력하고, 매일 아침 오늘의 할 일을 확인하는 루틴을 만드세요.</li>
+  </ul>
+
+  <h3>습관 트래커</h3>
+  <p>매일 해야 할 학습 습관(복습, 단어 암기, 독서 등)을 체크하는 앱입니다. 연속 달성 기록이 쌓이면 동기 부여가 됩니다.</p>
+  <ul>
+    <li><strong>핵심 기능:</strong> 일일 체크리스트, 연속 달성일 표시, 달성률 통계</li>
+    <li><strong>추천 대상:</strong> 학습 루틴을 만들고 싶은 학생</li>
+    <li><strong>활용 팁:</strong> 처음에는 쉬운 습관 2~3개만 설정하세요. 너무 많으면 부담되어 오히려 포기하기 쉽습니다.</li>
+  </ul>
+
+  <h2>오답 관리: 오답 노트 앱</h2>
+  <p>종이 오답 노트의 단점은 휴대가 불편하고, 사진이 필요한 문제를 옮기기 어렵다는 것입니다. 오답 노트 앱은 이런 불편함을 해결합니다.</p>
+
+  <h3>사진 기반 오답 노트</h3>
+  <p>틀린 문제를 사진으로 찍어서 저장하고, 과목별/유형별로 분류할 수 있는 앱입니다.</p>
+  <ul>
+    <li><strong>핵심 기능:</strong> 문제 사진 촬영 및 크롭, 과목/단원별 분류, 풀이 메모 추가, 복습 알림</li>
+    <li><strong>추천 대상:</strong> 오답 노트를 만들 시간이 부족한 학생</li>
+    <li><strong>활용 팁:</strong> 사진만 찍고 끝내지 말고, 반드시 틀린 이유와 정정 풀이를 메모로 추가하세요. 메모 없는 사진은 나중에 보면 왜 틀렸는지 기억이 나지 않습니다.</li>
+  </ul>
+
+  <div class="highlight-box">
+    <strong>⚠️ 주의:</strong> 오답 앱에 문제를 저장하기만 하고 복습하지 않으면 의미가 없습니다. 앱의 복습 알림 기능을 반드시 활성화하고, 알림이 오면 3~5분이라도 복습하세요.
+  </div>
+
+  <h2>암기 보조: 플래시카드 앱</h2>
+  <p>간격 반복 알고리즘이 내장된 플래시카드 앱은 영어 단어, 역사 연표, 과학 용어 등 암기가 필요한 모든 과목에 활용할 수 있습니다.</p>
+  <ul>
+    <li><strong>핵심 기능:</strong> 앞/뒤 카드 생성, 자동 간격 반복 스케줄링, 학습 진도 통계</li>
+    <li><strong>추천 대상:</strong> 영어 단어 암기, 과학 용어 암기가 필요한 학생</li>
+    <li><strong>활용 팁:</strong> 카드를 만드는 과정 자체가 학습입니다. 다른 사람이 만든 카드 세트를 그대로 사용하기보다 직접 만드는 것이 훨씬 효과적입니다.</li>
+  </ul>
+
+  <h2>앱 사용 시 반드시 지켜야 할 규칙</h2>
+  <p>학습 앱은 도구일 뿐, 공부를 대신해주지 않습니다. 다음 규칙을 지켜야 앱이 진정한 도움이 됩니다.</p>
+  <ol>
+    <li><strong>앱 개수 제한:</strong> 학습용 앱은 최대 3개까지만 설치하세요. 앱을 너무 많이 깔면 관리하는 데 시간이 더 듭니다.</li>
+    <li><strong>알림 최소화:</strong> 학습 관련 알림만 켜고, SNS와 게임 알림은 공부 시간에는 반드시 끕니다.</li>
+    <li><strong>사용 시간 제한:</strong> 앱을 사용하는 시간 자체가 공부 시간을 잡아먹지 않도록 주의하세요. 플래너 입력에 30분을 쓰면 본말이 전도됩니다.</li>
+    <li><strong>1주일 시험 운영:</strong> 새 앱을 설치하면 1주일 동안 사용해보고, 도움이 되는지 판단한 후 계속 사용할지 결정하세요.</li>
+  </ol>
+
+  <div class="tip-box">
+    <strong>💡 핵심 정리:</strong> 학습 앱의 핵심 카테고리는 타이머(집중력), 플래너(계획), 오답 노트(복습), 플래시카드(암기) 네 가지입니다. 자신에게 가장 필요한 카테고리 1~2개를 선택하고, 앱은 도구일 뿐 공부의 주체는 자신이라는 점을 기억하세요. 앱에 의존하기보다 앱을 통해 좋은 학습 습관을 만드는 것이 목표입니다.
+  </div>
+</article>
+
+<section class="article-cta">
+  <h2>우리 아이 맞춤 학습 전략이 필요하다면?</h2>
+  <p>WeStudy 학습 코치가 학생에게 맞는 학습 도구와 루틴을 설계해 드립니다.</p>
+  <a href="../index.html#cta" class="cta-btn">무료 상담 신청하기 →</a>
+</section>
+
+<footer>
+  <div>© 2025 WeStudy 위스터디. All rights reserved. | <a href="../index.html">홈으로</a></div>
+</footer>
+
+<script>
+document.getElementById('mobileBtn').addEventListener('click',()=>{document.getElementById('mobileMenu').classList.add('open')});
+document.getElementById('mobileMenuClose').addEventListener('click',()=>{document.getElementById('mobileMenu').classList.remove('open')});
+const nav=document.getElementById('mainNav');
+window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>40)});
+</script>
+</body>
+</html>

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>집에서 집중이 안 되는데, 공부 공간을 어떻게 바꿀까? – WeStudy</title>
+<meta name="description" content="책상 정리, 조명 설정, 소음 관리 등 집중력을 높이는 공부 환경 만들기 실전 팁을 안내합니다.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--navy:#0A1628;--blue:#1D4ED8;--blue-mid:#2563EB;--amber:#F59E0B;--bg:#F8FAFF;--white:#FFFFFF;--text:#111827;--gray-100:#F3F4F6;--gray-300:#D1D5DB;--gray-400:#9CA3AF;--gray-500:#6B7280;--gray-700:#374151}
+html{scroll-behavior:smooth}
+body{font-family:'Pretendard',sans-serif;color:var(--text);background:var(--bg);overflow-x:hidden}
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:0 5%;height:64px;background:var(--navy);transition:background .3s,box-shadow .3s}
+nav.scrolled{background:var(--white);box-shadow:0 2px 20px rgba(0,0,0,.08)}
+.nav-logo{display:flex;align-items:center;gap:.5rem;text-decoration:none}
+.logo-mark{background:var(--blue-mid);color:var(--white);width:32px;height:32px;border-radius:8px;display:grid;place-items:center;font-weight:900;font-size:1rem}
+.logo-name{color:var(--white);font-weight:800;font-size:1.1rem}
+nav.scrolled .logo-name{color:var(--navy)}
+.nav-links{display:flex;list-style:none;gap:2rem}
+.nav-links a{color:rgba(255,255,255,.8);text-decoration:none;font-size:.9rem;font-weight:500;transition:color .2s}
+.nav-links a:hover,.nav-links a.active{color:var(--white);font-weight:700}
+nav.scrolled .nav-links a{color:var(--gray-500)}
+nav.scrolled .nav-links a:hover,nav.scrolled .nav-links a.active{color:var(--navy)}
+.nav-cta{background:rgba(255,255,255,.15);color:var(--white);padding:.55rem 1.4rem;border-radius:50px;font-size:.875rem;font-weight:700;text-decoration:none;border:1.5px solid rgba(255,255,255,.35);transition:background .25s,color .25s}
+.nav-cta:hover{background:var(--white);color:var(--blue)}
+nav.scrolled .nav-cta{background:var(--blue);color:var(--white);border-color:var(--blue)}
+.nav-mobile-btn{display:none}
+.mobile-menu{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(10,15,30,.95);z-index:10000;flex-direction:column;align-items:center;justify-content:center;gap:.5rem}
+.mobile-menu.open{display:flex}
+.mobile-menu a{color:var(--white);text-decoration:none;font-size:1.25rem;font-weight:600;padding:1rem 2rem;border-radius:12px;transition:background .2s}
+.mobile-menu a:hover{background:rgba(255,255,255,.1)}
+.mobile-menu-close{position:absolute;top:1.25rem;right:1.5rem;background:none;border:none;color:var(--white);font-size:2rem;cursor:pointer}
+.article-hero{background:var(--navy);padding:120px 5% 60px;text-align:center}
+.article-hero .breadcrumb{color:rgba(255,255,255,.6);font-size:.85rem;margin-bottom:1rem}
+.article-hero .breadcrumb a{color:rgba(255,255,255,.6);text-decoration:none}
+.article-hero .breadcrumb a:hover{color:var(--white)}
+.article-hero h1{color:var(--white);font-size:2rem;font-weight:800;line-height:1.4;max-width:720px;margin:0 auto .75rem}
+.article-hero .meta{color:rgba(255,255,255,.5);font-size:.85rem;display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+.article-tags{display:flex;gap:.5rem;justify-content:center;margin-bottom:1rem}
+.article-tag{padding:.25rem .75rem;border-radius:50px;font-size:.75rem;font-weight:600}
+.tg-blue{background:rgba(29,78,216,.15);color:#60A5FA}
+.tg-amber{background:rgba(245,158,11,.15);color:#FBBF24}
+.tg-green{background:rgba(5,150,105,.15);color:#34D399}
+.tg-cyan{background:rgba(6,182,212,.15);color:#22D3EE}
+.tg-rose{background:rgba(244,63,94,.15);color:#FB7185}
+.article-body{max-width:720px;margin:0 auto;padding:3rem 1.5rem}
+.article-body h2{font-size:1.4rem;font-weight:800;color:var(--navy);margin:2.5rem 0 1rem;padding-bottom:.5rem;border-bottom:2px solid var(--gray-100)}
+.article-body h3{font-size:1.15rem;font-weight:700;color:var(--blue-mid);margin:1.5rem 0 .75rem}
+.article-body p{font-size:1rem;line-height:1.85;color:var(--gray-700);margin-bottom:1.25rem}
+.article-body ul,.article-body ol{margin:1rem 0 1.5rem 1.5rem;line-height:1.85;color:var(--gray-700)}
+.article-body li{margin-bottom:.5rem}
+.article-body .tip-box{background:linear-gradient(135deg,#EFF6FF,#F0F9FF);border-left:4px solid var(--blue-mid);padding:1.25rem 1.5rem;border-radius:0 12px 12px 0;margin:1.5rem 0;font-size:.95rem;line-height:1.7}
+.article-body .tip-box strong{color:var(--blue-mid)}
+.article-body .highlight-box{background:linear-gradient(135deg,#FEF3C7,#FFFBEB);border-left:4px solid var(--amber);padding:1.25rem 1.5rem;border-radius:0 12px 12px 0;margin:1.5rem 0;font-size:.95rem;line-height:1.7}
+.article-cta{text-align:center;padding:3rem 1.5rem 4rem;background:var(--gray-100);margin-top:2rem}
+.article-cta h2{font-size:1.4rem;font-weight:800;color:var(--navy);margin-bottom:.75rem}
+.article-cta p{color:var(--gray-500);margin-bottom:1.5rem;font-size:.95rem}
+.article-cta .cta-btn{display:inline-block;background:var(--blue);color:var(--white);padding:.9rem 2.5rem;border-radius:50px;font-weight:700;font-size:1rem;text-decoration:none;transition:background .2s}
+.article-cta .cta-btn:hover{background:var(--navy)}
+footer{background:var(--navy);color:rgba(255,255,255,.5);text-align:center;padding:2rem 5%;font-size:.8rem}
+footer a{color:rgba(255,255,255,.6);text-decoration:none}
+@media(max-width:768px){
+  .nav-links,.nav-cta{display:none}
+  .nav-mobile-btn{display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.12);border:1.5px solid rgba(255,255,255,.25);border-radius:8px;width:40px;height:40px;cursor:pointer;color:var(--white);font-size:1.2rem}
+  nav.scrolled .nav-mobile-btn{color:var(--navy);border-color:var(--gray-300);background:var(--gray-100)}
+  .article-hero h1{font-size:1.5rem}
+  .article-body{padding:2rem 1.25rem}
+}
+</style>
+</head>
+<body>
+<nav id="mainNav">
+  <a href="../index.html" class="nav-logo"><span class="logo-mark">W</span><span class="logo-name">WeStudy</span></a>
+  <ul class="nav-links">
+    <li><a href="../find-tutor.html">과외 찾기</a></li>
+    <li><a href="../education.html" class="active">교육 정보</a></li>
+    <li><a href="../hagwon.html">학원 상담</a></li>
+    <li><a href="../index.html#cta">상담 신청</a></li>
+    <li><a href="../index.html#proof">수업 후기</a></li>
+  </ul>
+  <a href="../index.html#cta" class="nav-cta">무료 상담 신청</a>
+  <button class="nav-mobile-btn" id="mobileBtn" aria-label="메뉴">☰</button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-menu-close" id="mobileMenuClose">✕</button>
+  <a href="../find-tutor.html">과외 찾기</a>
+  <a href="../education.html">교육 정보</a>
+  <a href="../hagwon.html">학원 상담</a>
+  <a href="../index.html#cta">상담 신청</a>
+  <a href="../index.html#proof">수업 후기</a>
+</div>
+
+<section class="article-hero">
+  <div class="breadcrumb"><a href="../index.html">홈</a> › <a href="../education.html">교육 정보</a> › 학습 습관 &amp; 루틴</div>
+  <div class="article-tags"><span class="article-tag tg-green">환경</span></div>
+  <h1>집에서 집중이 안 되는데, 공부 공간을 어떻게 바꿀까?</h1>
+  <div class="meta"><span>⏱ 3분 읽기</span><span>📅 2026.04</span></div>
+</section>
+
+<article class="article-body">
+  <p>집에서 공부하려고 책상에 앉으면 이상하게 집중이 안 됩니다. 침대가 눈에 들어오고, TV 소리가 신경 쓰이고, 가족의 움직임에 계속 주의가 분산됩니다. 집은 원래 휴식하는 공간이기 때문에 뇌가 자동으로 이완 모드로 전환되기 때문입니다. 하지만 공부 공간을 제대로 세팅하면 집에서도 도서관 못지않은 집중 환경을 만들 수 있습니다.</p>
+
+  <h2>책상 정리: 시각적 소음 제거하기</h2>
+  <p>책상 위에 물건이 많으면 뇌가 무의식적으로 각 물건을 인식하고 처리하느라 에너지를 소모합니다. 이것을 시각적 소음이라고 합니다. 공부할 때 책상 위에는 지금 공부하는 과목의 교재와 필기구만 있어야 합니다.</p>
+  <ul>
+    <li><strong>원 서브젝트 룰:</strong> 책상 위에는 현재 공부 중인 한 과목의 자료만 올려놓습니다. 다른 과목 교재, 프린트는 서랍이나 책장에 넣어둡니다.</li>
+    <li><strong>매일 리셋:</strong> 공부를 시작하기 전에 책상 위를 한 번 정리합니다. 이 행동 자체가 공부 시작의 의식(ritual)이 되어 집중 모드 전환을 도와줍니다.</li>
+    <li><strong>수납 시스템:</strong> 자주 쓰는 물건은 손이 닿는 곳의 서랍에, 가끔 쓰는 물건은 멀리 배치합니다. 파일 박스나 바구니를 활용하면 정리가 쉬워집니다.</li>
+  </ul>
+
+  <div class="tip-box">
+    <strong>💡 실전 팁:</strong> 스마트폰, 만화책, 게임기 등 유혹이 되는 물건은 시야에서 완전히 사라지게 하세요. 서랍 안에 넣거나 다른 방으로 옮기는 것만으로도 집중력이 눈에 띄게 달라집니다.
+  </div>
+
+  <h2>조명: 뇌를 각성시키는 빛 환경</h2>
+  <p>조명은 집중력에 생각보다 큰 영향을 미칩니다. 너무 어두우면 졸리고, 너무 밝으면 눈이 피로합니다. 공부에 최적화된 조명 환경을 만드는 방법을 알아봅시다.</p>
+
+  <h3>데스크 조명 선택</h3>
+  <ul>
+    <li><strong>색온도:</strong> 5000~6500K(주광색)의 차가운 빛이 집중력 향상에 좋습니다. 따뜻한 노란색 조명(3000K)은 편안한 분위기를 만들어 이완을 유도하므로 공부에는 부적합합니다.</li>
+    <li><strong>밝기:</strong> 책상 위 조도가 500~750룩스 정도가 적당합니다. LED 스탠드를 사용하면 밝기 조절이 쉽습니다.</li>
+    <li><strong>위치:</strong> 오른손잡이는 왼쪽에서, 왼손잡이는 오른쪽에서 빛이 비추도록 스탠드를 배치합니다. 손 그림자가 노트에 생기지 않도록 하는 것이 포인트입니다.</li>
+  </ul>
+
+  <h3>자연광 활용</h3>
+  <p>가능하면 책상을 창가 근처에 배치하세요. 자연광은 인공조명보다 뇌를 효과적으로 각성시키고, 세로토닌 분비를 촉진하여 기분과 집중력을 동시에 높여줍니다. 다만 직사광선이 교재에 직접 비치면 눈부심이 생기므로 반투명 커튼으로 빛을 확산시키는 것이 좋습니다.</p>
+
+  <h2>소음 관리: 나에게 맞는 청각 환경</h2>
+  <p>완벽한 무음보다 적당한 배경음이 더 집중에 도움이 되는 경우가 많습니다. 개인차가 있으므로 자신에게 맞는 청각 환경을 찾는 것이 중요합니다.</p>
+  <ul>
+    <li><strong>가족 소음 차단:</strong> 귀마개나 노이즈캔슬링 이어폰을 사용합니다. 완전한 무음이 불편하다면 백색소음(빗소리, 파도소리)을 틀어두는 것이 효과적입니다.</li>
+    <li><strong>환경음 앱 활용:</strong> 카페 소음, 도서관 소음, 자연 소리 등을 재생해주는 앱을 사용하면 집에서도 원하는 분위기를 만들 수 있습니다.</li>
+    <li><strong>가족과 규칙 정하기:</strong> 공부 시간에는 방문을 닫고, 급한 용무가 아니면 노크 없이 들어오지 않기로 약속합니다. 문 앞에 "공부 중" 표시를 걸어두는 것도 효과적입니다.</li>
+  </ul>
+
+  <div class="highlight-box">
+    <strong>⚠️ 주의:</strong> 음악을 배경음으로 쓸 때 가사가 있는 노래는 피하세요. 가사가 있으면 뇌가 무의식적으로 가사를 처리하느라 인지 자원이 소모됩니다. 클래식, 재즈, 로파이 힙합 같은 가사 없는 음악이 적합합니다.
+  </div>
+
+  <h2>온도와 공기: 보이지 않는 집중력 요소</h2>
+  <p>공부방의 온도와 공기질도 집중력에 영향을 미칩니다.</p>
+  <ul>
+    <li><strong>적정 온도:</strong> 20~22도가 집중에 가장 적합합니다. 너무 따뜻하면 졸리고, 너무 추우면 몸이 떨려 집중이 어렵습니다.</li>
+    <li><strong>환기:</strong> 1시간에 한 번, 5분간 창문을 열어 환기합니다. 밀폐된 공간에서 이산화탄소 농도가 올라가면 졸음과 두통이 발생합니다.</li>
+    <li><strong>습도:</strong> 40~60%의 습도가 적당합니다. 겨울철 건조한 환경에서는 가습기를 사용하면 목과 눈의 피로가 줄어듭니다.</li>
+  </ul>
+
+  <h2>공부 전용 공간 만들기</h2>
+  <p>가능하다면 공부하는 장소와 휴식하는 장소를 분리하세요. 같은 방이라도 구역을 나눌 수 있습니다.</p>
+  <ul>
+    <li><strong>침대와 책상 분리:</strong> 책상에서 침대가 보이지 않도록 배치하거나, 작은 파티션으로 시야를 차단합니다.</li>
+    <li><strong>공부 전용 의자:</strong> 편안한 소파나 침대에서 공부하면 뇌가 이완 모드가 됩니다. 등받이가 반듯한 의자에 앉으면 자세가 잡히면서 집중 모드로 전환됩니다.</li>
+    <li><strong>영역 규칙:</strong> "이 책상에서는 공부만 한다"는 규칙을 정합니다. 게임, SNS, 유튜브 시청은 다른 장소에서 합니다. 이 규칙이 습관이 되면 책상에 앉는 것만으로 뇌가 자동으로 집중 모드에 들어갑니다.</li>
+  </ul>
+
+  <div class="tip-box">
+    <strong>💡 핵심 정리:</strong> 집중력은 의지보다 환경에 더 크게 좌우됩니다. 책상 정리로 시각적 소음을 줄이고, 차가운 색 조명으로 뇌를 각성시키고, 적절한 배경음으로 청각 환경을 관리하세요. 작은 변화가 집중 시간을 크게 늘려줍니다.
+  </div>
+</article>
+
+<section class="article-cta">
+  <h2>우리 아이 학습 환경 개선이 필요하다면?</h2>
+  <p>WeStudy 학습 코치가 학생의 환경과 성향에 맞는 최적의 학습 공간 세팅을 안내합니다.</p>
+  <a href="../index.html#cta" class="cta-btn">무료 상담 신청하기 →</a>
+</section>
+
+<footer>
+  <div>© 2025 WeStudy 위스터디. All rights reserved. | <a href="../index.html">홈으로</a></div>
+</footer>
+
+<script>
+document.getElementById('mobileBtn').addEventListener('click',()=>{document.getElementById('mobileMenu').classList.add('open')});
+document.getElementById('mobileMenuClose').addEventListener('click',()=>{document.getElementById('mobileMenu').classList.remove('open')});
+const nav=document.getElementById('mainNav');
+window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>40)});
+</script>
+</body>
+</html>

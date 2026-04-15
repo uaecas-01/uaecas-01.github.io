@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>문제 풀이 속도가 느린데, 빨라질 수 있을까? – WeStudy</title>
+<meta name="description" content="시험시간 내 문제 풀이 속도를 높이는 구체적인 훈련법을 소개합니다.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--navy:#0A1628;--blue:#1D4ED8;--blue-mid:#2563EB;--amber:#F59E0B;--bg:#F8FAFF;--white:#FFFFFF;--text:#111827;--gray-100:#F3F4F6;--gray-300:#D1D5DB;--gray-400:#9CA3AF;--gray-500:#6B7280;--gray-700:#374151}
+html{scroll-behavior:smooth}
+body{font-family:'Pretendard',sans-serif;color:var(--text);background:var(--bg);overflow-x:hidden}
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:0 5%;height:64px;background:var(--navy);transition:background .3s,box-shadow .3s}
+nav.scrolled{background:var(--white);box-shadow:0 2px 20px rgba(0,0,0,.08)}
+.nav-logo{display:flex;align-items:center;gap:.5rem;text-decoration:none}
+.logo-mark{background:var(--blue-mid);color:var(--white);width:32px;height:32px;border-radius:8px;display:grid;place-items:center;font-weight:900;font-size:1rem}
+.logo-name{color:var(--white);font-weight:800;font-size:1.1rem}
+nav.scrolled .logo-name{color:var(--navy)}
+.nav-links{display:flex;list-style:none;gap:2rem}
+.nav-links a{color:rgba(255,255,255,.8);text-decoration:none;font-size:.9rem;font-weight:500;transition:color .2s}
+.nav-links a:hover,.nav-links a.active{color:var(--white);font-weight:700}
+nav.scrolled .nav-links a{color:var(--gray-500)}
+nav.scrolled .nav-links a:hover,nav.scrolled .nav-links a.active{color:var(--navy)}
+.nav-cta{background:rgba(255,255,255,.15);color:var(--white);padding:.55rem 1.4rem;border-radius:50px;font-size:.875rem;font-weight:700;text-decoration:none;border:1.5px solid rgba(255,255,255,.35);transition:background .25s,color .25s}
+.nav-cta:hover{background:var(--white);color:var(--blue)}
+nav.scrolled .nav-cta{background:var(--blue);color:var(--white);border-color:var(--blue)}
+.nav-mobile-btn{display:none}
+.mobile-menu{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(10,15,30,.95);z-index:10000;flex-direction:column;align-items:center;justify-content:center;gap:.5rem}
+.mobile-menu.open{display:flex}
+.mobile-menu a{color:var(--white);text-decoration:none;font-size:1.25rem;font-weight:600;padding:1rem 2rem;border-radius:12px;transition:background .2s}
+.mobile-menu a:hover{background:rgba(255,255,255,.1)}
+.mobile-menu-close{position:absolute;top:1.25rem;right:1.5rem;background:none;border:none;color:var(--white);font-size:2rem;cursor:pointer}
+.article-hero{background:var(--navy);padding:120px 5% 60px;text-align:center}
+.article-hero .breadcrumb{color:rgba(255,255,255,.6);font-size:.85rem;margin-bottom:1rem}
+.article-hero .breadcrumb a{color:rgba(255,255,255,.6);text-decoration:none}
+.article-hero .breadcrumb a:hover{color:var(--white)}
+.article-hero h1{color:var(--white);font-size:2rem;font-weight:800;line-height:1.4;max-width:720px;margin:0 auto .75rem}
+.article-hero .meta{color:rgba(255,255,255,.5);font-size:.85rem;display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+.article-tags{display:flex;gap:.5rem;justify-content:center;margin-bottom:1rem}
+.article-tag{padding:.25rem .75rem;border-radius:50px;font-size:.75rem;font-weight:600}
+.tg-blue{background:rgba(29,78,216,.15);color:#60A5FA}
+.tg-amber{background:rgba(245,158,11,.15);color:#FBBF24}
+.tg-green{background:rgba(5,150,105,.15);color:#34D399}
+.tg-cyan{background:rgba(6,182,212,.15);color:#22D3EE}
+.tg-rose{background:rgba(244,63,94,.15);color:#FB7185}
+.article-body{max-width:720px;margin:0 auto;padding:3rem 1.5rem}
+.article-body h2{font-size:1.4rem;font-weight:800;color:var(--navy);margin:2.5rem 0 1rem;padding-bottom:.5rem;border-bottom:2px solid var(--gray-100)}
+.article-body h3{font-size:1.15rem;font-weight:700;color:var(--blue-mid);margin:1.5rem 0 .75rem}
+.article-body p{font-size:1rem;line-height:1.85;color:var(--gray-700);margin-bottom:1.25rem}
+.article-body ul,.article-body ol{margin:1rem 0 1.5rem 1.5rem;line-height:1.85;color:var(--gray-700)}
+.article-body li{margin-bottom:.5rem}
+.article-body .tip-box{background:linear-gradient(135deg,#EFF6FF,#F0F9FF);border-left:4px solid var(--blue-mid);padding:1.25rem 1.5rem;border-radius:0 12px 12px 0;margin:1.5rem 0;font-size:.95rem;line-height:1.7}
+.article-body .tip-box strong{color:var(--blue-mid)}
+.article-body .highlight-box{background:linear-gradient(135deg,#FEF3C7,#FFFBEB);border-left:4px solid var(--amber);padding:1.25rem 1.5rem;border-radius:0 12px 12px 0;margin:1.5rem 0;font-size:.95rem;line-height:1.7}
+.article-cta{text-align:center;padding:3rem 1.5rem 4rem;background:var(--gray-100);margin-top:2rem}
+.article-cta h2{font-size:1.4rem;font-weight:800;color:var(--navy);margin-bottom:.75rem}
+.article-cta p{color:var(--gray-500);margin-bottom:1.5rem;font-size:.95rem}
+.article-cta .cta-btn{display:inline-block;background:var(--blue);color:var(--white);padding:.9rem 2.5rem;border-radius:50px;font-weight:700;font-size:1rem;text-decoration:none;transition:background .2s}
+.article-cta .cta-btn:hover{background:var(--navy)}
+footer{background:var(--navy);color:rgba(255,255,255,.5);text-align:center;padding:2rem 5%;font-size:.8rem}
+footer a{color:rgba(255,255,255,.6);text-decoration:none}
+@media(max-width:768px){
+  .nav-links,.nav-cta{display:none}
+  .nav-mobile-btn{display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.12);border:1.5px solid rgba(255,255,255,.25);border-radius:8px;width:40px;height:40px;cursor:pointer;color:var(--white);font-size:1.2rem}
+  nav.scrolled .nav-mobile-btn{color:var(--navy);border-color:var(--gray-300);background:var(--gray-100)}
+  .article-hero h1{font-size:1.5rem}
+  .article-body{padding:2rem 1.25rem}
+}
+</style>
+</head>
+<body>
+<nav id="mainNav">
+  <a href="../index.html" class="nav-logo"><span class="logo-mark">W</span><span class="logo-name">WeStudy</span></a>
+  <ul class="nav-links">
+    <li><a href="../find-tutor.html">과외 찾기</a></li>
+    <li><a href="../education.html" class="active">교육 정보</a></li>
+    <li><a href="../hagwon.html">학원 상담</a></li>
+    <li><a href="../index.html#cta">상담 신청</a></li>
+    <li><a href="../index.html#proof">수업 후기</a></li>
+  </ul>
+  <a href="../index.html#cta" class="nav-cta">무료 상담 신청</a>
+  <button class="nav-mobile-btn" id="mobileBtn" aria-label="메뉴">☰</button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-menu-close" id="mobileMenuClose">✕</button>
+  <a href="../find-tutor.html">과외 찾기</a>
+  <a href="../education.html">교육 정보</a>
+  <a href="../hagwon.html">학원 상담</a>
+  <a href="../index.html#cta">상담 신청</a>
+  <a href="../index.html#proof">수업 후기</a>
+</div>
+
+<section class="article-hero">
+  <div class="breadcrumb"><a href="../index.html">홈</a> › <a href="../education.html">교육 정보</a> › 학습 스킬</div>
+  <div class="article-tags"><span class="article-tag tg-amber">문제</span></div>
+  <h1>문제 풀이 속도가 느린데, 빨라질 수 있을까?</h1>
+  <div class="meta"><span>⏱ 4분 읽기</span><span>📅 2026.04</span></div>
+</section>
+
+<article class="article-body">
+  <p>시험 시간이 끝나기 전에 마지막 문제까지 도달하지 못하는 경험은 많은 학생들의 공통된 고민입니다. 알고 있는 내용인데 시간이 부족해서 못 풀었다면, 이는 실력이 아닌 속도의 문제입니다. 문제 풀이 속도는 타고나는 것이 아니라 체계적인 훈련으로 충분히 향상할 수 있습니다. 이 글에서는 시험 시간 내에 모든 문제를 풀 수 있는 속도 훈련법을 소개합니다.</p>
+
+  <h2>속도가 느린 진짜 원인 진단</h2>
+  <p>문제를 느리게 푸는 원인은 학생마다 다릅니다. 먼저 자신의 원인이 무엇인지 정확히 진단해야 합니다.</p>
+
+  <h3>원인 1: 개념 인출이 느리다</h3>
+  <p>문제를 보고 어떤 개념을 적용해야 하는지 떠올리는 데 시간이 걸리는 경우입니다. 개념을 알고는 있지만 자동으로 떠오르지 않아서, 매번 기억을 더듬어야 합니다. 이 경우 개념의 자동화 훈련이 필요합니다.</p>
+
+  <h3>원인 2: 계산 속도가 느리다</h3>
+  <p>풀이 방향은 빠르게 잡는데 중간 계산 과정에서 시간을 많이 소모하는 경우입니다. 기본적인 사칙연산, 분수 계산, 인수분해 등에서 속도가 느리면 전체 풀이 시간이 크게 늘어납니다.</p>
+
+  <h3>원인 3: 문제 읽기에 시간이 걸린다</h3>
+  <p>긴 문장형 문제나 서술형 문제의 조건을 파악하는 데 시간이 오래 걸리는 경우입니다. 문제를 여러 번 읽어야 이해가 되거나, 핵심 조건을 찾아내는 데 시간이 걸립니다.</p>
+
+  <h3>원인 4: 어려운 문제에 매달린다</h3>
+  <p>한 문제에 너무 오래 매달려서 나머지 문제를 풀 시간이 부족해지는 경우입니다. 시간 배분 전략의 문제입니다.</p>
+
+  <div class="tip-box">
+    <strong>💡 진단법:</strong> 연습 문제를 풀 때 각 문제의 소요 시간을 기록해보세요. 문제 읽기, 풀이 시작까지 생각 시간, 계산 시간, 검산 시간을 구분하면 어디서 시간을 많이 쓰는지 명확하게 보입니다.
+  </div>
+
+  <h2>훈련법 1: 개념 자동화 드릴</h2>
+  <p>문제를 보자마자 적용할 개념이 자동으로 떠오르게 만드는 훈련입니다. 스포츠에서 기본기를 반복 연습하여 몸에 익히는 것과 같은 원리입니다.</p>
+  <ul>
+    <li><strong>플래시카드 훈련:</strong> 앞면에 문제 유형의 특징(예: "이차식의 최솟값을 구하라")을 적고, 뒷면에 적용할 개념과 풀이 전략(예: "완전제곱식 변환 → 꼭짓점 좌표")을 적습니다. 매일 10분씩 반복합니다.</li>
+    <li><strong>유형별 첫 단계 연습:</strong> 문제를 끝까지 풀지 않고, 문제를 읽자마자 "이 문제의 풀이 첫 단계는 ~이다"만 적는 연습을 합니다. 30문제를 10분 안에 첫 단계만 적어보세요.</li>
+    <li><strong>공식 즉답 테스트:</strong> 주요 공식을 목록으로 만들고, 각 공식이 적용되는 상황을 보자마자 바로 공식을 떠올리는 연습을 합니다.</li>
+  </ul>
+
+  <h2>훈련법 2: 시간 제한 풀이</h2>
+  <p>실제 시험보다 약간 촉박한 시간을 설정하고 문제를 푸는 훈련입니다. 시간 압박 속에서 풀이하는 경험이 쌓이면, 실제 시험에서 여유가 생깁니다.</p>
+
+  <h3>단계별 접근</h3>
+  <ol>
+    <li><strong>1단계 (첫 1~2주):</strong> 실제 시험 시간의 120%로 연습합니다. 예를 들어 50분 시험이라면 60분을 주고 풉니다.</li>
+    <li><strong>2단계 (3~4주):</strong> 실제 시험 시간으로 연습합니다. 50분 시험이면 정확히 50분.</li>
+    <li><strong>3단계 (5주 이후):</strong> 실제 시험 시간의 80%로 연습합니다. 50분 시험을 40분 안에 풀어봅니다.</li>
+  </ol>
+
+  <div class="highlight-box">
+    <strong>⚠️ 주의:</strong> 시간 제한 훈련에서 중요한 것은 속도를 올리기 위해 정확성을 포기하면 안 된다는 점입니다. 빠르게 풀되 정확하게 푸는 것이 목표입니다. 속도만 올리고 정답률이 떨어지면 의미가 없습니다.
+  </div>
+
+  <h2>훈련법 3: 문제 읽기 스킬</h2>
+  <p>긴 문제를 빠르고 정확하게 파악하는 기술입니다.</p>
+  <ul>
+    <li><strong>밑줄 전략:</strong> 문제를 읽으면서 숫자, 조건(양수/음수, 최대/최소, 모든/어떤), 요구사항(구하시오/증명하시오/설명하시오)에 즉시 밑줄을 긋습니다.</li>
+    <li><strong>조건 정리:</strong> 복잡한 문제는 주어진 조건을 문제 옆에 간단히 정리합니다. 이 30초의 투자가 나중에 2~3분을 절약합니다.</li>
+    <li><strong>구조 파악:</strong> 문제의 마지막 질문을 먼저 읽고, 그 다음 조건을 읽습니다. 무엇을 구해야 하는지 알고 조건을 읽으면 필요한 정보를 더 빠르게 파악할 수 있습니다.</li>
+  </ul>
+
+  <h2>훈련법 4: 시험 시간 배분 전략</h2>
+  <p>제한된 시간 안에 최대 점수를 받기 위한 전략입니다.</p>
+
+  <h3>3회전 전략</h3>
+  <ol>
+    <li><strong>1회전 (전체 시간의 50%):</strong> 전체 문제를 훑으며 확실히 풀 수 있는 문제부터 빠르게 풉니다. 3분 이상 고민되는 문제는 표시하고 넘깁니다.</li>
+    <li><strong>2회전 (전체 시간의 30%):</strong> 1회전에서 넘긴 문제 중 풀 수 있을 것 같은 문제를 시도합니다.</li>
+    <li><strong>3회전 (전체 시간의 20%):</strong> 남은 어려운 문제에 도전하고, 풀이한 문제의 검산을 합니다.</li>
+  </ol>
+
+  <h3>문제당 시간 기준 설정</h3>
+  <p>시험 전에 문제당 평균 소요 시간을 계산해두세요. 예를 들어 25문제를 50분에 풀어야 한다면 문제당 평균 2분입니다. 한 문제에 평균의 2배(4분) 이상 걸리면 반드시 넘기고, 나중에 돌아와야 합니다.</p>
+
+  <h2>일상에서 할 수 있는 속도 훈련</h2>
+  <ul>
+    <li><strong>타이머 습관:</strong> 숙제를 할 때도 항상 타이머를 켜고 풉니다. 시간 의식이 생기면 자연스럽게 불필요한 동작이 줄어듭니다.</li>
+    <li><strong>암산 연습:</strong> 일상생활에서 간단한 계산을 암산으로 합니다. 마트 물건값 합산, 거스름돈 계산 등이 좋은 연습입니다.</li>
+    <li><strong>속독 훈련:</strong> 국어 지문이나 사회 교과서를 읽을 때 의식적으로 읽기 속도를 올리는 연습을 합니다.</li>
+  </ul>
+
+  <div class="tip-box">
+    <strong>💡 핵심 정리:</strong> 풀이 속도 향상의 핵심은 4가지입니다. (1) 개념 인출을 자동화하는 드릴 연습, (2) 점진적으로 시간을 줄이는 시간 제한 풀이, (3) 밑줄과 조건 정리로 문제 읽기 효율화, (4) 3회전 전략으로 시간 배분 최적화. 매일 30분씩 꾸준히 훈련하면 2~3주 안에 체감할 수 있는 변화가 나타납니다.
+  </div>
+</article>
+
+<section class="article-cta">
+  <h2>우리 아이 맞춤 학습 전략이 필요하다면?</h2>
+  <p>WeStudy 학습 코치가 학생의 풀이 속도를 분석하고 맞춤 훈련 계획을 세워드립니다.</p>
+  <a href="../index.html#cta" class="cta-btn">무료 상담 신청하기 →</a>
+</section>
+
+<footer>
+  <div>© 2025 WeStudy 위스터디. All rights reserved. | <a href="../index.html">홈으로</a></div>
+</footer>
+
+<script>
+document.getElementById('mobileBtn').addEventListener('click',()=>{document.getElementById('mobileMenu').classList.add('open')});
+document.getElementById('mobileMenuClose').addEventListener('click',()=>{document.getElementById('mobileMenu').classList.remove('open')});
+const nav=document.getElementById('mainNav');
+window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>40)});
+</script>
+</body>
+</html>
