@@ -23,17 +23,24 @@
     body { font-family:'Pretendard',sans-serif; color:var(--text); background:var(--white); overflow-x:hidden; }
     a { text-decoration: none; color: inherit; }
 
-    /* NAV */
-    nav { position:fixed; top:0; left:0; right:0; z-index:200; display:flex; align-items:center; justify-content:space-between; padding:0 5%; height:66px; background:var(--white); box-shadow:0 1px 16px rgba(10,22,40,0.08); }
+    /* NAV — index.html과 동일 (투명 → 스크롤 시 흰색) */
+    nav { position:fixed; top:0; left:0; right:0; z-index:200; display:flex; align-items:center; justify-content:space-between; padding:0 5%; height:66px; background:transparent; transition:background 0.3s, box-shadow 0.3s; }
+    nav.scrolled { background:var(--white); box-shadow:0 1px 16px rgba(10,22,40,0.08); }
+    nav.scrolled .logo-mark { background:var(--blue); color:var(--white); }
+    nav.scrolled .logo-name { color:var(--navy); }
+    nav.scrolled .nav-links a { color:var(--gray-700); }
+    nav.scrolled .nav-links a:hover, nav.scrolled .nav-links a.active { color:var(--blue); }
+    nav.scrolled .nav-cta { background:var(--blue); border-color:var(--blue); }
+    nav.scrolled .nav-mobile-btn { color:var(--navy); }
     .nav-logo { display:flex; align-items:center; gap:0.5rem; flex-shrink:0; }
-    .logo-mark { width:28px; height:28px; background:var(--blue); color:var(--white); border-radius:7px; display:flex; align-items:center; justify-content:center; font-weight:900; font-size:0.9rem; letter-spacing:-0.05em; flex-shrink:0; }
-    .logo-name { font-size:1.2rem; font-weight:800; color:var(--navy); letter-spacing:-0.04em; line-height:1; }
+    .logo-mark { width:28px; height:28px; background:var(--white); color:var(--blue); border-radius:7px; display:flex; align-items:center; justify-content:center; font-weight:900; font-size:0.9rem; letter-spacing:-0.05em; flex-shrink:0; transition:background 0.3s, color 0.3s; }
+    .logo-name { font-size:1.2rem; font-weight:800; color:var(--white); letter-spacing:-0.04em; line-height:1; transition:color 0.3s; }
     .nav-links { display:flex; gap:2rem; list-style:none; }
-    .nav-links a { color:var(--gray-700); font-size:0.9rem; font-weight:500; transition:color 0.2s; }
-    .nav-links a:hover, .nav-links a.active { color:var(--blue); }
-    .nav-cta { background:var(--blue); color:var(--white); padding:0.55rem 1.4rem; border-radius:50px; font-size:0.875rem; font-weight:700; border:1.5px solid var(--blue); transition:all 0.25s; }
-    .nav-cta:hover { background:var(--blue-mid); }
-    .nav-mobile-btn { display:none; background:none; border:none; color:var(--navy); font-size:1.6rem; cursor:pointer; }
+    .nav-links a { color:rgba(255,255,255,0.8); font-size:0.9rem; font-weight:500; transition:color 0.2s; }
+    .nav-links a:hover, .nav-links a.active { color:var(--white); }
+    .nav-cta { background:rgba(255,255,255,0.15); color:var(--white); padding:0.55rem 1.4rem; border-radius:50px; font-size:0.875rem; font-weight:700; border:1.5px solid rgba(255,255,255,0.35); transition:all 0.25s; }
+    .nav-cta:hover { background:var(--white); color:var(--blue); border-color:var(--white); }
+    .nav-mobile-btn { display:none; background:none; border:none; color:var(--white); font-size:1.6rem; cursor:pointer; }
     .mobile-menu { display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(10,15,30,0.95); z-index:300; flex-direction:column; align-items:center; justify-content:center; gap:0.5rem; }
     .mobile-menu.open { display:flex; }
     .mobile-menu a { color:var(--white); font-size:1.25rem; font-weight:600; padding:1rem 2rem; border-radius:12px; }
@@ -131,7 +138,7 @@
 </head>
 <body>
   <!-- NAV -->
-  <nav>
+  <nav id="mainNav">
     <a href="index.html" class="nav-logo">
       <span class="logo-mark">W</span>
       <span class="logo-name">WeStudy</span>
@@ -492,6 +499,12 @@
   </footer>
 
   <script>
+    // 네비게이션 스크롤 효과 (index.html과 동일)
+    const mainNav = document.getElementById('mainNav');
+    window.addEventListener('scroll', () => {
+      mainNav.classList.toggle('scrolled', window.scrollY > 40);
+    });
+
     const mobileBtn = document.getElementById('mobileBtn');
     const mobileMenu = document.getElementById('mobileMenu');
     const mobileMenuClose = document.getElementById('mobileMenuClose');
