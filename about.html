@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WeStudy 소개 | 1:1 맞춤 학습 코칭</title>
+  <meta name="description" content="WeStudy 위스터디는 공부 습관과 자기효능감을 키우는 1:1 맞춤 학습 코칭 플랫폼입니다. 무료 30분 시범 수업, 진로 맞춤 코칭, 공부 습관 지도로 아이의 학습 여정을 함께합니다." />
+  <meta property="og:title" content="WeStudy 소개 | 우리의 철학과 방식" />
+  <meta property="og:description" content="성적 이전에 마음을 먼저 바꾸는 교육." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --navy:#0A1628; --blue:#1D4ED8; --blue-mid:#2563EB;
+      --amber:#F59E0B; --amber-lt:#FEF3C7; --cyan:#06B6D4;
+      --bg:#F8FAFF; --white:#FFFFFF; --text:#111827;
+      --gray-50:#F9FAFB; --gray-100:#F3F4F6; --gray-300:#D1D5DB;
+      --gray-500:#6B7280; --gray-700:#374151;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family:'Pretendard',sans-serif; color:var(--text); background:var(--white); overflow-x:hidden; }
+    a { text-decoration: none; color: inherit; }
+
+    /* NAV */
+    nav { position:fixed; top:0; left:0; right:0; z-index:200; display:flex; align-items:center; justify-content:space-between; padding:0 5%; height:66px; background:var(--white); box-shadow:0 1px 16px rgba(10,22,40,0.08); }
+    .nav-logo { display:flex; align-items:center; gap:0.5rem; flex-shrink:0; }
+    .logo-mark { width:28px; height:28px; background:var(--blue); color:var(--white); border-radius:7px; display:flex; align-items:center; justify-content:center; font-weight:900; font-size:0.9rem; letter-spacing:-0.05em; flex-shrink:0; }
+    .logo-name { font-size:1.2rem; font-weight:800; color:var(--navy); letter-spacing:-0.04em; line-height:1; }
+    .nav-links { display:flex; gap:2rem; list-style:none; }
+    .nav-links a { color:var(--gray-700); font-size:0.9rem; font-weight:500; transition:color 0.2s; }
+    .nav-links a:hover, .nav-links a.active { color:var(--blue); }
+    .nav-cta { background:var(--blue); color:var(--white); padding:0.55rem 1.4rem; border-radius:50px; font-size:0.875rem; font-weight:700; border:1.5px solid var(--blue); transition:all 0.25s; }
+    .nav-cta:hover { background:var(--blue-mid); }
+    .nav-mobile-btn { display:none; background:none; border:none; color:var(--navy); font-size:1.6rem; cursor:pointer; }
+    .mobile-menu { display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(10,15,30,0.95); z-index:300; flex-direction:column; align-items:center; justify-content:center; gap:0.5rem; }
+    .mobile-menu.open { display:flex; }
+    .mobile-menu a { color:var(--white); font-size:1.25rem; font-weight:600; padding:1rem 2rem; border-radius:12px; }
+    .mobile-menu-close { position:absolute; top:1.25rem; right:1.5rem; background:none; border:none; color:var(--white); font-size:2rem; cursor:pointer; }
+    @media(max-width:768px) { .nav-links, .nav-cta { display:none; } .nav-mobile-btn { display:block; } }
+
+    /* HERO */
+    .page-hero { position:relative; padding:130px 5% 70px; background:linear-gradient(135deg, var(--navy) 0%, #1E3A5F 100%); overflow:hidden; text-align:center; }
+    .page-hero::before { content:''; position:absolute; inset:0; background:radial-gradient(circle at 20% 20%, rgba(37,99,235,0.3) 0%, transparent 50%), radial-gradient(circle at 80% 80%, rgba(245,158,11,0.15) 0%, transparent 50%); }
+    .page-hero-inner { max-width:900px; margin:0 auto; position:relative; }
+    .page-badge { display:inline-block; background:rgba(37,99,235,0.2); color:#93C5FD; padding:0.3rem 1rem; border-radius:50px; font-size:0.8rem; font-weight:700; margin-bottom:1rem; }
+    .page-title { font-size:clamp(1.9rem, 4vw, 3rem); font-weight:900; color:var(--white); letter-spacing:-0.04em; line-height:1.3; margin-bottom:1.25rem; }
+    .page-title em { font-style:normal; color:var(--amber); }
+    .page-desc { font-size:clamp(0.95rem, 1.5vw, 1.15rem); color:rgba(255,255,255,0.75); line-height:1.75; max-width:720px; margin:0 auto; }
+
+    /* Philosophy intro */
+    .philosophy-section { padding:90px 5%; background:var(--white); }
+    .section-inner { max-width:1200px; margin:0 auto; }
+    .section-header { text-align:center; margin-bottom:3rem; }
+    .section-badge { display:inline-flex; align-items:center; gap:0.5rem; color:var(--blue); font-size:0.85rem; font-weight:700; margin-bottom:1rem; }
+    .section-badge::before { content:''; width:18px; height:2px; background:var(--blue); }
+    .section-title { font-size:clamp(1.5rem, 3vw, 2.2rem); font-weight:900; color:var(--navy); letter-spacing:-0.03em; line-height:1.35; margin-bottom:1rem; }
+    .section-sub { font-size:1rem; color:var(--gray-500); line-height:1.7; max-width:720px; margin:0 auto; }
+
+    .manifesto { max-width:820px; margin:0 auto; font-size:clamp(0.95rem, 1.5vw, 1.1rem); line-height:2; color:var(--gray-700); text-align:center; }
+    .manifesto strong { color:var(--navy); font-weight:800; }
+    .manifesto em { font-style:normal; color:var(--blue); font-weight:700; }
+    .manifesto .divider { display:block; width:32px; height:2px; background:var(--amber); margin:2rem auto; }
+
+    /* 4 differentiators */
+    .diff-section { padding:90px 5%; background:var(--bg); }
+    .diff-grid { display:grid; grid-template-columns:repeat(2, 1fr); gap:1.5rem; }
+    @media(max-width:768px){ .diff-grid { grid-template-columns:1fr; } }
+    .diff-card { background:var(--white); border-radius:20px; padding:2rem 2rem; border:1.5px solid var(--gray-100); display:flex; flex-direction:column; gap:0.9rem; transition:transform 0.2s, box-shadow 0.2s; }
+    .diff-card:hover { transform:translateY(-4px); box-shadow:0 12px 32px rgba(10,22,40,0.08); }
+    .diff-number { width:42px; height:42px; border-radius:12px; background:linear-gradient(135deg, var(--blue), var(--cyan)); color:var(--white); display:flex; align-items:center; justify-content:center; font-weight:900; font-size:1rem; }
+    .diff-card.amber .diff-number { background:linear-gradient(135deg, var(--amber), #EA580C); }
+    .diff-card h3 { font-size:1.2rem; font-weight:900; color:var(--navy); letter-spacing:-0.03em; }
+    .diff-card p { font-size:0.92rem; line-height:1.8; color:var(--gray-700); }
+    .diff-card .highlight { background:var(--amber-lt); color:#B45309; padding:0.15rem 0.5rem; border-radius:4px; font-weight:700; }
+
+    /* Process */
+    .process-section { padding:90px 5%; background:var(--white); }
+    .process-grid { display:grid; grid-template-columns:repeat(3, 1fr); gap:1.5rem; max-width:1100px; margin:0 auto; }
+    @media(max-width:768px){ .process-grid { grid-template-columns:1fr; } }
+    .process-card { background:var(--bg); border-radius:18px; padding:2rem 1.75rem; border-left:4px solid var(--blue); }
+    .process-card:nth-child(2) { border-left-color:var(--amber); }
+    .process-card:nth-child(3) { border-left-color:var(--cyan); }
+    .process-step { font-size:0.8rem; font-weight:700; color:var(--blue); letter-spacing:0.1em; margin-bottom:0.5rem; }
+    .process-card:nth-child(2) .process-step { color:var(--amber); }
+    .process-card:nth-child(3) .process-step { color:var(--cyan); }
+    .process-card h3 { font-size:1.1rem; font-weight:900; color:var(--navy); margin-bottom:0.75rem; }
+    .process-card p { font-size:0.88rem; line-height:1.75; color:var(--gray-700); margin-bottom:0.8rem; }
+    .process-card ul { list-style:none; display:flex; flex-direction:column; gap:0.45rem; padding-left:0; }
+    .process-card li { font-size:0.82rem; color:var(--gray-700); padding-left:1.2rem; position:relative; }
+    .process-card li::before { content:'✓'; position:absolute; left:0; color:var(--blue); font-weight:900; }
+
+    /* Values (자기효능감·통제감) */
+    .values-section { padding:90px 5%; background:linear-gradient(135deg, #F0F4FF, #FFF8EC); }
+    .values-grid { display:grid; grid-template-columns:1fr 1fr; gap:3rem; align-items:center; max-width:1100px; margin:0 auto; }
+    @media(max-width:860px){ .values-grid { grid-template-columns:1fr; gap:2rem; } }
+    .values-text h2 { font-size:clamp(1.5rem, 2.8vw, 2rem); font-weight:900; color:var(--navy); letter-spacing:-0.03em; line-height:1.35; margin-bottom:1.2rem; }
+    .values-text h2 em { font-style:normal; color:var(--amber); }
+    .values-text p { font-size:0.95rem; line-height:1.85; color:var(--gray-700); margin-bottom:1rem; }
+    .values-cards { display:flex; flex-direction:column; gap:1rem; }
+    .value-card { background:var(--white); border-radius:16px; padding:1.5rem 1.75rem; box-shadow:0 8px 24px rgba(10,22,40,0.06); border-left:4px solid var(--blue); }
+    .value-card:nth-child(2) { border-left-color:var(--amber); }
+    .value-card h4 { font-size:1rem; font-weight:800; color:var(--navy); margin-bottom:0.5rem; }
+    .value-card p { font-size:0.88rem; line-height:1.7; color:var(--gray-700); margin:0; }
+
+    /* Team */
+    .team-section { padding:90px 5%; background:var(--white); }
+    .team-grid { display:grid; grid-template-columns:repeat(3, 1fr); gap:1.5rem; max-width:1100px; margin:0 auto; }
+    @media(max-width:860px){ .team-grid { grid-template-columns:repeat(2, 1fr); } }
+    @media(max-width:600px){ .team-grid { grid-template-columns:1fr; } }
+    .team-card { background:var(--bg); border:1.5px solid var(--gray-100); border-radius:18px; padding:1.75rem; text-align:center; }
+    .team-avatar { width:72px; height:72px; border-radius:50%; background:linear-gradient(135deg, var(--blue), var(--cyan)); display:flex; align-items:center; justify-content:center; color:var(--white); font-size:1.8rem; margin:0 auto 1rem; }
+    .team-card:nth-child(2) .team-avatar { background:linear-gradient(135deg, var(--amber), #EA580C); }
+    .team-card:nth-child(3) .team-avatar { background:linear-gradient(135deg, #8B5CF6, var(--cyan)); }
+    .team-role { font-size:0.78rem; color:var(--blue); font-weight:700; letter-spacing:0.05em; margin-bottom:0.25rem; }
+    .team-card:nth-child(2) .team-role { color:var(--amber); }
+    .team-card:nth-child(3) .team-role { color:#8B5CF6; }
+    .team-card h4 { font-size:1.05rem; font-weight:800; color:var(--navy); margin-bottom:0.75rem; }
+    .team-card p { font-size:0.85rem; line-height:1.75; color:var(--gray-700); }
+
+    /* Mission */
+    .mission-section { padding:90px 5%; background:var(--navy); color:var(--white); text-align:center; }
+    .mission-section h2 { font-size:clamp(1.5rem, 3vw, 2.2rem); font-weight:900; color:var(--white); letter-spacing:-0.03em; line-height:1.4; margin-bottom:1.2rem; max-width:820px; margin-left:auto; margin-right:auto; }
+    .mission-section h2 em { font-style:normal; color:var(--amber); }
+    .mission-section p { font-size:1rem; line-height:1.85; color:rgba(255,255,255,0.7); max-width:720px; margin:0 auto; }
+
+    /* CTA */
+    .cta-section { padding:80px 5%; background:linear-gradient(135deg, #FFF8EC, #F0F4FF); text-align:center; }
+    .cta-title { color:var(--navy); font-size:clamp(1.5rem, 2.8vw, 2.1rem); font-weight:900; line-height:1.35; margin-bottom:0.8rem; letter-spacing:-0.03em; }
+    .cta-title em { font-style:normal; color:var(--amber); }
+    .cta-desc { color:var(--gray-700); font-size:1rem; line-height:1.75; margin-bottom:2rem; max-width:620px; margin-left:auto; margin-right:auto; }
+    .cta-btns { display:inline-flex; gap:0.75rem; flex-wrap:wrap; justify-content:center; }
+    .btn-primary { background:var(--blue); color:var(--white); padding:1rem 2.4rem; border-radius:50px; font-weight:800; font-size:0.98rem; box-shadow:0 8px 24px rgba(37,99,235,0.35); transition:transform 0.15s; }
+    .btn-primary:hover { transform:translateY(-2px); }
+    .btn-secondary { background:var(--white); color:var(--navy); padding:1rem 2.4rem; border-radius:50px; font-weight:700; font-size:0.98rem; border:1.5px solid var(--gray-300); }
+    .btn-secondary:hover { border-color:var(--blue); color:var(--blue); }
+
+    /* FOOTER */
+    footer { background:var(--navy); padding:56px 5% 32px; color:rgba(255,255,255,0.6); }
+    .footer-inner { max-width:1200px; margin:0 auto; }
+    .footer-top { display:grid; grid-template-columns:1.5fr 1fr 1fr 1fr; gap:3rem; margin-bottom:2.5rem; padding-bottom:2.5rem; border-bottom:1px solid rgba(255,255,255,0.1); }
+    .footer-logo { display:flex; align-items:center; gap:0.5rem; margin-bottom:1rem; }
+    .footer-logo .logo-mark { background:var(--white); color:var(--blue); }
+    .footer-logo .logo-name { color:var(--white); }
+    .footer-tagline { font-size:0.85rem; line-height:1.7; }
+    .footer-col h4 { color:var(--white); font-size:0.9rem; font-weight:700; margin-bottom:1rem; }
+    .footer-col ul { list-style:none; display:flex; flex-direction:column; gap:0.6rem; }
+    .footer-col a { font-size:0.85rem; }
+    .footer-col a:hover { color:var(--white); }
+    .footer-bottom { font-size:0.78rem; display:flex; justify-content:space-between; flex-wrap:wrap; gap:1rem; }
+    @media(max-width:768px){ .footer-top { grid-template-columns:1fr 1fr; gap:2rem; } }
+  </style>
+</head>
+<body>
+  <!-- NAV -->
+  <nav>
+    <a href="index.html" class="nav-logo">
+      <span class="logo-mark">W</span>
+      <span class="logo-name">WeStudy</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="education.html">교육 정보</a></li>
+      <li><a href="hagwon.html">학원 상담</a></li>
+      <li><a href="reviews.html">수업 후기</a></li>
+      <li><a href="about.html" class="active">소개</a></li>
+      <li><a href="contact.html">상담 신청</a></li>
+    </ul>
+    <a href="contact.html" class="nav-cta">무료 상담 신청</a>
+    <button class="nav-mobile-btn" id="mobileBtn" aria-label="메뉴">☰</button>
+  </nav>
+  <div class="mobile-menu" id="mobileMenu">
+    <button class="mobile-menu-close" id="mobileMenuClose">✕</button>
+    <a href="education.html">교육 정보</a>
+    <a href="hagwon.html">학원 상담</a>
+    <a href="reviews.html">수업 후기</a>
+    <a href="about.html">소개</a>
+    <a href="contact.html">상담 신청</a>
+  </div>
+
+  <!-- HERO -->
+  <section class="page-hero">
+    <div class="page-hero-inner">
+      <div class="page-badge">WeStudy 소개</div>
+      <h1 class="page-title">성적 이전에 <em>마음이 먼저</em><br>바뀌는 교육을 만듭니다</h1>
+      <p class="page-desc">WeStudy는 "우리 아이가 스스로 공부할 수 있게 되는 순간"을 목표로 합니다.<br>성적은 그 여정의 자연스러운 결과입니다.</p>
+    </div>
+  </section>
+
+  <!-- MANIFESTO -->
+  <section class="philosophy-section">
+    <div class="section-inner">
+      <div class="section-header">
+        <div class="section-badge">우리의 철학</div>
+        <h2 class="section-title">"왜?"라고 질문할 수 있는 아이</h2>
+      </div>
+      <div class="manifesto">
+        <p>좋은 성적은 <strong>좋은 습관</strong>에서 나옵니다.<br>좋은 습관은 <strong>자기 자신에 대한 믿음</strong>에서 자라요.</p>
+        <span class="divider"></span>
+        <p>저희는 아이에게 "더 열심히 해"라고 말하지 않습니다.<br>대신 묻습니다. <em>"너는 지금 어디쯤 있니?"</em></p>
+        <span class="divider"></span>
+        <p>현재 위치를 정확히 알아야 다음 걸음을 뗄 수 있으니까요.<br><strong>진단 → 방향 설정 → 작은 성공의 반복</strong>이<br>WeStudy가 아이와 함께 걷는 길입니다.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4 DIFFERENTIATORS -->
+  <section class="diff-section">
+    <div class="section-inner">
+      <div class="section-header">
+        <div class="section-badge">WeStudy가 다른 4가지</div>
+        <h2 class="section-title">좋은 수업은<br>'선생님'만의 문제가 아닙니다</h2>
+        <p class="section-sub">아이의 마음, 진로, 습관, 자신감까지 — 학습 전 영역을 함께 설계합니다.</p>
+      </div>
+      <div class="diff-grid">
+        <div class="diff-card">
+          <div class="diff-number">01</div>
+          <h3>무료 30분 시범 수업과 상담</h3>
+          <p>수업을 결정하기 전에 <span class="highlight">아이와 선생님이 서로 맞는지</span> 먼저 확인합니다. 30분 동안 아이의 현재 학습 상태를 진단하고, 어떤 방향으로 가야 할지 함께 이야기합니다. 그 자리에서 바로 결정하지 않으셔도 돼요.</p>
+        </div>
+        <div class="diff-card amber">
+          <div class="diff-number">02</div>
+          <h3>아이의 진로에 맞는 코칭 방향 설정</h3>
+          <p>"일단 전 과목 모두"가 아닌, 아이가 가려는 길에 맞는 학습 설계를 합니다. 이과·문과 선택 앞둔 학생에게는 <span class="highlight">선택 과목 적성 탐색</span>부터, 수시·정시 고민 중인 학생에게는 <span class="highlight">전형별 전략</span>까지 함께 방향을 잡습니다.</p>
+        </div>
+        <div class="diff-card">
+          <div class="diff-number">03</div>
+          <h3>공부 습관 지도</h3>
+          <p>문제 풀이보다 중요한 건 <span class="highlight">매일 책상 앞에 앉는 습관</span>입니다. 주간 학습 계획, 오답 노트, 복습 루틴 — 아이 스스로 공부할 수 있는 틀을 만들어갑니다. 수업이 끝난 뒤에도 남는 자산이 되도록요.</p>
+        </div>
+        <div class="diff-card amber">
+          <div class="diff-number">04</div>
+          <h3>자기효능감·통제감을 키우는 동기부여</h3>
+          <p>"나도 할 수 있다"는 감각이 한 번 자리 잡으면, 공부는 더 이상 의무가 아닌 도전이 됩니다. <span class="highlight">작은 성공 경험의 반복</span>으로 아이가 자기 삶의 주도권을 쥐도록 돕는 것이 WeStudy의 가장 중요한 목표입니다.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section class="process-section">
+    <div class="section-inner">
+      <div class="section-header">
+        <div class="section-badge">어떻게 수업하나요</div>
+        <h2 class="section-title">아이의 속도에 맞춘<br>3단계 학습 설계</h2>
+      </div>
+      <div class="process-grid">
+        <div class="process-card">
+          <div class="process-step">STEP 01</div>
+          <h3>진단 — 지금 어디쯤 있나요?</h3>
+          <p>성적보다 먼저, 아이가 지금 무엇을 이해하고 무엇을 놓치고 있는지 정확히 파악합니다.</p>
+          <ul>
+            <li>30분 무료 시범 수업</li>
+            <li>학교 시험지·숙제 분석</li>
+            <li>학습 습관 관찰</li>
+            <li>진로·목표 탐색 대화</li>
+          </ul>
+        </div>
+        <div class="process-card">
+          <div class="process-step">STEP 02</div>
+          <h3>설계 — 아이에게 맞는 길 찾기</h3>
+          <p>진단 결과를 바탕으로 아이와 학부모님이 모두 공감할 수 있는 학습 설계안을 만듭니다.</p>
+          <ul>
+            <li>과목별 우선순위 선정</li>
+            <li>주간·월간 학습 목표</li>
+            <li>선생님·수업 방식 매칭</li>
+            <li>학부모님과 방향 공유</li>
+          </ul>
+        </div>
+        <div class="process-card">
+          <div class="process-step">STEP 03</div>
+          <h3>실행 — 작은 성공을 쌓아가기</h3>
+          <p>성적보다 습관. 작은 성취를 반복하며 "나도 할 수 있다"는 감각을 키워갑니다.</p>
+          <ul>
+            <li>1:1 맞춤 수업 진행</li>
+            <li>주간 리뷰 + 피드백</li>
+            <li>학부모님과 월 1회 상담</li>
+            <li>필요 시 선생님·방향 재조정</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VALUES -->
+  <section class="values-section">
+    <div class="values-grid">
+      <div class="values-text">
+        <div class="section-badge">우리가 지키는 것</div>
+        <h2>성적보다<br><em>자기효능감·통제감</em>이<br>먼저입니다</h2>
+        <p>한 문제라도 스스로 풀었을 때 느끼는 성취감. "다음 시험도 내가 해낼 수 있다"는 확신. 이게 바로 자기효능감입니다.</p>
+        <p>여기에 <strong>"내가 내 공부의 주인이다"</strong>라는 통제감이 더해지면, 아이는 누가 시키지 않아도 공부하는 사람이 됩니다.</p>
+        <p>WeStudy의 모든 수업은 이 두 가지를 키우는 데 초점이 맞춰져 있습니다. 당장의 점수가 아니라, 아이의 평생 학습 태도를 만들기 위해서요.</p>
+      </div>
+      <div class="values-cards">
+        <div class="value-card">
+          <h4>🌱 자기효능감 (Self-efficacy)</h4>
+          <p>"이 문제, 내가 풀어냈어." 작은 성공이 반복되면서 "난 할 수 있는 사람"이라는 믿음이 자랍니다. 학년이 올라갈수록 이 믿음이 성적의 천장을 결정합니다.</p>
+        </div>
+        <div class="value-card">
+          <h4>🎯 통제감 (Sense of Control)</h4>
+          <p>"공부는 시켜서 하는 게 아니라 내가 정해서 하는 것." 아이가 자기 학습의 주도권을 가질 때, 학습은 의무에서 도전으로 바뀝니다.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TEAM -->
+  <section class="team-section">
+    <div class="section-inner">
+      <div class="section-header">
+        <div class="section-badge">WeStudy 코치진</div>
+        <h2 class="section-title">아이와 함께 성장하는<br>전문 코치 선생님들</h2>
+        <p class="section-sub">학력보다 교육 철학, 실적보다 진심. 아이 한 명 한 명을 이해하는 선생님들이 함께합니다.</p>
+      </div>
+      <div class="team-grid">
+        <div class="team-card">
+          <div class="team-avatar">🎓</div>
+          <div class="team-role">학습 전문 코치</div>
+          <h4>내신·수능 전문</h4>
+          <p>초·중·고 전 과목 경험과 입시 전략 노하우를 갖춘 현직·전직 교사 및 상위권 대학 출신 선생님들이 아이의 진로 목표에 맞춰 학습을 설계합니다.</p>
+        </div>
+        <div class="team-card">
+          <div class="team-avatar">💡</div>
+          <div class="team-role">학습 컨설턴트</div>
+          <h4>1:1 진단·상담</h4>
+          <p>수업 전 아이의 현재 상태, 학습 성향, 목표를 정확히 진단합니다. 학부모님과의 정기적 소통으로 수업 방향을 지속적으로 조율합니다.</p>
+        </div>
+        <div class="team-card">
+          <div class="team-avatar">📚</div>
+          <div class="team-role">교육 매니저</div>
+          <h4>수업 품질 관리</h4>
+          <p>아이와 선생님의 매칭이 잘 맞는지, 수업 진행이 원활한지 매달 점검합니다. 필요 시 선생님 교체나 방향 수정을 적극 제안합니다.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MISSION -->
+  <section class="mission-section">
+    <h2>우리는 <em>성적</em>을 올리는 일을 하지만,<br>진짜 일은 아이의 <em>자신감</em>을 키우는 것입니다.</h2>
+    <p>성적은 결과고, 자신감은 과정입니다.<br>과정을 제대로 밟으면 결과는 자연스럽게 따라옵니다.<br>WeStudy는 그 과정을 아이와 함께 걷고 있습니다.</p>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <h2 class="cta-title">아이의 <em>"나도 할 수 있다"</em>는<br>감각을 함께 키워가요</h2>
+    <p class="cta-desc">무료 30분 시범 수업으로 아이의 현재 상태를 정확히 진단합니다.<br>바로 결정하지 않으셔도 괜찮아요.</p>
+    <div class="cta-btns">
+      <a href="contact.html" class="btn-primary">무료 상담 신청</a>
+      <a href="reviews.html" class="btn-secondary">수업 후기 보기</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div>
+          <div class="footer-logo">
+            <span class="logo-mark">W</span>
+            <span class="logo-name">WeStudy</span>
+          </div>
+          <p class="footer-tagline">학생 개개인에게 최적화된<br>1:1 맞춤 학습 코칭 플랫폼</p>
+        </div>
+        <div class="footer-col">
+          <h4>서비스</h4>
+          <ul>
+            <li><a href="education.html">교육 정보</a></li>
+            <li><a href="hagwon.html">학원 상담</a></li>
+            <li><a href="reviews.html">수업 후기</a></li>
+            <li><a href="about.html">WeStudy 소개</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>고객 지원</h4>
+          <ul>
+            <li><a href="contact.html">무료 상담 신청</a></li>
+            <li><a href="tel:1566-0000">전화 1566-0000</a></li>
+            <li><a href="mailto:study@westudymate.com">이메일 문의</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>정책</h4>
+          <ul>
+            <li><a href="#">이용 약관</a></li>
+            <li><a href="#">개인정보 처리방침</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div>서울특별시 강남구 테헤란로 000 | 고객센터: 1566-0000 | study@westudymate.com</div>
+        <div>© 2026 WeStudy. All rights reserved.</div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const mobileBtn = document.getElementById('mobileBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const mobileMenuClose = document.getElementById('mobileMenuClose');
+    if (mobileBtn) mobileBtn.addEventListener('click', () => mobileMenu.classList.add('open'));
+    if (mobileMenuClose) mobileMenuClose.addEventListener('click', () => mobileMenu.classList.remove('open'));
+    mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileMenu.classList.remove('open')));
+  </script>
+</body>
+</html>

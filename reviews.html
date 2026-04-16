@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>수업 후기 | WeStudy 위스터디</title>
+  <meta name="description" content="WeStudy 위스터디를 만난 학생과 학부모님의 솔직한 수업 후기. 수포자 극복, 공부 습관 변화, 내신/수능 성적 향상 실제 사례." />
+  <meta property="og:title" content="수업 후기 | WeStudy" />
+  <meta property="og:description" content="실제 수강생과 학부모님이 직접 남긴 솔직한 이야기." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --navy:#0A1628; --blue:#1D4ED8; --blue-mid:#2563EB;
+      --amber:#F59E0B; --amber-lt:#FEF3C7; --cyan:#06B6D4;
+      --bg:#F8FAFF; --white:#FFFFFF; --text:#111827;
+      --gray-50:#F9FAFB; --gray-100:#F3F4F6; --gray-300:#D1D5DB;
+      --gray-500:#6B7280; --gray-700:#374151;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family:'Pretendard',sans-serif; color:var(--text); background:var(--white); overflow-x:hidden; }
+    a { text-decoration: none; color: inherit; }
+
+    /* NAV */
+    nav { position:fixed; top:0; left:0; right:0; z-index:200; display:flex; align-items:center; justify-content:space-between; padding:0 5%; height:66px; background:var(--white); box-shadow:0 1px 16px rgba(10,22,40,0.08); }
+    .nav-logo { display:flex; align-items:center; gap:0.5rem; flex-shrink:0; }
+    .logo-mark { width:28px; height:28px; background:var(--blue); color:var(--white); border-radius:7px; display:flex; align-items:center; justify-content:center; font-weight:900; font-size:0.9rem; letter-spacing:-0.05em; flex-shrink:0; }
+    .logo-name { font-size:1.2rem; font-weight:800; color:var(--navy); letter-spacing:-0.04em; line-height:1; }
+    .nav-links { display:flex; gap:2rem; list-style:none; }
+    .nav-links a { color:var(--gray-700); font-size:0.9rem; font-weight:500; transition:color 0.2s; }
+    .nav-links a:hover, .nav-links a.active { color:var(--blue); }
+    .nav-cta { background:var(--blue); color:var(--white); padding:0.55rem 1.4rem; border-radius:50px; font-size:0.875rem; font-weight:700; border:1.5px solid var(--blue); transition:all 0.25s; }
+    .nav-cta:hover { background:var(--blue-mid); }
+    .nav-mobile-btn { display:none; background:none; border:none; color:var(--navy); font-size:1.6rem; cursor:pointer; }
+    .mobile-menu { display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(10,15,30,0.95); z-index:300; flex-direction:column; align-items:center; justify-content:center; gap:0.5rem; }
+    .mobile-menu.open { display:flex; }
+    .mobile-menu a { color:var(--white); font-size:1.25rem; font-weight:600; padding:1rem 2rem; border-radius:12px; }
+    .mobile-menu a:hover { background:rgba(255,255,255,0.1); }
+    .mobile-menu-close { position:absolute; top:1.25rem; right:1.5rem; background:none; border:none; color:var(--white); font-size:2rem; cursor:pointer; }
+    @media(max-width:768px) { .nav-links, .nav-cta { display:none; } .nav-mobile-btn { display:block; } }
+
+    /* PAGE HERO */
+    .page-hero { position:relative; padding:130px 5% 60px; background:linear-gradient(135deg, var(--navy) 0%, #1E3A5F 100%); overflow:hidden; }
+    .page-hero::before { content:''; position:absolute; inset:0; background:radial-gradient(circle at 20% 20%, rgba(37,99,235,0.3) 0%, transparent 50%), radial-gradient(circle at 80% 80%, rgba(245,158,11,0.15) 0%, transparent 50%); }
+    .page-hero-inner { max-width:1200px; margin:0 auto; position:relative; text-align:center; }
+    .page-badge { display:inline-block; background:rgba(37,99,235,0.2); color:#93C5FD; padding:0.3rem 1rem; border-radius:50px; font-size:0.8rem; font-weight:700; margin-bottom:1rem; }
+    .page-title { font-size:clamp(1.8rem, 4vw, 2.8rem); font-weight:900; color:var(--white); letter-spacing:-0.04em; line-height:1.3; margin-bottom:1rem; }
+    .page-title em { font-style:normal; color:var(--amber); }
+    .page-desc { font-size:clamp(0.95rem, 1.5vw, 1.1rem); color:rgba(255,255,255,0.75); line-height:1.7; max-width:680px; margin:0 auto; }
+
+    /* STATS */
+    .stats-section { padding:60px 5%; background:var(--bg); }
+    .stats-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:1.5rem; max-width:1100px; margin:0 auto; }
+    .stat-box { background:var(--white); border:1.5px solid var(--gray-100); border-radius:18px; padding:1.8rem 1.2rem; text-align:center; }
+    .stat-num { font-size:clamp(1.5rem, 2.5vw, 2rem); font-weight:900; color:var(--blue); letter-spacing:-0.03em; margin-bottom:0.3rem; }
+    .stat-label { font-size:0.85rem; color:var(--gray-700); font-weight:600; }
+    .stat-box.amber .stat-num { color:var(--amber); }
+    @media(max-width:768px){ .stats-grid { grid-template-columns:repeat(2,1fr); } }
+
+    /* REVIEWS */
+    .reviews-section { padding:80px 5%; background:var(--white); }
+    .section-inner { max-width:1200px; margin:0 auto; }
+    .section-header { text-align:center; margin-bottom:3rem; }
+    .section-badge { display:inline-flex; align-items:center; gap:0.5rem; color:var(--blue); font-size:0.85rem; font-weight:700; margin-bottom:1rem; }
+    .section-badge::before { content:''; width:18px; height:2px; background:var(--blue); }
+    .section-title { font-size:clamp(1.4rem, 3vw, 2rem); font-weight:900; color:var(--navy); letter-spacing:-0.03em; line-height:1.35; margin-bottom:0.75rem; }
+    .section-sub { font-size:0.95rem; color:var(--gray-500); }
+
+    /* Filter */
+    .filter-bar { display:flex; gap:0.6rem; flex-wrap:wrap; justify-content:center; margin-bottom:3rem; }
+    .filter-btn { padding:0.55rem 1.2rem; border-radius:50px; border:1.5px solid var(--gray-300); background:var(--white); color:var(--gray-700); font-size:0.83rem; font-weight:600; cursor:pointer; font-family:inherit; transition:all 0.2s; }
+    .filter-btn:hover { border-color:var(--blue); color:var(--blue); }
+    .filter-btn.active { background:var(--navy); color:var(--white); border-color:var(--navy); }
+
+    .reviews-grid { columns:3; column-gap:1.5rem; }
+    @media(max-width:900px){ .reviews-grid { columns:2; } }
+    @media(max-width:600px){ .reviews-grid { columns:1; } }
+    .review-card { break-inside:avoid; background:var(--bg); border:1px solid var(--gray-100); border-radius:18px; padding:1.6rem; margin-bottom:1.5rem; display:flex; flex-direction:column; gap:0.85rem; transition:transform 0.2s, box-shadow 0.2s; }
+    .review-card:hover { transform:translateY(-3px); box-shadow:0 10px 28px rgba(10,22,40,0.06); }
+    .review-tag-row { display:flex; gap:0.4rem; flex-wrap:wrap; }
+    .review-tag { background:rgba(37,99,235,0.1); color:var(--blue); font-size:0.72rem; font-weight:700; padding:0.25rem 0.7rem; border-radius:50px; }
+    .review-tag.amber { background:rgba(245,158,11,0.12); color:#B45309; }
+    .review-stars { color:var(--amber); font-size:0.85rem; letter-spacing:2px; }
+    .review-title { font-size:1rem; font-weight:800; color:var(--navy); line-height:1.45; letter-spacing:-0.02em; }
+    .review-text { font-size:0.87rem; line-height:1.8; color:var(--gray-700); }
+    .review-author { display:flex; align-items:center; gap:0.75rem; border-top:1px solid var(--gray-100); padding-top:0.9rem; margin-top:0.3rem; }
+    .review-avatar { width:38px; height:38px; border-radius:50%; background:linear-gradient(135deg, var(--blue), var(--cyan)); display:flex; align-items:center; justify-content:center; color:var(--white); font-size:0.8rem; font-weight:700; flex-shrink:0; }
+    .review-meta { display:flex; flex-direction:column; gap:0.1rem; }
+    .review-name { font-size:0.85rem; font-weight:700; color:var(--navy); }
+    .review-grade { font-size:0.75rem; color:var(--gray-500); }
+
+    /* Featured review */
+    .featured-section { padding:80px 5%; background:linear-gradient(135deg, #F0F4FF, #FFF8EC); }
+    .featured-card { max-width:900px; margin:0 auto; background:var(--white); border-radius:24px; padding:3rem 2.5rem; box-shadow:0 20px 60px rgba(10,22,40,0.1); }
+    .featured-label { display:inline-block; background:var(--amber-lt); color:#B45309; font-size:0.78rem; font-weight:700; padding:0.3rem 0.9rem; border-radius:50px; margin-bottom:1rem; }
+    .featured-title { font-size:clamp(1.2rem, 2.2vw, 1.6rem); font-weight:900; color:var(--navy); line-height:1.45; letter-spacing:-0.03em; margin-bottom:1.2rem; }
+    .featured-text { font-size:0.98rem; line-height:1.9; color:var(--gray-700); }
+    .featured-text + .featured-text { margin-top:1rem; }
+    .featured-author { display:flex; align-items:center; gap:0.9rem; margin-top:2rem; padding-top:1.5rem; border-top:1.5px solid var(--gray-100); }
+    .featured-avatar { width:48px; height:48px; border-radius:50%; background:linear-gradient(135deg, var(--amber), #EA580C); color:var(--white); display:flex; align-items:center; justify-content:center; font-weight:800; font-size:1rem; }
+    .featured-name { font-size:0.95rem; font-weight:800; color:var(--navy); }
+    .featured-detail { font-size:0.82rem; color:var(--gray-500); }
+
+    /* CTA */
+    .cta-section { padding:72px 5%; background:linear-gradient(135deg, var(--navy), #1E3A5F); text-align:center; }
+    .cta-title { color:var(--white); font-size:clamp(1.4rem, 2.5vw, 2rem); font-weight:900; line-height:1.35; margin-bottom:0.8rem; }
+    .cta-title em { font-style:normal; color:var(--amber); }
+    .cta-desc { color:rgba(255,255,255,0.65); font-size:0.95rem; line-height:1.7; margin-bottom:2rem; }
+    .cta-btns { display:inline-flex; gap:0.75rem; flex-wrap:wrap; justify-content:center; }
+    .btn-primary { background:var(--amber); color:var(--white); padding:0.95rem 2.2rem; border-radius:50px; font-weight:800; font-size:0.95rem; box-shadow:0 6px 20px rgba(245,158,11,0.35); }
+    .btn-primary:hover { transform:translateY(-2px); }
+    .btn-secondary { background:rgba(255,255,255,0.1); color:var(--white); padding:0.95rem 2.2rem; border-radius:50px; font-weight:700; font-size:0.95rem; border:1.5px solid rgba(255,255,255,0.3); }
+
+    /* FOOTER */
+    footer { background:var(--navy); padding:56px 5% 32px; color:rgba(255,255,255,0.6); }
+    .footer-inner { max-width:1200px; margin:0 auto; }
+    .footer-top { display:grid; grid-template-columns:1.5fr 1fr 1fr 1fr; gap:3rem; margin-bottom:2.5rem; padding-bottom:2.5rem; border-bottom:1px solid rgba(255,255,255,0.1); }
+    .footer-logo { display:flex; align-items:center; gap:0.5rem; margin-bottom:1rem; }
+    .footer-logo .logo-mark { background:var(--white); color:var(--blue); }
+    .footer-logo .logo-name { color:var(--white); }
+    .footer-tagline { font-size:0.85rem; line-height:1.7; }
+    .footer-col h4 { color:var(--white); font-size:0.9rem; font-weight:700; margin-bottom:1rem; }
+    .footer-col ul { list-style:none; display:flex; flex-direction:column; gap:0.6rem; }
+    .footer-col a { font-size:0.85rem; }
+    .footer-col a:hover { color:var(--white); }
+    .footer-bottom { font-size:0.78rem; display:flex; justify-content:space-between; flex-wrap:wrap; gap:1rem; }
+    @media(max-width:768px){ .footer-top { grid-template-columns:1fr 1fr; gap:2rem; } }
+  </style>
+</head>
+<body>
+  <!-- NAV -->
+  <nav>
+    <a href="index.html" class="nav-logo">
+      <span class="logo-mark">W</span>
+      <span class="logo-name">WeStudy</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="education.html">교육 정보</a></li>
+      <li><a href="hagwon.html">학원 상담</a></li>
+      <li><a href="reviews.html" class="active">수업 후기</a></li>
+      <li><a href="about.html">소개</a></li>
+      <li><a href="contact.html">상담 신청</a></li>
+    </ul>
+    <a href="contact.html" class="nav-cta">무료 상담 신청</a>
+    <button class="nav-mobile-btn" id="mobileBtn" aria-label="메뉴">☰</button>
+  </nav>
+  <div class="mobile-menu" id="mobileMenu">
+    <button class="mobile-menu-close" id="mobileMenuClose">✕</button>
+    <a href="education.html">교육 정보</a>
+    <a href="hagwon.html">학원 상담</a>
+    <a href="reviews.html">수업 후기</a>
+    <a href="about.html">소개</a>
+    <a href="contact.html">상담 신청</a>
+  </div>
+
+  <!-- HERO -->
+  <section class="page-hero">
+    <div class="page-hero-inner">
+      <div class="page-badge">수업 후기</div>
+      <h1 class="page-title">WeStudy를 만난 <em>학생과 학부모님</em>의 이야기</h1>
+      <p class="page-desc">성적 이전에 아이의 마음이 먼저 바뀌었습니다.<br>솔직하게 남겨주신 후기들, 여러분의 고민과 맞닿아 있을지도 몰라요.</p>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section class="stats-section">
+    <div class="stats-grid">
+      <div class="stat-box">
+        <div class="stat-num">4.9</div>
+        <div class="stat-label">⭐ 평균 만족도</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num">96%</div>
+        <div class="stat-label">재수강 의향</div>
+      </div>
+      <div class="stat-box amber">
+        <div class="stat-num">2.3개월</div>
+        <div class="stat-label">평균 성적 변화 시점</div>
+      </div>
+      <div class="stat-box amber">
+        <div class="stat-num">500+</div>
+        <div class="stat-label">누적 수강생</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURED REVIEW -->
+  <section class="featured-section">
+    <div class="featured-card">
+      <div class="featured-label">🏆 이달의 후기</div>
+      <h2 class="featured-title">"질문하는 습관이 만든 나의 공부"</h2>
+      <p class="featured-text">처음엔 '그냥 외우면 되겠지'라고 생각했어요. 모르는 게 있어도 넘어가고, 시험 전날 벼락치기로 버텼거든요. 코치님을 만나고 달라진 건 딱 하나예요. <strong>'왜?'라고 질문하기 시작한 것.</strong></p>
+      <p class="featured-text">모르는 걸 부끄러워하지 않고 끝까지 파고드는 습관이 생기니까, 성적이 오르는 건 당연한 결과였던 것 같아요. 빈틈없이 공부했던 '꼼꼼함'과 포기하지 않는 '성실함'이 제일 큰 변화예요.</p>
+      <div class="featured-author">
+        <div class="featured-avatar">윤</div>
+        <div>
+          <div class="featured-name">윤○○ 학생</div>
+          <div class="featured-detail">고등학교 2학년 · 국어/수학 · 2년 6개월 수강</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REVIEWS GRID -->
+  <section class="reviews-section">
+    <div class="section-inner">
+      <div class="section-header">
+        <div class="section-badge">진짜 후기</div>
+        <h2 class="section-title">학년별·과목별<br>실제 수업 후기</h2>
+        <p class="section-sub">모든 후기는 실제 수강생과 학부모님께서 직접 작성해주신 내용입니다.</p>
+      </div>
+
+      <div class="filter-bar">
+        <button class="filter-btn active" data-filter="all">전체</button>
+        <button class="filter-btn" data-filter="초등">초등</button>
+        <button class="filter-btn" data-filter="중등">중등</button>
+        <button class="filter-btn" data-filter="고등">고등</button>
+        <button class="filter-btn" data-filter="수학">수학</button>
+        <button class="filter-btn" data-filter="영어">영어</button>
+        <button class="filter-btn" data-filter="국어">국어</button>
+      </div>
+
+      <div class="reviews-grid">
+
+        <div class="review-card" data-cat="고등 수학">
+          <div class="review-tag-row"><span class="review-tag">고등</span><span class="review-tag">수학</span><span class="review-tag amber">의대 합격</span></div>
+          <div class="review-stars">★★★★★</div>
+          <h3 class="review-title">필요한 부분만 딱 맞게, 수학 1등급을 완성했어요</h3>
+          <p class="review-text">혼자 공부하면서 '이게 맞나' 하는 불안감이 있었어요. 코치님은 제가 약한 단원만 골라서 집중 지도해 주셨고, 아는 부분까지 억지로 반복시키지 않으셨어요. 시간 효율이 정말 달라졌어요. 결국 수학 1등급 유지하며 의대에 합격했습니다.</p>
+          <div class="review-author">
+            <div class="review-avatar">서</div>
+            <div class="review-meta">
+              <div class="review-name">서○○ 학생</div>
+              <div class="review-grade">고등학교 3학년</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card" data-cat="고등 국어">
+          <div class="review-tag-row"><span class="review-tag">고등</span><span class="review-tag">국어</span><span class="review-tag amber">3→1등급</span></div>
+          <div class="review-stars">★★★★★</div>
+          <h3 class="review-title">농어촌에서도 1등급, 그리고 경희대 합격까지</h3>
+          <p class="review-text">저희 동네는 학원 갈 곳도 마땅치 않았어요. 화상 수업으로 꾸준히 코치님 만난 게 신의 한 수였습니다. 단순히 문제를 푸는 게 아니라 '내가 왜 틀리는지'를 진단해 주셔서, 성적이 하락한 원인부터 잡을 수 있었어요. 3등급에서 1등급으로 회복했습니다.</p>
+          <div class="review-author">
+            <div class="review-avatar">박</div>
+            <div class="review-meta">
+              <div class="review-name">박○○ 학생</div>
+              <div class="review-grade">고등학교 3학년</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card" data-cat="초등 국어">
+          <div class="review-tag-row"><span class="review-tag">초등</span><span class="review-tag">국어</span><span class="review-tag amber">57→81점</span></div>
+          <div class="review-stars">★★★★★</div>
+          <h3 class="review-title">꾸준한 노력의 힘, 단원평가 57점이 81점이 됐어요</h3>
+          <p class="review-text">"엄마, 나 국어 시험 81점이야!" 이 말을 들었을 때 코끝이 찡했어요. 두 달 전만 해도 57점에 자신 없어 하던 아이였거든요. 정답보다 '왜 그 답인지' 설명하는 훈련을 꾸준히 해주신 덕분입니다. 아이가 스스로 공부하는 모습이 무엇보다 기특해요.</p>
+          <div class="review-author">
+            <div class="review-avatar">장</div>
+            <div class="review-meta">
+              <div class="review-name">장○○ 학부모</div>
+              <div class="review-grade">초등학교 5학년 자녀</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card" data-cat="중등 수학">
+          <div class="review-tag-row"><span class="review-tag">중등</span><span class="review-tag">수학</span><span class="review-tag amber">수포자 극복</span></div>
+          <div class="review-stars">★★★★★</div>
+          <h3 class="review-title">수포자였던 아이가 수학에 흥미를 붙였어요</h3>
+          <p class="review-text">중학교 1학년 때 이미 "수학은 포기"라고 말하던 아이였어요. 여러 학원을 다녀봐도 똑같았죠. WeStudy 선생님은 어디서부터 빠졌는지부터 진단하고, 초등 분수 개념부터 다시 잡아주셨어요. 기초가 채워지니 아이 표정이 달라지더라고요. 지금은 수학 시간이 기다려진대요.</p>
+          <div class="review-author">
+            <div class="review-avatar">이</div>
+            <div class="review-meta">
+              <div class="review-name">이○○ 학부모</div>
+              <div class="review-grade">중학교 2학년 자녀</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card" data-cat="중등 전체">
+          <div class="review-tag-row"><span class="review-tag">중등</span><span class="review-tag">전체</span><span class="review-tag amber">공부 습관</span></div>
+          <div class="review-stars">★★★★★</div>
+          <h3 class="review-title">공부 습관을 바꾸니 목표가 현실이 되었어요</h3>
+          <p class="review-text">"매일 같은 시간에 책상 앞에 앉는 것"부터 시작했어요. 처음엔 단순해 보였는데, 이게 전부더라고요. 플래닝 수업을 통해 주간 목표를 세우는 법을 배웠고, 지금은 스스로 일주일치 공부 계획을 짜요. 성적보다 이 변화가 제일 값져요.</p>
+          <div class="review-author">
+            <div class="review-avatar">최</div>
+            <div class="review-meta">
+              <div class="review-name">최○○ 학부모</div>
+              <div class="review-grade">중학교 1학년 자녀</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card" data-cat="고등 영어">
+          <div class="review-tag-row"><span class="review-tag">고등</span><span class="review-tag">영어</span><span class="review-tag amber">기말 100점</span></div>
+          <div class="review-stars">★★★★★</div>
+          <h3 class="review-title">두려움을 극복하고 자신감을 찾았어요</h3>
+          <p class="review-text">중학교 때부터 영어에 손 놓고 있다가 고등학교 올라와서 막막했어요. 선생님이 "알파벳부터 다시 시작하자"고 하셨을 때 자존심 상하기도 했어요. 근데 3년 뒤, 기말고사 영어 100점을 받았어요. '기본기의 힘'을 직접 체험한 거죠.</p>
+          <div class="review-author">
+            <div class="review-avatar">조</div>
+            <div class="review-meta">
+              <div class="review-name">조○○ 학생</div>
+              <div class="review-grade">고등학교 3학년</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card" data-cat="초등 수학">
+          <div class="review-tag-row"><span class="review-tag">초등</span><span class="review-tag">수학</span></div>
+          <div class="review-stars">★★★★★</div>
+          <h3 class="review-title">"왜?"라고 물어보는 아이가 됐어요</h3>
+          <p class="review-text">문제를 외워서 풀던 아이가 이제 "근데 이게 왜 이렇게 되는 거예요?"라고 묻기 시작했어요. 선생님이 늘 "왜 그런지 먼저 생각해보자"고 하셨다는데, 그 습관이 다른 과목 공부에도 번지더라고요.</p>
+          <div class="review-author">
+            <div class="review-avatar">정</div>
+            <div class="review-meta">
+              <div class="review-name">정○○ 학부모</div>
+              <div class="review-grade">초등학교 4학년 자녀</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card" data-cat="중등 영어">
+          <div class="review-tag-row"><span class="review-tag">중등</span><span class="review-tag">영어</span></div>
+          <div class="review-stars">★★★★★</div>
+          <h3 class="review-title">단어 암기가 '고역'이 아닌 '루틴'이 되었어요</h3>
+          <p class="review-text">매일 20개씩, 3일 주기 복습. 처음엔 아이가 힘들어했는데 선생님이 꾸준히 격려해주시니 어느새 습관이 됐어요. 이제는 시험 기간 아닌데도 스스로 단어장을 펼쳐요. 중간고사 영어 점수는 자연스럽게 따라온 결과였습니다.</p>
+          <div class="review-author">
+            <div class="review-avatar">한</div>
+            <div class="review-meta">
+              <div class="review-name">한○○ 학부모</div>
+              <div class="review-grade">중학교 2학년 자녀</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card" data-cat="고등 전체">
+          <div class="review-tag-row"><span class="review-tag">고등</span><span class="review-tag">국어</span><span class="review-tag">수학</span><span class="review-tag amber">내신 관리</span></div>
+          <div class="review-stars">★★★★★</div>
+          <h3 class="review-title">내신을 놓치지 않으면서 수능까지 준비했어요</h3>
+          <p class="review-text">수시 위주로 갈지, 정시로 갈지 고민이었어요. 코치님이 아이의 성향과 성적 패턴을 분석해서 '복합형 전략'으로 방향을 잡아주셨어요. 내신 1~2등급 유지하면서 수능 모의고사도 안정적으로 나와, 선택지가 넓어졌습니다.</p>
+          <div class="review-author">
+            <div class="review-avatar">김</div>
+            <div class="review-meta">
+              <div class="review-name">김○○ 학부모</div>
+              <div class="review-grade">고등학교 2학년 자녀</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card" data-cat="초등 영어">
+          <div class="review-tag-row"><span class="review-tag">초등</span><span class="review-tag">영어</span></div>
+          <div class="review-stars">★★★★★</div>
+          <h3 class="review-title">영어를 '숙제'가 아닌 '놀이'로 만들어 주셨어요</h3>
+          <p class="review-text">학원에서는 아이가 영어에 점점 질려갔는데, 화상 수업으로 바꾸고 나서 분위기가 달라졌어요. 선생님이 아이 관심사(공룡, 우주)에 맞춰 영어 이야기를 들려주세요. 지금은 아이가 영어 시간을 제일 기다려요.</p>
+          <div class="review-author">
+            <div class="review-avatar">류</div>
+            <div class="review-meta">
+              <div class="review-name">류○○ 학부모</div>
+              <div class="review-grade">초등학교 3학년 자녀</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card" data-cat="고등 수학">
+          <div class="review-tag-row"><span class="review-tag">고등</span><span class="review-tag">수학</span><span class="review-tag amber">6→3등급</span></div>
+          <div class="review-stars">★★★★★</div>
+          <h3 class="review-title">포기 직전의 수학, 3등급까지 끌어올렸어요</h3>
+          <p class="review-text">고2 1학기에 수학 6등급 받고 충격받았어요. 수시는 포기해야 하나 싶었죠. 선생님이 "포기할 단계 아니야"라고 단호하게 말씀해주신 게 용기였어요. 기초 개념부터 체계적으로 다시 쌓으면서 3등급까지 올렸습니다. 수시 지원 가능한 대학이 생겼어요.</p>
+          <div class="review-author">
+            <div class="review-avatar">오</div>
+            <div class="review-meta">
+              <div class="review-name">오○○ 학생</div>
+              <div class="review-grade">고등학교 3학년</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card" data-cat="중등 국어">
+          <div class="review-tag-row"><span class="review-tag">중등</span><span class="review-tag">국어</span></div>
+          <div class="review-stars">★★★★★</div>
+          <h3 class="review-title">지문을 '읽는 방식' 자체를 바꿨어요</h3>
+          <p class="review-text">국어 점수가 널뛰기처럼 오르락내리락하던 아이였어요. 선생님이 "문제를 풀기 전에 지문을 읽는 순서부터 점검하자"고 하셨는데, 그 말이 핵심이었어요. 이제는 긴 지문도 당황하지 않고 천천히 읽어내려가요.</p>
+          <div class="review-author">
+            <div class="review-avatar">강</div>
+            <div class="review-meta">
+              <div class="review-name">강○○ 학부모</div>
+              <div class="review-grade">중학교 3학년 자녀</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card" data-cat="고등 과학">
+          <div class="review-tag-row"><span class="review-tag">고등</span><span class="review-tag">생물</span><span class="review-tag amber">유전 문제</span></div>
+          <div class="review-stars">★★★★★</div>
+          <h3 class="review-title">유전 문제 접근법 자체를 다시 배웠어요</h3>
+          <p class="review-text">생명과학1 유전 단원에서 완전히 막혔어요. 아무리 외워도 변형 문제가 나오면 풀 수 없었죠. 코치님이 가계도형·다인자형·연관형별로 풀이 전략을 나눠 가르쳐주셨어요. 유형만 제대로 분류할 줄 알아도 반은 풀리더라고요.</p>
+          <div class="review-author">
+            <div class="review-avatar">노</div>
+            <div class="review-meta">
+              <div class="review-name">노○○ 학생</div>
+              <div class="review-grade">고등학교 2학년</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card" data-cat="초등 전체">
+          <div class="review-tag-row"><span class="review-tag">초등</span><span class="review-tag">전체</span><span class="review-tag amber">6년 수강</span></div>
+          <div class="review-stars">★★★★★</div>
+          <h3 class="review-title">초등 때 만난 코치님과 6년을 함께했어요</h3>
+          <p class="review-text">초등 3학년 때 시작해서 중학교 2학년인 지금까지 같은 선생님께 배우고 있어요. 학습뿐 아니라 성격, 태도까지 함께 길러주신 느낌이에요. 성적은 꾸준히 상위권이고, 인성 면에서도 많이 성장했다고 주변에서 말씀해주세요.</p>
+          <div class="review-author">
+            <div class="review-avatar">윤</div>
+            <div class="review-meta">
+              <div class="review-name">윤○○ 학부모</div>
+              <div class="review-grade">중학교 2학년 자녀</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card" data-cat="중등 전체">
+          <div class="review-tag-row"><span class="review-tag">중등</span><span class="review-tag">전체</span><span class="review-tag amber">자기주도</span></div>
+          <div class="review-stars">★★★★★</div>
+          <h3 class="review-title">혼자 계획하고 혼자 복습하는 아이가 됐어요</h3>
+          <p class="review-text">"엄마가 안 시켜도 스스로 공부하는 아이"는 먼 이야기라고 생각했어요. 매주 선생님과 주간 목표를 세우고, 달성 여부를 직접 체크하는 습관이 생기니까 아이 자체가 바뀌었어요. 이제는 제가 잔소리할 일이 없어요.</p>
+          <div class="review-author">
+            <div class="review-avatar">송</div>
+            <div class="review-meta">
+              <div class="review-name">송○○ 학부모</div>
+              <div class="review-grade">중학교 3학년 자녀</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <h2 class="cta-title">다음 후기의 주인공이 <em>우리 아이</em>일 수도 있어요</h2>
+    <p class="cta-desc">30분 무료 시범 수업으로 먼저 체험해보세요.</p>
+    <div class="cta-btns">
+      <a href="contact.html" class="btn-primary">무료 상담 신청</a>
+      <a href="about.html" class="btn-secondary">WeStudy 알아보기</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div>
+          <div class="footer-logo">
+            <span class="logo-mark">W</span>
+            <span class="logo-name">WeStudy</span>
+          </div>
+          <p class="footer-tagline">학생 개개인에게 최적화된<br>1:1 맞춤 학습 코칭 플랫폼</p>
+        </div>
+        <div class="footer-col">
+          <h4>서비스</h4>
+          <ul>
+            <li><a href="education.html">교육 정보</a></li>
+            <li><a href="hagwon.html">학원 상담</a></li>
+            <li><a href="reviews.html">수업 후기</a></li>
+            <li><a href="about.html">WeStudy 소개</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>고객 지원</h4>
+          <ul>
+            <li><a href="contact.html">무료 상담 신청</a></li>
+            <li><a href="tel:1566-0000">전화 1566-0000</a></li>
+            <li><a href="mailto:study@westudymate.com">이메일 문의</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>정책</h4>
+          <ul>
+            <li><a href="#">이용 약관</a></li>
+            <li><a href="#">개인정보 처리방침</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div>서울특별시 강남구 테헤란로 000 | 고객센터: 1566-0000 | study@westudymate.com</div>
+        <div>© 2026 WeStudy. All rights reserved.</div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const mobileBtn = document.getElementById('mobileBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const mobileMenuClose = document.getElementById('mobileMenuClose');
+    if (mobileBtn) mobileBtn.addEventListener('click', () => mobileMenu.classList.add('open'));
+    if (mobileMenuClose) mobileMenuClose.addEventListener('click', () => mobileMenu.classList.remove('open'));
+    mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileMenu.classList.remove('open')));
+
+    // 필터
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const filter = btn.dataset.filter;
+        document.querySelectorAll('.review-card').forEach(card => {
+          if (filter === 'all' || card.dataset.cat.includes(filter)) {
+            card.style.display = 'flex';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>
