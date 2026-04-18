@@ -12,6 +12,13 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    /* Page transitions — smooth fade */
+    @view-transition { navigation: auto; }
+    ::view-transition-old(root), ::view-transition-new(root) { animation-duration: 0.35s; animation-timing-function: ease-out; }
+    @keyframes pageFadeIn { from { opacity: 0; } to { opacity: 1; } }
+    @supports not (view-transition-name: root) { body { animation: pageFadeIn 0.3s ease-out; } }
+
     :root {
       --navy:#0A1628; --blue:#1D4ED8; --blue-mid:#2563EB;
       --amber:#F59E0B; --amber-lt:#FEF3C7; --cyan:#06B6D4;

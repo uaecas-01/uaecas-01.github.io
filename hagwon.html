@@ -10,6 +10,13 @@
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+    /* Page transitions — smooth fade */
+    @view-transition { navigation: auto; }
+    ::view-transition-old(root), ::view-transition-new(root) { animation-duration: 0.35s; animation-timing-function: ease-out; }
+    @keyframes pageFadeIn { from { opacity: 0; } to { opacity: 1; } }
+    @supports not (view-transition-name: root) { body { animation: pageFadeIn 0.3s ease-out; } }
+
+
     :root {
       --navy:    #0A1628;
       --blue:    #1D4ED8;
@@ -41,7 +48,7 @@
       overflow-x: hidden;
     }
 
-    /* ─── NAV ─── */
+    /* ─── NAV (index.html과 동일: 투명 → 스크롤 시 흰색) ─── */
     nav {
       position: fixed;
       top: 0; left: 0; right: 0;
@@ -51,9 +58,16 @@
       justify-content: space-between;
       padding: 0 5%;
       height: 66px;
-      background: var(--navy);
-      border-bottom: 1px solid rgba(255,255,255,0.08);
+      background: transparent;
+      transition: background 0.3s, box-shadow 0.3s;
     }
+    nav.scrolled { background: var(--white); box-shadow: 0 1px 16px rgba(10,22,40,0.08); }
+    nav.scrolled .logo-mark { background: var(--blue); color: var(--white); }
+    nav.scrolled .logo-name { color: var(--navy); }
+    nav.scrolled .logo-sub { color: var(--gray-500); }
+    nav.scrolled .nav-links a { color: var(--gray-700); }
+    nav.scrolled .nav-links a:hover, nav.scrolled .nav-links a.active { color: var(--blue); }
+    nav.scrolled .nav-cta { background: var(--blue); border-color: var(--blue); color: var(--white); }
 
     .nav-logo {
       display: flex;
@@ -72,6 +86,7 @@
       font-size: 0.9rem;
       letter-spacing: -0.05em;
       flex-shrink: 0;
+      transition: background 0.3s, color 0.3s;
     }
     .logo-name {
       font-size: 1.15rem;
@@ -79,6 +94,7 @@
       color: var(--white);
       letter-spacing: -0.04em;
       line-height: 1;
+      transition: color 0.3s;
     }
     .logo-sub {
       font-size: 0.6rem;
@@ -87,10 +103,11 @@
       letter-spacing: 0.03em;
       display: block;
       margin-top: 1px;
+      transition: color 0.3s;
     }
     .nav-links { display: flex; gap: 2rem; list-style: none; }
     .nav-links a {
-      color: rgba(255,255,255,0.72);
+      color: rgba(255,255,255,0.8);
       text-decoration: none;
       font-size: 0.9rem;
       font-weight: 500;
@@ -108,9 +125,9 @@
       font-size: 0.875rem;
       font-weight: 700;
       text-decoration: none;
-      transition: background 0.2s, transform 0.15s;
+      transition: all 0.25s;
     }
-    .nav-cta:hover { background: rgba(255,255,255,0.25); transform: translateY(-1px); }
+    .nav-cta:hover { background: var(--white); color: var(--blue); border-color: var(--white); transform: translateY(-1px); }
 
     /* ─── PAGE HERO ─── */
     .page-hero {
@@ -944,7 +961,7 @@
 <body>
 
   <!-- NAV -->
-  <nav>
+  <nav id="mainNav">
     <a href="index.html" class="nav-logo"><span class="logo-mark">W</span><span class="logo-name">WeStudy</span></a>
     <ul class="nav-links">
       <li><a href="education.html">교육 정보</a></li>
@@ -1307,6 +1324,12 @@
   </footer>
 
   <script>
+    /* Nav scroll toggle — 투명 → 스크롤 시 흰색 */
+    const mainNav = document.getElementById('mainNav');
+    window.addEventListener('scroll', () => {
+      mainNav.classList.toggle('scrolled', window.scrollY > 40);
+    });
+
     /* Mobile menu toggle */
     document.getElementById('mobileBtn').addEventListener('click', () => {
       document.getElementById('mobileMenu').classList.add('open');
