@@ -1,0 +1,648 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>WeStudy 위스터디</title>
+    <link>https://westudymate.com/</link>
+    <description>1:1 맞춤 학습 코칭 플랫폼. 교육 정보, 학습 가이드, 과외/학원 상담 콘텐츠를 제공합니다.</description>
+    <language>ko</language>
+    <lastBuildDate>Mon, 20 Apr 2026 08:05:26 GMT</lastBuildDate>
+    <atom:link href="https://westudymate.com/rss.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>WeStudy 위스터디 – 1:1 맞춤 학습 코칭 전문</title>
+      <link>https://westudymate.com/</link>
+      <guid isPermaLink="true">https://westudymate.com/</guid>
+      <pubDate>Mon, 20 Apr 2026 07:41:30 GMT</pubDate>
+      <description>학생 개개인에게 최적화된 1:1 맞춤 학습 코칭. 초·중·고 전 과목 방문·화상·학원 연계 수업.</description>
+    </item>
+    <item>
+      <title>상담 신청 – WeStudy</title>
+      <link>https://westudymate.com/contact.html</link>
+      <guid isPermaLink="true">https://westudymate.com/contact.html</guid>
+      <pubDate>Sun, 19 Apr 2026 10:42:55 GMT</pubDate>
+      <description>무료 학습 상담 신청 및 문의.</description>
+    </item>
+    <item>
+      <title>WeStudy 소개</title>
+      <link>https://westudymate.com/about.html</link>
+      <guid isPermaLink="true">https://westudymate.com/about.html</guid>
+      <pubDate>Sun, 19 Apr 2026 10:42:43 GMT</pubDate>
+      <description>학생 개개인에게 최적화된 1:1 맞춤 학습 코칭 플랫폼 WeStudy 소개.</description>
+    </item>
+    <item>
+      <title>학원 상담 – WeStudy</title>
+      <link>https://westudymate.com/hagwon.html</link>
+      <guid isPermaLink="true">https://westudymate.com/hagwon.html</guid>
+      <pubDate>Sun, 19 Apr 2026 10:42:30 GMT</pubDate>
+      <description>전국 205개 이상 제휴 학원과 연계된 맞춤 상담 서비스.</description>
+    </item>
+    <item>
+      <title>교육 정보 – WeStudy</title>
+      <link>https://westudymate.com/education.html</link>
+      <guid isPermaLink="true">https://westudymate.com/education.html</guid>
+      <pubDate>Sun, 19 Apr 2026 10:42:16 GMT</pubDate>
+      <description>학부모가 꼭 알아야 할 교육 정보와 학습 가이드.</description>
+    </item>
+    <item>
+      <title>수업 후기 – WeStudy</title>
+      <link>https://westudymate.com/reviews.html</link>
+      <guid isPermaLink="true">https://westudymate.com/reviews.html</guid>
+      <pubDate>Sun, 19 Apr 2026 10:41:58 GMT</pubDate>
+      <description>실제 수강생·학부모님들의 솔직한 후기와 학습 성과.</description>
+    </item>
+    <item>
+      <title>수시와 정시, 둘 다 준비할 수 있을까? – WeStudy</title>
+      <link>https://westudymate.com/articles/admission-11.html</link>
+      <guid isPermaLink="true">https://westudymate.com/articles/admission-11.html</guid>
+      <pubDate>Wed, 15 Apr 2026 01:13:17 GMT</pubDate>
+      <description>수시·정시 병행 전략의 현실적 가능성과 시기별 집중 포인트.</description>
+    </item>
+    <item>
+      <title>과외와 학원, 우리 아이에게 뭐가 더 맞을까? – WeStudy</title>
+      <link>https://westudymate.com/articles/admission-12.html</link>
+      <guid isPermaLink="true">https://westudymate.com/articles/admission-12.html</guid>
+      <pubDate>Wed, 15 Apr 2026 01:13:17 GMT</pubDate>
+      <description>학습 스타일, 성격, 환경에 따라 과외와 학원의 장단점을 비교 분석합니다.</description>
+    </item>
+    <item>
+      <title>과외비 적정선은 얼마일까? – WeStudy</title>
+      <link>https://westudymate.com/articles/admission-13.html</link>
+      <guid isPermaLink="true">https://westudymate.com/articles/admission-13.html</guid>
+      <pubDate>Wed, 15 Apr 2026 01:13:17 GMT</pubDate>
+      <description>학년별·과목별 과외비 시세와 비용 대비 효과를 판단하는 기준.</description>
+    </item>
+    <item>
+      <title>초등 3~4학년, 학습 습관 잡기 늦은 건 아닐까? – WeStudy</title>
+      <link>https://westudymate.com/articles/grade-01.html</link>
+      <guid isPermaLink="true">https://westudymate.com/articles/grade-01.html</guid>
+      <pubDate>Wed, 15 Apr 2026 01:13:17 GMT</pubDate>
+      <description>본격적인 학습이 시작되는 초등 중학년에 스스로 공부하는 습관을 만드는 골든타임 전략.</description>
+    </item>
+    <item>
+      <title>초등 5~6학년, 중학교 선행은 어디까지 해야 할까? – WeStudy</title>
+      <link>https://westudymate.com/articles/grade-02.html</link>
+      <guid isPermaLink="true">https://westudymate.com/articles/grade-02.html</guid>
+      <pubDate>Wed, 15 Apr 2026 01:13:17 GMT</pubDate>
+      <description>중학교 입학 전 선행의 적정 범위와 효과적인 예습 방법에 대한 안내.</description>
+    </item>
+    <item>
+      <title>중학교 첫 시험, 초등학교와 뭐가 다를까? – WeStudy</title>
+      <link>https://westudymate.com/articles/grade-03.html</link>
+      <guid isPermaLink="true">https://westudymate.com/articles/grade-03.html</guid>
+      <pubDate>Wed, 15 Apr 2026 01:13:17 GMT</pubDate>
+      <description>초등과 전혀 다른 중학교 시험 시스템에 빠르게 적응하기 위한 실전 가이드.</description>
+    </item>
+    <item>
+      <title>중2인데 성적이 제자리라면, 어떻게 돌파할까? – WeStudy</title>
+      <link>https://westudymate.com/articles/grade-04.html</link>
+      <guid isPermaLink="true">https://westudymate.com/articles/grade-04.html</guid>
+      <pubDate>Wed, 15 Apr 2026 01:13:17 GMT</pubDate>
+      <description>중2에서 흔히 겪는 성적 정체 현상의 원인과 과목별 돌파구를 찾는 방법.</description>
+    </item>
+    <item>
+      <title>중3이 고등학교 진학 전 꼭 해야 할 것은? – WeStudy</title>
+      <link>https://westudymate.com/articles/grade-05.html</link>
+      <guid isPermaLink="true">https://westudymate.com/articles/grade-05.html</guid>
+      <pubDate>Wed, 15 Apr 2026 01:13:17 GMT</pubDate>
+      <description>고등학교 진학 전에 반드시 점검해야 할 과목별 기초 역량 체크리스트.</description>
+    </item>
+    <item>
+      <title>고1 첫 내신에서 1등급 받으려면? – WeStudy</title>
+      <link>https://westudymate.com/articles/grade-06.html</link>
+      <guid isPermaLink="true">https://westudymate.com/articles/grade-06.html</guid>
+      <pubDate>Wed, 15 Apr 2026 01:13:17 GMT</pubDate>
+      <description>고등학교 첫 내신의 중요성과 1학기 성적을 최대한 끌어올리는 핵심 전략.</description>
+    </item>
+    <item>
+      <title>문과와 이과 중 어떤 걸 선택해야 할까? – WeStudy</title>
+      <link>https://westudymate.com/articles/grade-07.html</link>
+      <guid isPermaLink="true">https://westudymate.com/articles/grade-07.html</guid>
+      <pubDate>Wed, 15 Apr 2026 01:13:17 GMT</pubDate>
+      <description>선택과목 결정 시 성적, 적성, 진로를 종합 고려하는 의사결정 프레임.</description>
+    </item>
+    <item>
+      <title>내신과 모의고사를 동시에 준비할 수 있을까? – WeStudy</title>
+      <link>https://westudymate.com/articles/grade-08.html</link>
+      <guid isPermaLink="true">https://westudymate.com/articles/grade-08.html</guid>
+      <pubDate>Wed, 15 Apr 2026 01:13:17 GMT</pubDate>
+      <description>내신 시험과 모의고사를 동시에 관리하는 시간 배분 전략과 학습 비중 조절법.</description>
+    </item>
+    <item>
+      <title>고2 겨울방학, 어떻게 보내야 고3이 편할까? – WeStudy</title>
+      <link>https://westudymate.com/articles/grade-09.html</link>
+      <guid isPermaLink="true">https://westudymate.com/articles/grade-09.html</guid>
+      <pubDate>Wed, 15 Apr 2026 01:13:17 GMT</pubDate>
+      <description>고3이 되기 전 마지막 긴 방학을 수능 기초 다지기에 활용하는 과목별 플랜.</description>
+    </item>
+    <item>
+      <title>고3 연간 스케줄, 월별로 뭘 해야 할까? – WeStudy</title>
+      <link>https://westudymate.com/articles/grade-10.html</link>
+      <guid isPermaLink="true">https://westudymate.com/articles/grade-10.html</guid>
+      <pubDate>Wed, 15 Apr 2026 01:13:17 GMT</pubDate>
+      <description>3월부터 수능까지 월별 핵심 이벤트와 학습 목표를 정리한 연간 로드맵.</description>
+    </item>
+    <item>
+      <title>고3 여름방학 3주, 뭘 해야 가장 효과적일까? – WeStudy</title>
+      <link>https://westudymate.com/articles/grade-11.html</link>
+      <guid isPermaLink="true">https://westudymate.com/articles/grade-11.html</guid>
+      <pubDate>Wed, 15 Apr 2026 01:13:17 GMT</pubDate>
+      <description>수능 전 마지막 방학에 취약 과목을 집중 보완하는 3주 단기 학습 전략.</description>
+    </item>
+    <item>
+      <title>수능 2개월 전부터는 새로운 공부를 해야 할까? – WeStudy</title>
+      <link>https://westudymate.com/articles/grade-12.html</link>
+      <guid isPermaLink="true">https://westudymate.com/articles/grade-12.html</guid>
+      <pubDate>Wed, 15 Apr 2026 01:13:17 GMT</pubDate>
+      <description>수능 직전 시기에 새로운 학습보다 실전 감각 유지에 집중하는 훈련법.</description>
+    </item>
+    <item>
+      <title>중학생이 혼자 공부하는 습관을 어떻게 시작할까? – WeStudy</title>
+      <link>https://westudymate.com/articles/grade-13.html</link>
+      <guid isPermaLink="true">https://westudymate.com/articles/grade-13.html</guid>
+      <pubDate>Wed, 15 Apr 2026 01:13:17 GMT</pubDate>
+      <description>자기주도학습 경험이 없는 중학생이 스스로 학습하는 역량을 기르는 4단계 프로세스.</description>
+    </item>
+    <item>
+      <title>초등 저학년, 공부가 싫다고 하면 어떻게 해야 할까? – WeStudy</title>
+      <link>https://westudymate.com/articles/grade-14.html</link>
+      <guid isPermaLink="true">https://westudymate.com/articles/grade-14.html</guid>
+      <pubDate>Wed, 15 Apr 2026 01:13:17 GMT</pubDate>
+      <description>놀이와 학습을 자연스럽게 연결하여 공부에 대한 긍정적 경험을 심어주는 방법.</description>
+    </item>
+    <item>
+      <title>자유학기제 기간에 공부를 안 해도 될까? – WeStudy</title>
+      <link>https://westudymate.com/articles/grade-15.html</link>
+      <guid isPermaLink="true">https://westudymate.com/articles/grade-15.html</guid>
+      <pubDate>Wed, 15 Apr 2026 01:13:17 GMT</pubDate>
+      <description>시험 없는 자유학기제 기간에 기초 학력을 다지고 진로를 탐색하는 활용법.</description>
+    </item>
+    <item>
+      <title>친구랑 같이 공부하면 효과가 있을까? – WeStudy</title>
+      <link>https://westudymate.com/articles/habit-11.html</link>
+      <guid isPermaLink="true">https://westudymate.com/articles/habit-11.html</guid>
+      <pubDate>Wed, 15 Apr 2026 01:13:17 GMT</pubDate>
+      <description>혼자보다 함께 공부할 때 효과적인 과목과 스터디 그룹 운영 노하우.</description>
+    </item>
+    <item>
+      <title>공부할 때 음악 듣는 게 도움이 될까, 방해가 될까? – WeStudy</title>
+      <link>https://westudymate.com/articles/habit-12.html</link>
+      <guid isPermaLink="true">https://westudymate.com/articles/habit-12.html</guid>
+      <pubDate>Wed, 15 Apr 2026 01:13:17 GMT</pubDate>
+      <description>배경 음악이 학습에 미치는 영향과 과목별로 적합한 사운드 환경 추천.</description>
+    </item>
+    <item>
+      <title>시험 기간에 뭘 먹어야 집중력이 올라갈까? – WeStudy</title>
+      <link>https://westudymate.com/articles/habit-13.html</link>
+      <guid isPermaLink="true">https://westudymate.com/articles/habit-13.html</guid>
+      <pubDate>Wed, 15 Apr 2026 01:13:17 GMT</pubDate>
+      <description>집중력과 체력을 유지하기 위한 시험 기간 영양 관리와 간식 추천 리스트.</description>
+    </item>
+    <item>
+      <title>아이가 시험 스트레스를 심하게 받는데, 어떻게 도와줄까? – WeStudy</title>
+      <link>https://westudymate.com/articles/habit-14.html</link>
+      <guid isPermaLink="true">https://westudymate.com/articles/habit-14.html</guid>
+      <pubDate>Wed, 15 Apr 2026 01:13:17 GMT</pubDate>
+      <description>과도한 학업 스트레스를 건강하게 해소하는 학부모·학생 함께하는 이완 기법.</description>
+    </item>
+    <item>
+      <title>시험 3일 전인데 아직 범위를 다 못 봤다면? – WeStudy</title>
+      <link>https://westudymate.com/articles/exam-02.html</link>
+      <guid isPermaLink="true">https://westudymate.com/articles/exam-02.html</guid>
+      <pubDate>Wed, 15 Apr 2026 01:04:09 GMT</pubDate>
+      <description>시간이 절대적으로 부족할 때 최소한의 점수를 확보하는 3일 벼락치기 플랜.</description>
+    </item>
+    <item>
+      <title>어떤 과목부터 올려야 등급이 빨리 오를까? – WeStudy</title>
+      <link>https://westudymate.com/articles/exam-03.html</link>
+      <guid isPermaLink="true">https://westudymate.com/articles/exam-03.html</guid>
+      <pubDate>Wed, 15 Apr 2026 01:04:09 GMT</pubDate>
+      <description>현재 등급과 학습량 대비 가장 효율적으로 점수를 올릴 수 있는 과목을 찾는 자가 진단법.</description>
+    </item>
+    <item>
+      <title>모의고사를 봤는데, 어떻게 복기해야 효과적일까? – WeStudy</title>
+      <link>https://westudymate.com/articles/exam-04.html</link>
+      <guid isPermaLink="true">https://westudymate.com/articles/exam-04.html</guid>
+      <pubDate>Wed, 15 Apr 2026 01:04:09 GMT</pubDate>
+      <description>모의고사를 단순히 채점하고 끝내는 것이 아니라, 실력 분석 도구로 활용하는 5단계 프로세스.</description>
+    </item>
+    <item>
+      <title>수능 100일 전부터 어떤 순서로 공부해야 할까? – WeStudy</title>
+      <link>https://westudymate.com/articles/exam-05.html</link>
+      <guid isPermaLink="true">https://westudymate.com/articles/exam-05.html</guid>
+      <pubDate>Wed, 15 Apr 2026 01:04:09 GMT</pubDate>
+      <description>100일 전부터 시험 당일까지 월별·주별 학습 목표를 구체적으로 세우는 로드맵.</description>
+    </item>
+    <item>
+      <title>서술형 시험에서 감점 안 당하려면? – WeStudy</title>
+      <link>https://westudymate.com/articles/exam-06.html</link>
+      <guid isPermaLink="true">https://westudymate.com/articles/exam-06.html</guid>
+      <pubDate>Wed, 15 Apr 2026 01:04:09 GMT</pubDate>
+      <description>채점 기준표를 역이용한 서술형 답안 구조화 방법과 흔한 실수를 피하는 핵심 포인트.</description>
+    </item>
+    <item>
+      <title>과학 실험 문제는 어떻게 대비해야 할까? – WeStudy</title>
+      <link>https://westudymate.com/articles/exam-07.html</link>
+      <guid isPermaLink="true">https://westudymate.com/articles/exam-07.html</guid>
+      <pubDate>Wed, 15 Apr 2026 01:04:09 GMT</pubDate>
+      <description>실험 과정, 결과 해석, 변인 통제 관련 출제 패턴을 파악하고 유형별 풀이 연습법을 안내합니다.</description>
+    </item>
+    <item>
+      <title>EBS 연계 교재, 몇 번 반복해야 효과가 있을까? – WeStudy</title>
+      <link>https://westudymate.com/articles/exam-08.html</link>
+      <guid isPermaLink="true">https://westudymate.com/articles/exam-08.html</guid>
+      <pubDate>Wed, 15 Apr 2026 01:04:09 GMT</pubDate>
+      <description>수능특강·수능완성을 언제, 어떤 순서로 학습하면 가장 효율적인지 정리한 가이드.</description>
+    </item>
+    <item>
+      <title>시험 기간에 하루 몇 시간 공부해야 적정할까? – WeStudy</title>
+      <link>https://westudymate.com/articles/exam-09.html</link>
+      <guid isPermaLink="true">https://westudymate.com/articles/exam-09.html</guid>
+      <pubDate>Wed, 15 Apr 2026 01:04:09 GMT</pubDate>
+      <description>과목 교차 배치, 휴식 주기, 집중력 저하 구간 대처까지 포함한 하루 시간표 설계법.</description>
+    </item>
+    <item>
+      <title>수능 당일, 컨디션과 시간 배분은 어떻게? – WeStudy</title>
+      <link>https://westudymate.com/articles/exam-10.html</link>
+      <guid isPermaLink="true">https://westudymate.com/articles/exam-10.html</guid>
+      <pubDate>Wed, 15 Apr 2026 01:04:09 GMT</pubDate>
+      <description>시험 전날 수면 루틴부터 당일 과목별 시간 배분, 마킹 실수 방지 팁까지 총정리.</description>
+    </item>
+    <item>
+      <title>교과서만으로 시험 준비가 가능할까? – WeStudy</title>
+      <link>https://westudymate.com/articles/exam-11.html</link>
+      <guid isPermaLink="true">https://westudymate.com/articles/exam-11.html</guid>
+      <pubDate>Wed, 15 Apr 2026 01:04:09 GMT</pubDate>
+      <description>교과서를 통째로 읽지 않고 시험에 나올 핵심만 추출하는 요약 노트 작성 기술.</description>
+    </item>
+    <item>
+      <title>6월 모의평가 결과, 어떻게 활용해야 할까? – WeStudy</title>
+      <link>https://westudymate.com/articles/exam-12.html</link>
+      <guid isPermaLink="true">https://westudymate.com/articles/exam-12.html</guid>
+      <pubDate>Wed, 15 Apr 2026 01:04:09 GMT</pubDate>
+      <description>평가원 모의고사 결과를 수능 전략에 반영하는 과목별 점검 체크리스트.</description>
+    </item>
+    <item>
+      <title>우리 학교 선생님 출제 스타일, 어떻게 파악할까? – WeStudy</title>
+      <link>https://westudymate.com/articles/exam-13.html</link>
+      <guid isPermaLink="true">https://westudymate.com/articles/exam-13.html</guid>
+      <pubDate>Wed, 15 Apr 2026 01:04:09 GMT</pubDate>
+      <description>기출문제와 수업 노트에서 출제자의 선호 유형과 함정 포인트를 읽어내는 방법.</description>
+    </item>
+    <item>
+      <title>시험만 보면 머리가 하얘지는데, 어떻게 극복할까? – WeStudy</title>
+      <link>https://westudymate.com/articles/exam-14.html</link>
+      <guid isPermaLink="true">https://westudymate.com/articles/exam-14.html</guid>
+      <pubDate>Wed, 15 Apr 2026 01:04:09 GMT</pubDate>
+      <description>시험 불안을 적정 수준으로 조절하는 호흡법, 루틴, 마인드셋 전환 기법을 안내합니다.</description>
+    </item>
+    <item>
+      <title>OMR 마킹 실수, 어떻게 방지할 수 있을까? – WeStudy</title>
+      <link>https://westudymate.com/articles/exam-15.html</link>
+      <guid isPermaLink="true">https://westudymate.com/articles/exam-15.html</guid>
+      <pubDate>Wed, 15 Apr 2026 01:04:09 GMT</pubDate>
+      <description>마킹 오류로 점수를 잃지 않기 위한 검토 순서와 시간 배분 체크리스트.</description>
+    </item>
+    <item>
+      <title>수능 국·수·영 시간이 부족하면 어디를 포기해야 할까? – WeStudy</title>
+      <link>https://westudymate.com/articles/exam-16.html</link>
+      <guid isPermaLink="true">https://westudymate.com/articles/exam-16.html</guid>
+      <pubDate>Wed, 15 Apr 2026 01:04:09 GMT</pubDate>
+      <description>과목별 문항 배점과 난이도에 따른 최적 시간 배분과 전략적 포기 판단 기준.</description>
+    </item>
+    <item>
+      <title>과학 그래프 문제에서 자꾸 틀리는 이유는? – WeStudy</title>
+      <link>https://westudymate.com/articles/subject-11.html</link>
+      <guid isPermaLink="true">https://westudymate.com/articles/subject-11.html</guid>
+      <pubDate>Wed, 15 Apr 2026 01:04:09 GMT</pubDate>
+      <description>실험 데이터 그래프에서 출제자가 묻는 포인트를 빠르게 찾는 해석 스킬.</description>
+    </item>
+    <item>
+      <title>한국사 연표가 머리에 안 들어오는데? – WeStudy</title>
+      <link>https://westudymate.com/articles/subject-12.html</link>
+      <guid isPermaLink="true">https://westudymate.com/articles/subject-12.html</guid>
+      <pubDate>Wed, 15 Apr 2026 01:04:09 GMT</pubDate>
+      <description>시대 흐름을 시각화한 연표로 역사 핵심 사건을 효율적으로 암기하는 전략.</description>
+    </item>
+    <item>
+      <title>초등학생 연산 실수가 너무 잦은데, 어떻게 교정할까? – WeStudy</title>
+      <link>https://westudymate.com/articles/subject-13.html</link>
+      <guid isPermaLink="true">https://westudymate.com/articles/subject-13.html</guid>
+      <pubDate>Wed, 15 Apr 2026 01:04:09 GMT</pubDate>
+      <description>초등 시기에 연산 정확도를 높이고 실수 패턴을 교정하는 매일 10분 훈련법.</description>
+    </item>
+    <item>
+      <title>파닉스를 뗐는데, 리딩은 언제부터 시작할까? – WeStudy</title>
+      <link>https://westudymate.com/articles/subject-14.html</link>
+      <guid isPermaLink="true">https://westudymate.com/articles/subject-14.html</guid>
+      <pubDate>Wed, 15 Apr 2026 01:04:09 GMT</pubDate>
+      <description>파닉스를 뗀 아이가 자연스럽게 영어 읽기로 넘어가는 단계별 브릿지 학습법.</description>
+    </item>
+    <item>
+      <title>과학 탐구 선택과목, 어떤 조합이 유리할까? – WeStudy</title>
+      <link>https://westudymate.com/articles/subject-15.html</link>
+      <guid isPermaLink="true">https://westudymate.com/articles/subject-15.html</guid>
+      <pubDate>Wed, 15 Apr 2026 01:04:09 GMT</pubDate>
+      <description>성향과 목표 대학에 맞는 탐구 선택과목 조합을 결정하는 기준과 분석법.</description>
+    </item>
+    <item>
+      <title>공부에 도움 되는 앱이 있을까? – WeStudy</title>
+      <link>https://westudymate.com/articles/skill-12.html</link>
+      <guid isPermaLink="true">https://westudymate.com/articles/skill-12.html</guid>
+      <pubDate>Mon, 13 Apr 2026 04:38:27 GMT</pubDate>
+      <description>타이머, 플래너, 오답관리 등 학습에 도움이 되는 앱을 목적별로 추천합니다.</description>
+    </item>
+    <item>
+      <title>문제 풀이 속도가 느린데, 빨라질 수 있을까? – WeStudy</title>
+      <link>https://westudymate.com/articles/skill-11.html</link>
+      <guid isPermaLink="true">https://westudymate.com/articles/skill-11.html</guid>
+      <pubDate>Mon, 13 Apr 2026 04:37:06 GMT</pubDate>
+      <description>시험시간 내 문제 풀이 속도를 높이는 구체적인 훈련법을 소개합니다.</description>
+    </item>
+    <item>
+      <title>해외 대학도 고려할 만할까? 준비는 언제부터? – WeStudy</title>
+      <link>https://westudymate.com/articles/admission-10.html</link>
+      <guid isPermaLink="true">https://westudymate.com/articles/admission-10.html</guid>
+      <pubDate>Mon, 13 Apr 2026 04:36:16 GMT</pubDate>
+      <description>해외 대학 입학 절차, 필요한 시험, 준비 타임라인을 체계적으로 안내합니다.</description>
+    </item>
+    <item>
+      <title>개별 개념은 아는데 응용 문제에서 막히는 이유는? – WeStudy</title>
+      <link>https://westudymate.com/articles/skill-10.html</link>
+      <guid isPermaLink="true">https://westudymate.com/articles/skill-10.html</guid>
+      <pubDate>Mon, 13 Apr 2026 04:35:43 GMT</pubDate>
+      <description>개념 연결고리를 만들어 응용력을 키우는 구체적인 전략을 소개합니다.</description>
+    </item>
+    <item>
+      <title>물리·화학 공식을 외우지 않고 풀 수 있을까? – WeStudy</title>
+      <link>https://westudymate.com/articles/subject-10.html</link>
+      <guid isPermaLink="true">https://westudymate.com/articles/subject-10.html</guid>
+      <pubDate>Mon, 13 Apr 2026 04:34:41 GMT</pubDate>
+      <description>과학 과목에서 공식 암기에 의존하지 않고 원리 이해 기반으로 문제를 풀 수 있는 사고력 훈련법을 안내합니다.</description>
+    </item>
+    <item>
+      <title>수업 중 뭘 적어야 시험에 도움이 될까? – WeStudy</title>
+      <link>https://westudymate.com/articles/skill-09.html</link>
+      <guid isPermaLink="true">https://westudymate.com/articles/skill-09.html</guid>
+      <pubDate>Mon, 13 Apr 2026 04:34:26 GMT</pubDate>
+      <description>시험 출제 포인트를 포착하는 필기 스킬을 알려드립니다. 수업 중 무엇을 적어야 하는지 구체적으로 안내합니다.</description>
+    </item>
+    <item>
+      <title>한 주가 끝나면 뭘 점검해야 다음 주가 달라질까? – WeStudy</title>
+      <link>https://westudymate.com/articles/habit-10.html</link>
+      <guid isPermaLink="true">https://westudymate.com/articles/habit-10.html</guid>
+      <pubDate>Mon, 13 Apr 2026 04:33:54 GMT</pubDate>
+      <description>매주 30분 투자하는 주간 회고법으로 학습 효율을 높이는 실전 방법을 안내합니다.</description>
+    </item>
+    <item>
+      <title>비교과 활동, 뭘 해야 대학에서 좋게 볼까? – WeStudy</title>
+      <link>https://westudymate.com/articles/admission-09.html</link>
+      <guid isPermaLink="true">https://westudymate.com/articles/admission-09.html</guid>
+      <pubDate>Mon, 13 Apr 2026 04:33:46 GMT</pubDate>
+      <description>동아리, 봉사활동, 대회 등 비교과 활동을 전략적으로 구성하는 방법을 안내합니다.</description>
+    </item>
+    <item>
+      <title>국어 문법, 외워도 헷갈리는 개념은 어떻게? – WeStudy</title>
+      <link>https://westudymate.com/articles/subject-09.html</link>
+      <guid isPermaLink="true">https://westudymate.com/articles/subject-09.html</guid>
+      <pubDate>Mon, 13 Apr 2026 04:33:28 GMT</pubDate>
+      <description>음운변동, 품사분류, 문장성분 등 국어 문법의 핵심 개념을 체계적으로 정리하고 혼동을 줄이는 학습법을 안내합니다.</description>
+    </item>
+    <item>
+      <title>학원·숙제·내신 다 해야 하는데, 뭘 먼저 해야 할까? – WeStudy</title>
+      <link>https://westudymate.com/articles/skill-08.html</link>
+      <guid isPermaLink="true">https://westudymate.com/articles/skill-08.html</guid>
+      <pubDate>Mon, 13 Apr 2026 04:32:53 GMT</pubDate>
+      <description>학원, 숙제, 내신 준비가 겹칠 때 우선순위를 정하는 현실적인 기준을 제안합니다.</description>
+    </item>
+    <item>
+      <title>이공계와 인문계, 어떤 기준으로 결정해야 할까? – WeStudy</title>
+      <link>https://westudymate.com/articles/admission-08.html</link>
+      <guid isPermaLink="true">https://westudymate.com/articles/admission-08.html</guid>
+      <pubDate>Mon, 13 Apr 2026 04:32:33 GMT</pubDate>
+      <description>성적, 흥미, 직업전망을 종합적으로 고려하여 이공계와 인문계를 결정하는 체크리스트를 안내합니다.</description>
+    </item>
+    <item>
+      <title>집에서 집중이 안 되는데, 공부 공간을 어떻게 바꿀까? – WeStudy</title>
+      <link>https://westudymate.com/articles/habit-09.html</link>
+      <guid isPermaLink="true">https://westudymate.com/articles/habit-09.html</guid>
+      <pubDate>Mon, 13 Apr 2026 04:32:18 GMT</pubDate>
+      <description>책상 정리, 조명 설정, 소음 관리 등 집중력을 높이는 공부 환경 만들기 실전 팁을 안내합니다.</description>
+    </item>
+    <item>
+      <title>문학 작품은 어떻게 분석해야 시험에 나올까? – WeStudy</title>
+      <link>https://westudymate.com/articles/subject-08.html</link>
+      <guid isPermaLink="true">https://westudymate.com/articles/subject-08.html</guid>
+      <pubDate>Mon, 13 Apr 2026 04:32:01 GMT</pubDate>
+      <description>시, 소설, 수필의 체계적 분석 틀을 통해 문학 시험을 효과적으로 대비하는 방법을 안내합니다.</description>
+    </item>
+    <item>
+      <title>시험 직전에 A4 한 장으로 총정리할 수 있을까? – WeStudy</title>
+      <link>https://westudymate.com/articles/skill-07.html</link>
+      <guid isPermaLink="true">https://westudymate.com/articles/skill-07.html</guid>
+      <pubDate>Mon, 13 Apr 2026 04:31:39 GMT</pubDate>
+      <description>시험 전 A4 요약 시트 제작 노하우를 알려드립니다. 한 장에 핵심을 압축하는 실전 방법.</description>
+    </item>
+    <item>
+      <title>세부능력특기사항, 어떻게 채워야 유리할까? – WeStudy</title>
+      <link>https://westudymate.com/articles/admission-07.html</link>
+      <guid isPermaLink="true">https://westudymate.com/articles/admission-07.html</guid>
+      <pubDate>Mon, 13 Apr 2026 04:31:22 GMT</pubDate>
+      <description>교과 수업에서 세부능력특기사항을 의미있게 채우는 구체적인 방법과 전략을 안내합니다.</description>
+    </item>
+    <item>
+      <title>비문학 지문이 길면 뭐부터 읽어야 할까? – WeStudy</title>
+      <link>https://westudymate.com/articles/subject-07.html</link>
+      <guid isPermaLink="true">https://westudymate.com/articles/subject-07.html</guid>
+      <pubDate>Mon, 13 Apr 2026 04:30:49 GMT</pubDate>
+      <description>긴 비문학 지문을 효율적으로 읽기 위한 구조적 독해법과 핵심 논지 파악 프레임을 안내합니다.</description>
+    </item>
+    <item>
+      <title>공부 의욕이 뚝 떨어졌을 때, 어떻게 다시 시작할까? – WeStudy</title>
+      <link>https://westudymate.com/articles/habit-08.html</link>
+      <guid isPermaLink="true">https://westudymate.com/articles/habit-08.html</guid>
+      <pubDate>Mon, 13 Apr 2026 04:30:37 GMT</pubDate>
+      <description>번아웃과 슬럼프에서 학습 동기를 회복하는 5가지 실전 기법을 소개합니다.</description>
+    </item>
+    <item>
+      <title>수학 틀린 문제를 다시 풀어도 또 틀리는데? – WeStudy</title>
+      <link>https://westudymate.com/articles/skill-06.html</link>
+      <guid isPermaLink="true">https://westudymate.com/articles/skill-06.html</guid>
+      <pubDate>Mon, 13 Apr 2026 04:30:30 GMT</pubDate>
+      <description>수학 오답을 근본적으로 해결하는 문제분류, 풀이과정점검, 유사문제연습 3단계를 소개합니다.</description>
+    </item>
+    <item>
+      <title>교과전형으로 가려면 내신 몇 등급이어야 할까? – WeStudy</title>
+      <link>https://westudymate.com/articles/admission-06.html</link>
+      <guid isPermaLink="true">https://westudymate.com/articles/admission-06.html</guid>
+      <pubDate>Mon, 13 Apr 2026 04:30:10 GMT</pubDate>
+      <description>교과전형의 내신 반영 방식과 등급별 지원 가능 대학, 실전 지원 전략을 안내합니다.</description>
+    </item>
+    <item>
+      <title>영어 듣기평가에서 만점 받는 비결은? – WeStudy</title>
+      <link>https://westudymate.com/articles/subject-06.html</link>
+      <guid isPermaLink="true">https://westudymate.com/articles/subject-06.html</guid>
+      <pubDate>Mon, 13 Apr 2026 04:29:33 GMT</pubDate>
+      <description>영어 듣기평가 만점을 위한 매일 15분 단계별 듣기 훈련법을 소개합니다.</description>
+    </item>
+    <item>
+      <title>남에게 설명하면 공부가 된다는데, 정말일까? – WeStudy</title>
+      <link>https://westudymate.com/articles/skill-05.html</link>
+      <guid isPermaLink="true">https://westudymate.com/articles/skill-05.html</guid>
+      <pubDate>Mon, 13 Apr 2026 04:29:13 GMT</pubDate>
+      <description>파인만 학습법의 원리와 실전 적용법을 소개합니다. 설명하기를 통해 진짜 이해를 확인하세요.</description>
+    </item>
+    <item>
+      <title>&quot;열심히 하자&quot; 대신 어떤 목표를 세워야 할까? – WeStudy</title>
+      <link>https://westudymate.com/articles/habit-07.html</link>
+      <guid isPermaLink="true">https://westudymate.com/articles/habit-07.html</guid>
+      <pubDate>Mon, 13 Apr 2026 04:29:00 GMT</pubDate>
+      <description>SMART 기법을 활용해 구체적이고 달성 가능한 학습 목표를 설정하는 방법을 안내합니다.</description>
+    </item>
+    <item>
+      <title>하고 싶은 게 없는데, 어떤 학과를 가야 할까? – WeStudy</title>
+      <link>https://westudymate.com/articles/admission-05.html</link>
+      <guid isPermaLink="true">https://westudymate.com/articles/admission-05.html</guid>
+      <pubDate>Mon, 13 Apr 2026 04:28:46 GMT</pubDate>
+      <description>자기이해 활동과 학과 탐색 프로세스를 통해 진로 방향을 찾는 방법을 안내합니다.</description>
+    </item>
+    <item>
+      <title>단어를 외워도 자꾸 까먹는 이유는? – WeStudy</title>
+      <link>https://westudymate.com/articles/subject-05.html</link>
+      <guid isPermaLink="true">https://westudymate.com/articles/subject-05.html</guid>
+      <pubDate>Mon, 13 Apr 2026 04:28:07 GMT</pubDate>
+      <description>영어 단어 암기가 지속되지 않는 원인을 분석하고, 어원분석, 연상법, 간격반복 전략을 활용한 효과적인 어휘 학습법을 소개합니다.</description>
+    </item>
+    <item>
+      <title>단순 반복 암기 말고 더 좋은 방법은 없을까? – WeStudy</title>
+      <link>https://westudymate.com/articles/skill-04.html</link>
+      <guid isPermaLink="true">https://westudymate.com/articles/skill-04.html</guid>
+      <pubDate>Mon, 13 Apr 2026 04:27:39 GMT</pubDate>
+      <description>이미지 연상, 스토리텔링, 위치법 등 과학적으로 검증된 기억 테크닉 5가지를 소개합니다.</description>
+    </item>
+    <item>
+      <title>방학 때 공부 리듬이 무너지면 어떻게 복구할까? – WeStudy</title>
+      <link>https://westudymate.com/articles/habit-06.html</link>
+      <guid isPermaLink="true">https://westudymate.com/articles/habit-06.html</guid>
+      <pubDate>Mon, 13 Apr 2026 04:27:36 GMT</pubDate>
+      <description>방학 중 학습 루틴 유지 전략과 무너진 리듬을 빠르게 복구하는 실전 방법을 안내합니다.</description>
+    </item>
+    <item>
+      <title>이 수능 점수로 어디까지 지원할 수 있을까? – WeStudy</title>
+      <link>https://westudymate.com/articles/admission-04.html</link>
+      <guid isPermaLink="true">https://westudymate.com/articles/admission-04.html</guid>
+      <pubDate>Mon, 13 Apr 2026 04:27:27 GMT</pubDate>
+      <description>수능 등급조합별 합격 가능 대학 분석과 정시 지원 전략을 안내합니다.</description>
+    </item>
+    <item>
+      <title>영어 지문을 읽는데 시간이 너무 오래 걸린다면? – WeStudy</title>
+      <link>https://westudymate.com/articles/subject-04.html</link>
+      <guid isPermaLink="true">https://westudymate.com/articles/subject-04.html</guid>
+      <pubDate>Mon, 13 Apr 2026 04:26:50 GMT</pubDate>
+      <description>영어 독해 속도를 높이기 위한 구문분석 훈련법과 핵심 정보 추출 전략을 단계별로 안내합니다.</description>
+    </item>
+    <item>
+      <title>대학 면접, 어떻게 준비해야 떨지 않을까? – WeStudy</title>
+      <link>https://westudymate.com/articles/admission-03.html</link>
+      <guid isPermaLink="true">https://westudymate.com/articles/admission-03.html</guid>
+      <pubDate>Mon, 13 Apr 2026 04:26:17 GMT</pubDate>
+      <description>제시문 기반 면접과 활동 기반 면접의 유형별 준비 방법을 구체적으로 안내합니다.</description>
+    </item>
+    <item>
+      <title>코넬 노트 필기법이 뭐고, 어떻게 쓰는 거야? – WeStudy</title>
+      <link>https://westudymate.com/articles/skill-03.html</link>
+      <guid isPermaLink="true">https://westudymate.com/articles/skill-03.html</guid>
+      <pubDate>Mon, 13 Apr 2026 04:26:15 GMT</pubDate>
+      <description>코넬 노트 작성법과 활용 예시를 통해 효과적인 필기 습관을 만들어 보세요.</description>
+    </item>
+    <item>
+      <title>학습 다이어리, 어떻게 써야 의미가 있을까? – WeStudy</title>
+      <link>https://westudymate.com/articles/habit-05.html</link>
+      <guid isPermaLink="true">https://westudymate.com/articles/habit-05.html</guid>
+      <pubDate>Mon, 13 Apr 2026 04:25:56 GMT</pubDate>
+      <description>학습량과 이해도를 기록하고 진도를 관리하는 효과적인 학습 다이어리 작성법을 안내합니다.</description>
+    </item>
+    <item>
+      <title>오답 노트를 만드는데 왜 효과가 없을까? – WeStudy</title>
+      <link>https://westudymate.com/articles/subject-03.html</link>
+      <guid isPermaLink="true">https://westudymate.com/articles/subject-03.html</guid>
+      <pubDate>Mon, 13 Apr 2026 04:25:34 GMT</pubDate>
+      <description>오답 노트를 만들어도 성적이 오르지 않는 이유를 분석하고, 재출제 가능 유형으로 분류하는 실전 오답 정리법을 안내합니다.</description>
+    </item>
+    <item>
+      <title>자기소개서에서 가장 중요한 것은? – WeStudy</title>
+      <link>https://westudymate.com/articles/admission-02.html</link>
+      <guid isPermaLink="true">https://westudymate.com/articles/admission-02.html</guid>
+      <pubDate>Mon, 13 Apr 2026 04:24:59 GMT</pubDate>
+      <description>자기소개서의 핵심 구성요소와 작성 시 반드시 피해야 할 실수를 구체적으로 안내합니다.</description>
+    </item>
+    <item>
+      <title>외운 것을 오래 기억하려면 어떻게 복습해야 할까? – WeStudy</title>
+      <link>https://westudymate.com/articles/skill-02.html</link>
+      <guid isPermaLink="true">https://westudymate.com/articles/skill-02.html</guid>
+      <pubDate>Mon, 13 Apr 2026 04:24:55 GMT</pubDate>
+      <description>에빙하우스 망각곡선과 간격반복 복습 주기를 활용한 장기 기억 전략을 소개합니다.</description>
+    </item>
+    <item>
+      <title>킬러 문항을 보면 바로 포기하는 습관, 고칠 수 있을까? – WeStudy</title>
+      <link>https://westudymate.com/articles/subject-02.html</link>
+      <guid isPermaLink="true">https://westudymate.com/articles/subject-02.html</guid>
+      <pubDate>Mon, 13 Apr 2026 04:24:14 GMT</pubDate>
+      <description>수능 수학 고난도 킬러 문항에서 포기하지 않고 실마리를 찾는 사고 훈련법을 단계별로 안내합니다.</description>
+    </item>
+    <item>
+      <title>잠을 줄여서 공부하면 성적이 오를까? – WeStudy</title>
+      <link>https://westudymate.com/articles/habit-04.html</link>
+      <guid isPermaLink="true">https://westudymate.com/articles/habit-04.html</guid>
+      <pubDate>Mon, 13 Apr 2026 04:24:08 GMT</pubDate>
+      <description>수면과 기억 정착의 관계, 학생에게 최적인 수면 패턴과 시간을 과학적으로 안내합니다.</description>
+    </item>
+    <item>
+      <title>학생부 종합전형, 고1부터 뭘 준비해야 할까? – WeStudy</title>
+      <link>https://westudymate.com/articles/admission-01.html</link>
+      <guid isPermaLink="true">https://westudymate.com/articles/admission-01.html</guid>
+      <pubDate>Mon, 13 Apr 2026 04:23:40 GMT</pubDate>
+      <description>학생부종합전형의 평가요소와 고등학교 1학년부터 단계별로 준비하는 전략을 안내합니다.</description>
+    </item>
+    <item>
+      <title>오답 노트를 만들어도 성적이 안 오르는 이유는? – WeStudy</title>
+      <link>https://westudymate.com/articles/skill-01.html</link>
+      <guid isPermaLink="true">https://westudymate.com/articles/skill-01.html</guid>
+      <pubDate>Mon, 13 Apr 2026 04:23:36 GMT</pubDate>
+      <description>오답노트 효과 못 보는 근본원인과 개선법을 알려드립니다.</description>
+    </item>
+    <item>
+      <title>개념은 아는데 왜 문제가 안 풀릴까? – WeStudy</title>
+      <link>https://westudymate.com/articles/subject-01.html</link>
+      <guid isPermaLink="true">https://westudymate.com/articles/subject-01.html</guid>
+      <pubDate>Mon, 13 Apr 2026 04:22:47 GMT</pubDate>
+      <description>수학 개념을 이해했다고 생각하지만 문제 풀이에서 막히는 학생을 위한 개념-문제 연결 훈련법을 소개합니다.</description>
+    </item>
+    <item>
+      <title>뽀모도로 타이머, 실제로 효과 있을까? – WeStudy</title>
+      <link>https://westudymate.com/articles/habit-03.html</link>
+      <guid isPermaLink="true">https://westudymate.com/articles/habit-03.html</guid>
+      <pubDate>Mon, 13 Apr 2026 04:22:34 GMT</pubDate>
+      <description>뽀모도로 기법의 25분+5분 사이클을 과목별로 최적화하는 방법과 실제 학습 효과를 분석합니다.</description>
+    </item>
+    <item>
+      <title>공부하다 자꾸 폰을 보게 되는데, 어떡할까? – WeStudy</title>
+      <link>https://westudymate.com/articles/habit-02.html</link>
+      <guid isPermaLink="true">https://westudymate.com/articles/habit-02.html</guid>
+      <pubDate>Mon, 13 Apr 2026 04:21:07 GMT</pubDate>
+      <description>공부 중 스마트폰 유혹을 차단하는 환경설정 방법과 디지털 디톡스 전략을 안내합니다.</description>
+    </item>
+    <item>
+      <title>하루 공부 루틴, 어떻게 짜야 지속될까? – WeStudy</title>
+      <link>https://westudymate.com/articles/habit-01.html</link>
+      <guid isPermaLink="true">https://westudymate.com/articles/habit-01.html</guid>
+      <pubDate>Mon, 13 Apr 2026 04:19:30 GMT</pubDate>
+      <description>매일 실천 가능한 일일 공부 루틴 설계 5단계를 소개합니다. 지속 가능한 학습 습관을 만드는 실전 가이드입니다.</description>
+    </item>
+    <item>
+      <title>중간고사 2주 전, 뭐부터 해야 할까? – WeStudy</title>
+      <link>https://westudymate.com/articles/exam-01.html</link>
+      <guid isPermaLink="true">https://westudymate.com/articles/exam-01.html</guid>
+      <pubDate>Mon, 13 Apr 2026 04:09:02 GMT</pubDate>
+      <description>시험까지 남은 시간에 따라 과목별 우선순위를 배분하는 현실적인 체크리스트를 제안합니다.</description>
+    </item>
+  </channel>
+</rss>
