@@ -134,6 +134,10 @@
     .page-hero { position:relative; padding:130px 5% 70px; background:linear-gradient(135deg, var(--navy) 0%, #1E3A5F 100%); overflow:hidden; text-align:center; }
     .page-hero::before { content:''; position:absolute; inset:0; background:radial-gradient(circle at 20% 20%, rgba(37,99,235,0.3) 0%, transparent 50%), radial-gradient(circle at 80% 80%, rgba(245,158,11,0.15) 0%, transparent 50%); }
     .page-hero-inner { max-width:900px; margin:0 auto; position:relative; }
+    .hub-breadcrumb { font-size:.82rem; color:rgba(255,255,255,.55); margin-bottom:1.3rem; }
+    .hub-breadcrumb a { color:rgba(255,255,255,.55); text-decoration:none; }
+    .hub-breadcrumb a:hover { color:rgba(255,255,255,.9); }
+    .hub-breadcrumb span { color:rgba(255,255,255,.9); }
     .page-badge { display:inline-block; background:rgba(37,99,235,0.2); color:#93C5FD; padding:0.3rem 1rem; border-radius:50px; font-size:0.8rem; font-weight:700; margin-bottom:1rem; }
     .page-title { font-size:clamp(1.9rem, 4vw, 3rem); font-weight:900; color:var(--white); letter-spacing:-0.04em; line-height:1.3; margin-bottom:1.25rem; }
     .page-title em { font-style:normal; color:var(--amber); }
@@ -308,6 +312,8 @@
   <!-- HERO -->
   <section class="page-hero">
     <div class="page-hero-inner">
+      <div class="hub-breadcrumb"><a href="/index.html">홈</a> › <span>소개</span></div>
+      <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"홈","item":"https://westudymate.com/"},{"@type":"ListItem","position":2,"name":"소개"}]}</script>
       <div class="page-badge">WeStudy 소개</div>
       <h1 class="page-title">성적 이전에 <em>마음이 먼저</em><br>바뀌는 교육을 만듭니다</h1>
       <p class="page-desc">WeStudy는 "우리 아이가 스스로 공부할 수 있게 되는 순간"을 목표로 합니다.<br>성적은 그 여정의 자연스러운 결과입니다.</p>
