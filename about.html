@@ -65,6 +65,69 @@
     .mobile-menu.open { display:flex; }
     .mobile-menu a { color:var(--white); font-size:1.25rem; font-weight:600; padding:1rem 2rem; border-radius:12px; }
     .mobile-menu-close { position:absolute; top:1.25rem; right:1.5rem; background:none; border:none; color:var(--white); font-size:2rem; cursor:pointer; }
+
+    /* ── NAV DROPDOWN (Phase 1) ── */
+    .nav-links { gap: 1.5rem; }
+    .nav-links li.has-dd { position: relative; }
+    .nav-links li.has-dd > a { display: inline-flex; align-items: center; }
+    .nav-links li.has-dd > a::after { content:''; display:inline-block; margin-left:5px; width:6px; height:6px; border-right:1.5px solid currentColor; border-bottom:1.5px solid currentColor; transform:rotate(45deg) translateY(-2px); opacity:0.6; transition:transform 0.2s; }
+    .nav-links li.has-dd:hover > a::after { transform: rotate(-135deg) translateY(2px); }
+    .nav-dd { position:absolute; top:calc(100% + 14px); left:50%; transform:translateX(-50%) translateY(-4px); background:#fff; border-radius:14px; box-shadow:0 16px 48px rgba(10,22,40,0.14); border:1px solid #F3F4F6; padding:22px; opacity:0; visibility:hidden; pointer-events:none; transition:opacity 0.22s, transform 0.22s, visibility 0.22s; z-index:210; }
+    .nav-links li.has-dd:hover .nav-dd, .nav-links li.has-dd:focus-within .nav-dd { opacity:1; visibility:visible; pointer-events:auto; transform:translateX(-50%) translateY(0); }
+    .nav-dd.wide { width:620px; } .nav-dd.mid { width:420px; } .nav-dd.narrow { width:240px; }
+    .nav-dd::before { content:''; position:absolute; top:-6px; left:50%; transform:translateX(-50%) rotate(45deg); width:12px; height:12px; background:#fff; border-left:1px solid #F3F4F6; border-top:1px solid #F3F4F6; z-index:1; }
+    .nav-dd::after { content:''; position:absolute; top:-18px; left:0; right:0; height:18px; background:transparent; }
+    .dd-tabs { display:flex; gap:4px; margin-bottom:18px; border-bottom:1px solid #F3F4F6; }
+    .dd-tab { padding:10px 16px; background:transparent; color:#6B7280; font-size:0.82rem; font-weight:700; cursor:pointer; border:none; border-bottom:2px solid transparent; margin-bottom:-1px; transition:color 0.15s, border-color 0.15s; font-family:inherit; }
+    .dd-tab.active { color:#1D4ED8; border-bottom-color:#1D4ED8; }
+    .dd-pane { display:none; } .dd-pane.active { display:block; }
+    .dd-grid { display:grid; grid-template-columns:repeat(5, 1fr); gap:7px; }
+    .dd-grid.cols-3 { grid-template-columns:repeat(3, 1fr); }
+    .dd-grid.cols-4 { grid-template-columns:repeat(4, 1fr); }
+    .dd-grid.cols-1 { grid-template-columns:1fr; gap:4px; }
+    .nav-links .dd-btn { display:block; padding:11px 6px; background:#F9FAFB; border:1px solid #F3F4F6; border-radius:8px; color:#0A1628; font-size:0.82rem; font-weight:600; text-align:center; text-decoration:none; transition:background 0.15s, border-color 0.15s, color 0.15s; }
+    .nav-links .dd-btn:hover { background:#EFF6FF; border-color:#1D4ED8; color:#1D4ED8; }
+    .nav-links .dd-grid.cols-1 .dd-btn { text-align:left; padding:10px 14px; }
+    nav.scrolled .nav-links .dd-btn { color:#0A1628; }
+    nav.scrolled .nav-links .dd-btn:hover { color:#1D4ED8; }
+    .nav-links .dd-btn-all { display:block; padding:12px 16px; background:linear-gradient(90deg,#EFF6FF,#DBEAFE); border:1px solid #BFDBFE; border-radius:8px; color:#1D4ED8; font-weight:700; text-decoration:none; text-align:center; margin-bottom:12px; font-size:.85rem; transition:all .15s; }
+    .nav-links .dd-btn-all:hover { background:#1D4ED8; color:#fff; border-color:#1D4ED8; }
+    nav.scrolled .nav-links .dd-btn-all { color:#1D4ED8; }
+    nav.scrolled .nav-links .dd-btn-all:hover { color:#fff; }
+    .m-btn-all { display:block; padding:14px 16px; background:rgba(37,99,235,.3); border:1px solid rgba(37,99,235,.5); border-radius:8px; color:#fff; font-weight:700; text-decoration:none; text-align:center; margin-bottom:10px; font-size:.9rem; }
+    .m-btn-all:active { background:rgba(37,99,235,.45); }
+    .nav-links li.nav-cta-item > a { background:rgba(255,255,255,0.15); color:var(--white); padding:0.5rem 1.3rem; border-radius:50px; border:1.5px solid rgba(255,255,255,0.35); font-weight:700; transition:all 0.25s; }
+    .nav-links li.nav-cta-item > a:hover { background:var(--white); color:var(--blue); border-color:var(--white); }
+    nav.scrolled .nav-links li.nav-cta-item > a { background:var(--blue); color:var(--white); border-color:var(--blue); }
+    nav.scrolled .nav-links li.nav-cta-item > a:hover { background:var(--blue-mid); border-color:var(--blue-mid); }
+
+    /* ── MOBILE ACCORDION ── */
+    .mobile-menu { align-items:stretch !important; justify-content:flex-start !important; overflow-y:auto; padding-top:56px; }
+    .m-accordion { list-style:none; padding:20px 16px; max-width:520px; width:100%; margin:0 auto; }
+    .m-accordion > li { border-bottom:1px solid rgba(255,255,255,0.12); }
+    .m-accordion > li > .m-link { display:flex; justify-content:space-between; align-items:center; padding:18px 6px; color:var(--white); text-decoration:none; font-size:1.05rem; font-weight:700; cursor:pointer; user-select:none; }
+    .m-accordion > li > .m-link::after { content:''; width:8px; height:8px; border-right:2px solid currentColor; border-bottom:2px solid currentColor; transform:rotate(45deg) translateY(-2px); opacity:0.55; transition:transform 0.25s; }
+    .m-accordion > li.no-sub > .m-link::after { display:none; }
+    .m-accordion > li.open > .m-link::after { transform:rotate(-135deg) translateY(2px); opacity:1; }
+    .m-accordion > li.nav-cta-item { border-bottom:none; }
+    .m-accordion > li.nav-cta-item > .m-link { background:var(--blue); border-radius:10px; padding:14px 16px; margin-top:12px; justify-content:center; }
+    .m-sub { max-height:0; overflow:hidden; transition:max-height 0.3s ease-out; }
+    .m-accordion > li.open .m-sub { max-height:1500px; transition:max-height 0.45s ease-in; padding:0 6px 18px; }
+    .m-tabs { display:flex; gap:2px; margin-bottom:12px; border-bottom:1px solid rgba(255,255,255,0.12); }
+    .m-tab { padding:8px 14px; background:transparent; color:rgba(255,255,255,0.55); font-size:0.82rem; font-weight:700; cursor:pointer; border:none; border-bottom:2px solid transparent; margin-bottom:-1px; font-family:inherit; }
+    .m-tab.active { color:var(--white); border-bottom-color:var(--blue-mid); }
+    .m-pane { display:none; } .m-pane.active { display:block; }
+    .m-grid { display:grid; grid-template-columns:repeat(3, 1fr); gap:6px; }
+    .m-grid.cols-2 { grid-template-columns:repeat(2, 1fr); }
+    .m-grid.cols-1 { grid-template-columns:1fr; }
+    .m-btn { display:block; padding:11px 6px; background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.1); border-radius:8px; color:rgba(255,255,255,0.9); font-size:0.85rem; font-weight:600; text-align:center; text-decoration:none; }
+    .m-btn:active, .m-btn:hover { background:rgba(255,255,255,0.15); color:var(--white); }
+
+    @media (max-width: 960px) {
+      .nav-links { display:none; }
+      .nav-mobile-btn { display:flex !important; align-items:center; justify-content:center; background:rgba(255,255,255,0.12); border:1.5px solid rgba(255,255,255,0.25); border-radius:8px; width:40px; height:40px; cursor:pointer; color:var(--white); font-size:1.2rem; }
+      nav.scrolled .nav-mobile-btn { color:var(--navy); border-color:var(--gray-300); background:var(--gray-100); }
+    }
     @media(max-width:768px) { .nav-links, .nav-cta { display:none; } .nav-mobile-btn { display:block; } }
 
     /* HERO */
@@ -182,27 +245,64 @@
 <body>
   <!-- NAV -->
   <nav id="mainNav">
-    <a href="index.html" class="nav-logo">
+    <a href="/index.html" class="nav-logo">
       <span class="logo-mark">W</span>
       <span class="logo-name">WeStudy</span>
     </a>
     <ul class="nav-links">
-      <li><a href="education.html">교육 정보</a></li>
-      <li><a href="hagwon.html">학원 상담</a></li>
-      <li><a href="reviews.html">수업 후기</a></li>
-      <li><a href="about.html" class="active">소개</a></li>
-      <li><a href="contact.html">상담 신청</a></li>
+      <li class="has-dd">
+        <a href="/지역">지역별 수업</a>
+        <div class="nav-dd wide">
+          <div class="dd-tabs"><button class="dd-tab active" data-dd-tab="region">지역별 과외</button><button class="dd-tab" data-dd-tab="grade">학년별 과외</button><button class="dd-tab" data-dd-tab="school">학교별 과외</button></div>
+          <div class="dd-pane active" data-dd-pane="region"><a class="dd-btn-all" href="/지역">🌐 전국 지역 전체 보기</a><div class="dd-grid"><a class="dd-btn" href="/지역/서울특별시">서울</a><a class="dd-btn" href="/지역/경기도">경기</a><a class="dd-btn" href="/지역/인천광역시">인천</a><a class="dd-btn" href="/지역/부산광역시">부산</a><a class="dd-btn" href="/지역/대구광역시">대구</a><a class="dd-btn" href="/지역/대전광역시">대전</a><a class="dd-btn" href="/지역/광주광역시">광주</a><a class="dd-btn" href="/지역/울산광역시">울산</a><a class="dd-btn" href="/지역/세종특별자치시">세종</a><a class="dd-btn" href="/지역/강원특별자치도">강원</a><a class="dd-btn" href="/지역/충청북도">충북</a><a class="dd-btn" href="/지역/충청남도">충남</a><a class="dd-btn" href="/지역/전북특별자치도">전북</a><a class="dd-btn" href="/지역/전라남도">전남</a><a class="dd-btn" href="/지역/경상북도">경북</a><a class="dd-btn" href="/지역/경상남도">경남</a><a class="dd-btn" href="/지역/제주특별자치도">제주</a></div></div>
+          <div class="dd-pane" data-dd-pane="grade"><div class="dd-grid cols-4"><a class="dd-btn" href="/학년/초1">초1</a><a class="dd-btn" href="/학년/초2">초2</a><a class="dd-btn" href="/학년/초3">초3</a><a class="dd-btn" href="/학년/초4">초4</a><a class="dd-btn" href="/학년/초5">초5</a><a class="dd-btn" href="/학년/초6">초6</a><a class="dd-btn" href="/학년/중1">중1</a><a class="dd-btn" href="/학년/중2">중2</a><a class="dd-btn" href="/학년/중3">중3</a><a class="dd-btn" href="/학년/고1">고1</a><a class="dd-btn" href="/학년/고2">고2</a><a class="dd-btn" href="/학년/고3">고3</a></div></div>
+          <div class="dd-pane" data-dd-pane="school"><div class="dd-grid"><a class="dd-btn" href="/학교/서울특별시">서울</a><a class="dd-btn" href="/학교/경기도">경기</a><a class="dd-btn" href="/학교/인천광역시">인천</a><a class="dd-btn" href="/학교/부산광역시">부산</a><a class="dd-btn" href="/학교/대구광역시">대구</a><a class="dd-btn" href="/학교/대전광역시">대전</a><a class="dd-btn" href="/학교/광주광역시">광주</a><a class="dd-btn" href="/학교/울산광역시">울산</a><a class="dd-btn" href="/학교/세종특별자치시">세종</a><a class="dd-btn" href="/학교/강원특별자치도">강원</a><a class="dd-btn" href="/학교/충청북도">충북</a><a class="dd-btn" href="/학교/충청남도">충남</a><a class="dd-btn" href="/학교/전북특별자치도">전북</a><a class="dd-btn" href="/학교/전라남도">전남</a><a class="dd-btn" href="/학교/경상북도">경북</a><a class="dd-btn" href="/학교/경상남도">경남</a><a class="dd-btn" href="/학교/제주특별자치도">제주</a></div></div>
+        </div>
+      </li>
+      <li class="has-dd">
+        <a href="/과목">과목별 수업</a>
+        <div class="nav-dd mid"><div class="dd-grid cols-3"><a class="dd-btn" href="/과목/수학">수학</a><a class="dd-btn" href="/과목/영어">영어</a><a class="dd-btn" href="/과목/국어">국어</a><a class="dd-btn" href="/과목/과학">과학</a><a class="dd-btn" href="/과목/사회">사회</a><a class="dd-btn" href="/과목/코딩">코딩</a><a class="dd-btn" href="/과목/논술">논술</a><a class="dd-btn" href="/과목/검정고시">검정고시</a><a class="dd-btn" href="/과목/수행평가">수행평가</a></div></div>
+      </li>
+      <li><a href="/hagwon.html">학원 상담</a></li>
+      <li class="has-dd">
+        <a href="#">회화 수업</a>
+        <div class="nav-dd narrow"><div class="dd-grid cols-1"><a class="dd-btn" href="/회화/영어">영어회화</a><a class="dd-btn" href="/회화/중국어">중국어회화</a><a class="dd-btn" href="/회화/일본어">일본어회화</a></div></div>
+      </li>
+      <li class="has-dd">
+        <a href="#">기타 수업</a>
+        <div class="nav-dd narrow"><div class="dd-grid cols-1"><a class="dd-btn" href="/기타/학습코칭">학습 코칭</a><a class="dd-btn" href="/기타/입시컨설팅">입시 컨설팅</a><a class="dd-btn" href="/기타/생기부컨설팅">생기부 컨설팅</a><a class="dd-btn" href="/기타/유학">유학 프로그램</a><a class="dd-btn" href="/기타/국제학교">국제학교 상담</a></div></div>
+      </li>
+      <li class="nav-cta-item"><a href="/contact.html">문의하기</a></li>
     </ul>
-    <a href="contact.html" class="nav-cta">무료 상담 신청</a>
     <button class="nav-mobile-btn" id="mobileBtn" aria-label="메뉴">☰</button>
   </nav>
   <div class="mobile-menu" id="mobileMenu">
     <button class="mobile-menu-close" id="mobileMenuClose">✕</button>
-    <a href="education.html">교육 정보</a>
-    <a href="hagwon.html">학원 상담</a>
-    <a href="reviews.html">수업 후기</a>
-    <a href="about.html">소개</a>
-    <a href="contact.html">상담 신청</a>
+    <ul class="m-accordion">
+      <li>
+        <div class="m-link">지역별 수업</div>
+        <div class="m-sub">
+          <div class="m-tabs"><button class="m-tab active" data-m-tab="region">지역별</button><button class="m-tab" data-m-tab="grade">학년별</button><button class="m-tab" data-m-tab="school">학교별</button></div>
+          <div class="m-pane active" data-m-pane="region"><a class="m-btn-all" href="/지역">🌐 전국 지역 전체 보기</a><div class="m-grid"><a class="m-btn" href="/지역/서울특별시">서울</a><a class="m-btn" href="/지역/경기도">경기</a><a class="m-btn" href="/지역/인천광역시">인천</a><a class="m-btn" href="/지역/부산광역시">부산</a><a class="m-btn" href="/지역/대구광역시">대구</a><a class="m-btn" href="/지역/대전광역시">대전</a><a class="m-btn" href="/지역/광주광역시">광주</a><a class="m-btn" href="/지역/울산광역시">울산</a><a class="m-btn" href="/지역/세종특별자치시">세종</a><a class="m-btn" href="/지역/강원특별자치도">강원</a><a class="m-btn" href="/지역/충청북도">충북</a><a class="m-btn" href="/지역/충청남도">충남</a><a class="m-btn" href="/지역/전북특별자치도">전북</a><a class="m-btn" href="/지역/전라남도">전남</a><a class="m-btn" href="/지역/경상북도">경북</a><a class="m-btn" href="/지역/경상남도">경남</a><a class="m-btn" href="/지역/제주특별자치도">제주</a></div></div>
+          <div class="m-pane" data-m-pane="grade"><div class="m-grid cols-2"><a class="m-btn" href="/학년/초1">초1</a><a class="m-btn" href="/학년/초2">초2</a><a class="m-btn" href="/학년/초3">초3</a><a class="m-btn" href="/학년/초4">초4</a><a class="m-btn" href="/학년/초5">초5</a><a class="m-btn" href="/학년/초6">초6</a><a class="m-btn" href="/학년/중1">중1</a><a class="m-btn" href="/학년/중2">중2</a><a class="m-btn" href="/학년/중3">중3</a><a class="m-btn" href="/학년/고1">고1</a><a class="m-btn" href="/학년/고2">고2</a><a class="m-btn" href="/학년/고3">고3</a></div></div>
+          <div class="m-pane" data-m-pane="school"><div class="m-grid"><a class="m-btn" href="/학교/서울특별시">서울</a><a class="m-btn" href="/학교/경기도">경기</a><a class="m-btn" href="/학교/인천광역시">인천</a><a class="m-btn" href="/학교/부산광역시">부산</a><a class="m-btn" href="/학교/대구광역시">대구</a><a class="m-btn" href="/학교/대전광역시">대전</a><a class="m-btn" href="/학교/광주광역시">광주</a><a class="m-btn" href="/학교/울산광역시">울산</a><a class="m-btn" href="/학교/세종특별자치시">세종</a><a class="m-btn" href="/학교/강원특별자치도">강원</a><a class="m-btn" href="/학교/충청북도">충북</a><a class="m-btn" href="/학교/충청남도">충남</a><a class="m-btn" href="/학교/전북특별자치도">전북</a><a class="m-btn" href="/학교/전라남도">전남</a><a class="m-btn" href="/학교/경상북도">경북</a><a class="m-btn" href="/학교/경상남도">경남</a><a class="m-btn" href="/학교/제주특별자치도">제주</a></div></div>
+        </div>
+      </li>
+      <li>
+        <div class="m-link">과목별 수업</div>
+        <div class="m-sub"><div class="m-grid cols-2"><a class="m-btn" href="/과목/수학">수학</a><a class="m-btn" href="/과목/영어">영어</a><a class="m-btn" href="/과목/국어">국어</a><a class="m-btn" href="/과목/과학">과학</a><a class="m-btn" href="/과목/사회">사회</a><a class="m-btn" href="/과목/코딩">코딩</a><a class="m-btn" href="/과목/논술">논술</a><a class="m-btn" href="/과목/검정고시">검정고시</a><a class="m-btn" href="/과목/수행평가">수행평가</a></div></div>
+      </li>
+      <li class="no-sub"><a class="m-link" href="/hagwon.html">학원 상담</a></li>
+      <li>
+        <div class="m-link">회화 수업</div>
+        <div class="m-sub"><div class="m-grid cols-1"><a class="m-btn" href="/회화/영어">영어회화</a><a class="m-btn" href="/회화/중국어">중국어회화</a><a class="m-btn" href="/회화/일본어">일본어회화</a></div></div>
+      </li>
+      <li>
+        <div class="m-link">기타 수업</div>
+        <div class="m-sub"><div class="m-grid cols-1"><a class="m-btn" href="/기타/학습코칭">학습 코칭</a><a class="m-btn" href="/기타/입시컨설팅">입시 컨설팅</a><a class="m-btn" href="/기타/생기부컨설팅">생기부 컨설팅</a><a class="m-btn" href="/기타/유학">유학 프로그램</a><a class="m-btn" href="/기타/국제학교">국제학교 상담</a></div></div>
+      </li>
+      <li class="nav-cta-item no-sub"><a class="m-link" href="/contact.html">문의하기</a></li>
+    </ul>
   </div>
 
   <!-- HERO -->
@@ -435,6 +535,37 @@
     if (mobileBtn) mobileBtn.addEventListener('click', () => mobileMenu.classList.add('open'));
     if (mobileMenuClose) mobileMenuClose.addEventListener('click', () => mobileMenu.classList.remove('open'));
     mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileMenu.classList.remove('open')));
+
+    /* Nav dropdown tabs (desktop) */
+    document.querySelectorAll('.nav-dd').forEach(dd => {
+      const tabs = dd.querySelectorAll('.dd-tab');
+      const panes = dd.querySelectorAll('.dd-pane');
+      tabs.forEach(tab => {
+        tab.addEventListener('click', (e) => {
+          e.stopPropagation(); e.preventDefault();
+          const key = tab.dataset.ddTab;
+          tabs.forEach(t => t.classList.toggle('active', t === tab));
+          panes.forEach(p => p.classList.toggle('active', p.dataset.ddPane === key));
+        });
+      });
+    });
+    /* Mobile accordion */
+    document.querySelectorAll('.m-accordion > li:not(.no-sub) > .m-link').forEach(link => {
+      link.addEventListener('click', () => link.parentElement.classList.toggle('open'));
+    });
+    /* Mobile dropdown tabs */
+    document.querySelectorAll('.m-sub').forEach(sub => {
+      const tabs = sub.querySelectorAll('.m-tab');
+      const panes = sub.querySelectorAll('.m-pane');
+      tabs.forEach(tab => {
+        tab.addEventListener('click', (e) => {
+          e.stopPropagation(); e.preventDefault();
+          const key = tab.dataset.mTab;
+          tabs.forEach(t => t.classList.toggle('active', t === tab));
+          panes.forEach(p => p.classList.toggle('active', p.dataset.mPane === key));
+        });
+      });
+    });
   </script>
 </body>
 </html>
