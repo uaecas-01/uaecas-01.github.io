@@ -1772,7 +1772,92 @@ SECTION 1 — HERO
         </div>
 
         <!-- Hero illustration: student studying with desk + lamp + books -->
-        <img src="images/hagwon-header.png" alt="WeStudy 학원 상담 - 1:1 학습 코칭 데스크" loading="eager" style="width:100%;height:auto;display:block;filter:drop-shadow(0 30px 60px rgba(0,0,0,.4))">
+        <svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <defs>
+            <radialGradient id="glow" cx="50%" cy="35%" r="55%">
+              <stop offset="0%" stop-color="#FEF3C7" stop-opacity=".55"/>
+              <stop offset="60%" stop-color="#F59E0B" stop-opacity="0"/>
+            </radialGradient>
+            <linearGradient id="deskg" x1="0" x2="0" y1="0" y2="1">
+              <stop offset="0" stop-color="#1D4ED8"/><stop offset="1" stop-color="#0F1E3A"/>
+            </linearGradient>
+            <linearGradient id="bookg1" x1="0" x2="1"><stop offset="0" stop-color="#22D3EE"/><stop offset="1" stop-color="#06B6D4"/></linearGradient>
+            <linearGradient id="bookg2" x1="0" x2="1"><stop offset="0" stop-color="#A5B4FC"/><stop offset="1" stop-color="#818CF8"/></linearGradient>
+            <linearGradient id="bookg3" x1="0" x2="1"><stop offset="0" stop-color="#FBBF24"/><stop offset="1" stop-color="#F59E0B"/></linearGradient>
+          </defs>
+          <!-- soft glow -->
+          <circle cx="250" cy="180" r="220" fill="url(#glow)"/>
+          <!-- back wall lights (dots) -->
+          <g opacity=".25" fill="#60A5FA">
+            <circle cx="80" cy="80" r="3"/><circle cx="120" cy="60" r="2"/><circle cx="430" cy="90" r="3"/><circle cx="400" cy="50" r="2"/>
+            <circle cx="60" cy="180" r="2"/><circle cx="450" cy="200" r="2"/>
+          </g>
+          <!-- floor -->
+          <ellipse cx="250" cy="450" rx="220" ry="22" fill="#0F1E3A" opacity=".5"/>
+          <!-- desk -->
+          <rect x="80" y="340" width="340" height="14" rx="3" fill="url(#deskg)"/>
+          <rect x="100" y="354" width="14" height="90" fill="#0F1E3A"/>
+          <rect x="386" y="354" width="14" height="90" fill="#0F1E3A"/>
+          <!-- desk lamp -->
+          <path d="M340 340 L340 250 L385 200" stroke="#22D3EE" stroke-width="4" fill="none" stroke-linecap="round"/>
+          <path d="M375 195 L420 175 L408 215 Z" fill="#FBBF24"/>
+          <circle cx="411" cy="200" r="6" fill="#FEF3C7"/>
+          <!-- chair back -->
+          <rect x="180" y="220" width="14" height="130" rx="4" fill="#162a52"/>
+          <!-- student body -->
+          <g>
+            <!-- torso -->
+            <path d="M200 340 Q205 270 240 270 L290 270 Q325 270 330 340 Z" fill="#2563EB"/>
+            <!-- shirt accent -->
+            <path d="M255 270 Q265 290 275 270 Z" fill="#fff" opacity=".25"/>
+            <!-- arm to book -->
+            <path d="M200 320 Q190 340 220 360 L250 350" stroke="#2563EB" stroke-width="22" stroke-linecap="round" fill="none"/>
+            <!-- head -->
+            <circle cx="265" cy="240" r="34" fill="#FED7AA"/>
+            <!-- hair -->
+            <path d="M232 235 Q235 200 265 200 Q295 200 300 235 Q295 220 280 220 Q270 230 250 225 Q240 230 232 235 Z" fill="#1f2a44"/>
+            <!-- glasses -->
+            <circle cx="252" cy="245" r="6" stroke="#1f2a44" stroke-width="2" fill="none"/>
+            <circle cx="278" cy="245" r="6" stroke="#1f2a44" stroke-width="2" fill="none"/>
+            <line x1="258" y1="245" x2="272" y2="245" stroke="#1f2a44" stroke-width="2"/>
+            <!-- mouth -->
+            <path d="M258 260 Q265 264 272 260" stroke="#1f2a44" stroke-width="2" fill="none" stroke-linecap="round"/>
+          </g>
+          <!-- books / notebook on desk -->
+          <rect x="220" y="328" width="110" height="14" rx="2" fill="url(#bookg1)"/>
+          <rect x="225" y="318" width="100" height="12" rx="2" fill="url(#bookg2)"/>
+          <!-- open book -->
+          <path d="M150 328 L210 318 L210 340 L150 348 Z" fill="#fff"/>
+          <path d="M150 328 L150 348 L92 342 L92 322 Z" fill="#fff" opacity=".95"/>
+          <line x1="100" y1="328" x2="140" y2="332" stroke="#cbd5e1" stroke-width="1.5"/>
+          <line x1="100" y1="334" x2="140" y2="338" stroke="#cbd5e1" stroke-width="1.5"/>
+          <line x1="158" y1="328" x2="200" y2="324" stroke="#cbd5e1" stroke-width="1.5"/>
+          <line x1="158" y1="334" x2="200" y2="330" stroke="#cbd5e1" stroke-width="1.5"/>
+          <!-- pencil -->
+          <g transform="rotate(-25 360 320)">
+            <rect x="340" y="316" width="40" height="6" fill="#FBBF24"/>
+            <polygon points="380,316 390,319 380,322" fill="#1f2a44"/>
+          </g>
+          <!-- map pin floating -->
+          <g transform="translate(70,120)">
+            <path d="M0 0 C0 -22 -16 -32 -16 -50 a16 16 0 1 1 32 0 C16 -32 0 -22 0 0Z" fill="#F59E0B"/>
+            <circle cx="0" cy="-50" r="6" fill="#fff"/>
+          </g>
+          <!-- chat bubble -->
+          <g transform="translate(380,90)">
+            <rect x="0" y="0" width="80" height="40" rx="12" fill="#22D3EE"/>
+            <path d="M14 40 L20 50 L26 40 Z" fill="#22D3EE"/>
+            <circle cx="20" cy="20" r="3" fill="#fff"/>
+            <circle cx="40" cy="20" r="3" fill="#fff"/>
+            <circle cx="60" cy="20" r="3" fill="#fff"/>
+          </g>
+          <!-- trophy -->
+          <g transform="translate(420,300)">
+            <path d="M0 0 h36 v6 a18 18 0 0 1 -36 0 Z" fill="#FBBF24"/>
+            <rect x="12" y="20" width="12" height="14" fill="#D97706"/>
+            <rect x="6" y="34" width="24" height="6" rx="2" fill="#92400E"/>
+          </g>
+        </svg>
       </div>
     </div>
   </div>
