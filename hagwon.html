@@ -167,22 +167,36 @@ h1,h2,h3,h4{margin:0;letter-spacing:-.02em;color:var(--ink);font-weight:800;line
 }
 .hero-illo svg{width:100%;height:100%;display:block;filter:drop-shadow(0 30px 60px rgba(0,0,0,.4))}
 .float-pin{
-  position:absolute;background:#fff;color:var(--ink);
-  padding:10px 14px;border-radius:14px;
-  box-shadow:var(--shadow-lg);
+  position:absolute;
+  /* glassmorphism: 뒤 배경이 비치는 다크 글라스 */
+  background:rgba(255,255,255,.06);
+  -webkit-backdrop-filter:blur(18px) saturate(140%);
+  backdrop-filter:blur(18px) saturate(140%);
+  color:#fff;
+  padding:10px 14px;border-radius:16px;
+  border:1px solid rgba(255,255,255,.18);
+  box-shadow:
+    0 10px 30px rgba(0,0,0,.35),
+    inset 0 1px 0 rgba(255,255,255,.22),
+    inset 0 -1px 0 rgba(255,255,255,.04);
   display:flex;align-items:center;gap:10px;
-  font-size:13px;font-weight:600;
+  font-size:13px;font-weight:600;letter-spacing:-.01em;
   animation:float 6s ease-in-out infinite;
 }
+/* fallback: backdrop-filter 미지원 브라우저용 */
+@supports not ((-webkit-backdrop-filter: blur(1px)) or (backdrop-filter: blur(1px))){
+  .float-pin{background:rgba(15,30,58,.55)}
+}
 .float-pin .ic{
-  width:28px;height:28px;border-radius:8px;display:grid;place-items:center;color:#fff;
+  width:28px;height:28px;border-radius:9px;display:grid;place-items:center;color:#fff;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.25), 0 4px 10px rgba(0,0,0,.25);
 }
 .float-pin.a{top:8%;left:-12px;animation-delay:0s}
-.float-pin.a .ic{background:var(--blue-500)}
+.float-pin.a .ic{background:linear-gradient(180deg,#3B82F6,#1D4ED8)}
 .float-pin.b{bottom:18%;right:-8px;animation-delay:1.5s}
-.float-pin.b .ic{background:var(--cyan)}
+.float-pin.b .ic{background:linear-gradient(180deg,#22D3EE,#0891B2)}
 .float-pin.c{top:54%;left:-32px;animation-delay:3s}
-.float-pin.c .ic{background:var(--amber)}
+.float-pin.c .ic{background:linear-gradient(180deg,#FBBF24,#D97706)}
 @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
 
 /* ---------- POPULAR REGIONS (sec 2) ---------- */
