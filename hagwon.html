@@ -629,6 +629,14 @@ h1,h2,h3,h4{margin:0;letter-spacing:-.02em;color:var(--ink);font-weight:800;line
   .region-pills{max-width:100%}
   .form-card{padding:24px}
 }
+  /* === Footer breadcrumb === */
+  footer .footer-breadcrumb{display:flex;flex-wrap:wrap;align-items:center;gap:6px;padding:0 0 18px;margin-bottom:18px;font-size:.78rem;color:rgba(0,0,0,.6);border-bottom:1px solid rgba(0,0,0,.06)}
+  footer .footer-breadcrumb a{color:rgba(0,0,0,.7);text-decoration:none;transition:color .15s}
+  footer .footer-breadcrumb a:hover{color:#0A1628}
+  footer .footer-breadcrumb .sep{color:rgba(0,0,0,.35);margin:0 2px}
+  footer .footer-breadcrumb .cur{color:#0A1628;font-weight:600}
+  footer .footer-breadcrumb:empty{display:none}
+  @media(max-width:768px){footer .footer-breadcrumb{padding:0 0 14px;margin-bottom:14px;font-size:.72rem;justify-content:center}}
 </style>
 <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -1669,8 +1677,13 @@ h1,h2,h3,h4{margin:0;letter-spacing:-.02em;color:var(--ink);font-weight:800;line
       </li>
       <li><a href="/hagwon.html" class="active">학원 상담</a></li>
       <li class="has-dd">
-        <a href="#">회화 수업</a>
-        <div class="nav-dd narrow"><div class="dd-grid cols-1"><a class="dd-btn" href="/회화/영어">영어회화</a><a class="dd-btn" href="/회화/중국어">중국어회화</a><a class="dd-btn" href="/회화/일본어">일본어회화</a></div></div>
+        <a href="/회화">회화 수업</a>
+        <div class="nav-dd wide">
+          <div class="dd-tabs"><button class="dd-tab active" data-dd-tab="convlang">언어별</button><button class="dd-tab" data-dd-tab="convregion">🔥 인기 지역</button><button class="dd-tab" data-dd-tab="convpurpose">🎯 목적별</button></div>
+          <div class="dd-pane active" data-dd-pane="convlang"><a class="dd-btn-all" href="/회화">🌐 전체 회화 보기</a><div class="dd-grid cols-3"><a class="dd-btn" href="/회화/영어">영어회화</a><a class="dd-btn" href="/회화/중국어">중국어회화</a><a class="dd-btn" href="/회화/일본어">일본어회화</a></div></div>
+          <div class="dd-pane" data-dd-pane="convregion"><div class="dd-grid cols-3"><a class="dd-btn" href="/회화/영어/강남구">강남 영어회화</a><a class="dd-btn" href="/회화/영어/분당구">분당 영어회화</a><a class="dd-btn" href="/회화/영어/송도동">송도 영어회화</a><a class="dd-btn" href="/회화/영어/대치동">대치 영어회화</a><a class="dd-btn" href="/회화/영어/일산동구">일산 영어회화</a><a class="dd-btn" href="/회화/일본어/강남구">강남 일본어회화</a><a class="dd-btn" href="/회화/일본어/분당구">분당 일본어회화</a><a class="dd-btn" href="/회화/중국어/강남구">강남 중국어회화</a><a class="dd-btn" href="/회화/중국어/분당구">분당 중국어회화</a></div></div>
+          <div class="dd-pane" data-dd-pane="convpurpose"><div class="dd-grid cols-3"><a class="dd-btn" href="/회화/영어/비즈니스">비즈니스 영어</a><a class="dd-btn" href="/회화/영어/유학">유학 영어 (IELTS)</a><a class="dd-btn" href="/회화/영어/시험">시험 영어 (TOEIC)</a><a class="dd-btn" href="/회화/영어/면접">영어 면접</a><a class="dd-btn" href="/회화/일본어/비즈니스">비즈니스 일본어</a><a class="dd-btn" href="/회화/일본어/시험">JLPT 일본어</a><a class="dd-btn" href="/회화/중국어/비즈니스">비즈니스 중국어</a><a class="dd-btn" href="/회화/중국어/시험">HSK 중국어</a></div></div>
+        </div>
       </li>
       <li class="has-dd">
         <a href="#">기타 수업</a>
@@ -1700,7 +1713,12 @@ h1,h2,h3,h4{margin:0;letter-spacing:-.02em;color:var(--ink);font-weight:800;line
       <li class="no-sub"><a class="m-link" href="/hagwon.html">학원 상담</a></li>
       <li>
         <div class="m-link">회화 수업</div>
-        <div class="m-sub"><div class="m-grid cols-1"><a class="m-btn" href="/회화/영어">영어회화</a><a class="m-btn" href="/회화/중국어">중국어회화</a><a class="m-btn" href="/회화/일본어">일본어회화</a></div></div>
+        <div class="m-sub">
+          <div class="m-tabs"><button class="m-tab active" data-m-tab="convlang">언어별</button><button class="m-tab" data-m-tab="convregion">🔥 지역</button><button class="m-tab" data-m-tab="convpurpose">🎯 목적</button></div>
+          <div class="m-pane active" data-m-pane="convlang"><a class="m-btn-all" href="/회화">🌐 전체 회화 보기</a><div class="m-grid cols-1"><a class="m-btn" href="/회화/영어">영어회화</a><a class="m-btn" href="/회화/중국어">중국어회화</a><a class="m-btn" href="/회화/일본어">일본어회화</a></div></div>
+          <div class="m-pane" data-m-pane="convregion"><div class="m-grid cols-2"><a class="m-btn" href="/회화/영어/강남구">강남 영어</a><a class="m-btn" href="/회화/영어/분당구">분당 영어</a><a class="m-btn" href="/회화/영어/송도동">송도 영어</a><a class="m-btn" href="/회화/영어/대치동">대치 영어</a><a class="m-btn" href="/회화/영어/일산동구">일산 영어</a><a class="m-btn" href="/회화/일본어/강남구">강남 일본어</a><a class="m-btn" href="/회화/일본어/분당구">분당 일본어</a><a class="m-btn" href="/회화/중국어/강남구">강남 중국어</a><a class="m-btn" href="/회화/중국어/분당구">분당 중국어</a></div></div>
+          <div class="m-pane" data-m-pane="convpurpose"><div class="m-grid cols-2"><a class="m-btn" href="/회화/영어/비즈니스">비즈니스 영어</a><a class="m-btn" href="/회화/영어/유학">유학 영어</a><a class="m-btn" href="/회화/영어/시험">시험 영어</a><a class="m-btn" href="/회화/영어/면접">영어 면접</a><a class="m-btn" href="/회화/일본어/비즈니스">비즈니스 일본어</a><a class="m-btn" href="/회화/일본어/시험">JLPT 일본어</a><a class="m-btn" href="/회화/중국어/비즈니스">비즈니스 중국어</a><a class="m-btn" href="/회화/중국어/시험">HSK 중국어</a></div></div>
+        </div>
       </li>
       <li>
         <div class="m-link">기타 수업</div>
@@ -2824,7 +2842,8 @@ document.querySelectorAll("#consult-form input, #consult-form select").forEach(e
 <!-- SITE FOOTER (injected) -->
 <footer style="background:#0A1628;color:rgba(255,255,255,.55);padding:56px 5% 28px;font-size:.85rem">
     <div style="max-width:1200px;margin:0 auto">
-      <div class="sitemap-top" style="display:grid;grid-template-columns:1.4fr repeat(4,1fr);gap:2.5rem;padding-bottom:2rem;border-bottom:1px solid rgba(255,255,255,.1)">
+      <nav class="footer-breadcrumb" id="footerBc" aria-label="현재 페이지 경로"></nav>
+<div class="sitemap-top" style="display:grid;grid-template-columns:1.4fr repeat(4,1fr);gap:2.5rem;padding-bottom:2rem;border-bottom:1px solid rgba(255,255,255,.1)">
         <div>
           <div style="display:flex;align-items:center;gap:.5rem;margin-bottom:.9rem"><span style="width:28px;height:28px;background:#fff;color:#1D4ED8;border-radius:7px;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:.9rem">W</span><span style="font-size:1.1rem;font-weight:800;color:#fff">WeStudy</span></div>
           <p style="color:rgba(255,255,255,.5);font-size:.82rem;line-height:1.7;margin-bottom:.8rem">1:1 맞춤 학습 코칭<br>상상코칭 공식 파트너</p>
@@ -2917,5 +2936,6 @@ document.querySelectorAll("#consult-form input, #consult-form select").forEach(e
   });
 </script>
 
+<script>(function(){try{var el=document.getElementById('footerBc');if(!el)return;var labelMap={'지역':'지역','과목':'과목','학교':'학교','학원':'학원','학년':'학년','회화':'회화','기타':'기타 수업','과외':'과외','영어':'영어회화','일본어':'일본어회화','중국어':'중국어회화','hagwon.html':'학원 상담','contact.html':'문의하기','about.html':'소개','reviews.html':'수업 후기','education.html':'교육 정보','학습코칭':'학습 코칭','입시컨설팅':'입시 컨설팅','생기부컨설팅':'생기부 컨설팅','유학':'유학 프로그램','국제학교':'국제학교 상담','코딩':'코딩','검정고시':'검정고시','수행평가':'수행평가','비즈니스':'비즈니스','시험':'시험 대비','면접':'면접','입문':'입문','학생':'학생','여행':'여행'};var path=location.pathname.split('/').filter(function(p){return p}).map(decodeURIComponent);if(path.length===0){el.innerHTML='<span class="cur">홈</span>';return}var html='<a href="/">홈</a>';var acc='';path.forEach(function(seg,i){acc+='/'+encodeURIComponent(seg);var label=labelMap[seg]||seg;html+='<span class="sep">›</span>';if(i===path.length-1){html+='<span class="cur">'+label+'</span>'}else{html+='<a href="'+acc+'">'+label+'</a>'}});el.innerHTML=html}catch(e){}})();</script>
 </body>
 </html>

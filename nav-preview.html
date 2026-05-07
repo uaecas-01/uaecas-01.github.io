@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>네비 드롭다운 3시안 프리뷰</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" rel="stylesheet" />
+<style>
+  :root {
+    --navy: #0A1628;
+    --blue: #1D4ED8;
+    --amber: #F59E0B;
+    --cyan: #06B6D4;
+    --text: #0A1628;
+    --text-mid: #374151;
+    --text-muted: #9CA3AF;
+    --border: #E5E7EB;
+    --bg: #F8FAFC;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Pretendard', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    padding: 40px 20px 120px;
+  }
+  .page-title {
+    max-width: 1100px;
+    margin: 0 auto 40px;
+  }
+  .page-title h1 {
+    font-size: 28px;
+    font-weight: 900;
+    margin-bottom: 8px;
+  }
+  .page-title p {
+    color: var(--text-muted);
+    font-size: 14px;
+  }
+  .sample-wrap {
+    max-width: 1100px;
+    margin: 0 auto 56px;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 8px 30px rgba(10, 22, 40, 0.06);
+    overflow: hidden;
+  }
+  .sample-head {
+    padding: 20px 28px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .sample-title {
+    font-size: 18px;
+    font-weight: 800;
+  }
+  .sample-badge {
+    font-size: 11px;
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-weight: 700;
+  }
+  .badge-a { background: #0F172A; color: #F59E0B; }
+  .badge-b { background: #EFF6FF; color: #1D4ED8; }
+  .badge-c { background: #1E293B; color: #06B6D4; }
+  .sample-body {
+    position: relative;
+    min-height: 420px;
+  }
+
+  /* ============ 공통 미니 네비바 ============ */
+  .mini-nav {
+    background: white;
+    padding: 16px 28px;
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    border-bottom: 1px solid var(--border);
+    position: relative;
+  }
+  .mini-logo {
+    font-weight: 900;
+    font-size: 20px;
+    color: var(--navy);
+  }
+  .mini-menu {
+    display: flex;
+    gap: 24px;
+    list-style: none;
+  }
+  .mini-menu li {
+    position: relative;
+    padding: 8px 4px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--text-mid);
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+  .mini-menu li.active {
+    color: var(--blue);
+  }
+  .mini-menu li svg {
+    width: 12px;
+    height: 12px;
+  }
+
+  /* ============ 시안 A: 다크 네이비 + 이모지 ============ */
+  .drop-a {
+    position: absolute;
+    top: 100%;
+    left: 28px;
+    margin-top: 8px;
+    width: calc(100% - 56px);
+    max-width: 720px;
+    background: #0F172A;
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+    z-index: 10;
+  }
+  .drop-a .tabs {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 20px;
+  }
+  .drop-a .tab {
+    padding: 10px 18px;
+    border-radius: 10px;
+    background: transparent;
+    color: #94A3B8;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    border: 1px solid transparent;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .drop-a .tab.active {
+    background: #1D4ED8;
+    color: white;
+  }
+  .drop-a .tab:not(.active):hover {
+    background: rgba(255, 255, 255, 0.05);
+  }
+  .drop-a .grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+  }
+  .drop-a .btn {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    color: #E2E8F0;
+    padding: 12px 14px;
+    border-radius: 10px;
+    font-size: 13px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    transition: 0.15s;
+  }
+  .drop-a .btn:hover {
+    background: rgba(29, 78, 216, 0.3);
+    border-color: #3B82F6;
+  }
+
+  /* ============ 시안 B: 흰색 + 파란 포인트 ============ */
+  .drop-b {
+    position: absolute;
+    top: 100%;
+    left: 28px;
+    margin-top: 8px;
+    width: calc(100% - 56px);
+    max-width: 720px;
+    background: white;
+    border-radius: 16px;
+    padding: 28px;
+    box-shadow: 0 20px 50px rgba(10, 22, 40, 0.12);
+    border: 1px solid var(--border);
+    z-index: 10;
+  }
+  .drop-b .tabs {
+    display: flex;
+    gap: 4px;
+    margin-bottom: 24px;
+    border-bottom: 1px solid var(--border);
+  }
+  .drop-b .tab {
+    padding: 12px 20px;
+    background: transparent;
+    color: var(--text-muted);
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    border: none;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -1px;
+  }
+  .drop-b .tab.active {
+    color: var(--blue);
+    border-bottom-color: var(--blue);
+  }
+  .drop-b .grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 8px;
+  }
+  .drop-b .btn {
+    background: #F8FAFC;
+    border: 1px solid #E2E8F0;
+    color: var(--text);
+    padding: 12px 10px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    text-align: center;
+    transition: 0.15s;
+  }
+  .drop-b .btn:hover {
+    background: #EFF6FF;
+    border-color: var(--blue);
+    color: var(--blue);
+  }
+
+  /* ============ 시안 C: 하이브리드 (네이비 + WeStudy 컬러) ============ */
+  .drop-c {
+    position: absolute;
+    top: 100%;
+    left: 28px;
+    margin-top: 8px;
+    width: calc(100% - 56px);
+    max-width: 720px;
+    background: linear-gradient(135deg, #0A1628 0%, #1E293B 100%);
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: 0 20px 50px rgba(10, 22, 40, 0.35);
+    z-index: 10;
+    border: 1px solid rgba(245, 158, 11, 0.15);
+  }
+  .drop-c .tabs {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 20px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+  .drop-c .tab {
+    padding: 10px 18px;
+    background: transparent;
+    color: #94A3B8;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    border: none;
+    border-radius: 8px;
+  }
+  .drop-c .tab.active {
+    background: linear-gradient(135deg, var(--blue), var(--cyan));
+    color: white;
+  }
+  .drop-c .grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+  }
+  .drop-c .btn {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    color: #E2E8F0;
+    padding: 14px 12px;
+    border-radius: 10px;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    text-align: center;
+    transition: 0.2s;
+    position: relative;
+  }
+  .drop-c .btn:hover {
+    background: rgba(245, 158, 11, 0.1);
+    border-color: var(--amber);
+    color: var(--amber);
+    transform: translateY(-1px);
+  }
+
+  /* 설명 박스 */
+  .pros {
+    background: #F8FAFC;
+    padding: 20px 28px;
+    font-size: 13px;
+    color: var(--text-mid);
+    border-top: 1px solid var(--border);
+    line-height: 1.7;
+  }
+  .pros strong { color: var(--text); }
+
+  /* 힌트 */
+  .hint {
+    position: absolute;
+    bottom: 24px;
+    right: 32px;
+    font-size: 12px;
+    color: var(--text-muted);
+    background: white;
+    padding: 6px 12px;
+    border-radius: 999px;
+    border: 1px dashed var(--border);
+  }
+</style>
+</head>
+<body>
+
+<div class="page-title">
+  <h1>네비 드롭다운 3시안 프리뷰</h1>
+  <p>지역별 수업 메뉴를 클릭/호버한 상태로 고정 노출. 실제 사이트에선 마우스 오버 시 펼쳐짐.</p>
+</div>
+
+<!-- ============ 시안 A: 다크 네이비 + 이모지 ============ -->
+<div class="sample-wrap">
+  <div class="sample-head">
+    <div class="sample-title">시안 A — 다크 네이비 + 이모지 (allcarestudy 스타일)</div>
+    <span class="sample-badge badge-a">다크 모드</span>
+  </div>
+  <div class="sample-body">
+    <nav class="mini-nav">
+      <div class="mini-logo">WeStudy</div>
+      <ul class="mini-menu">
+        <li class="active">지역별 수업 <svg viewBox="0 0 12 12"><path d="M2 4 L6 8 L10 4" stroke="currentColor" stroke-width="1.5" fill="none"/></svg></li>
+        <li>과목별 수업</li>
+        <li>학원 상담</li>
+        <li>회화 수업</li>
+        <li>기타 수업</li>
+        <li>문의하기</li>
+      </ul>
+    </nav>
+    <div class="drop-a">
+      <div class="tabs">
+        <div class="tab active">📍 지역별 과외</div>
+        <div class="tab">🎓 학년별 과외</div>
+        <div class="tab">🏫 학교별 과외</div>
+      </div>
+      <div class="grid">
+        <div class="btn">🏙️ 서울</div>
+        <div class="btn">🌳 경기</div>
+        <div class="btn">🌊 인천</div>
+        <div class="btn">👁️ 부산</div>
+        <div class="btn">🍎 대구</div>
+        <div class="btn">🌴 대전</div>
+        <div class="btn">🌸 광주</div>
+        <div class="btn">⚙️ 울산</div>
+        <div class="btn">🏛️ 세종</div>
+        <div class="btn">🌿 강원</div>
+        <div class="btn">🍇 충북</div>
+        <div class="btn">🌾 충남</div>
+        <div class="btn">🍚 전북</div>
+        <div class="btn">🍵 전남</div>
+        <div class="btn">🍎 경북</div>
+        <div class="btn">🐟 경남</div>
+        <div class="btn">🌺 제주</div>
+      </div>
+    </div>
+    <div class="hint">👆 호버된 상태로 고정</div>
+  </div>
+  <div class="pros">
+    <strong>장점:</strong> 참고 사이트와 동일, 시각적 임팩트 강함, 메뉴 구분 뚜렷<br>
+    <strong>단점:</strong> 기존 westudymate 흰색 톤과 대비 큼 (네이비 드롭다운만 다크), 이모지 호불호 있음
+  </div>
+</div>
+
+<!-- ============ 시안 B: 흰색 + 파란 포인트 ============ -->
+<div class="sample-wrap">
+  <div class="sample-head">
+    <div class="sample-title">시안 B — 흰색 + 파란 포인트 (WeStudy 기존 톤)</div>
+    <span class="sample-badge badge-b">라이트 모드</span>
+  </div>
+  <div class="sample-body">
+    <nav class="mini-nav">
+      <div class="mini-logo">WeStudy</div>
+      <ul class="mini-menu">
+        <li class="active">지역별 수업 <svg viewBox="0 0 12 12"><path d="M2 4 L6 8 L10 4" stroke="currentColor" stroke-width="1.5" fill="none"/></svg></li>
+        <li>과목별 수업</li>
+        <li>학원 상담</li>
+        <li>회화 수업</li>
+        <li>기타 수업</li>
+        <li>문의하기</li>
+      </ul>
+    </nav>
+    <div class="drop-b">
+      <div class="tabs">
+        <div class="tab active">지역별 과외</div>
+        <div class="tab">학년별 과외</div>
+        <div class="tab">학교별 과외</div>
+      </div>
+      <div class="grid">
+        <div class="btn">서울</div>
+        <div class="btn">경기</div>
+        <div class="btn">인천</div>
+        <div class="btn">부산</div>
+        <div class="btn">대구</div>
+        <div class="btn">대전</div>
+        <div class="btn">광주</div>
+        <div class="btn">울산</div>
+        <div class="btn">세종</div>
+        <div class="btn">강원</div>
+        <div class="btn">충북</div>
+        <div class="btn">충남</div>
+        <div class="btn">전북</div>
+        <div class="btn">전남</div>
+        <div class="btn">경북</div>
+        <div class="btn">경남</div>
+        <div class="btn">제주</div>
+      </div>
+    </div>
+    <div class="hint">👆 호버된 상태로 고정</div>
+  </div>
+  <div class="pros">
+    <strong>장점:</strong> 기존 사이트 톤 유지, 깔끔, 모바일 가독성 최상<br>
+    <strong>단점:</strong> 임팩트 약함, 다른 사이트와 차별화 포인트 적음
+  </div>
+</div>
+
+<!-- ============ 시안 C: 하이브리드 ============ -->
+<div class="sample-wrap">
+  <div class="sample-head">
+    <div class="sample-title">시안 C — 하이브리드 (네이비 + WeStudy 앰버/시안 포인트)</div>
+    <span class="sample-badge badge-c">프리미엄</span>
+  </div>
+  <div class="sample-body">
+    <nav class="mini-nav">
+      <div class="mini-logo">WeStudy</div>
+      <ul class="mini-menu">
+        <li class="active">지역별 수업 <svg viewBox="0 0 12 12"><path d="M2 4 L6 8 L10 4" stroke="currentColor" stroke-width="1.5" fill="none"/></svg></li>
+        <li>과목별 수업</li>
+        <li>학원 상담</li>
+        <li>회화 수업</li>
+        <li>기타 수업</li>
+        <li>문의하기</li>
+      </ul>
+    </nav>
+    <div class="drop-c">
+      <div class="tabs">
+        <div class="tab active">지역별 과외</div>
+        <div class="tab">학년별 과외</div>
+        <div class="tab">학교별 과외</div>
+      </div>
+      <div class="grid">
+        <div class="btn">서울</div>
+        <div class="btn">경기</div>
+        <div class="btn">인천</div>
+        <div class="btn">부산</div>
+        <div class="btn">대구</div>
+        <div class="btn">대전</div>
+        <div class="btn">광주</div>
+        <div class="btn">울산</div>
+        <div class="btn">세종</div>
+        <div class="btn">강원</div>
+        <div class="btn">충북</div>
+        <div class="btn">충남</div>
+        <div class="btn">전북</div>
+        <div class="btn">전남</div>
+        <div class="btn">경북</div>
+        <div class="btn">경남</div>
+        <div class="btn">제주</div>
+      </div>
+    </div>
+    <div class="hint">👆 호버된 상태로 고정</div>
+  </div>
+  <div class="pros">
+    <strong>장점:</strong> WeStudy 브랜드 컬러(앰버/시안) 반영, 고급스러움, 네비 hover 시 앰버 포인트<br>
+    <strong>단점:</strong> 다크라서 모바일에서 살짝 무거울 수 있음 (모바일은 라이트 버전으로 대응 가능)
+  </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>모바일 네비 3시안 프리뷰</title>
+<link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" rel="stylesheet" />
+<style>
+  :root {
+    --navy: #0A1628;
+    --blue: #1D4ED8;
+    --blue-pale: #EFF6FF;
+    --amber: #F59E0B;
+    --text: #0A1628;
+    --text-mid: #374151;
+    --text-muted: #9CA3AF;
+    --border: #E5E7EB;
+    --bg: #F8FAFC;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Pretendard', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    padding: 40px 20px 120px;
+  }
+  .page-title {
+    max-width: 1200px;
+    margin: 0 auto 40px;
+    text-align: center;
+  }
+  .page-title h1 {
+    font-size: 28px;
+    font-weight: 900;
+    margin-bottom: 8px;
+  }
+  .page-title p {
+    color: var(--text-muted);
+    font-size: 14px;
+  }
+
+  .phones-wrap {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+  }
+  @media (max-width: 900px) {
+    .phones-wrap { grid-template-columns: 1fr; }
+  }
+
+  .phone-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .phone-label {
+    font-size: 14px;
+    font-weight: 800;
+    margin-bottom: 12px;
+    padding: 6px 16px;
+    border-radius: 999px;
+    background: white;
+    border: 1px solid var(--border);
+  }
+  .phone-desc {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-bottom: 20px;
+    text-align: center;
+    max-width: 320px;
+    line-height: 1.6;
+  }
+
+  /* Phone frame */
+  .phone {
+    width: 340px;
+    height: 680px;
+    background: white;
+    border-radius: 36px;
+    border: 10px solid #1F2937;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+    overflow: hidden;
+    position: relative;
+  }
+  .phone::before {
+    content: '';
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 24px;
+    background: #1F2937;
+    border-radius: 999px;
+    z-index: 100;
+  }
+
+  /* Phone header (nav) */
+  .p-header {
+    height: 60px;
+    background: white;
+    border-bottom: 1px solid var(--border);
+    padding: 0 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    z-index: 50;
+    padding-top: 20px;
+  }
+  .p-logo {
+    font-weight: 900;
+    font-size: 18px;
+    color: var(--navy);
+  }
+  .p-hamb {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    cursor: pointer;
+  }
+  .p-hamb span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: var(--navy);
+    border-radius: 2px;
+  }
+  .p-body {
+    height: calc(100% - 60px);
+    overflow-y: auto;
+    background: var(--bg);
+    padding: 20px 16px;
+    padding-top: 40px;
+  }
+  .p-body-placeholder {
+    font-size: 11px;
+    color: var(--text-muted);
+    text-align: center;
+    padding: 30px 0;
+  }
+
+  /* ============ 시안 A: 아코디언 ============ */
+  .menu-a {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: white;
+    padding: 16px;
+    z-index: 40;
+    overflow-y: auto;
+  }
+  .menu-a .m-item {
+    padding: 16px 4px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 700;
+    font-size: 15px;
+    cursor: pointer;
+  }
+  .menu-a .m-item.active {
+    color: var(--blue);
+  }
+  .menu-a .m-arrow {
+    font-size: 12px;
+    color: var(--text-muted);
+    transition: 0.2s;
+  }
+  .menu-a .m-item.active .m-arrow {
+    transform: rotate(180deg);
+    color: var(--blue);
+  }
+  .menu-a .m-sub {
+    padding: 12px 0 20px 4px;
+    border-bottom: 1px solid var(--border);
+  }
+  .menu-a .m-sub-tab-row {
+    display: flex;
+    gap: 4px;
+    margin-bottom: 12px;
+    border-bottom: 1px solid var(--border);
+  }
+  .menu-a .m-sub-tab {
+    padding: 8px 12px;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--text-muted);
+    border-bottom: 2px solid transparent;
+    margin-bottom: -1px;
+  }
+  .menu-a .m-sub-tab.active {
+    color: var(--blue);
+    border-bottom-color: var(--blue);
+  }
+  .menu-a .m-sub-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 6px;
+  }
+  .menu-a .m-sub-btn {
+    background: #F8FAFC;
+    border: 1px solid #E2E8F0;
+    padding: 10px 6px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    text-align: center;
+  }
+
+  /* ============ 시안 B: 전체화면 모달 / 슬라이드 ============ */
+  .menu-b-wrap {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(10, 22, 40, 0.4);
+    z-index: 40;
+  }
+  .menu-b {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 280px;
+    background: white;
+    padding: 20px 16px;
+    overflow-y: auto;
+    box-shadow: -10px 0 30px rgba(0,0,0,0.1);
+  }
+  .menu-b-close {
+    font-size: 20px;
+    color: var(--text-muted);
+    text-align: right;
+    margin-bottom: 16px;
+    cursor: pointer;
+  }
+  .menu-b-title {
+    font-size: 16px;
+    font-weight: 900;
+    margin-bottom: 16px;
+    color: var(--navy);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .menu-b-title .back {
+    color: var(--text-muted);
+    font-size: 18px;
+  }
+  .menu-b-tabs {
+    display: flex;
+    gap: 4px;
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border);
+  }
+  .menu-b-tab {
+    padding: 8px 10px;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--text-muted);
+    border-radius: 6px;
+  }
+  .menu-b-tab.active {
+    background: var(--blue-pale);
+    color: var(--blue);
+  }
+  .menu-b-list {
+    display: flex;
+    flex-direction: column;
+  }
+  .menu-b-list a {
+    padding: 14px 8px;
+    border-bottom: 1px solid var(--border);
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .menu-b-list a .arr {
+    color: var(--text-muted);
+    font-size: 14px;
+  }
+
+  /* ============ 시안 C: 바로 이동 ============ */
+  .menu-c {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: white;
+    padding: 16px;
+    z-index: 40;
+    overflow-y: auto;
+  }
+  .menu-c .m-item {
+    padding: 18px 4px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 700;
+    font-size: 15px;
+  }
+  .menu-c .m-item .arr {
+    color: var(--text-muted);
+  }
+  .menu-c-hub {
+    padding: 24px 16px;
+    background: var(--blue-pale);
+    border-radius: 12px;
+    margin-top: 8px;
+  }
+  .menu-c-hub-title {
+    font-size: 13px;
+    font-weight: 800;
+    color: var(--blue);
+    margin-bottom: 8px;
+  }
+  .menu-c-hub-desc {
+    font-size: 11px;
+    color: var(--text-mid);
+    line-height: 1.5;
+  }
+
+  /* Phone overlay hint */
+  .hint {
+    position: absolute;
+    top: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 10px;
+    padding: 4px 10px;
+    border-radius: 999px;
+    background: var(--navy);
+    color: white;
+    white-space: nowrap;
+  }
+
+  .pros {
+    background: white;
+    padding: 16px;
+    font-size: 11px;
+    line-height: 1.6;
+    color: var(--text-mid);
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    margin-top: 20px;
+    max-width: 320px;
+    width: 100%;
+  }
+  .pros strong {
+    display: block;
+    color: var(--text);
+    margin-bottom: 4px;
+  }
+  .pros .good { color: #059669; }
+  .pros .bad { color: #DC2626; }
+</style>
+</head>
+<body>
+
+<div class="page-title">
+  <h1>모바일 네비 3시안 프리뷰</h1>
+  <p>햄버거 터치 → "지역별 수업" 선택한 상태로 고정</p>
+</div>
+
+<div class="phones-wrap">
+
+  <!-- ============ 시안 A: 아코디언 ============ -->
+  <div class="phone-col">
+    <div class="phone-label">시안 A — 아코디언</div>
+    <div class="phone-desc">메뉴 터치하면 아래로 펼쳐짐. 한 화면에서 탭+시도까지 다 보임.</div>
+    <div class="phone">
+      <div class="p-header">
+        <div class="p-logo">WeStudy</div>
+        <div class="p-hamb">
+          <span></span><span></span><span></span>
+        </div>
+      </div>
+      <div class="menu-a">
+        <div class="m-item active">
+          지역별 수업
+          <span class="m-arrow">▼</span>
+        </div>
+        <div class="m-sub">
+          <div class="m-sub-tab-row">
+            <div class="m-sub-tab active">지역별</div>
+            <div class="m-sub-tab">학년별</div>
+            <div class="m-sub-tab">학교별</div>
+          </div>
+          <div class="m-sub-grid">
+            <div class="m-sub-btn">서울</div>
+            <div class="m-sub-btn">경기</div>
+            <div class="m-sub-btn">인천</div>
+            <div class="m-sub-btn">부산</div>
+            <div class="m-sub-btn">대구</div>
+            <div class="m-sub-btn">대전</div>
+            <div class="m-sub-btn">광주</div>
+            <div class="m-sub-btn">울산</div>
+            <div class="m-sub-btn">세종</div>
+            <div class="m-sub-btn">강원</div>
+            <div class="m-sub-btn">충북</div>
+            <div class="m-sub-btn">충남</div>
+          </div>
+        </div>
+        <div class="m-item">과목별 수업 <span class="m-arrow">▼</span></div>
+        <div class="m-item">학원 상담 <span class="m-arrow">›</span></div>
+        <div class="m-item">회화 수업 <span class="m-arrow">▼</span></div>
+      </div>
+    </div>
+    <div class="pros">
+      <strong>장점</strong>
+      <div class="good">✓ 스크롤 한 번에 모든 옵션 보임</div>
+      <div class="good">✓ 다른 메뉴로 이동 쉬움 (아래 다른 메뉴 그대로 보임)</div>
+      <strong style="margin-top:8px">단점</strong>
+      <div class="bad">✗ 옵션 많으면 스크롤 길어짐</div>
+    </div>
+  </div>
+
+  <!-- ============ 시안 B: 슬라이드 드로어 ============ -->
+  <div class="phone-col">
+    <div class="phone-label">시안 B — 슬라이드 드로어</div>
+    <div class="phone-desc">"지역별 수업" 터치 → 오른쪽에서 서브메뉴가 슬라이드 인. 뒤로 가기 버튼.</div>
+    <div class="phone">
+      <div class="p-header">
+        <div class="p-logo">WeStudy</div>
+        <div class="p-hamb">
+          <span></span><span></span><span></span>
+        </div>
+      </div>
+      <div class="menu-b-wrap">
+        <div class="menu-b">
+          <div class="menu-b-close">✕</div>
+          <div class="menu-b-title">
+            <span class="back">‹</span>
+            지역별 수업
+          </div>
+          <div class="menu-b-tabs">
+            <div class="menu-b-tab active">지역별</div>
+            <div class="menu-b-tab">학년별</div>
+            <div class="menu-b-tab">학교별</div>
+          </div>
+          <div class="menu-b-list">
+            <a>서울 <span class="arr">›</span></a>
+            <a>경기 <span class="arr">›</span></a>
+            <a>인천 <span class="arr">›</span></a>
+            <a>부산 <span class="arr">›</span></a>
+            <a>대구 <span class="arr">›</span></a>
+            <a>대전 <span class="arr">›</span></a>
+            <a>광주 <span class="arr">›</span></a>
+            <a>울산 <span class="arr">›</span></a>
+            <a>세종 <span class="arr">›</span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pros">
+      <strong>장점</strong>
+      <div class="good">✓ 세련된 앱 느낌</div>
+      <div class="good">✓ 계층이 명확 (뒤로 가기 버튼)</div>
+      <strong style="margin-top:8px">단점</strong>
+      <div class="bad">✗ 구현 복잡도 중간</div>
+      <div class="bad">✗ 다른 메뉴 보려면 뒤로 가기 터치 필요</div>
+    </div>
+  </div>
+
+  <!-- ============ 시안 C: 바로 이동 ============ -->
+  <div class="phone-col">
+    <div class="phone-label">시안 C — 바로 이동</div>
+    <div class="phone-desc">드롭다운 없음. "지역별 수업" 터치 = 즉시 /지역 허브 페이지로 이동.</div>
+    <div class="phone">
+      <div class="p-header">
+        <div class="p-logo">WeStudy</div>
+        <div class="p-hamb">
+          <span></span><span></span><span></span>
+        </div>
+      </div>
+      <div class="menu-c">
+        <div class="m-item">지역별 수업 <span class="arr">›</span></div>
+        <div class="m-item">과목별 수업 <span class="arr">›</span></div>
+        <div class="m-item">학원 상담 <span class="arr">›</span></div>
+        <div class="m-item">회화 수업 <span class="arr">›</span></div>
+        <div class="m-item">기타 수업 <span class="arr">›</span></div>
+        <div class="m-item">문의하기 <span class="arr">›</span></div>
+        <div class="menu-c-hub">
+          <div class="menu-c-hub-title">🏙️ /지역 허브로 이동</div>
+          <div class="menu-c-hub-desc">터치 즉시 동적 허브 페이지. 거기서 17개 시도 → 구 → 동 선택.</div>
+        </div>
+      </div>
+    </div>
+    <div class="pros">
+      <strong>장점</strong>
+      <div class="good">✓ 구현 단순, 빠름</div>
+      <div class="good">✓ 첫 터치 = 바로 콘텐츠 노출 (SEO·내부링크 유리)</div>
+      <strong style="margin-top:8px">단점</strong>
+      <div class="bad">✗ 메뉴 한 번 더 탭해야 세부 옵션 보임</div>
+      <div class="bad">✗ PC와 UX 차이 큼</div>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>
