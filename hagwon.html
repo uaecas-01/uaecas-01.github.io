@@ -603,9 +603,9 @@ h1,h2,h3,h4{margin:0;letter-spacing:-.02em;color:var(--ink);font-weight:800;line
 /* ---------- responsive ---------- */
 @media (max-width:980px){
   .section{padding:88px 0}
-  .hero{padding:48px 0 80px}
-  .hero-grid{grid-template-columns:1fr;gap:48px}
-  .hero-illo{margin:0 auto;max-width:380px}
+  .hero{padding:40px 0 56px}
+  .hero-grid{grid-template-columns:1fr;gap:32px}
+  .hero-illo{margin:0 auto;max-width:280px}
   .region-grid{grid-template-columns:repeat(2,1fr)}
   .process-grid{grid-template-columns:repeat(2,1fr);gap:36px 18px}
   .flow-line{display:none}
@@ -621,6 +621,21 @@ h1,h2,h3,h4{margin:0;letter-spacing:-.02em;color:var(--ink);font-weight:800;line
   .float-pin.b{right:0}
   .float-pin.c{left:0}
 }
+@media (max-width:768px){
+  .hero{padding:28px 0 40px}
+  .hero-grid{gap:24px}
+  .hero h1.h-display{font-size:clamp(28px,8vw,40px) !important;line-height:1.18}
+  .hero .h-sub{font-size:14px;margin-top:8px}
+  .hero-illo{max-width:220px}
+  .hero-illo .float-pin{font-size:11px;padding:6px 10px}
+  .hero-stats{gap:18px;margin-top:24px}
+  .hero-stat .n{font-size:24px}
+  .hero-stat .l{font-size:11px}
+  .crumbs{font-size:11px}
+  .search-card{padding:8px;gap:8px}
+  .region-pills{gap:6px;margin-top:14px}
+  .region-pills .pill{padding:6px 12px;font-size:12px}
+}
 @media (max-width:560px){
   .section{padding:72px 0}
   .search-card{flex-direction:column;align-items:stretch}
@@ -628,6 +643,7 @@ h1,h2,h3,h4{margin:0;letter-spacing:-.02em;color:var(--ink);font-weight:800;line
   .search-card .btn-primary{width:100%}
   .region-pills{max-width:100%}
   .form-card{padding:24px}
+  .hero-illo{max-width:180px}
 }
   /* === Footer breadcrumb === */
   footer .footer-breadcrumb{display:flex;flex-wrap:wrap;align-items:center;gap:6px;padding:0 0 18px;margin-bottom:18px;font-size:.78rem;color:rgba(0,0,0,.6);border-bottom:1px solid rgba(0,0,0,.06)}
