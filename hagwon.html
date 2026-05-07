@@ -1665,6 +1665,14 @@ h1,h2,h3,h4{margin:0;letter-spacing:-.02em;color:var(--ink);font-weight:800;line
       .mobile-menu-close { position: absolute; top: 1.25rem; right: 1.5rem; background: none; border: none; color: var(--white); font-size: 2rem; cursor: pointer; }
       .hero-stats { gap: 1.5rem; }
     }
+    /* PC nav 강제 보장 — 다른 룰 누가 가려도 PC에선 메뉴 노출 */
+    @media (min-width: 961px) {
+      #mainNav .nav-links { display: flex !important; }
+      #mainNav .nav-mobile-btn { display: none !important; }
+    }
+    @media (max-width: 960px) {
+      #mainNav .nav-mobile-btn { display: flex !important; }
+    }
     @media (max-width: 480px) {
       .benefit-grid { grid-template-columns: 1fr; }
       .check-group { grid-template-columns: 1fr 1fr; }
@@ -1766,14 +1774,17 @@ SECTION 1 — HERO (BOLD AD-STYLE)
   background:linear-gradient(180deg,#0A1628 0%,#0F1F3D 50%,#0A1628 100%);
   color:#fff;
   position:relative;
-  padding:140px 0 160px;
+  padding:80px 0 80px;
   min-height:calc(100vh - 66px);
   display:flex;
+  flex-direction:column;
   align-items:center;
   justify-content:center;
   overflow:hidden;
   text-align:center;
+  box-sizing:border-box;
 }
+.hero-bold .wrap{width:100%;max-width:1100px;margin:0 auto;padding:0 5%}
 .hero-bold::before{
   content:"";
   position:absolute;
@@ -1786,12 +1797,12 @@ SECTION 1 — HERO (BOLD AD-STYLE)
 .hero-bold .wrap{position:relative;z-index:2}
 .hero-bold .eyebrow-line{
   display:inline-block;
-  font-size:1rem;
+  font-size:.95rem;
   font-weight:800;
   color:#22D3EE;
   letter-spacing:-.01em;
-  margin-bottom:60px;
-  padding:.5rem 1.2rem;
+  margin-bottom:32px;
+  padding:.45rem 1.1rem;
   background:rgba(34,211,238,.08);
   border-radius:50px;
   border:1px solid rgba(34,211,238,.28);
@@ -1813,7 +1824,7 @@ SECTION 1 — HERO (BOLD AD-STYLE)
   letter-spacing:-.01em;
 }
 .hero-bold .graphic-word{
-  font-size:clamp(88px,20vw,240px);
+  font-size:clamp(64px,12vw,140px);
   font-weight:900;
   line-height:.9;
   letter-spacing:-.06em;
@@ -1822,9 +1833,9 @@ SECTION 1 — HERO (BOLD AD-STYLE)
   background-clip:text;
   -webkit-text-fill-color:transparent;
   text-fill-color:transparent;
-  filter:drop-shadow(0 16px 40px rgba(34,211,238,.45));
+  filter:drop-shadow(0 12px 32px rgba(34,211,238,.4));
   display:block;
-  margin:60px 0;
+  margin:24px 0;
   font-family:'Inter','Pretendard',sans-serif;
   font-style:italic;
   width:100%;
@@ -1853,10 +1864,10 @@ SECTION 1 — HERO (BOLD AD-STYLE)
 }
 .hero-bold .cta-row{
   display:flex;
-  gap:18px;
+  gap:14px;
   justify-content:center;
   flex-wrap:wrap;
-  margin-top:60px;
+  margin-top:32px;
 }
 .hero-bold .btn-orange,
 .hero-bold .btn-ghost{
@@ -1892,7 +1903,7 @@ SECTION 1 — HERO (BOLD AD-STYLE)
 .hero-bold .crumbs-bold{
   font-size:.78rem;
   color:rgba(255,255,255,.45);
-  margin-bottom:60px;
+  margin-bottom:32px;
 }
 .hero-bold .crumbs-bold a{color:rgba(255,255,255,.6);text-decoration:none}
 .hero-bold .crumbs-bold strong{color:rgba(255,255,255,.85)}

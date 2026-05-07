@@ -940,6 +940,16 @@
   footer .footer-breadcrumb .cur{color:#0A1628;font-weight:600}
   footer .footer-breadcrumb:empty{display:none}
   @media(max-width:768px){footer .footer-breadcrumb{padding:0 0 14px;margin-bottom:14px;font-size:.72rem;justify-content:center}}
+  
+    /* PC nav 강제 보장 — 다른 룰 누가 가려도 PC에선 메뉴 노출 */
+    @media (min-width: 961px) {
+      #mainNav .nav-links { display: flex !important; }
+      #mainNav .nav-mobile-btn { display: none !important; }
+    }
+    @media (max-width: 960px) {
+      #mainNav .nav-mobile-btn { display: flex !important; }
+    }
+
   </style>
 </head>
 <body>
