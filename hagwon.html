@@ -1747,49 +1747,186 @@ h1,h2,h3,h4{margin:0;letter-spacing:-.02em;color:var(--ink);font-weight:800;line
 
 
 <!-- =========================================================
-SECTION 1 — HERO
+SECTION 1 — HERO (BOLD AD-STYLE)
 ========================================================= -->
-<section class="hero" data-screen-label="01 Hero">
+<style>
+.hero-bold{
+  background:linear-gradient(180deg,#0A1628 0%,#0F1F3D 50%,#0A1628 100%);
+  color:#fff;
+  position:relative;
+  padding:140px 0 160px;
+  min-height:calc(100vh - 66px);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+  text-align:center;
+}
+.hero-bold::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(800px 500px at 50% 20%, rgba(34,211,238,.10), transparent 60%),
+    radial-gradient(600px 400px at 50% 80%, rgba(34,211,238,.06), transparent 60%);
+  pointer-events:none;
+}
+.hero-bold .wrap{position:relative;z-index:2}
+.hero-bold .eyebrow-line{
+  display:inline-block;
+  font-size:1rem;
+  font-weight:800;
+  color:#22D3EE;
+  letter-spacing:-.01em;
+  margin-bottom:60px;
+  padding:.5rem 1.2rem;
+  background:rgba(34,211,238,.08);
+  border-radius:50px;
+  border:1px solid rgba(34,211,238,.28);
+}
+.hero-bold h1.h-bold{
+  font-size:clamp(36px, 5.5vw, 64px);
+  font-weight:900;
+  line-height:1.18;
+  letter-spacing:-.045em;
+  color:#fff;
+  margin:0;
+}
+.hero-bold h1.h-bold{margin:0 auto;max-width:760px}
+.hero-bold .sub-bold{
+  font-size:.85rem;
+  color:rgba(255,255,255,.5);
+  line-height:1.6;
+  margin:36px auto 0;
+  letter-spacing:-.01em;
+}
+.hero-bold .graphic-word{
+  font-size:clamp(88px,20vw,240px);
+  font-weight:900;
+  line-height:.9;
+  letter-spacing:-.06em;
+  background:linear-gradient(180deg,#67E8F9 0%,#22D3EE 50%,#0891B2 100%);
+  -webkit-background-clip:text;
+  background-clip:text;
+  -webkit-text-fill-color:transparent;
+  text-fill-color:transparent;
+  filter:drop-shadow(0 16px 40px rgba(34,211,238,.45));
+  display:block;
+  margin:60px 0;
+  font-family:'Inter','Pretendard',sans-serif;
+  font-style:italic;
+  width:100%;
+}
+.hero-bold .graphic-word.left{
+  text-align:left;
+  padding-left:clamp(16px,6vw,80px);
+}
+.hero-bold .graphic-word.right{
+  text-align:right;
+  padding-right:clamp(16px,6vw,80px);
+}
+@media (max-width:768px){
+  .hero-bold{padding:80px 0 100px}
+  .hero-bold .crumbs-bold{margin-bottom:40px}
+  .hero-bold .eyebrow-line{margin-bottom:40px}
+  .hero-bold .graphic-word{font-size:clamp(48px,14vw,96px);margin:40px auto}
+  .hero-bold .cta-row{margin-top:40px}
+  .hero-bold .sub-bold{margin-top:24px}
+}
+.hero-bold .center-content{
+  position:relative;
+  margin:36px auto;
+  max-width:640px;
+  padding:48px 24px;
+}
+.hero-bold .cta-row{
+  display:flex;
+  gap:18px;
+  justify-content:center;
+  flex-wrap:wrap;
+  margin-top:60px;
+}
+.hero-bold .btn-orange,
+.hero-bold .btn-ghost{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:200px;
+  height:54px;
+  padding:0;
+  border-radius:50px;
+  text-decoration:none;
+  font-size:1rem;
+  font-weight:800;
+  letter-spacing:-.01em;
+  transition:transform .15s, box-shadow .2s, background .2s, border-color .2s;
+}
+.hero-bold .btn-orange{
+  background:linear-gradient(180deg,#22D3EE,#0891B2);
+  color:#0A1628;
+  border:none;
+  box-shadow:0 12px 32px rgba(34,211,238,.4);
+}
+.hero-bold .btn-orange:hover{transform:translateY(-2px);box-shadow:0 16px 40px rgba(34,211,238,.55)}
+.hero-bold .btn-ghost{
+  background:rgba(255,255,255,.06);
+  -webkit-backdrop-filter:blur(20px) saturate(180%);
+  backdrop-filter:blur(20px) saturate(180%);
+  color:#fff;
+  border:1px solid rgba(255,255,255,.18);
+  box-shadow:0 8px 24px rgba(0,0,0,.3);
+}
+.hero-bold .btn-ghost:hover{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.32)}
+.hero-bold .crumbs-bold{
+  font-size:.78rem;
+  color:rgba(255,255,255,.45);
+  margin-bottom:60px;
+}
+.hero-bold .crumbs-bold a{color:rgba(255,255,255,.6);text-decoration:none}
+.hero-bold .crumbs-bold strong{color:rgba(255,255,255,.85)}
+@media (max-width:768px){
+  .hero-bold{padding:48px 0 60px}
+  .hero-bold h1.h-bold{font-size:clamp(28px,7vw,40px)}
+  .hero-bold .graphic-text{font-size:clamp(56px,18vw,120px);margin:18px 0}
+  .hero-bold .center-content{padding:24px 16px;margin:24px auto}
+  .hero-bold .cta-row{margin-top:28px;gap:10px}
+  .hero-bold .btn-orange,.hero-bold .btn-ghost{padding:14px 24px;font-size:.95rem}
+  .hero-bold .eyebrow-line{font-size:.85rem;margin-bottom:1rem}
+}
+</style>
+<section class="hero-bold" data-screen-label="01 Hero">
+  <div class="wrap">
+    <div class="crumbs-bold"><a>홈</a> › <strong>학원 상담</strong></div>
+    <span class="eyebrow-line">전국 205개 학습 코칭 센터, 와와</span>
+    <span class="graphic-word left">STUDY</span>
+    <h1 class="h-bold">
+      혼자 공부 어렵다면,<br>
+      <span style="color:#22D3EE">코치와 함께</span>
+    </h1>
+    <span class="graphic-word right">COACH</span>
+    <div class="cta-row">
+      <a href="tel:010-8571-5149" class="btn-orange">무료 상담 받기</a>
+      <a href="http://pf.kakao.com/_sqPxen/chat" target="_blank" rel="noopener" class="btn-ghost">카톡 문의</a>
+    </div>
+    <p class="sub-bold">공부 습관부터 입시까지, 1:1 자기주도학습 코칭</p>
+  </div>
+</section>
+<section class="hero" style="display:none" data-screen-label="01 Hero (legacy)">
   <div class="wrap">
     <div class="crumbs"><a>홈</a><span>›</span><strong>학원 상담</strong></div>
-
     <div class="hero-grid">
       <div>
         <div class="hero-badges">
           <span class="eyebrow amber">🏆 학습 코칭 No.1</span>
         </div>
-
         <h1 class="h-display">
           우리 아이가<br>
           공부의 <span class="kw-grad">주인공</span>
         </h1>
-
         <p class="h-sub" style="color:#cfe1ff;max-width:520px">
           진단부터 관리까지, <strong style="color:#fff">1:1 자기주도학습 코칭</strong>
         </p>
-
-        <form class="search-card" onsubmit="searchRegion(event)" autocomplete="off">
-          <div class="pin">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
-          </div>
-          <input id="hero-search" type="text" placeholder="우리 동네 입력 (예: 송도동, 강남)">
-          <button type="submit" class="btn-primary">센터 찾기</button>
-        </form>
-
-        <div class="region-pills">
-          <button class="pill" onclick="quickFill('강남구')"><span class="dot"></span>강남구</button>
-          <button class="pill" onclick="quickFill('송도동')"><span class="dot"></span>송도동</button>
-          <button class="pill" onclick="quickFill('분당구')"><span class="dot"></span>분당구</button>
-          <button class="pill" onclick="quickFill('일산동구')"><span class="dot"></span>일산동구</button>
-        </div>
-
-        <div class="hero-stats">
-          <div class="hero-stat"><div class="n">205<span class="u">+</span></div><div class="l">전국 학습 코칭 센터</div></div>
-          <div class="hero-stat"><div class="n">8<span class="u">년</span></div><div class="l">운영 노하우</div></div>
-          <div class="hero-stat"><div class="n">4.8<span class="u">/5</span></div><div class="l">학부모 만족도</div></div>
-        </div>
       </div>
-
       <div class="hero-illo">
         <div class="float-pin a">
           <div class="ic">
@@ -1978,8 +2115,8 @@ SECTION 2 — NATIONAL COVERAGE
   <div class="wrap">
     <div class="section-head">
       <span class="eyebrow blue">📍 전국 운영</span>
-      <h2 class="h-section">전국 <span class="kw">205개 학습 코칭 센터</span></h2>
-      <p class="h-sub">서울·경기·인천부터 부산·대구·강원까지 — 우리 동네 센터를 무료 매칭해드려요</p>
+      <h2 class="h-section">전국<br><span class="kw">205개 학습 코칭 센터</span></h2>
+      <p class="h-sub">서울·경기·인천부터 부산·대구·강원까지<br>우리 동네 센터를 무료 매칭해드려요</p>
     </div>
 
     <div style="display:flex;flex-wrap:wrap;gap:16px;justify-content:center;align-items:stretch;max-width:980px;margin:0 auto">
@@ -2088,8 +2225,8 @@ SECTION 3 — 4 STEP PROCESS
   <div class="wrap">
     <div class="section-head">
       <span class="eyebrow dark">⚙️ 학습 코칭 시스템</span>
-      <h2 class="h-section" style="color:#fff">WeStudy <span class="kw-grad">4단계 학습 코칭</span></h2>
-      <p class="h-sub">진단부터 소통까지, 학습의 전 과정을 체계적으로 관리합니다</p>
+      <h2 class="h-section" style="color:#fff">WeStudy<br><span class="kw-grad">4단계 학습 코칭</span></h2>
+      <p class="h-sub">진단부터 소통까지<br>학습의 전 과정을 체계적으로 관리합니다</p>
     </div>
 
     <div class="process-grid">
@@ -2165,8 +2302,8 @@ SECTION 4 — PHILOSOPHY
   <div class="wrap">
     <div class="section-head">
       <span class="eyebrow blue">💡 학생 중심 철학</span>
-      <h2 class="h-section">공부의 주체는 <span class="kw">우리 아이</span>입니다</h2>
-      <p class="h-sub">정답을 가르치는 것이 아니라, 정답을 찾는 능력을 키웁니다</p>
+      <h2 class="h-section">공부의 주체는<br><span class="kw">우리 아이</span>입니다</h2>
+      <p class="h-sub">정답을 가르치는 것이 아니라<br>정답을 찾는 능력을 키웁니다</p>
     </div>
 
     <div class="phil-grid">
@@ -2277,8 +2414,8 @@ SECTION 5 — LIFE COACHING
   <div class="wrap">
     <div class="section-head">
       <span class="eyebrow cyan">🌿 생활밀착형 코칭</span>
-      <h2 class="h-section">수업 시간 밖에서도 <span class="kw">함께</span></h2>
-      <p class="h-sub">단순 학습이 아닌, 아이의 일상 전체를 함께합니다</p>
+      <h2 class="h-section">수업 시간 밖에서도<br><span class="kw">함께</span></h2>
+      <p class="h-sub">단순 학습이 아닌<br>아이의 일상 전체를 함께합니다</p>
     </div>
 
     <div style="height:56px"></div>
@@ -2320,8 +2457,8 @@ SECTION 6 — CASES
   <div class="wrap">
     <div class="section-head">
       <span class="eyebrow amber">📈 Real Stories</span>
-      <h2 class="h-section">이미 많은 학생들이 <span class="kw">성적이 올랐습니다</span></h2>
-      <p class="h-sub">우리 아이도 가능합니다 — 변화의 실제 사례를 만나보세요</p>
+      <h2 class="h-section">이미 많은 학생들이<br><span class="kw">성적이 올랐습니다</span></h2>
+      <p class="h-sub">우리 아이도 가능합니다<br>변화의 실제 사례를 만나보세요</p>
     </div>
 
     <div class="case-grid">
@@ -2415,8 +2552,8 @@ SECTION 7 — TRUST
   <div class="wrap">
     <div class="section-head">
       <span class="eyebrow dark">🛡️ Why WeStudy</span>
-      <h2 class="h-section" style="color:#fff">WeStudy를 선택하는 <span class="kw-grad">4가지 이유</span></h2>
-      <p class="h-sub">데이터·노하우·만족도로 증명하는 학습 코칭</p>
+      <h2 class="h-section" style="color:#fff">WeStudy를 선택하는<br><span class="kw-grad">4가지 이유</span></h2>
+      <p class="h-sub">데이터·노하우·만족도로<br>증명하는 학습 코칭</p>
     </div>
 
     <div class="trust-grid">
@@ -2466,8 +2603,8 @@ SECTION 8 — POPULAR CENTERS
   <div class="wrap">
     <div class="section-head">
       <span class="eyebrow blue">🔥 인기 센터</span>
-      <h2 class="h-section">지금 인기 있는 <span class="kw">학습 코칭 센터</span></h2>
-      <p class="h-sub">학부모님들이 가장 많이 찾는 검증된 센터</p>
+      <h2 class="h-section">지금 인기 있는<br><span class="kw">학습 코칭 센터</span></h2>
+      <p class="h-sub">학부모님들이 가장 많이 찾는<br>검증된 센터</p>
     </div>
 
     <div class="centers-grid">
@@ -2607,8 +2744,8 @@ SECTION 9 — FORM
   <div class="wrap">
     <div class="section-head">
       <span class="eyebrow amber">🎁 무료 상담</span>
-      <h2 class="h-section" style="color:#fff">지금, <span class="kw-grad">무료 학습 상담</span> 신청</h2>
-      <p class="h-sub">30분 무료 진단으로 우리 아이의 학습 방향이 명확해집니다</p>
+      <h2 class="h-section" style="color:#fff">지금<br><span class="kw-grad">무료 학습 상담</span> 신청</h2>
+      <p class="h-sub">30분 무료 진단으로<br>우리 아이의 학습 방향이 명확해집니다</p>
     </div>
 
     <div class="form-grid">
