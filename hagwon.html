@@ -1680,6 +1680,16 @@ h1,h2,h3,h4{margin:0;letter-spacing:-.02em;color:var(--ink);font-weight:800;line
       .time-slots { grid-template-columns: repeat(2, 1fr); }
     }
   </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type":"ListItem","position":1,"name":"홈","item":"https://westudymate.com/"},
+      {"@type":"ListItem","position":2,"name":"학원 상담","item":"https://westudymate.com/hagwon.html"}
+    ]
+  }
+  </script>
 </head>
 <body>
 
@@ -1920,7 +1930,7 @@ SECTION 1 — HERO (BOLD AD-STYLE)
 </style>
 <section class="hero-bold" data-screen-label="01 Hero">
   <div class="wrap">
-    <div class="crumbs-bold"><a>홈</a> › <strong>학원 상담</strong></div>
+    <nav class="crumbs-bold" aria-label="현재 페이지 경로"><a href="/">홈</a> › <strong>학원 상담</strong></nav>
     <span class="eyebrow-line">전국 205개 학습 코칭 센터, 와와</span>
     <span class="graphic-word left">STUDY</span>
     <h1 class="h-bold">
@@ -1937,7 +1947,7 @@ SECTION 1 — HERO (BOLD AD-STYLE)
 </section>
 <section class="hero" style="display:none" data-screen-label="01 Hero (legacy)">
   <div class="wrap">
-    <div class="crumbs"><a>홈</a><span>›</span><strong>학원 상담</strong></div>
+    <div class="crumbs"><a href="/">홈</a><span>›</span><strong>학원 상담</strong></div>
     <div class="hero-grid">
       <div>
         <div class="hero-badges">
