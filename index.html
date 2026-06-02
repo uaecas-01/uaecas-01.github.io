@@ -1753,7 +1753,28 @@
       <span style="width:7px;height:7px;border-radius:50%;background:#4ADE80;box-shadow:0 0 0 0 rgba(74,222,128,.4);animation:fvPulse 1.6s infinite;display:inline-block;flex-shrink:0;"></span>
       <span id="fvCount" style="color:#fff;font-size:.78rem;font-weight:600;letter-spacing:.01em;"></span>
     </div>
-    <div style="font-size:2rem;margin-bottom:10px;">📚</div>
+    <!-- 3D 실루엣 아이콘 -->
+    <div style="margin-bottom:14px;line-height:0;">
+      <svg width="64" height="56" viewBox="0 0 64 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- 그림자 -->
+        <ellipse cx="32" cy="52" rx="20" ry="3.5" fill="rgba(0,0,0,.18)"/>
+        <!-- 사람 몸통 (가운) -->
+        <path d="M16 54 C16 42 24 37 32 37 C40 37 48 42 48 54Z" fill="rgba(255,255,255,.13)"/>
+        <!-- 사람 머리 -->
+        <circle cx="32" cy="28" r="9" fill="rgba(255,255,255,.18)"/>
+        <!-- 모자 아랫면 3D (뒤쪽 깊이) -->
+        <path d="M12 19 L12 23 L32 31 L32 27 Z" fill="rgba(255,255,255,.1)"/>
+        <path d="M52 19 L52 23 L32 31 L32 27 Z" fill="rgba(255,255,255,.07)"/>
+        <!-- 모자 윗면 (주된 면) -->
+        <path d="M32 10 L52 19 L32 27 L12 19 Z" fill="rgba(255,255,255,.28)"/>
+        <!-- 모자 윗면 하이라이트 -->
+        <path d="M32 10 L52 19 L42 23 L22 15 Z" fill="rgba(255,255,255,.1)"/>
+        <!-- 술 줄 -->
+        <line x1="52" y1="19" x2="52" y2="32" stroke="rgba(255,255,255,.28)" stroke-width="1.5" stroke-linecap="round"/>
+        <!-- 술 끝 -->
+        <circle cx="52" cy="33.5" r="2.5" fill="rgba(255,255,255,.22)"/>
+      </svg>
+    </div>
     <h3 style="margin:0 0 6px;color:#fff;font-size:1.5rem;font-weight:800;line-height:1.2;letter-spacing:-.03em;">무료 수업 1회 체험</h3>
     <p style="margin:0;color:rgba(255,255,255,.65);font-size:.85rem;">연락처만 남기시면 바로 연결해드려요</p>
   </div>
