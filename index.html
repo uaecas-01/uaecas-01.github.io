@@ -506,54 +506,42 @@
     }
     .prob-card {
       background: #fff;
-      border: 1px solid var(--gray-100);
+      border: 1px solid #E8EDF5;
       border-radius: 20px;
-      padding: 2rem 1.75rem 2rem;
+      padding: 2rem 1.75rem 1.75rem;
       transition: box-shadow 0.25s, transform 0.25s;
       display: flex;
       flex-direction: column;
-      position: relative;
-      overflow: hidden;
     }
-    .prob-card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0;
-      width: 4px; height: 100%;
-      background: linear-gradient(180deg, var(--blue) 0%, #60A5FA 100%);
-      border-radius: 4px 0 0 4px;
+    .prob-card:hover { box-shadow: 0 10px 36px rgba(10,22,40,0.09); transform: translateY(-3px); }
+    .prob-num-badge {
+      width: 36px; height: 36px;
+      background: #EFF6FF;
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: .75rem; font-weight: 800;
+      color: var(--blue); letter-spacing: .04em;
+      margin-bottom: 1.25rem;
     }
-    .prob-card:hover { box-shadow: 0 12px 40px rgba(10,22,40,0.1); transform: translateY(-4px); }
-    .prob-q {
-      font-size: 1.3rem; font-weight: 900;
-      color: var(--navy); line-height: 1.35;
-      letter-spacing: -0.03em;
-      margin-bottom: 1rem;
+    .prob-title {
+      font-size: 1.05rem; font-weight: 800;
+      color: var(--navy); line-height: 1.45;
+      letter-spacing: -0.02em;
+      margin-bottom: .75rem;
     }
-    .prob-q em {
-      font-style: normal;
-      color: var(--blue);
-    }
-    .prob-divider {
-      width: 28px; height: 2px;
-      background: var(--blue);
-      margin-bottom: 1rem;
-      opacity: .5;
-    }
-    .prob-a {
-      font-size: 0.875rem; color: var(--gray-500);
+    .prob-desc {
+      font-size: .875rem; color: #6B7280;
       line-height: 1.7; flex: 1;
     }
     .prob-tag {
-      display: inline-flex; align-items: center; gap: 5px;
-      margin-top: 1.4rem;
-      background: #EFF6FF;
-      color: var(--blue);
-      font-size: .75rem; font-weight: 700;
-      padding: 5px 12px; border-radius: 20px;
-      letter-spacing: .02em;
+      display: inline-flex; align-items: center;
+      margin-top: 1.25rem;
+      background: #F0FDF4;
+      color: #16A34A;
+      font-size: .72rem; font-weight: 700;
+      padding: 4px 10px; border-radius: 20px;
     }
-    /* Problems dots — hidden (vertical stack on mobile) */
+    /* Problems dots — hidden */
     .problems-dots { display: none; }
 
     /* ── PROCESS ── */
@@ -1243,27 +1231,27 @@
     <p class="section-sub reveal">많은 학부모님이 공통적으로 겪는 어려움을 WeStudy의 체계적인 시스템으로 해결합니다.</p>
     <div class="problems-grid">
       <div class="prob-card reveal">
-        <div class="prob-q">선생님을 몇 번이나 바꿨는데<br><em>왜 성적이 그대로일까요?</em></div>
-        <div class="prob-divider"></div>
-        <p class="prob-a">실력 좋은 선생님도 우리 아이랑 안 맞으면 소용없어요. WeStudy는 학습 성향·성격·목표까지 분석해 진짜 맞는 선생님을 연결합니다.</p>
+        <div class="prob-num-badge">01</div>
+        <div class="prob-title">선생님을 여러 번 바꿔도<br>성적이 그대로예요</div>
+        <p class="prob-desc">실력보다 궁합이 먼저입니다. 학습 성향·성격·목표를 분석해 진짜 맞는 선생님을 연결해드려요.</p>
         <span class="prob-tag">✓ AI 정밀 매칭</span>
       </div>
       <div class="prob-card reveal">
-        <div class="prob-q">공부를 <em>안 하는 건지,<br>못 하는 건지</em> 모르겠어요</div>
-        <div class="prob-divider"></div>
-        <p class="prob-a">의지 문제가 아닐 수 있어요. 취약 개념을 정확히 짚어내야 방향이 잡힙니다. 무료 진단으로 아이의 학습 막힌 지점부터 찾아드려요.</p>
-        <span class="prob-tag">✓ 1:1 학습 진단</span>
+        <div class="prob-num-badge">02</div>
+        <div class="prob-title">공부를 안 하는 건지<br>못 하는 건지 모르겠어요</div>
+        <p class="prob-desc">의지 문제가 아닐 수 있어요. 막힌 개념부터 정확히 찾아야 방향이 잡힙니다.</p>
+        <span class="prob-tag">✓ 무료 학습 진단</span>
       </div>
       <div class="prob-card reveal">
-        <div class="prob-q">학원을 3개나 보내는데<br><em>성적은 왜 제자리일까요?</em></div>
-        <div class="prob-divider"></div>
-        <p class="prob-a">많이 배우는 게 아니라 제대로 배워야 오릅니다. 불필요한 시간과 비용을 줄이고, 아이에게 꼭 맞는 과목·방식·선생님만 남깁니다.</p>
+        <div class="prob-num-badge">03</div>
+        <div class="prob-title">학원을 3개나 보내는데<br>성적은 왜 제자리일까요</div>
+        <p class="prob-desc">많이 배우는 게 아니라 제대로 배워야 오릅니다. 불필요한 과목·학원을 줄이고 핵심만 남깁니다.</p>
         <span class="prob-tag">✓ 맞춤 커리큘럼</span>
       </div>
       <div class="prob-card reveal">
-        <div class="prob-q">직접 챙기고 싶은데<br><em>일 때문에 도저히 안 돼요</em></div>
-        <div class="prob-divider"></div>
-        <p class="prob-a">수업 스케줄, 진도 관리, 피드백까지 WeStudy가 대신 챙깁니다. 부모님은 결과만 확인하세요.</p>
+        <div class="prob-num-badge">04</div>
+        <div class="prob-title">직접 챙기고 싶은데<br>일 때문에 도저히 안 돼요</div>
+        <p class="prob-desc">수업 스케줄, 진도, 피드백까지 WeStudy가 대신 챙깁니다. 부모님은 결과만 확인하세요.</p>
         <span class="prob-tag">✓ 학습 관리 대행</span>
       </div>
     </div>
