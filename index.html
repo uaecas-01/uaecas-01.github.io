@@ -1742,55 +1742,67 @@
     });
   })();
 </script>
-<!-- 최초 방문 팝업 -->
-<div id="fvPopupBackdrop" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:9998;backdrop-filter:blur(2px);"></div>
-<div id="fvPopup" style="display:none;position:fixed;top:50%;left:50%;transform:translate(-50%,-54%) scale(.96);z-index:9999;width:min(420px,92vw);background:#fff;border-radius:20px;box-shadow:0 24px 64px rgba(0,0,0,.22);overflow:hidden;font-family:'Pretendard',sans-serif;transition:transform .3s,opacity .3s;opacity:0;">
-  <div style="background:linear-gradient(135deg,#0f2d6e 0%,#1a4dbf 100%);padding:28px 28px 22px;position:relative;">
-    <button onclick="fvClose(true)" style="position:absolute;top:14px;right:16px;background:rgba(255,255,255,.15);border:none;color:#fff;width:30px;height:30px;border-radius:50%;font-size:18px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;">×</button>
-    <div style="display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.15);border-radius:20px;padding:4px 12px;margin-bottom:14px;">
-      <span style="font-size:14px;">🎁</span>
-      <span style="color:#93C5FD;font-size:.78rem;font-weight:700;letter-spacing:.05em;">첫 방문 무료 혜택</span>
+<!-- 최초 방문 팝업 v2 -->
+<div id="fvPopupBackdrop" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:9998;backdrop-filter:blur(3px);"></div>
+<div id="fvPopup" style="display:none;position:fixed;top:50%;left:50%;transform:translate(-50%,-54%) scale(.95);z-index:9999;width:min(380px,90vw);background:#fff;border-radius:24px;box-shadow:0 32px 80px rgba(0,0,0,.25);overflow:hidden;font-family:'Pretendard',sans-serif;transition:transform .35s cubic-bezier(.34,1.56,.64,1),opacity .3s;opacity:0;">
+  <!-- 상단 그라디언트 영역 -->
+  <div style="background:linear-gradient(150deg,#0c1e5c 0%,#1e40af 100%);padding:32px 28px 26px;position:relative;text-align:center;">
+    <button onclick="fvClose(true)" style="position:absolute;top:14px;right:14px;background:rgba(255,255,255,.12);border:none;color:rgba(255,255,255,.7);width:28px;height:28px;border-radius:50%;font-size:16px;cursor:pointer;line-height:28px;text-align:center;transition:background .2s;" onmouseover="this.style.background='rgba(255,255,255,.25)'" onmouseout="this.style.background='rgba(255,255,255,.12)'">×</button>
+    <!-- 소셜 프루프 -->
+    <div id="fvLive" style="display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:30px;padding:5px 14px;margin-bottom:18px;">
+      <span style="width:7px;height:7px;border-radius:50%;background:#4ADE80;box-shadow:0 0 0 0 rgba(74,222,128,.4);animation:fvPulse 1.6s infinite;display:inline-block;flex-shrink:0;"></span>
+      <span id="fvCount" style="color:#fff;font-size:.78rem;font-weight:600;letter-spacing:.01em;"></span>
     </div>
-    <h3 style="margin:0 0 8px;color:#fff;font-size:1.45rem;font-weight:800;line-height:1.25;">30분 무료 체험 수업<br><span style="color:#60A5FA;">지금 바로 신청하세요</span></h3>
-    <p style="margin:0;color:rgba(255,255,255,.75);font-size:.88rem;line-height:1.6;">성적이 안 오르는 이유, 무료 상담으로<br>함께 찾아드립니다. 부담 제로.</p>
+    <div style="font-size:2rem;margin-bottom:10px;">📚</div>
+    <h3 style="margin:0 0 6px;color:#fff;font-size:1.5rem;font-weight:800;line-height:1.2;letter-spacing:-.03em;">무료 수업 1회 체험</h3>
+    <p style="margin:0;color:rgba(255,255,255,.65);font-size:.85rem;">연락처만 남기시면 바로 연결해드려요</p>
   </div>
-  <div style="padding:22px 28px 28px;">
-    <ul style="margin:0 0 20px;padding:0;list-style:none;display:flex;flex-direction:column;gap:9px;">
-      <li style="display:flex;align-items:center;gap:9px;font-size:.9rem;color:#374151;"><span style="color:#2563EB;font-weight:800;font-size:1rem;">✓</span> 1:1 맞춤 선생님 무료 매칭</li>
-      <li style="display:flex;align-items:center;gap:9px;font-size:.9rem;color:#374151;"><span style="color:#2563EB;font-weight:800;font-size:1rem;">✓</span> 학습 수준 진단 무료 제공</li>
-      <li style="display:flex;align-items:center;gap:9px;font-size:.9rem;color:#374151;"><span style="color:#2563EB;font-weight:800;font-size:1rem;">✓</span> 전국 방문 과외 · 비용 부담 없음</li>
-    </ul>
+  <!-- 하단 폼 영역 -->
+  <div style="padding:24px 24px 20px;">
     <form id="fvForm" action="https://formspree.io/f/xdawekgq" method="POST" style="display:flex;flex-direction:column;gap:10px;">
       <input type="hidden" name="출처" value="팝업_첫방문">
-      <input name="연락처" type="tel" placeholder="연락처를 입력해주세요 (010-0000-0000)" required style="padding:13px 16px;border:1.5px solid #E5E7EB;border-radius:10px;font-size:.9rem;font-family:inherit;outline:none;transition:border .2s;" onfocus="this.style.borderColor='#2563EB'" onblur="this.style.borderColor='#E5E7EB'">
-      <button type="submit" style="padding:14px;background:linear-gradient(135deg,#1a4dbf,#2563EB);color:#fff;border:none;border-radius:10px;font-size:1rem;font-weight:700;cursor:pointer;font-family:inherit;letter-spacing:-.01em;">무료 수업 신청하기 →</button>
+      <input name="연락처" type="tel" placeholder="010-0000-0000" required style="padding:14px 16px;border:1.5px solid #E5E7EB;border-radius:12px;font-size:.95rem;font-family:inherit;outline:none;transition:border .2s;text-align:center;letter-spacing:.05em;" onfocus="this.style.borderColor='#2563EB';this.style.boxShadow='0 0 0 3px rgba(37,99,235,.12)'" onblur="this.style.borderColor='#E5E7EB';this.style.boxShadow='none'">
+      <button type="submit" style="padding:15px;background:linear-gradient(135deg,#1d4ed8,#2563EB);color:#fff;border:none;border-radius:12px;font-size:1rem;font-weight:700;cursor:pointer;font-family:inherit;letter-spacing:-.01em;box-shadow:0 4px 16px rgba(37,99,235,.35);transition:transform .15s,box-shadow .15s;" onmouseover="this.style.transform='translateY(-1px)';this.style.boxShadow='0 6px 20px rgba(37,99,235,.45)'" onmouseout="this.style.transform='';this.style.boxShadow='0 4px 16px rgba(37,99,235,.35)'">무료 수업 신청하기 →</button>
     </form>
-    <button onclick="fvClose(true)" style="width:100%;margin-top:12px;background:none;border:none;color:#9CA3AF;font-size:.8rem;cursor:pointer;font-family:inherit;padding:4px;">오늘 하루 보지 않기</button>
+    <div style="display:flex;align-items:center;justify-content:center;gap:16px;margin-top:14px;">
+      <span style="font-size:.75rem;color:#9CA3AF;">✓ 완전 무료</span>
+      <span style="font-size:.75rem;color:#9CA3AF;">✓ 부담 없음</span>
+      <span style="font-size:.75rem;color:#9CA3AF;">✓ 즉시 연결</span>
+    </div>
+    <button onclick="fvClose(true)" style="display:block;width:100%;margin-top:10px;background:none;border:none;color:#C4C4C4;font-size:.75rem;cursor:pointer;font-family:inherit;padding:6px;text-decoration:underline;text-underline-offset:2px;">오늘 하루 보지 않기</button>
   </div>
 </div>
+<style>
+@keyframes fvPulse{0%{box-shadow:0 0 0 0 rgba(74,222,128,.5)}70%{box-shadow:0 0 0 8px rgba(74,222,128,0)}100%{box-shadow:0 0 0 0 rgba(74,222,128,0)}}
+</style>
 <script>
 (function(){
-  var KEY='ws_popup_v1';
+  var KEY='ws_popup_v2';
+  var counts=[17,19,22,24,26,28,31,33,35,38];
+  var n=counts[Math.floor(Math.random()*counts.length)];
+  document.getElementById('fvCount').textContent='현재 '+n+'명이 수업 신청 중';
   function fvShouldShow(){
     try{var d=localStorage.getItem(KEY);if(!d)return true;return Date.now()-parseInt(d)>86400000;}catch(e){return true;}
   }
   window.fvClose=function(save){
     var bd=document.getElementById('fvPopupBackdrop');
     var pp=document.getElementById('fvPopup');
-    pp.style.opacity='0';pp.style.transform='translate(-50%,-54%) scale(.96)';
+    pp.style.opacity='0';pp.style.transform='translate(-50%,-54%) scale(.95)';
     setTimeout(function(){pp.style.display='none';bd.style.display='none';},300);
     if(save){try{localStorage.setItem(KEY,Date.now());}catch(e){}}
   };
   document.getElementById('fvForm').addEventListener('submit',function(e){
     e.preventDefault();
     var form=this;
+    var btn=form.querySelector('button[type=submit]');
+    btn.textContent='신청 중...';btn.disabled=true;
     fetch(form.action,{method:'POST',body:new FormData(form),headers:{'Accept':'application/json'}})
       .then(function(r){
         if(r.ok){
-          form.innerHTML='<p style="text-align:center;color:#2563EB;font-weight:700;padding:12px 0;">✅ 신청 완료! 24시간 내 연락드릴게요.</p>';
-          setTimeout(function(){fvClose(true);},2000);
-        }
-      }).catch(function(){form.querySelector('button[type=submit]').textContent='다시 시도해주세요';});
+          document.getElementById('fvPopup').querySelector('div:last-child').innerHTML='<div style="text-align:center;padding:16px 0;"><div style="font-size:2rem;margin-bottom:8px;">✅</div><p style="font-weight:700;color:#1d4ed8;margin:0 0 4px;font-size:1rem;">신청 완료!</p><p style="color:#6B7280;font-size:.85rem;margin:0;">24시간 내 연락드릴게요</p></div>';
+          setTimeout(function(){fvClose(true);},2200);
+        } else { btn.textContent='다시 시도해주세요';btn.disabled=false; }
+      }).catch(function(){btn.textContent='다시 시도해주세요';btn.disabled=false;});
   });
   if(fvShouldShow()){
     setTimeout(function(){
