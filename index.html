@@ -1742,6 +1742,67 @@
     });
   })();
 </script>
+<!-- 최초 방문 팝업 -->
+<div id="fvPopupBackdrop" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:9998;backdrop-filter:blur(2px);"></div>
+<div id="fvPopup" style="display:none;position:fixed;top:50%;left:50%;transform:translate(-50%,-54%) scale(.96);z-index:9999;width:min(420px,92vw);background:#fff;border-radius:20px;box-shadow:0 24px 64px rgba(0,0,0,.22);overflow:hidden;font-family:'Pretendard',sans-serif;transition:transform .3s,opacity .3s;opacity:0;">
+  <div style="background:linear-gradient(135deg,#0f2d6e 0%,#1a4dbf 100%);padding:28px 28px 22px;position:relative;">
+    <button onclick="fvClose(true)" style="position:absolute;top:14px;right:16px;background:rgba(255,255,255,.15);border:none;color:#fff;width:30px;height:30px;border-radius:50%;font-size:18px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;">×</button>
+    <div style="display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.15);border-radius:20px;padding:4px 12px;margin-bottom:14px;">
+      <span style="font-size:14px;">🎁</span>
+      <span style="color:#93C5FD;font-size:.78rem;font-weight:700;letter-spacing:.05em;">첫 방문 무료 혜택</span>
+    </div>
+    <h3 style="margin:0 0 8px;color:#fff;font-size:1.45rem;font-weight:800;line-height:1.25;">30분 무료 체험 수업<br><span style="color:#60A5FA;">지금 바로 신청하세요</span></h3>
+    <p style="margin:0;color:rgba(255,255,255,.75);font-size:.88rem;line-height:1.6;">성적이 안 오르는 이유, 무료 상담으로<br>함께 찾아드립니다. 부담 제로.</p>
+  </div>
+  <div style="padding:22px 28px 28px;">
+    <ul style="margin:0 0 20px;padding:0;list-style:none;display:flex;flex-direction:column;gap:9px;">
+      <li style="display:flex;align-items:center;gap:9px;font-size:.9rem;color:#374151;"><span style="color:#2563EB;font-weight:800;font-size:1rem;">✓</span> 1:1 맞춤 선생님 무료 매칭</li>
+      <li style="display:flex;align-items:center;gap:9px;font-size:.9rem;color:#374151;"><span style="color:#2563EB;font-weight:800;font-size:1rem;">✓</span> 학습 수준 진단 무료 제공</li>
+      <li style="display:flex;align-items:center;gap:9px;font-size:.9rem;color:#374151;"><span style="color:#2563EB;font-weight:800;font-size:1rem;">✓</span> 전국 방문 과외 · 비용 부담 없음</li>
+    </ul>
+    <form id="fvForm" action="https://formspree.io/f/xdawekgq" method="POST" style="display:flex;flex-direction:column;gap:10px;">
+      <input type="hidden" name="출처" value="팝업_첫방문">
+      <input name="연락처" type="tel" placeholder="연락처를 입력해주세요 (010-0000-0000)" required style="padding:13px 16px;border:1.5px solid #E5E7EB;border-radius:10px;font-size:.9rem;font-family:inherit;outline:none;transition:border .2s;" onfocus="this.style.borderColor='#2563EB'" onblur="this.style.borderColor='#E5E7EB'">
+      <button type="submit" style="padding:14px;background:linear-gradient(135deg,#1a4dbf,#2563EB);color:#fff;border:none;border-radius:10px;font-size:1rem;font-weight:700;cursor:pointer;font-family:inherit;letter-spacing:-.01em;">무료 수업 신청하기 →</button>
+    </form>
+    <button onclick="fvClose(true)" style="width:100%;margin-top:12px;background:none;border:none;color:#9CA3AF;font-size:.8rem;cursor:pointer;font-family:inherit;padding:4px;">오늘 하루 보지 않기</button>
+  </div>
+</div>
+<script>
+(function(){
+  var KEY='ws_popup_v1';
+  function fvShouldShow(){
+    try{var d=localStorage.getItem(KEY);if(!d)return true;return Date.now()-parseInt(d)>86400000;}catch(e){return true;}
+  }
+  window.fvClose=function(save){
+    var bd=document.getElementById('fvPopupBackdrop');
+    var pp=document.getElementById('fvPopup');
+    pp.style.opacity='0';pp.style.transform='translate(-50%,-54%) scale(.96)';
+    setTimeout(function(){pp.style.display='none';bd.style.display='none';},300);
+    if(save){try{localStorage.setItem(KEY,Date.now());}catch(e){}}
+  };
+  document.getElementById('fvForm').addEventListener('submit',function(e){
+    e.preventDefault();
+    var form=this;
+    fetch(form.action,{method:'POST',body:new FormData(form),headers:{'Accept':'application/json'}})
+      .then(function(r){
+        if(r.ok){
+          form.innerHTML='<p style="text-align:center;color:#2563EB;font-weight:700;padding:12px 0;">✅ 신청 완료! 24시간 내 연락드릴게요.</p>';
+          setTimeout(function(){fvClose(true);},2000);
+        }
+      }).catch(function(){form.querySelector('button[type=submit]').textContent='다시 시도해주세요';});
+  });
+  if(fvShouldShow()){
+    setTimeout(function(){
+      var bd=document.getElementById('fvPopupBackdrop');
+      var pp=document.getElementById('fvPopup');
+      bd.style.display='block';pp.style.display='block';
+      setTimeout(function(){pp.style.opacity='1';pp.style.transform='translate(-50%,-50%) scale(1)';},30);
+    },1500);
+  }
+  document.getElementById('fvPopupBackdrop').addEventListener('click',function(){fvClose(false);});
+})();
+</script>
 <script>(function(){try{var el=document.getElementById('footerBc');if(!el)return;var labelMap={'지역':'지역','과목':'과목','학교':'학교','학원':'학원','학년':'학년','회화':'회화','기타':'기타 수업','과외':'과외','영어':'영어회화','일본어':'일본어회화','중국어':'중국어회화','hagwon.html':'학원 상담','contact.html':'문의하기','about.html':'소개','reviews.html':'수업 후기','education.html':'교육 정보','학습코칭':'학습 코칭','입시컨설팅':'입시 컨설팅','생기부컨설팅':'생기부 컨설팅','유학':'유학 프로그램','국제학교':'국제학교 상담','코딩':'코딩','검정고시':'검정고시','수행평가':'수행평가','비즈니스':'비즈니스','시험':'시험 대비','면접':'면접','입문':'입문','학생':'학생','여행':'여행'};var path=location.pathname.split('/').filter(function(p){return p}).map(decodeURIComponent);if(path.length===0){el.innerHTML='<span class="cur">홈</span>';return}var html='<a href="/">홈</a>';var acc='';path.forEach(function(seg,i){acc+='/'+encodeURIComponent(seg);var label=labelMap[seg]||seg;html+='<span class="sep">›</span>';if(i===path.length-1){html+='<span class="cur">'+label+'</span>'}else{html+='<a href="'+acc+'">'+label+'</a>'}});el.innerHTML=html}catch(e){}})();</script>
 </body>
 </html>
