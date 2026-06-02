@@ -502,46 +502,42 @@
     .problems-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 1.25rem;
+      gap: 1rem;
     }
     .prob-card {
-      background: #fff;
-      border: 1px solid #E8EDF5;
+      background: #F8FAFF;
       border-radius: 20px;
-      padding: 2rem 1.75rem 1.75rem;
-      transition: box-shadow 0.25s, transform 0.25s;
+      padding: 2.25rem 1.75rem 2rem;
       display: flex;
       flex-direction: column;
+      gap: 0;
     }
-    .prob-card:hover { box-shadow: 0 10px 36px rgba(10,22,40,0.09); transform: translateY(-3px); }
-    .prob-num-badge {
-      width: 36px; height: 36px;
-      background: #EFF6FF;
-      border-radius: 10px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: .75rem; font-weight: 800;
-      color: var(--blue); letter-spacing: .04em;
-      margin-bottom: 1.25rem;
+    /* 번호 — 아주 작고 흐리게 */
+    .prob-num {
+      font-size: .7rem;
+      font-weight: 700;
+      color: #A0AEC0;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      margin-bottom: 1.1rem;
     }
+    /* 제목 — 크고 굵게, 눈이 먼저 가야 함 */
     .prob-title {
-      font-size: 1.05rem; font-weight: 800;
-      color: var(--navy); line-height: 1.45;
-      letter-spacing: -0.02em;
-      margin-bottom: .75rem;
+      font-size: 1.25rem;
+      font-weight: 900;
+      color: #0A1628;
+      line-height: 1.4;
+      letter-spacing: -0.03em;
+      margin-bottom: 1rem;
     }
+    /* 설명 — 작고 회색, 읽고 싶으면 읽는 레벨 */
     .prob-desc {
-      font-size: .875rem; color: #6B7280;
-      line-height: 1.7; flex: 1;
+      font-size: .82rem;
+      color: #9CA3AF;
+      line-height: 1.75;
+      flex: 1;
     }
-    .prob-tag {
-      display: inline-flex; align-items: center;
-      margin-top: 1.25rem;
-      background: #F0FDF4;
-      color: #16A34A;
-      font-size: .72rem; font-weight: 700;
-      padding: 4px 10px; border-radius: 20px;
-    }
-    /* Problems dots — hidden */
+    /* Problems dots — 제거 */
     .problems-dots { display: none; }
 
     /* ── PROCESS ── */
@@ -1231,28 +1227,24 @@
     <p class="section-sub reveal">많은 학부모님이 공통적으로 겪는 어려움을 WeStudy의 체계적인 시스템으로 해결합니다.</p>
     <div class="problems-grid">
       <div class="prob-card reveal">
-        <div class="prob-num-badge">01</div>
-        <div class="prob-title">선생님을 여러 번 바꿔도<br>성적이 그대로예요</div>
-        <p class="prob-desc">실력보다 궁합이 먼저입니다. 학습 성향·성격·목표를 분석해 진짜 맞는 선생님을 연결해드려요.</p>
-        <span class="prob-tag">✓ AI 정밀 매칭</span>
+        <div class="prob-num">Problem 01</div>
+        <div class="prob-title">선생님을 여러 번<br>바꿔도 그대로예요</div>
+        <p class="prob-desc">실력보다 궁합이 먼저입니다. 학습 성향·목표를 분석해 진짜 맞는 선생님을 연결해드려요.</p>
       </div>
       <div class="prob-card reveal">
-        <div class="prob-num-badge">02</div>
-        <div class="prob-title">공부를 안 하는 건지<br>못 하는 건지 모르겠어요</div>
+        <div class="prob-num">Problem 02</div>
+        <div class="prob-title">공부를 안 하는 건지<br>못 하는 건지 몰라요</div>
         <p class="prob-desc">의지 문제가 아닐 수 있어요. 막힌 개념부터 정확히 찾아야 방향이 잡힙니다.</p>
-        <span class="prob-tag">✓ 무료 학습 진단</span>
       </div>
       <div class="prob-card reveal">
-        <div class="prob-num-badge">03</div>
-        <div class="prob-title">학원을 3개나 보내는데<br>성적은 왜 제자리일까요</div>
-        <p class="prob-desc">많이 배우는 게 아니라 제대로 배워야 오릅니다. 불필요한 과목·학원을 줄이고 핵심만 남깁니다.</p>
-        <span class="prob-tag">✓ 맞춤 커리큘럼</span>
+        <div class="prob-num">Problem 03</div>
+        <div class="prob-title">학원을 3개 보내는데<br>성적은 제자리예요</div>
+        <p class="prob-desc">많이 배우는 게 아니라 제대로 배워야 오릅니다. 불필요한 것을 줄이고 핵심만 남깁니다.</p>
       </div>
       <div class="prob-card reveal">
-        <div class="prob-num-badge">04</div>
-        <div class="prob-title">직접 챙기고 싶은데<br>일 때문에 도저히 안 돼요</div>
-        <p class="prob-desc">수업 스케줄, 진도, 피드백까지 WeStudy가 대신 챙깁니다. 부모님은 결과만 확인하세요.</p>
-        <span class="prob-tag">✓ 학습 관리 대행</span>
+        <div class="prob-num">Problem 04</div>
+        <div class="prob-title">직접 챙기고 싶은데<br>일 때문에 못 해요</div>
+        <p class="prob-desc">스케줄, 진도, 피드백까지 WeStudy가 대신 챙깁니다. 부모님은 결과만 확인하세요.</p>
       </div>
     </div>
   </div>
