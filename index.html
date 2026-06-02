@@ -505,55 +505,56 @@
       gap: 1.25rem;
     }
     .prob-card {
-      background: var(--bg);
+      background: #fff;
       border: 1px solid var(--gray-100);
-      border-radius: 16px;
-      padding: 2rem 1.5rem;
+      border-radius: 20px;
+      padding: 2rem 1.75rem 2rem;
       transition: box-shadow 0.25s, transform 0.25s;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
     }
-    .prob-card:hover { box-shadow: 0 8px 32px rgba(10,22,40,0.1); transform: translateY(-4px); }
-    .prob-icon {
-      width: 48px; height: 48px;
+    .prob-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 4px; height: 100%;
+      background: linear-gradient(180deg, var(--blue) 0%, #60A5FA 100%);
+      border-radius: 4px 0 0 4px;
+    }
+    .prob-card:hover { box-shadow: 0 12px 40px rgba(10,22,40,0.1); transform: translateY(-4px); }
+    .prob-q {
+      font-size: 1.3rem; font-weight: 900;
+      color: var(--navy); line-height: 1.35;
+      letter-spacing: -0.03em;
+      margin-bottom: 1rem;
+    }
+    .prob-q em {
+      font-style: normal;
+      color: var(--blue);
+    }
+    .prob-divider {
+      width: 28px; height: 2px;
       background: var(--blue);
-      border-radius: 12px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.4rem;
-      color: var(--white);
-      margin-bottom: 1.25rem;
+      margin-bottom: 1rem;
+      opacity: .5;
     }
-    .prob-icon .fi { line-height: 1; display: inline-flex; }
-    .prob-num {
-      font-size: 0.72rem; font-weight: 700;
-      color: var(--blue); letter-spacing: 0.1em;
-      text-transform: uppercase; margin-bottom: 0.4rem;
+    .prob-a {
+      font-size: 0.875rem; color: var(--gray-500);
+      line-height: 1.7; flex: 1;
     }
-    .prob-title {
-      font-size: 1rem; font-weight: 800;
-      color: var(--navy); margin-bottom: 0.5rem; line-height: 1.3;
+    .prob-tag {
+      display: inline-flex; align-items: center; gap: 5px;
+      margin-top: 1.4rem;
+      background: #EFF6FF;
+      color: var(--blue);
+      font-size: .75rem; font-weight: 700;
+      padding: 5px 12px; border-radius: 20px;
+      letter-spacing: .02em;
     }
-    .prob-desc { font-size: 0.85rem; color: var(--gray-500); line-height: 1.65; }
-
-    /* Problems carousel dots (mobile only) */
+    /* Problems dots — hidden (vertical stack on mobile) */
     .problems-dots { display: none; }
-    .problems-dots {
-      justify-content: center;
-      gap: 0.5rem;
-      margin-top: 1.25rem;
-    }
-    .problems-dots button {
-      width: 8px; height: 8px;
-      border-radius: 50%;
-      border: 0;
-      background: var(--gray-300);
-      padding: 0;
-      cursor: pointer;
-      transition: background 0.2s, width 0.2s;
-    }
-    .problems-dots button.active {
-      background: var(--blue);
-      width: 24px;
-      border-radius: 4px;
-    }
 
     /* ── PROCESS ── */
     .process-section {
@@ -888,7 +889,7 @@
     @media (max-width: 1024px) {
       .hero-inner { grid-template-columns: 1fr; }
       .hero-card { display: none; }
-      .problems-grid { grid-template-columns: repeat(2,1fr); }
+      .problems-grid { grid-template-columns: repeat(2,1fr); gap: 1rem; }
       .services-grid { grid-template-columns: 1fr 1fr; }
       .proof-grid { grid-template-columns: 1fr; }
       .cta-inner { grid-template-columns: 1fr; }
@@ -912,25 +913,14 @@
       .footer-top { grid-template-columns: 1fr; gap: 2rem; }
       .footer-bottom { flex-direction: column; align-items: flex-start; }
 
-      /* Problems: 스와이프 캐러셀 */
+      /* Problems: 모바일 1열 수직 스택 */
       .problems-grid {
-        display: flex;
-        grid-template-columns: none;
-        overflow-x: auto;
-        scroll-snap-type: x mandatory;
-        -webkit-overflow-scrolling: touch;
-        scrollbar-width: none;
+        grid-template-columns: 1fr;
         gap: 1rem;
-        margin: 0 -1.25rem;
-        padding: 0.5rem 1.25rem 1rem;
       }
-      .problems-grid::-webkit-scrollbar { display: none; }
       .prob-card {
-        flex: 0 0 calc(100% - 3rem);
-        scroll-snap-align: center;
-        scroll-snap-stop: always;
+        padding: 1.75rem 1.5rem;
       }
-      .problems-dots { display: flex; }
     }
   /* === Footer breadcrumb === */
   footer .footer-breadcrumb{display:flex;flex-wrap:wrap;align-items:center;gap:6px;padding:0 0 18px;margin-bottom:18px;font-size:.78rem;color:rgba(0,0,0,.6);border-bottom:1px solid rgba(0,0,0,.06)}
@@ -1253,35 +1243,29 @@
     <p class="section-sub reveal">많은 학부모님이 공통적으로 겪는 어려움을 WeStudy의 체계적인 시스템으로 해결합니다.</p>
     <div class="problems-grid">
       <div class="prob-card reveal">
-        <div class="prob-icon"><i class="fi fi-rr-graduation-cap"></i></div>
-        <div class="prob-num">Problem 01</div>
-        <div class="prob-title">어떤 선생님이<br>우리 아이에게 맞을까?</div>
-        <p class="prob-desc">학생의 성격, 학습 스타일, 목표 성적에 따라 최적의 선생님을 AI 기반으로 정밀 매칭합니다.</p>
+        <div class="prob-q">선생님을 몇 번이나 바꿨는데<br><em>왜 성적이 그대로일까요?</em></div>
+        <div class="prob-divider"></div>
+        <p class="prob-a">실력 좋은 선생님도 우리 아이랑 안 맞으면 소용없어요. WeStudy는 학습 성향·성격·목표까지 분석해 진짜 맞는 선생님을 연결합니다.</p>
+        <span class="prob-tag">✓ AI 정밀 매칭</span>
       </div>
       <div class="prob-card reveal">
-        <div class="prob-icon"><i class="fi fi-rr-target"></i></div>
-        <div class="prob-num">Problem 02</div>
-        <div class="prob-title">학원을 보내야 할까,<br>과외가 나을까?</div>
-        <p class="prob-desc">아이의 학습 성향과 생활 패턴을 분석해 방문·화상·학원 중 최적의 수업 방식을 추천합니다.</p>
+        <div class="prob-q">공부를 <em>안 하는 건지,<br>못 하는 건지</em> 모르겠어요</div>
+        <div class="prob-divider"></div>
+        <p class="prob-a">의지 문제가 아닐 수 있어요. 취약 개념을 정확히 짚어내야 방향이 잡힙니다. 무료 진단으로 아이의 학습 막힌 지점부터 찾아드려요.</p>
+        <span class="prob-tag">✓ 1:1 학습 진단</span>
       </div>
       <div class="prob-card reveal">
-        <div class="prob-icon"><i class="fi fi-rr-chart-line-up"></i></div>
-        <div class="prob-num">Problem 03</div>
-        <div class="prob-title">공부는 하는데<br>성적이 오르지 않아요</div>
-        <p class="prob-desc">단순 반복 학습이 아닌 취약점 분석과 개념 완성 중심의 맞춤 커리큘럼으로 실력을 끌어올립니다.</p>
+        <div class="prob-q">학원을 3개나 보내는데<br><em>성적은 왜 제자리일까요?</em></div>
+        <div class="prob-divider"></div>
+        <p class="prob-a">많이 배우는 게 아니라 제대로 배워야 오릅니다. 불필요한 시간과 비용을 줄이고, 아이에게 꼭 맞는 과목·방식·선생님만 남깁니다.</p>
+        <span class="prob-tag">✓ 맞춤 커리큘럼</span>
       </div>
       <div class="prob-card reveal">
-        <div class="prob-icon"><i class="fi fi-rr-clock"></i></div>
-        <div class="prob-num">Problem 04</div>
-        <div class="prob-title">바쁜 일상에서<br>관리가 어려워요</div>
-        <p class="prob-desc">수업 출결, 학습 진도, 성취도까지 학부모 앱으로 실시간 확인 가능한 투명한 관리 시스템을 제공합니다.</p>
+        <div class="prob-q">직접 챙기고 싶은데<br><em>일 때문에 도저히 안 돼요</em></div>
+        <div class="prob-divider"></div>
+        <p class="prob-a">수업 스케줄, 진도 관리, 피드백까지 WeStudy가 대신 챙깁니다. 부모님은 결과만 확인하세요.</p>
+        <span class="prob-tag">✓ 학습 관리 대행</span>
       </div>
-    </div>
-    <div class="problems-dots" id="problemsDots" aria-label="고민 카드 탐색">
-      <button class="active" data-idx="0" aria-label="1번 카드"></button>
-      <button data-idx="1" aria-label="2번 카드"></button>
-      <button data-idx="2" aria-label="3번 카드"></button>
-      <button data-idx="3" aria-label="4번 카드"></button>
     </div>
   </div>
 </section>
@@ -1706,41 +1690,7 @@
     }
   });
 
-  // ── Problems carousel: 스와이프 ↔ 도트 동기화 ──
-  (function(){
-    const grid = document.querySelector('.problems-grid');
-    const dotsWrap = document.getElementById('problemsDots');
-    if (!grid || !dotsWrap) return;
-    const dots = Array.from(dotsWrap.querySelectorAll('button'));
-    const cards = Array.from(grid.querySelectorAll('.prob-card'));
-
-    function setActive(idx) {
-      dots.forEach((d, i) => d.classList.toggle('active', i === idx));
-    }
-
-    let rafId;
-    grid.addEventListener('scroll', () => {
-      cancelAnimationFrame(rafId);
-      rafId = requestAnimationFrame(() => {
-        const center = grid.scrollLeft + grid.clientWidth / 2;
-        let closestIdx = 0, minDist = Infinity;
-        cards.forEach((c, i) => {
-          const mid = c.offsetLeft + c.clientWidth / 2;
-          const dist = Math.abs(center - mid);
-          if (dist < minDist) { minDist = dist; closestIdx = i; }
-        });
-        setActive(closestIdx);
-      });
-    }, { passive: true });
-
-    dots.forEach((dot, i) => {
-      dot.addEventListener('click', () => {
-        const card = cards[i];
-        if (!card) return;
-        grid.scrollTo({ left: card.offsetLeft - (grid.clientWidth - card.clientWidth) / 2, behavior: 'smooth' });
-      });
-    });
-  })();
+  // Problems carousel 제거됨 (수직 스택으로 변경)
 </script>
 <!-- 최초 방문 팝업 v2 -->
 <div id="fvPopupBackdrop" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:9998;backdrop-filter:blur(3px);"></div>
