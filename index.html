@@ -543,40 +543,22 @@
     .process-steps {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 0;
-      position: relative;
-    }
-    .process-steps::before {
-      content: '';
-      position: absolute;
-      top: 36px; left: calc(16.66% + 36px); right: calc(16.66% + 36px);
-      height: 2px;
-      background: linear-gradient(90deg, var(--blue), var(--cyan));
+      gap: 2.5rem;
     }
     .step-card {
       display: flex; flex-direction: column;
-      align-items: center; text-align: center;
-      padding: 0 2rem;
-      position: relative;
+      padding: 0;
     }
     .step-num {
-      width: 72px; height: 72px;
-      border-radius: 50%;
-      background: var(--blue);
-      color: var(--white);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.5rem; font-weight: 900;
-      margin-bottom: 1.5rem;
-      position: relative; z-index: 2;
-      box-shadow: 0 0 0 6px var(--bg), 0 0 0 8px rgba(37,99,235,0.2);
+      font-size: 3.5rem; font-weight: 900;
+      color: #E9ECF0; letter-spacing: -0.05em;
+      line-height: 1; margin-bottom: 1.25rem;
     }
-    .step-card:nth-child(2) .step-num { background: linear-gradient(135deg, var(--blue), var(--cyan)); }
-    .step-card:nth-child(3) .step-num { background: var(--cyan); }
     .step-title {
       font-size: 1.05rem; font-weight: 800;
-      color: var(--navy); margin-bottom: 0.6rem;
+      color: #111827; margin-bottom: 0.6rem;
     }
-    .step-desc { font-size: 0.87rem; color: var(--gray-500); line-height: 1.65; }
+    .step-desc { font-size: 0.85rem; color: #9CA3AF; line-height: 1.8; }
 
     /* ── TRUST STRIP ── */
     .trust-section {
@@ -606,54 +588,34 @@
       gap: 1.5rem;
     }
     .svc-card {
-      border-radius: 20px;
-      padding: 2.5rem 2rem;
-      display: flex; flex-direction: column; gap: 1rem;
-      transition: transform 0.25s, box-shadow 0.25s;
+      background: #fff;
+      border: 1px solid #F0F2F5;
+      border-radius: 16px;
+      padding: 2rem 1.75rem;
+      display: flex; flex-direction: column;
+      box-shadow: 0 1px 3px rgba(0,0,0,.05);
+      transition: box-shadow 0.25s, transform 0.2s;
     }
-    .svc-card:hover { transform: translateY(-6px); box-shadow: 0 16px 48px rgba(10,22,40,0.12); }
-    .svc-card.dark { background: var(--navy); }
-    .svc-card.light { background: var(--bg); border: 1.5px solid var(--gray-100); }
-    .svc-card.accent { background: linear-gradient(135deg, var(--amber) 0%, #e88c00 100%); }
-    .svc-icon {
-      font-size: 2rem;
-      width: 56px; height: 56px;
-      border-radius: 14px;
-      display: flex; align-items: center; justify-content: center;
+    .svc-card:hover { box-shadow: 0 8px 28px rgba(0,0,0,.08); transform: translateY(-2px); }
+    .svc-type {
+      font-size: 0.7rem; font-weight: 600;
+      color: #B0B8C4; letter-spacing: 0.1em;
+      text-transform: uppercase; margin-bottom: 1.25rem;
     }
-    .svc-card.dark .svc-icon { background: rgba(255,255,255,0.08); }
-    .svc-card.light .svc-icon { background: var(--blue); }
-    .svc-card.accent .svc-icon { background: rgba(255,255,255,0.25); }
     .svc-name {
-      font-size: 1.15rem; font-weight: 800; line-height: 1.2;
+      font-size: 1.15rem; font-weight: 800;
+      color: #111827; line-height: 1.3; margin-bottom: 0.75rem;
     }
-    .svc-card.dark .svc-name { color: var(--white); }
-    .svc-card.light .svc-name { color: var(--navy); }
-    .svc-card.accent .svc-name { color: var(--navy); }
-    .svc-desc { font-size: 0.875rem; line-height: 1.7; }
-    .svc-card.dark .svc-desc { color: rgba(255,255,255,0.55); }
-    .svc-card.light .svc-desc { color: var(--gray-500); }
-    .svc-card.accent .svc-desc { color: rgba(10,22,40,0.65); }
-    .svc-features { display: flex; flex-direction: column; gap: 0.5rem; margin-top: auto; }
-    .svc-feat {
-      display: flex; align-items: center; gap: 0.5rem;
-      font-size: 0.82rem;
+    .svc-desc {
+      font-size: 0.875rem; color: #9CA3AF; line-height: 1.75; flex: 1;
     }
-    .svc-card.dark .svc-feat { color: rgba(255,255,255,0.65); }
-    .svc-card.light .svc-feat { color: var(--gray-700); }
-    .svc-card.accent .svc-feat { color: rgba(10,22,40,0.75); }
-    .svc-feat::before { content: '✓'; font-weight: 900; color: var(--cyan); flex-shrink: 0; }
-    .svc-card.accent .svc-feat::before { color: var(--navy); }
     .svc-link {
-      display: inline-flex; align-items: center; gap: 0.4rem;
-      font-size: 0.85rem; font-weight: 700;
-      text-decoration: none; margin-top: 0.5rem;
+      display: inline-flex; align-items: center; gap: 5px;
+      font-size: 0.82rem; font-weight: 700; color: #2563EB;
+      text-decoration: none; margin-top: 1.5rem;
       transition: gap 0.2s;
     }
-    .svc-link:hover { gap: 0.7rem; }
-    .svc-card.dark .svc-link { color: var(--cyan); }
-    .svc-card.light .svc-link { color: var(--blue); }
-    .svc-card.accent .svc-link { color: var(--navy); }
+    .svc-link:hover { gap: 9px; }
 
     /* ── PROOF ── */
     .proof-section { background: var(--bg); padding: 80px 5%; }
@@ -663,40 +625,24 @@
       gap: 4rem;
       align-items: center;
     }
-    .proof-check-list { display: flex; flex-direction: column; gap: 1.25rem; margin-bottom: 2rem; }
-    .proof-check {
-      display: flex; gap: 1rem; align-items: flex-start;
+    .proof-lead { font-size: 0.92rem; color: #9CA3AF; line-height: 1.7; margin-bottom: 2.25rem; max-width: 440px; }
+    .proof-check-list { display: flex; flex-direction: column; gap: 1.5rem; }
+    .proof-check { display: flex; gap: 0.85rem; align-items: baseline; }
+    .proof-check-no { font-size: 0.78rem; font-weight: 800; color: var(--blue); flex-shrink: 0; line-height: 1.5; min-width: 1.1rem; }
+    .proof-check-body { display: flex; flex-direction: column; gap: 0.3rem; }
+    .check-title { font-size: 1rem; font-weight: 800; color: #111827; letter-spacing: -0.02em; }
+    .check-text { font-size: 0.85rem; line-height: 1.7; color: #9CA3AF; }
+    .proof-stats {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 1.5rem 1rem;
+      margin-top: 2.5rem; padding-top: 2.5rem;
+      border-top: 1px solid #E5E7EB;
     }
-    .check-icon {
-      width: 28px; height: 28px; flex-shrink: 0;
-      background: var(--blue);
-      border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      color: var(--white); font-size: 0.75rem; font-weight: 900;
-      margin-top: 2px;
+    .proof-stat-num {
+      font-size: 1.85rem; font-weight: 900; color: #111827;
+      letter-spacing: -0.04em; line-height: 1;
     }
-    .check-text { font-size: 0.93rem; line-height: 1.65; color: var(--gray-700); }
-    .check-text strong { color: var(--navy); font-weight: 700; }
-    .proof-video {
-      border-radius: 16px;
-      overflow: hidden;
-      box-shadow: 0 16px 48px rgba(10,22,40,0.12);
-      aspect-ratio: 16/9;
-      background: var(--navy);
-    }
-    .proof-video iframe { width: 100%; height: 100%; display: block; }
-    .proof-video-placeholder {
-      width: 100%; height: 100%;
-      display: flex; flex-direction: column; align-items: center; justify-content: center;
-      gap: 0.75rem; color: rgba(255,255,255,0.5); font-size: 0.9rem;
-    }
-    .play-btn {
-      width: 64px; height: 64px;
-      border-radius: 50%;
-      background: rgba(255,255,255,0.12);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.5rem;
-    }
+    .proof-stat-label { font-size: 0.78rem; color: #9CA3AF; margin-top: 6px; }
 
     /* ── REVIEWS ── */
     .reviews-section { padding: 80px 5%; background: var(--white); }
@@ -713,31 +659,27 @@
       margin-bottom: 1.25rem;
       display: flex; flex-direction: column; gap: 0.75rem;
     }
-    .review-stars { color: var(--amber); font-size: 0.85rem; letter-spacing: 2px; }
-    .review-text { font-size: 0.875rem; line-height: 1.75; color: var(--gray-700); }
+    .review-card {
+      break-inside: avoid;
+      background: #F9FAFB;
+      border-radius: 16px;
+      padding: 1.75rem;
+      margin-bottom: 1.25rem;
+      display: flex; flex-direction: column; gap: 0;
+    }
+    .review-mark {
+      font-size: 2.5rem; font-weight: 900; line-height: 1;
+      color: #D1D5DB; font-family: Georgia, serif;
+      margin-bottom: 0.75rem;
+    }
+    .review-text { font-size: 0.9rem; line-height: 1.8; color: #374151; flex: 1; }
     .review-author {
-      display: flex; align-items: center; gap: 0.75rem;
-      border-top: 1px solid var(--gray-100);
-      padding-top: 0.75rem;
+      margin-top: 1.25rem;
+      padding-top: 1rem;
+      border-top: 1px solid #E5E7EB;
     }
-    .review-avatar {
-      width: 36px; height: 36px; border-radius: 50%;
-      background: linear-gradient(135deg, var(--blue), var(--cyan));
-      display: flex; align-items: center; justify-content: center;
-      color: var(--white); font-size: 0.75rem; font-weight: 700;
-      flex-shrink: 0;
-    }
-    .review-meta { display: flex; flex-direction: column; gap: 0.1rem; }
-    .review-name { font-size: 0.85rem; font-weight: 700; color: var(--navy); }
-    .review-grade { font-size: 0.75rem; color: var(--gray-500); }
-    .review-tag {
-      display: inline-block;
-      background: var(--amber-lt);
-      color: #92400E;
-      font-size: 0.7rem; font-weight: 700;
-      padding: 0.2rem 0.55rem; border-radius: 50px;
-      margin-left: auto;
-    }
+    .review-name { font-size: 0.85rem; font-weight: 700; color: #111827; }
+    .review-grade { font-size: 0.75rem; color: #9CA3AF; margin-top: 3px; }
 
     /* ── CTA ── */
     .cta-section {
@@ -767,18 +709,11 @@
     }
     .cta-title em { font-style: normal; color: var(--amber); }
     .cta-desc { font-size: 0.97rem; color: rgba(255,255,255,0.6); line-height: 1.75; margin-bottom: 2rem; }
-    .cta-contacts { display: flex; flex-direction: column; gap: 0.85rem; }
+    .cta-contacts { display: flex; flex-direction: column; gap: 0.6rem; }
     .cta-contact-item {
-      display: flex; align-items: center; gap: 0.75rem;
-      font-size: 0.9rem; color: rgba(255,255,255,0.75);
+      font-size: 0.88rem; color: rgba(255,255,255,0.5);
     }
-    .cta-contact-item strong { color: var(--white); font-weight: 700; }
-    .cta-contact-icon {
-      width: 36px; height: 36px; border-radius: 10px;
-      background: rgba(255,255,255,0.08);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1rem; flex-shrink: 0;
-    }
+    .cta-contact-item strong { color: rgba(255,255,255,0.9); font-weight: 700; }
 
     /* Form card */
     .form-card {
@@ -1253,19 +1188,19 @@
     <p class="section-sub reveal">복잡한 절차 없이 빠르고 간편하게 최적의 학습 환경을 만들어 드립니다.</p>
     <div class="process-steps">
       <div class="step-card reveal">
-        <div class="step-num">1</div>
+        <div class="step-num">01</div>
         <div class="step-title">무료 상담 신청</div>
-        <p class="step-desc">간단한 정보 입력 후 학습 전문 상담사가 24시간 내 연락드립니다. 부담 없이 문의하세요.</p>
+        <p class="step-desc">아이 학년과 과목, 학습 고민을 간단히 남겨주세요. 상담사가 24시간 내에 연락드립니다.</p>
       </div>
       <div class="step-card reveal">
-        <div class="step-num">2</div>
-        <div class="step-title">학습 유형 진단</div>
-        <p class="step-desc">학생의 현재 수준, 목표, 학습 스타일을 정밀 진단하여 맞춤 플랜을 설계합니다.</p>
+        <div class="step-num">02</div>
+        <div class="step-title">학습 상황 진단</div>
+        <p class="step-desc">현재 성적, 목표, 학습 스타일을 함께 점검해 아이에게 필요한 방향을 잡습니다.</p>
       </div>
       <div class="step-card reveal">
-        <div class="step-num">3</div>
-        <div class="step-title">매칭 & 수업 시작</div>
-        <p class="step-desc">최적의 선생님 또는 학원을 연결하고, 첫 수업부터 체계적인 관리가 시작됩니다.</p>
+        <div class="step-num">03</div>
+        <div class="step-title">선생님 매칭 & 시작</div>
+        <p class="step-desc">진단 결과에 맞는 선생님을 연결합니다. 첫 수업부터 체계적인 관리가 시작됩니다.</p>
       </div>
     </div>
   </div>
@@ -1300,38 +1235,23 @@
     <h2 class="section-title reveal">다양한 수업 방식 중<br>최적을 선택하세요</h2>
     <p class="section-sub reveal">학생의 상황과 목표에 맞는 수업 방식을 전문 상담사와 함께 결정합니다.</p>
     <div class="services-grid">
-      <div class="svc-card dark reveal">
-        <div class="svc-icon">🏠</div>
-        <div class="svc-name">방문 1:1 수업</div>
-        <p class="svc-desc">선생님이 직접 가정으로 방문하여 학생에게 완전히 집중된 1:1 맞춤 수업을 진행합니다.</p>
-        <div class="svc-features">
-          <div class="svc-feat">이동 시간 없이 편안한 환경에서 학습</div>
-          <div class="svc-feat">학생 페이스에 맞춘 유연한 커리큘럼</div>
-          <div class="svc-feat">초·중·고 전 과목 지원</div>
-        </div>
-        <a href="#cta" class="svc-link">자세히 알아보기 →</a>
+      <div class="svc-card reveal">
+        <div class="svc-type">방문 과외</div>
+        <div class="svc-name">선생님이 직접 찾아오는<br>1:1 수업</div>
+        <p class="svc-desc">이동 시간 없이, 집에서 편하게 집중할 수 있습니다. 학생 페이스에 맞춰 유연하게 진행됩니다.</p>
+        <a href="#cta" class="svc-link">상담 신청 →</a>
       </div>
-      <div class="svc-card light reveal">
-        <div class="svc-icon">💻</div>
-        <div class="svc-name">화상 온라인 수업</div>
-        <p class="svc-desc">장소에 구애받지 않고 전국 최고 수준의 선생님과 실시간 1:1 화상 수업을 진행합니다.</p>
-        <div class="svc-features">
-          <div class="svc-feat">전국 어디서나 최고 수준 선생님 연결</div>
-          <div class="svc-feat">녹화 다시보기로 복습 가능</div>
-          <div class="svc-feat">디지털 학습 도구 활용</div>
-        </div>
-        <a href="#cta" class="svc-link">자세히 알아보기 →</a>
+      <div class="svc-card reveal">
+        <div class="svc-type">화상 수업</div>
+        <div class="svc-name">전국 어디서나<br>최고 선생님과 연결</div>
+        <p class="svc-desc">지역 제한 없이 실력 있는 선생님을 찾을 수 있습니다. 녹화본으로 복습도 가능합니다.</p>
+        <a href="#cta" class="svc-link">상담 신청 →</a>
       </div>
-      <div class="svc-card accent reveal">
-        <div class="svc-icon">🏫</div>
-        <div class="svc-name">학원 연계 상담</div>
-        <p class="svc-desc">전국 205개 이상의 제휴 학원 중 아이에게 딱 맞는 학원을 찾아 상담까지 연결해 드립니다.</p>
-        <div class="svc-features">
-          <div class="svc-feat">지역별 제휴 학원 검색 및 비교</div>
-          <div class="svc-feat">무료 체험 수업 연계</div>
-          <div class="svc-feat">상담 후 등록 시 할인 혜택</div>
-        </div>
-        <a href="hagwon.html" class="svc-link">학원 찾아보기 →</a>
+      <div class="svc-card reveal">
+        <div class="svc-type">학원 연계</div>
+        <div class="svc-name">전국 205개 제휴 학원<br>맞춤 연결</div>
+        <p class="svc-desc">아이에게 맞는 학원을 찾아 상담까지 연결해드립니다. 무료 체험 수업도 가능합니다.</p>
+        <a href="hagwon.html" class="svc-link">학원 찾기 →</a>
       </div>
     </div>
   </div>
@@ -1344,31 +1264,35 @@
       <div>
         <div class="section-badge reveal">왜 WeStudy인가요?</div>
         <h2 class="section-title reveal">차별화된 학습 코칭<br>시스템의 비밀</h2>
-        <p class="section-sub reveal" style="margin-bottom:1.5rem;">WeStudy는 단순 매칭이 아닌, 아이의 성장에 진심으로 관심을 갖는 파트너입니다.</p>
-        <div class="proof-check-list">
-          <div class="proof-check reveal">
-            <div class="check-icon">✓</div>
-            <p class="check-text"><strong>데이터 기반 선생님 매칭</strong><br>학생의 성취도 데이터와 선생님의 수업 이력을 분석하여 최적의 조합을 찾습니다.</p>
+        <p class="proof-lead reveal">단순 매칭이 아니라, 아이가 성적이 오를 때까지 함께하는 세 가지 약속.</p>
+        <div class="proof-check-list reveal">
+          <div class="proof-check">
+            <div class="proof-check-no">01</div>
+            <div class="proof-check-body">
+              <div class="check-title">맞지 않으면 바로 교체</div>
+              <p class="check-text">추가 비용 없이 즉시 다른 선생님으로 바꿔드립니다. 만족할 때까지 함께합니다.</p>
+            </div>
           </div>
-          <div class="proof-check reveal">
-            <div class="check-icon">✓</div>
-            <p class="check-text"><strong>주 1회 학습 리포트 제공</strong><br>수업 내용, 진도, 취약점 분석을 포함한 상세 리포트를 매주 학부모님께 공유합니다.</p>
+          <div class="proof-check">
+            <div class="proof-check-no">02</div>
+            <div class="proof-check-body">
+              <div class="check-title">매주 학습 리포트 제공</div>
+              <p class="check-text">수업 내용, 진도, 취약점을 정리해 매주 카카오톡으로 공유합니다.</p>
+            </div>
           </div>
-          <div class="proof-check reveal">
-            <div class="check-icon">✓</div>
-            <p class="check-text"><strong>불만족 시 선생님 교체 보장</strong><br>수업 방향이 맞지 않을 경우 추가 비용 없이 즉시 선생님을 교체해 드립니다.</p>
-          </div>
-          <div class="proof-check reveal">
-            <div class="check-icon">✓</div>
-            <p class="check-text"><strong>목동 지역 집중 네트워크</strong><br>목동, 신정동, 양천구 지역의 탄탄한 학원·선생님 네트워크를 보유하고 있습니다.</p>
+          <div class="proof-check">
+            <div class="proof-check-no">03</div>
+            <div class="proof-check-body">
+              <div class="check-title">데이터로 선생님을 고릅니다</div>
+              <p class="check-text">학생 성향, 목표 과목, 수업 스타일을 분석해 가장 잘 맞는 선생님을 연결합니다.</p>
+            </div>
           </div>
         </div>
       </div>
-      <div class="proof-video reveal">
-        <div class="proof-video-placeholder">
-          <div class="play-btn">▶</div>
-          <span>WeStudy 소개 영상</span>
-        </div>
+      <div class="reveal" style="background:#F3F4F6;border-radius:20px;padding:3rem 2.5rem;display:flex;flex-direction:column;justify-content:center;">
+        <div style="font-size:0.72rem;font-weight:600;color:#9CA3AF;letter-spacing:.1em;text-transform:uppercase;margin-bottom:1.5rem;">수강생 후기</div>
+        <p style="font-size:1.15rem;font-weight:700;color:#111827;line-height:1.65;margin-bottom:1.5rem;">"선생님을 3번 바꿨는데 여기서 처음으로 맞는 선생님을 만났어요. 두 달 만에 수학 2등급 올랐습니다."</p>
+        <div style="font-size:0.82rem;color:#9CA3AF;">고3 학부모 · 수학 4→2등급</div>
       </div>
     </div>
   </div>
@@ -1382,39 +1306,27 @@
     <p class="section-sub reveal">성적 이전에 아이의 마음이 먼저 바뀌었습니다.</p>
     <div class="reviews-grid">
       <div class="review-card reveal">
-        <div class="review-stars">★★★★★</div>
+        <div class="review-mark">"</div>
         <p class="review-text">혼자 공부하며 느꼈던 불안함을 맞춤형 1:1 화상 수업으로 해결했어요. 필요한 부분만 집중해 배우며 수학 1등급을 유지했고, 의대 진학의 꿈을 이뤘습니다.</p>
         <div class="review-author">
-          <div class="review-avatar">서</div>
-          <div class="review-meta">
-            <div class="review-name">서○○ 학생</div>
-            <div class="review-grade">의대 합격 · 수학 1등급</div>
-          </div>
-          <div class="review-tag">수학</div>
+          <div class="review-name">서○○ 학생</div>
+          <div class="review-grade">의대 합격 · 수학 1등급</div>
         </div>
       </div>
       <div class="review-card reveal">
-        <div class="review-stars">★★★★★</div>
+        <div class="review-mark">"</div>
         <p class="review-text">농어촌이라 학원·과외 선택이 어려웠는데, 1:1 화상 수업으로 꾸준히 학습했어요. 성적 하락의 원인을 정확히 진단받아 국어 3등급에서 1등급까지 회복했습니다.</p>
         <div class="review-author">
-          <div class="review-avatar">박</div>
-          <div class="review-meta">
-            <div class="review-name">박○○ 학생</div>
-            <div class="review-grade">경희대 합격 · 국어 3→1등급</div>
-          </div>
-          <div class="review-tag">국어</div>
+          <div class="review-name">박○○ 학생</div>
+          <div class="review-grade">경희대 합격 · 국어 3→1등급</div>
         </div>
       </div>
       <div class="review-card reveal">
-        <div class="review-stars">★★★★★</div>
-        <p class="review-text">시간 부족으로 서술형을 포기하던 아이가 학습 흐름을 잡고, 단원평가 57점에서 81점으로 올랐어요. 문제를 끝까지 풀며 자신감과 집중력이 함께 성장했습니다.</p>
+        <div class="review-mark">"</div>
+        <p class="review-text">서술형을 포기하던 아이가 학습 흐름을 잡고, 단원평가 57점에서 81점으로 올랐어요. 문제를 끝까지 풀며 자신감과 집중력이 함께 성장했습니다.</p>
         <div class="review-author">
-          <div class="review-avatar">장</div>
-          <div class="review-meta">
-            <div class="review-name">장○○ 학부모</div>
-            <div class="review-grade">초등 · 단원평가 57→81점</div>
-          </div>
-          <div class="review-tag">국어</div>
+          <div class="review-name">장○○ 학부모</div>
+          <div class="review-grade">초등 · 단원평가 57→81점</div>
         </div>
       </div>
     </div>
@@ -1429,25 +1341,13 @@
   <div class="cta-bg"></div>
   <div class="cta-inner">
     <div>
-      <div class="section-badge" style="color:var(--amber);">
-        <span style="background:var(--amber);display:inline-block;width:18px;height:2px;"></span>
-        무료 학습 상담
-      </div>
+      <div class="section-badge" style="color:var(--amber);">무료 학습 상담</div>
       <h2 class="cta-title">지금 바로 <em>무료 상담</em>을<br>신청하세요</h2>
       <p class="cta-desc">학습 전문 상담사가 24시간 내 연락드립니다. 아이의 학습 고민을 함께 해결해 드릴게요.</p>
       <div class="cta-contacts">
-        <div class="cta-contact-item">
-          <div class="cta-contact-icon">📞</div>
-          <span>전화 상담 <strong>운영 시간 내 즉시 연결</strong></span>
-        </div>
-        <div class="cta-contact-item">
-          <div class="cta-contact-icon">📧</div>
-          <span>이메일 접수 <strong>24시간 이내 답변</strong></span>
-        </div>
-        <div class="cta-contact-item">
-          <div class="cta-contact-icon">💬</div>
-          <span>카카오톡 채널 <strong>WeStudy 위스터디</strong></span>
-        </div>
+        <div class="cta-contact-item">전화 · <strong>010-8571-5149</strong> (운영 시간 내 즉시 연결)</div>
+        <div class="cta-contact-item">카카오톡 · <strong>WeStudy 위스터디</strong> 채널 문의</div>
+        <div class="cta-contact-item">이메일 · <strong>24시간 이내</strong> 답변 보장</div>
       </div>
     </div>
     <div class="form-card">
@@ -1487,6 +1387,23 @@
             <option>사회</option>
             <option>전 과목</option>
           </select>
+        </div>
+        <div class="form-group">
+          <label>희망 수업 형태</label>
+          <select name="lesson_type" id="lessonType" required>
+            <option value="">선택해 주세요</option>
+            <option value="화상">화상 수업 (온라인)</option>
+            <option value="방문">방문 수업 (선생님이 가정 방문)</option>
+            <option value="학원">학원 연계 상담</option>
+          </select>
+        </div>
+        <div class="form-group" id="addressGroup" style="display:none;">
+          <label>수업 받을 주소</label>
+          <div style="display:flex; gap:0.5rem;">
+            <input type="text" name="address" id="addressField" placeholder="주소를 검색해 주세요" readonly style="flex:1; cursor:pointer; background:#F9FAFB;" />
+            <button type="button" id="addressSearchBtn" style="flex-shrink:0; padding:0 1.1rem; background:var(--navy); color:#fff; border:none; border-radius:10px; font-family:inherit; font-size:0.85rem; font-weight:700; cursor:pointer; white-space:nowrap;">주소 검색</button>
+          </div>
+          <input type="text" name="address_detail" id="addressDetail" placeholder="상세 주소 (동·호수 등)" style="margin-top:0.5rem; display:none;" />
         </div>
         <div class="form-group">
           <label>상담 내용 (선택)</label>
@@ -1666,6 +1583,44 @@
   });
 
   // Problems carousel 제거됨 (수직 스택으로 변경)
+
+  /* 희망 수업 형태 → 주소 입력 조건부 표시 */
+  (function(){
+    const lessonType = document.getElementById('lessonType');
+    const addressGroup = document.getElementById('addressGroup');
+    const addressField = document.getElementById('addressField');
+    const addressDetail = document.getElementById('addressDetail');
+    const searchBtn = document.getElementById('addressSearchBtn');
+    if(!lessonType) return;
+
+    lessonType.addEventListener('change', function(){
+      const needAddr = (this.value === '화상' || this.value === '방문');
+      addressGroup.style.display = needAddr ? 'block' : 'none';
+      addressField.required = needAddr;
+      if(!needAddr){ addressField.value=''; addressDetail.value=''; addressDetail.style.display='none'; }
+    });
+
+    function loadDaum(cb){
+      if(window.daum && window.daum.Postcode){ cb(); return; }
+      const s = document.createElement('script');
+      s.src = 'https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js';
+      s.onload = cb;
+      document.head.appendChild(s);
+    }
+    function openSearch(){
+      loadDaum(function(){
+        new daum.Postcode({
+          oncomplete: function(data){
+            addressField.value = data.roadAddress || data.jibunAddress;
+            addressDetail.style.display = 'block';
+            addressDetail.focus();
+          }
+        }).open();
+      });
+    }
+    searchBtn.addEventListener('click', openSearch);
+    addressField.addEventListener('click', openSearch);
+  })();
 </script>
 <!-- 최초 방문 팝업 v2 -->
 <div id="fvPopupBackdrop" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:9998;backdrop-filter:blur(3px);"></div>
