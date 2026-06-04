@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>지점찾기 미러링 (학원)</title>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:-apple-system,'Pretendard',sans-serif;background:#0d0d12;color:#fff;min-height:100vh;padding:14px;overflow-x:hidden}
+  .header{display:flex;align-items:center;gap:8px;margin-bottom:10px;flex-wrap:wrap}
+  .header h1{font-size:14px;font-weight:700}
+  .ctrls{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px}
+  .ctrls button{background:#222;color:#fff;border:1px solid #333;border-radius:50px;padding:7px 12px;font-size:11px;cursor:pointer;font-weight:600}
+  .ctrls button:hover{background:#333;border-color:#555}
+  .ctrls button.primary{background:#1D4ED8;border-color:#1D4ED8}
+  .frame-wrap{display:flex;justify-content:center;padding:10px 0}
+  .phone{position:relative;border-radius:36px;border:8px solid #222;background:#fff;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.6);transition:width .25s,height .25s}
+  .phone.mobile{width:390px;height:780px}
+  .phone.tablet{width:768px;height:900px}
+  .phone.desktop{width:1280px;height:780px}
+  .phone iframe{width:100%;height:100%;border:none;display:block;background:#fff}
+  .info{font-size:11px;color:#888;text-align:center;margin-top:8px}
+</style>
+</head>
+<body>
+  <div class="header">
+    <h1>📍 학원 지점찾기 미러링</h1>
+    <span id="size-info" style="font-size:11px;color:#888"></span>
+  </div>
+  <div class="ctrls">
+    <button class="primary" onclick="reloadFrame()">🔄 새로고침</button>
+    <button onclick="setSize('mobile')">📱 모바일</button>
+    <button onclick="setSize('tablet')">📲 태블릿</button>
+    <button onclick="setSize('desktop')">🖥 데스크톱</button>
+    <button onclick="goPath('/학원')">📍 지점찾기</button>
+    <button onclick="goPath('/hagwon.html')">📋 학원 소개</button>
+    <button onclick="goPath('/학원/경기도')">경기도</button>
+    <button onclick="goPath('/학원/경기도/하남시/하남풍산점')">📌 하남풍산점</button>
+  </div>
+  <div class="frame-wrap">
+    <div class="phone desktop" id="phone">
+      <iframe id="frame" src="https://westudymate.com/학원"></iframe>
+    </div>
+  </div>
+  <p class="info">시도 탭·검색·구 칩으로 필터링 테스트 / 사이즈 버튼으로 PC·모바일 비교</p>
+
+<script>
+  const frame = document.getElementById('frame');
+  const phone = document.getElementById('phone');
+  const sizeInfo = document.getElementById('size-info');
+
+  function setSize(s) {
+    phone.className = 'phone ' + s;
+    const map = { mobile: '390 × 780', tablet: '768 × 900', desktop: '1280 × 780' };
+    sizeInfo.textContent = '· ' + map[s];
+  }
+  function reloadFrame() {
+    const u = new URL(frame.src);
+    u.searchParams.set('cb', Date.now());
+    frame.src = u.toString();
+  }
+  function goPath(path) {
+    frame.src = 'https://westudymate.com' + path + '?cb=' + Date.now();
+  }
+  setSize('desktop');
+</script>
+</body>
+</html>
