@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>수능 가채점 후, 정시 지원 전략은 언제부터 세워야 할까? – WeStudy</title>
+<meta name="description" content="수능이 끝난 뒤 가채점 성적으로 정시를 준비할 때 무엇부터, 언제부터 시작해야 하는지 정리한 가이드.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--navy:#0A1628;--blue:#1D4ED8;--blue-mid:#2563EB;--amber:#F59E0B;--bg:#F8FAFF;--white:#FFFFFF;--text:#111827;--gray-100:#F3F4F6;--gray-300:#D1D5DB;--gray-400:#9CA3AF;--gray-500:#6B7280;--gray-700:#374151}
+html{scroll-behavior:smooth}
+body{font-family:'Pretendard',sans-serif;color:var(--text);background:var(--bg);overflow-x:hidden}
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:0 5%;height:64px;background:var(--navy);transition:background .3s,box-shadow .3s}
+nav.scrolled{background:var(--white);box-shadow:0 2px 20px rgba(0,0,0,.08)}
+.nav-logo{display:flex;align-items:center;gap:.5rem;text-decoration:none}
+.logo-mark{background:var(--blue-mid);color:var(--white);width:32px;height:32px;border-radius:8px;display:grid;place-items:center;font-weight:900;font-size:1rem}
+.logo-name{color:var(--white);font-weight:800;font-size:1.1rem}
+nav.scrolled .logo-name{color:var(--navy)}
+.nav-links{display:flex;list-style:none;gap:2rem}
+.nav-links a{color:rgba(255,255,255,.8);text-decoration:none;font-size:.9rem;font-weight:500;transition:color .2s}
+.nav-links a:hover,.nav-links a.active{color:var(--white);font-weight:700}
+nav.scrolled .nav-links a{color:var(--gray-500)}
+nav.scrolled .nav-links a:hover,nav.scrolled .nav-links a.active{color:var(--navy)}
+.nav-cta{background:rgba(255,255,255,.15);color:var(--white);padding:.55rem 1.4rem;border-radius:50px;font-size:.875rem;font-weight:700;text-decoration:none;border:1.5px solid rgba(255,255,255,.35);transition:background .25s,color .25s}
+.nav-cta:hover{background:var(--white);color:var(--blue)}
+nav.scrolled .nav-cta{background:var(--blue);color:var(--white);border-color:var(--blue)}
+.nav-mobile-btn{display:none}
+.mobile-menu{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(10,15,30,.95);z-index:10000;flex-direction:column;align-items:center;justify-content:center;gap:.5rem}
+.mobile-menu.open{display:flex}
+.mobile-menu a{color:var(--white);text-decoration:none;font-size:1.25rem;font-weight:600;padding:1rem 2rem;border-radius:12px;transition:background .2s}
+.mobile-menu a:hover{background:rgba(255,255,255,.1)}
+.mobile-menu-close{position:absolute;top:1.25rem;right:1.5rem;background:none;border:none;color:var(--white);font-size:2rem;cursor:pointer}
+.article-hero{background:var(--navy);padding:120px 5% 60px;text-align:center}
+.article-hero .breadcrumb{color:rgba(255,255,255,.6);font-size:.85rem;margin-bottom:1rem}
+.article-hero .breadcrumb a{color:rgba(255,255,255,.6);text-decoration:none}
+.article-hero h1{color:var(--white);font-size:2rem;font-weight:800;line-height:1.4;max-width:720px;margin:0 auto .75rem}
+.article-hero .meta{color:rgba(255,255,255,.5);font-size:.85rem;display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+.article-tags{display:flex;gap:.5rem;justify-content:center;margin-bottom:1rem}
+.article-tag{padding:.25rem .75rem;border-radius:50px;font-size:.75rem;font-weight:600}
+.tg-blue{background:rgba(29,78,216,.15);color:#60A5FA}
+.tg-amber{background:rgba(245,158,11,.15);color:#FBBF24}
+.tg-green{background:rgba(5,150,105,.15);color:#34D399}
+.tg-cyan{background:rgba(6,182,212,.15);color:#22D3EE}
+.tg-rose{background:rgba(244,63,94,.15);color:#FB7185}
+.article-body{max-width:720px;margin:0 auto;padding:3rem 1.5rem}
+.article-body h2{font-size:1.4rem;font-weight:800;color:var(--navy);margin:2.5rem 0 1rem;padding-bottom:.5rem;border-bottom:2px solid var(--gray-100)}
+.article-body h3{font-size:1.15rem;font-weight:700;color:var(--blue-mid);margin:1.5rem 0 .75rem}
+.article-body p{font-size:1rem;line-height:1.85;color:var(--gray-700);margin-bottom:1.25rem}
+.article-body ul,.article-body ol{margin:1rem 0 1.5rem 1.5rem;line-height:1.85;color:var(--gray-700)}
+.article-body li{margin-bottom:.5rem}
+.article-body .tip-box{background:linear-gradient(135deg,#EFF6FF,#F0F9FF);border-left:4px solid var(--blue-mid);padding:1.25rem 1.5rem;border-radius:0 12px 12px 0;margin:1.5rem 0;font-size:.95rem;line-height:1.7}
+.article-body .tip-box strong{color:var(--blue-mid)}
+.article-body .highlight-box{background:linear-gradient(135deg,#FEF3C7,#FFFBEB);border-left:4px solid var(--amber);padding:1.25rem 1.5rem;border-radius:0 12px 12px 0;margin:1.5rem 0;font-size:.95rem;line-height:1.7}
+.article-cta{text-align:center;padding:3rem 1.5rem 4rem;background:var(--gray-100);margin-top:2rem}
+.article-cta h2{font-size:1.4rem;font-weight:800;color:var(--navy);margin-bottom:.75rem}
+.article-cta p{color:var(--gray-500);margin-bottom:1.5rem;font-size:.95rem}
+.article-cta .cta-btn{display:inline-block;background:var(--blue);color:var(--white);padding:.9rem 2.5rem;border-radius:50px;font-weight:700;font-size:1rem;text-decoration:none;transition:background .2s}
+.article-cta .cta-btn:hover{background:var(--navy)}
+footer{background:var(--navy);color:rgba(255,255,255,.5);text-align:center;padding:2rem 5%;font-size:.8rem}
+footer a{color:rgba(255,255,255,.6);text-decoration:none}
+@media(max-width:768px){
+  .nav-links,.nav-cta{display:none}
+  .nav-mobile-btn{display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.12);border:1.5px solid rgba(255,255,255,.25);border-radius:8px;width:40px;height:40px;cursor:pointer;color:var(--white);font-size:1.2rem}
+  nav.scrolled .nav-mobile-btn{color:var(--navy);border-color:var(--gray-300);background:var(--gray-100)}
+  .article-hero h1{font-size:1.5rem}
+  .article-body{padding:2rem 1.25rem}
+}
+</style>
+<script type="text/javascript">(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window, document, "clarity", "script", "xbeym7li1l");</script></head>
+<body>
+<nav id="mainNav">
+  <a href="../index.html" class="nav-logo"><span class="logo-mark">W</span><span class="logo-name">WeStudy</span></a>
+  <ul class="nav-links">
+    <li><a href="../find-tutor.html">과외 찾기</a></li>
+    <li><a href="../education.html" class="active">교육 정보</a></li>
+    <li><a href="../hagwon.html">학원 상담</a></li>
+    <li><a href="../index.html#cta">상담 신청</a></li>
+    <li><a href="../index.html#proof">수업 후기</a></li>
+  </ul>
+  <a href="../index.html#cta" class="nav-cta">무료 상담 신청</a>
+  <button class="nav-mobile-btn" id="mobileBtn" aria-label="메뉴">☰</button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-menu-close" id="mobileMenuClose">✕</button>
+  <a href="../find-tutor.html">과외 찾기</a>
+  <a href="../education.html">교육 정보</a>
+  <a href="../hagwon.html">학원 상담</a>
+  <a href="../index.html#cta">상담 신청</a>
+  <a href="../index.html#proof">수업 후기</a>
+</div>
+<section class="article-hero">
+  <div class="breadcrumb"><a href="../index.html">홈</a> › <a href="../education.html">교육 정보</a> › 입시·진로</div>
+  <div class="article-tags"><span class="article-tag tg-cyan">정시</span></div>
+  <h1>수능 가채점 후, 정시 지원 전략은 언제부터 세워야 할까?</h1>
+  <div class="meta"><span>⏱ 6분 읽기</span><span>2026.10</span></div>
+</section>
+<article class="article-body">
+<p>수능이 끝나면 성적표를 받기 전까지 꽤 긴 시간이 남습니다. 이 기간 동안 가채점 성적만 가지고 정시 전략을 세워도 되는지, 아니면 정식 성적이 나올 때까지 기다려야 하는지 궁금해하는 경우가 많습니다.</p>
+<h2>가채점 성적으로도 시작할 수 있는 일이 있습니다</h2>
+<p>수능 직후의 가채점 성적은 표준점수나 백분위처럼 정확한 지표가 아니라 원점수 기준이지만, 대략적인 위치를 파악하는 데는 충분합니다. 이 시점부터 관심 있는 대학과 학과의 정시 모집 요강을 미리 훑어보고, 수능 반영 비율이나 영역별 가중치를 확인해두는 정도는 바로 시작할 수 있습니다.</p>
+<h2>정확한 지원 전략은 성적표 발표 이후에 세우는 것이 안전합니다</h2>
+<p>표준점수와 백분위, 등급이 모두 확정되어야 실제 지원 가능권을 비교할 수 있습니다. 가채점 단계에서 섣부르게 특정 대학으로 방향을 정해버리면, 정식 성적이 예상과 다르게 나왔을 때 다시 전략을 세우는 데 시간이 더 걸릴 수 있습니다.</p>
+<h3>이 기간에 해두면 좋은 준비</h3>
+<p>성적표가 나오기 전까지는 지망 가능성이 있는 대학 목록을 폭넓게 정리해두고, 각 대학의 모집 단위별 수능 반영 방식과 전형 일정을 미리 파악해두는 것이 효율적입니다. 실제 지원 전략은 성적표가 나온 뒤 이 목록을 좁혀가는 방식으로 진행하면 시간을 아낄 수 있습니다.</p>
+<h2>수시 결과도 함께 고려해야 합니다</h2>
+<p>수시 전형에 지원한 학생이라면 수시 발표 일정과 정시 준비를 함께 챙겨야 합니다. 수시 합격 여부에 따라 정시 지원 방향이 달라질 수 있으므로, 두 일정을 한 달력에 정리해두고 겹치는 시기를 미리 확인해두는 것이 좋습니다.</p>
+<div class="tip-box"><strong>수능 이후 정시 준비 순서:</strong> 가채점 성적으로 대략적인 위치 확인 · 관심 대학·학과의 수능 반영 방식 미리 조사 · 정식 성적표 발표 후 정확한 지원 가능권 비교 · 수시 결과 발표 일정과 정시 준비 일정 함께 점검 · 최종 지원은 해당 연도 모집요강으로 다시 확인.</div>
+<h2>서두르기보다 순서를 지키는 것이 중요합니다</h2>
+<p>가채점 성적은 방향을 잡는 참고 자료일 뿐, 최종 결정의 근거가 되기는 어렵습니다. 이 기간을 조급하게 보내기보다, 정식 성적이 나왔을 때 바로 움직일 수 있도록 미리 자료를 정리해두는 시간으로 활용하는 것이 현실적인 접근입니다.</p>
+</article>
+<section class="article-cta">
+  <h2>정시 지원 전략이 막막하다면?</h2>
+  <p>WeStudy 학습 코치가 성적대별 지원 가능권과 전략을 함께 점검해 드립니다.</p>
+  <a href="../index.html#cta" class="cta-btn">무료 상담 신청하기 →</a>
+</section>
+<footer><div>© 2025 WeStudy 위스터디. All rights reserved. | <a href="../index.html">홈으로</a></div></footer>
+<script>
+document.getElementById('mobileBtn').addEventListener('click',()=>{document.getElementById('mobileMenu').classList.add('open')});
+document.getElementById('mobileMenuClose').addEventListener('click',()=>{document.getElementById('mobileMenu').classList.remove('open')});
+const nav=document.getElementById('mainNav');
+window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>40)});
+</script>
+<script type="text/javascript" src="//wcs.pstatic.net/wcslog.js"></script><script type="text/javascript">if(!wcs_add) var wcs_add = {};wcs_add["wa"] = "15011a5c5db8740";if(window.wcs) {wcs_do();}</script><style>.ws-cta-bar{position:fixed;left:0;right:0;bottom:0;z-index:9998;display:none;gap:10px;padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:rgba(255,255,255,.92);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);box-shadow:0 -3px 22px rgba(0,0,0,.1)}.ws-cta-bar a{flex:1;display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:15px 6px;border-radius:50px;font-weight:800;font-size:15px;text-decoration:none;letter-spacing:-.01em}.ws-cta-call{background:#165DFF;color:#fff;box-shadow:0 6px 18px rgba(22,93,255,.32)}.ws-cta-kakao{background:#fff;color:#374151;border:1.5px solid #E2E5EA}.ws-cta-fab{position:fixed;right:24px;bottom:28px;z-index:9998;display:none;flex-direction:column;gap:11px;align-items:stretch}.ws-cta-fab a{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-width:176px;padding:14px 24px;border-radius:50px;font-weight:800;font-size:15px;text-decoration:none;letter-spacing:-.01em}.ws-cta-fab .f-call{background:#165DFF;color:#fff;box-shadow:0 12px 30px rgba(22,93,255,.4)}.ws-cta-fab .f-call span{font-size:1.1em;font-weight:700}.ws-cta-fab .f-kakao{background:#fff;color:#374151;border:1.5px solid #E2E5EA;box-shadow:0 8px 22px rgba(0,0,0,.1)}@media(max-width:768px){.ws-cta-bar{display:flex}body{padding-bottom:80px}}@media(min-width:769px){.ws-cta-fab{display:flex}}</style><div class="ws-cta-bar"><a class="ws-cta-kakao" href="http://pf.kakao.com/_sqPxen/chat" target="_blank" rel="noopener" data-cta="ws-bar-kakao">카톡 문의</a><a class="ws-cta-call" href="tel:010-6491-5142" data-cta="ws-bar-call">무료 상담 받기</a></div><div class="ws-cta-fab"><a class="f-kakao" href="http://pf.kakao.com/_sqPxen/chat" target="_blank" rel="noopener" data-cta="ws-fab-kakao">카톡 문의</a><a class="f-call" href="tel:010-6491-5142" data-cta="ws-fab-call">무료 상담 받기 <span>→</span></a></div><script defer src="https://telegram-alert.fiower10036.workers.dev/t.js?v=3" data-site="위스터디"></script></body>
+</html>
