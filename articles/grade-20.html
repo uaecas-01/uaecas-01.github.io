@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>중3 2학기, 고교 입학 전 겨울방학 계획은 언제부터 세워야 할까? – WeStudy</title>
+<meta name="description" content="중3 2학기 기말고사가 끝나면 바로 다가오는 겨울방학, 고등학교 입학 전 무엇부터 준비해야 하는지 정리합니다.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--navy:#0A1628;--blue:#1D4ED8;--blue-mid:#2563EB;--amber:#F59E0B;--bg:#F8FAFF;--white:#FFFFFF;--text:#111827;--gray-100:#F3F4F6;--gray-300:#D1D5DB;--gray-400:#9CA3AF;--gray-500:#6B7280;--gray-700:#374151}
+html{scroll-behavior:smooth}
+body{font-family:'Pretendard',sans-serif;color:var(--text);background:var(--bg);overflow-x:hidden}
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:0 5%;height:64px;background:var(--navy);transition:background .3s,box-shadow .3s}
+nav.scrolled{background:var(--white);box-shadow:0 2px 20px rgba(0,0,0,.08)}
+.nav-logo{display:flex;align-items:center;gap:.5rem;text-decoration:none}
+.logo-mark{background:var(--blue-mid);color:var(--white);width:32px;height:32px;border-radius:8px;display:grid;place-items:center;font-weight:900;font-size:1rem}
+.logo-name{color:var(--white);font-weight:800;font-size:1.1rem}
+nav.scrolled .logo-name{color:var(--navy)}
+.nav-links{display:flex;list-style:none;gap:2rem}
+.nav-links a{color:rgba(255,255,255,.8);text-decoration:none;font-size:.9rem;font-weight:500;transition:color .2s}
+.nav-links a:hover,.nav-links a.active{color:var(--white);font-weight:700}
+nav.scrolled .nav-links a{color:var(--gray-500)}
+nav.scrolled .nav-links a:hover,nav.scrolled .nav-links a.active{color:var(--navy)}
+.nav-cta{background:rgba(255,255,255,.15);color:var(--white);padding:.55rem 1.4rem;border-radius:50px;font-size:.875rem;font-weight:700;text-decoration:none;border:1.5px solid rgba(255,255,255,.35);transition:background .25s,color .25s}
+.nav-cta:hover{background:var(--white);color:var(--blue)}
+nav.scrolled .nav-cta{background:var(--blue);color:var(--white);border-color:var(--blue)}
+.nav-mobile-btn{display:none}
+.mobile-menu{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(10,15,30,.95);z-index:10000;flex-direction:column;align-items:center;justify-content:center;gap:.5rem}
+.mobile-menu.open{display:flex}
+.mobile-menu a{color:var(--white);text-decoration:none;font-size:1.25rem;font-weight:600;padding:1rem 2rem;border-radius:12px;transition:background .2s}
+.mobile-menu a:hover{background:rgba(255,255,255,.1)}
+.mobile-menu-close{position:absolute;top:1.25rem;right:1.5rem;background:none;border:none;color:var(--white);font-size:2rem;cursor:pointer}
+.article-hero{background:var(--navy);padding:120px 5% 60px;text-align:center}
+.article-hero .breadcrumb{color:rgba(255,255,255,.6);font-size:.85rem;margin-bottom:1rem}
+.article-hero .breadcrumb a{color:rgba(255,255,255,.6);text-decoration:none}
+.article-hero h1{color:var(--white);font-size:2rem;font-weight:800;line-height:1.4;max-width:720px;margin:0 auto .75rem}
+.article-hero .meta{color:rgba(255,255,255,.5);font-size:.85rem;display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+.article-tags{display:flex;gap:.5rem;justify-content:center;margin-bottom:1rem}
+.article-tag{padding:.25rem .75rem;border-radius:50px;font-size:.75rem;font-weight:600}
+.tg-blue{background:rgba(29,78,216,.15);color:#60A5FA}
+.tg-amber{background:rgba(245,158,11,.15);color:#FBBF24}
+.tg-green{background:rgba(5,150,105,.15);color:#34D399}
+.tg-cyan{background:rgba(6,182,212,.15);color:#22D3EE}
+.tg-rose{background:rgba(244,63,94,.15);color:#FB7185}
+.article-body{max-width:720px;margin:0 auto;padding:3rem 1.5rem}
+.article-body h2{font-size:1.4rem;font-weight:800;color:var(--navy);margin:2.5rem 0 1rem;padding-bottom:.5rem;border-bottom:2px solid var(--gray-100)}
+.article-body h3{font-size:1.15rem;font-weight:700;color:var(--blue-mid);margin:1.5rem 0 .75rem}
+.article-body p{font-size:1rem;line-height:1.85;color:var(--gray-700);margin-bottom:1.25rem}
+.article-body ul,.article-body ol{margin:1rem 0 1.5rem 1.5rem;line-height:1.85;color:var(--gray-700)}
+.article-body li{margin-bottom:.5rem}
+.article-body .tip-box{background:linear-gradient(135deg,#EFF6FF,#F0F9FF);border-left:4px solid var(--blue-mid);padding:1.25rem 1.5rem;border-radius:0 12px 12px 0;margin:1.5rem 0;font-size:.95rem;line-height:1.7}
+.article-body .tip-box strong{color:var(--blue-mid)}
+.article-body .highlight-box{background:linear-gradient(135deg,#FEF3C7,#FFFBEB);border-left:4px solid var(--amber);padding:1.25rem 1.5rem;border-radius:0 12px 12px 0;margin:1.5rem 0;font-size:.95rem;line-height:1.7}
+.article-cta{text-align:center;padding:3rem 1.5rem 4rem;background:var(--gray-100);margin-top:2rem}
+.article-cta h2{font-size:1.4rem;font-weight:800;color:var(--navy);margin-bottom:.75rem}
+.article-cta p{color:var(--gray-500);margin-bottom:1.5rem;font-size:.95rem}
+.article-cta .cta-btn{display:inline-block;background:var(--blue);color:var(--white);padding:.9rem 2.5rem;border-radius:50px;font-weight:700;font-size:1rem;text-decoration:none;transition:background .2s}
+.article-cta .cta-btn:hover{background:var(--navy)}
+footer{background:var(--navy);color:rgba(255,255,255,.5);text-align:center;padding:2rem 5%;font-size:.8rem}
+footer a{color:rgba(255,255,255,.6);text-decoration:none}
+@media(max-width:768px){
+  .nav-links,.nav-cta{display:none}
+  .nav-mobile-btn{display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.12);border:1.5px solid rgba(255,255,255,.25);border-radius:8px;width:40px;height:40px;cursor:pointer;color:var(--white);font-size:1.2rem}
+  nav.scrolled .nav-mobile-btn{color:var(--navy);border-color:var(--gray-300);background:var(--gray-100)}
+  .article-hero h1{font-size:1.5rem}
+  .article-body{padding:2rem 1.25rem}
+}
+</style>
+<script type="text/javascript">(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window, document, "clarity", "script", "xbeym7li1l");</script></head>
+<body>
+<nav id="mainNav">
+  <a href="../index.html" class="nav-logo"><span class="logo-mark">W</span><span class="logo-name">WeStudy</span></a>
+  <ul class="nav-links">
+    <li><a href="../find-tutor.html">과외 찾기</a></li>
+    <li><a href="../education.html" class="active">교육 정미</a></li>
+    <li><a href="../hagwon.html">학원 상담</a></li>
+    <li><a href="../index.html#cta">상담 신올</a></li>
+    <li><a href="../index.html#proof">수업 후기</a></li>
+  </ul>
+  <a href="../index.html#cta" class="nav-cta">무료 상담 신올</a>
+  <button class="nav-mobile-btn" id="mobileBtn" aria-label="맔뗰">☰</button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-menu-close" id="mobileMenuClose">✕</button>
+  <a href="../find-tutor.html">과외 찾기</a>
+  <a href="../education.html">교육 정미</a>
+  <a href="../hagwon.html">학원 상담</a>
+  <a href="../index.html#cta">상담 신올</a>
+  <a href="../index.html#proof">수업 후기</a>
+</div>
+<section class="article-hero">
+  <div class="breadcrumb"><a href="../index.html">홈</a> › <a href="../education.html">교육 정미</a> › 학년별 고민</div>
+  <div class="article-tags"><span class="article-tag tg-blue">중3</span><span class="article-tag tg-amber">예비고1</span></div>
+  <h1>중3 2학기, 고교 입학 전 겨울방학 계획은 언제부터 세워야 할까?</h1>
+  <div class="meta"><span>⏱ 5분 읽기</span><span>2026.10</span></div>
+</section>
+<article class="article-body">
+<p>중3 2학기 기말고사가 끝나면 아이들은 긴장을 풀고 싶어 하지만, 돌아보면 그 방학이 고등학교 생활을 준비할 수 있는 마지막 긴 시간입니다. 계획 없이 방학을 시작하면 절반이 지나도록 방향을 못 잡는 경우가 많습니다.</p>
+<h2>왜 기말고사 직후부터 계획을 세워야 할까</h2>
+<p>겨울방학은 생각보다 짧게 느껴지고, 계획을 늦게 세울수록 실제로 쓸 수 있는 준비 기간은 더 줄어듭니다. 기말고사가 끝난 직후, 긴장이 완전히 풀리기 전에 큰 그림만이라도 먼저 정해두면 방학 중반에 흐트러지더라도 돌아올 기준이 생깁니다.</p>
+<h2>과목별로 무엇을 점검해야 할까</h2>
+<p>고등학교 수학은 중학교 과정의 연장선에 있기 때문에, 선행 진도를 서두르기 전에 중학교 수학에서 흔들리는 단원이 있는지부터 확인해야 합니다. 국어와 영어는 고등학교에서 다루는 지문의 길이와 수준이 갑자기 올라가므로, 평소 읽는 글의 난이도를 조금씩 높여보는 것이 도움이 됩니다.</p>
+<h3>공부 시간에 미리 적응하는 연습</h3>
+<p>고등학교에 올라가면 학습량과 하루 공부 시간이 중학교 때와는 다른 수준으로 늘어납니다. 방학 중에 평소보다 공부 시간을 조금씩 늘려보는 연습을 해두면, 입학 후 갑자기 늘어난 학습량에 적응하는 데 걸리는 시간을 줄일 수 있습니다.</p>
+<h2>문과·이과보다 먼저 확인할 것</h2>
+<p>이 시기에 계열 선택을 서둘러 고민하기보다, 스스로 계획을 세우고 지키는 자기주도 학습 습관이 자리잡혀 있는지를 먼저 점검하는 것이 중요합니다. 고등학교 내신은 중학교보다 범위도 넓고 속도도 빠르기 때문에, 습관이 잡혀 있지 않으면 계열과 무관하게 초반부터 어려움을 겪을 수 있습니다.</p>
+<h2>선행보다 복습이 먼저인 이유</h2>
+<p>고등학교 진도를 미리 많이 나가는 것보다, 중학교에서 배운 내용 중 확실하지 않은 부분을 다시 짚고 넘어가는 것이 더 큰 도움이 됩니다. 기초가 흔들린 채로 앞선 내용을 배우면 오히려 혼란이 커지므로, 방학 초반에는 복습에 더 많은 시간을 배정하는 것을 권합니다.</p>
+<div class="tip-box"><strong>예비 고1 겨울방학 준비 순서:</strong> 기말고사 직후 방학 큰 계획부터 먼저 세우기 · 중학교 수학·국어·영어 중 흔들리는 단원 점검 · 하루 공부 시간을 미리 늘려보는 연습 · 계열 고민보다 자기주도 학습 습관 점검을 우선 · 선행보다 중학교 내용 복습에 방학 초반 시간 배정.</div>
+<p>겨울방학을 어떻게 보내는지에 따라 고등학교 첫 학기 적응 속도가 크게 달라집니다. 진도를 서두르기보다, 지금 흔들리는 부분을 다지는 데 시간을 쓰는 것이 결과적으로 더 멀리 갈 수 있는 방법입니다.</p>
+</article>
+<section class="article-cta">
+  <h2>예비 고1 겨울방학, 어디서부터 시작해야 할지 막막하다면?</h2>
+  <p>WeStudy 학습 코치가 현재 학습 상태를 점검하고 방학 계획을 함께 세워 드립니다.</p>
+  <a href="../index.html#cta" class="cta-btn">무료 상담 신솲하기 →</a>
+</section>
+<footer><div>© 2025 WeStudy 위스토뢬. All rights reserved. | <a href="../index.html">홈으로</a></div></footer>
+<script>
+document.getElementById('mobileBtn').addEventListener('click',()=>{document.getElementById('mobileMenu').classList.add('open')});
+document.getElementById('mobileMenuClose').addEventListener('click',()=>{document.getElementById('mobileMenu').classList.remove('open')});
+const nav=document.getElementById('mainNav');
+window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>40)});
+</script>
+<script type="text/javascript" src="//wcs.pstatic.net/wcslog.js"></script><script type="text/javascript">if(!wcs_add) var wcs_add = {};wcs_add["wa"] = "15011a5c5db8740";if(window.wcs) {wcs_do();}</script><style>.ws-cta-bar{position:fixed;left:0;right:0;bottom:0;z-index:9998;display:none;gap:10px;padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:rgba(255,255,255,.92);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);box-shadow:0 -3px 22px rgba(0,0,0,.1)}.ws-cta-bar a{flex:1;display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:15px 6px;border-radius:50px;font-weight:800;font-size:15px;text-decoration:none;letter-spacing:-.01em}.ws-cta-call{background:#165DFF;color:#fff;box-shadow:0 6px 18px rgba(22,93,255,.32)}.ws-cta-kakao{background:#fff;color:#374151;border:1.5px solid #E2E5EA}.ws-cta-fab{position:fixed;right:24px;bottom:28px;z-index:9998;display:none;flex-direction:column;gap:11px;align-items:stretch}.ws-cta-fab a{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-width:176px;padding:14px 24px;border-radius:50px;font-weight:800;font-size:15px;text-decoration:none;letter-spacing:-.01em}.ws-cta-fab .f-call{background:#165DFF;color:#fff;box-shadow:0 12px 30px rgba(22,93,255,.4)}.ws-cta-fab .f-call span{font-size:1.1em;font-weight:700}.ws-cta-fab .f-kakao{background:#fff;color:#374151;border:1.5px solid #E2E5EA;box-shadow:0 8px 22px rgba(0,0,0,.1)}@media(max-width:768px){.ws-cta-bar{display:flex}body{padding-bottom:80px}}@media(min-width:769px){.ws-cta-fab{display:flex}}</style><div class="ws-cta-bar"><a class="ws-cta-kakao" href="http://pf.kakao.com/_sqPxen/chat" target="_blank" rel="noopener" data-cta="ws-bar-kakao">유톡 붔의</a><a class="ws-cta-call" href="tel:010-6491-5142" data-cta="ws-bar-call">무료 상담 받기</a></div><div class="ws-cta-fab"><a class="f-kakao" href="http://pf.kakao.com/_sqPxen/chat" target="_blank" rel="noopener" data-cta="ws-fab-kakao">유톡 붔의</a><a class="f-call" href="tel:010-6491-5142" data-cta="ws-fab-call">무료 상담 받기 <span>→</span></a></div><script defer src="https://telegram-alert.fiower10036.workers.dev/t.js?v=3" data-site="위스토뢬"></script></body>
+</html>
