@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>생명과학, 암기와 개념 이해 중 어디에 먼저 집중해야 할까? – WeStudy</title>
+<meta name="description" content="암기할 용어는 많은데 단순 암기만으로는 풀리지 않는 생명과학, 개념 이해와 암기를 어떤 순서로 공부해야 효율적인지 정리합니다.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--navy:#0A1628;--blue:#1D4ED8;--blue-mid:#2563EB;--amber:#F59E0B;--bg:#F8FAFF;--white:#FFFFFF;--text:#111827;--gray-100:#F3F4F6;--gray-300:#D1D5DB;--gray-400:#9CA3AF;--gray-500:#6B7280;--gray-700:#374151}
+html{scroll-behavior:smooth}
+body{font-family:'Pretendard',sans-serif;color:var(--text);background:var(--bg);overflow-x:hidden}
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:0 5%;height:64px;background:var(--navy);transition:background .3s,box-shadow .3s}
+nav.scrolled{background:var(--white);box-shadow:0 2px 20px rgba(0,0,0,.08)}
+.nav-logo{display:flex;align-items:center;gap:.5rem;text-decoration:none}
+.logo-mark{background:var(--blue-mid);color:var(--white);width:32px;height:32px;border-radius:8px;display:grid;place-items:center;font-weight:900;font-size:1rem}
+.logo-name{color:var(--white);font-weight:800;font-size:1.1rem}
+nav.scrolled .logo-name{color:var(--navy)}
+.nav-links{display:flex;list-style:none;gap:2rem}
+.nav-links a{color:rgba(255,255,255,.8);text-decoration:none;font-size:.9rem;font-weight:500;transition:color .2s}
+.nav-links a:hover,.nav-links a.active{color:var(--white);font-weight:700}
+nav.scrolled .nav-links a{color:var(--gray-500)}
+nav.scrolled .nav-links a:hover,nav.scrolled .nav-links a.active{color:var(--navy)}
+.nav-cta{background:rgba(255,255,255,.15);color:var(--white);padding:.55rem 1.4rem;border-radius:50px;font-size:.875rem;font-weight:700;text-decoration:none;border:1.5px solid rgba(255,255,255,.35);transition:background .25s,color .25s}
+.nav-cta:hover{background:var(--white);color:var(--blue)}
+nav.scrolled .nav-cta{background:var(--blue);color:var(--white);border-color:var(--blue)}
+.nav-mobile-btn{display:none}
+.mobile-menu{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(10,15,30,.95);z-index:10000;flex-direction:column;align-items:center;justify-content:center;gap:.5rem}
+.mobile-menu.open{display:flex}
+.mobile-menu a{color:var(--white);text-decoration:none;font-size:1.25rem;font-weight:600;padding:1rem 2rem;border-radius:12px;transition:background .2s}
+.mobile-menu a:hover{background:rgba(255,255,255,.1)}
+.mobile-menu-close{position:absolute;top:1.25rem;right:1.5rem;background:none;border:none;color:var(--white);font-size:2rem;cursor:pointer}
+.article-hero{background:var(--navy);padding:120px 5% 60px;text-align:center}
+.article-hero .breadcrumb{color:rgba(255,255,255,.6);font-size:.85rem;margin-bottom:1rem}
+.article-hero .breadcrumb a{color:rgba(255,255,255,.6);text-decoration:none}
+.article-hero h1{color:var(--white);font-size:2rem;font-weight:800;line-height:1.4;max-width:720px;margin:0 auto .75rem}
+.article-hero .meta{color:rgba(255,255,255,.5);font-size:.85rem;display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+.article-tags{display:flex;gap:.5rem;justify-content:center;margin-bottom:1rem}
+.article-tag{padding:.25rem .75rem;border-radius:50px;font-size:.75rem;font-weight:600}
+.tg-blue{background:rgba(29,78,216,.15);color:#60A5FA}
+.tg-amber{background:rgba(245,158,11,.15);color:#FBBF24}
+.tg-green{background:rgba(5,150,105,.15);color:#34D399}
+.tg-cyan{background:rgba(6,182,212,.15);color:#22D3EE}
+.tg-rose{background:rgba(244,63,94,.15);color:#FB7185}
+.article-body{max-width:720px;margin:0 auto;padding:3rem 1.5rem}
+.article-body h2{font-size:1.4rem;font-weight:800;color:var(--navy);margin:2.5rem 0 1rem;padding-bottom:.5rem;border-bottom:2px solid var(--gray-100)}
+.article-body h3{font-size:1.15rem;font-weight:700;color:var(--blue-mid);margin:1.5rem 0 .75rem}
+.article-body p{font-size:1rem;line-height:1.85;color:var(--gray-700);margin-bottom:1.25rem}
+.article-body ul,.article-body ol{margin:1rem 0 1.5rem 1.5rem;line-height:1.85;color:var(--gray-700)}
+.article-body li{margin-bottom:.5rem}
+.article-body .tip-box{background:linear-gradient(135deg,#EFF6FF,#F0F9FF);border-left:4px solid var(--blue-mid);padding:1.25rem 1.5rem;border-radius:0 12px 12px 0;margin:1.5rem 0;font-size:.95rem;line-height:1.7}
+.article-body .tip-box strong{color:var(--blue-mid)}
+.article-body .highlight-box{background:linear-gradient(135deg,#FEF3C7,#FFFBEB);border-left:4px solid var(--amber);padding:1.25rem 1.5rem;border-radius:0 12px 12px 0;margin:1.5rem 0;font-size:.95rem;line-height:1.7}
+.article-cta{text-align:center;padding:3rem 1.5rem 4rem;background:var(--gray-100);margin-top:2rem}
+.article-cta h2{font-size:1.4rem;font-weight:800;color:var(--navy);margin-bottom:.75rem}
+.article-cta p{color:var(--gray-500);margin-bottom:1.5rem;font-size:.95rem}
+.article-cta .cta-btn{display:inline-block;background:var(--blue);color:var(--white);padding:.9rem 2.5rem;border-radius:50px;font-weight:700;font-size:1rem;text-decoration:none;transition:background .2s}
+.article-cta .cta-btn:hover{background:var(--navy)}
+footer{background:var(--navy);color:rgba(255,255,255,.5);text-align:center;padding:2rem 5%;font-size:.8rem}
+footer a{color:rgba(255,255,255,.6);text-decoration:none}
+@media(max-width:768px){
+  .nav-links,.nav-cta{display:none}
+  .nav-mobile-btn{display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.12);border:1.5px solid rgba(255,255,255,.25);border-radius:8px;width:40px;height:40px;cursor:pointer;color:var(--white);font-size:1.2rem}
+  nav.scrolled .nav-mobile-btn{color:var(--navy);border-color:var(--gray-300);background:var(--gray-100)}
+  .article-hero h1{font-size:1.5rem}
+  .article-body{padding:2rem 1.25rem}
+}
+</style>
+<script type="text/javascript">(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window, document, "clarity", "script", "xbeym7li1l");</script></head>
+<body>
+<nav id="mainNav">
+  <a href="../index.html" class="nav-logo"><span class="logo-mark">W</span><span class="logo-name">WeStudy</span></a>
+  <ul class="nav-links">
+    <li><a href="../find-tutor.html">과외 찾기</a></li>
+    <li><a href="../education.html" class="active">교육 정보</a></li>
+    <li><a href="../hagwon.html">학원 상담</a></li>
+    <li><a href="../index.html#cta">상담 신청</a></li>
+    <li><a href="../index.html#proof">수업 후기</a></li>
+  </ul>
+  <a href="../index.html#cta" class="nav-cta">무료 상담 신청</a>
+  <button class="nav-mobile-btn" id="mobileBtn" aria-label="메뉴">☰</button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-menu-close" id="mobileMenuClose">✕</button>
+  <a href="../find-tutor.html">과외 찾기</a>
+  <a href="../education.html">교육 정보</a>
+  <a href="../hagwon.html">학원 상담</a>
+  <a href="../index.html#cta">상담 신청</a>
+  <a href="../index.html#proof">수업 후기</a>
+</div>
+<section class="article-hero">
+  <div class="breadcrumb"><a href="../index.html">홈</a> › <a href="../education.html">교육 정보</a> › 과목별 공부법</div>
+  <div class="article-tags"><span class="article-tag tg-cyan">과학</span><span class="article-tag tg-amber">생명과학</span></div>
+  <h1>생명과학, 암기와 개념 이해 중 어디에 먼저 집중해야 할까?</h1>
+  <div class="meta"><span>⏱ 5분 읽기</span><span>2026.10</span></div>
+</section>
+<article class="article-body">
+<p>생명과학은 외워야 할 용어와 구조 명칭이 많아 암기 과목처럼 느껴지지만, 막상 시험 문제는 단순 암기만으로 풀리지 않는 경우가 대부분입니다. 용어는 아는데 문제만 보면 막막하다면, 암기와 개념 이해 중 어느 쪽을 먼저 다뤄야 할지 순서를 점검해 볼 필요가 있습니다.</p>
+<h2>용어 암기보다 과정의 흐름을 먼저 이해하세요</h2>
+<p>세포 호흡, 물질대사, 유전 같은 단원은 개별 용어를 따로따로 외우기보다, 전체 과정이 어떤 순서로 일어나는지 흐름을 먼저 머릿속에 그려두는 것이 효과적입니다. 흐름을 이해한 다음에 각 단계의 명칭을 채워 넣으면, 용어를 잊어버려도 과정을 떠올려 유추할 수 있습니다.</p>
+<h2>그림과 도식으로 먼저 익히고, 글은 나중에 외우세요</h2>
+<p>생명과학 교과서에는 과정을 설명하는 도식과 그림이 많이 제시됩니다. 글로 된 설명을 먼저 외우려 하기보다, 도식을 보면서 각 단계에서 무슨 일이 일어나는지 자기 말로 설명해 보는 연습을 먼저 하고, 그다음에 정확한 용어로 바꿔 외우는 순서가 기억에 오래 남습니다.</p>
+<h3>유전 계산 문제는 원리 이해가 먼저입니다</h3>
+<p>유전 단원의 계산 문제는 공식을 외워서 대입하는 방식으로는 조건이 조금만 바뀌어도 틀리기 쉽습니다. 분리의 법칙, 독립의 법칙 같은 원리를 이해한 상태에서 직접 가계도나 교배 결과를 그려보는 연습을 해야, 변형된 문제에도 대응할 수 있습니다.</p>
+<h2>암기가 필요한 부분은 분명히 있습니다</h2>
+<p>기관계의 명칭, 호르몬 이름과 역할처럼 개념 이해만으로는 채워지지 않는 순수 암기 영역도 분명히 존재합니다. 이런 부분은 이해 중심 공부가 끝난 뒤, 별도로 암기 카드나 요약표를 만들어 반복해서 외우는 것이 효율적입니다.</p>
+<h2>기출문제로 암기와 이해가 실제로 연결되는지 확인하세요</h2>
+<p>개념을 이해하고 용어를 외웠다고 해서 바로 문제가 풀리는 것은 아닙니다. 기출문제를 풀면서 "이 용어가 이렇게 묻는구나"를 직접 경험해야, 암기한 지식과 이해한 개념이 실전에서 연결됩니다.</p>
+<div class="tip-box"><strong>생명과학, 암기와 이해 균형 잡는 순서:</strong> 전체 과정의 흐름부터 그림으로 이해하기 · 도식을 보며 자기 말로 먼저 설명해보기 · 유전 계산은 원리 이해 후 직접 그려보며 연습하기 · 순수 암기 영역은 이해 공부 후 별도로 정리하기 · 기출문제로 암기와 이해가 실제로 연결되는지 점검하기.</div>
+<p>생명과학은 암기냐 이해냐를 양자택일할 과목이 아니라, 이해를 먼저 다지고 그 위에 암기를 얹어야 하는 과목입니다. 순서를 바꾸면 외운 것도 금방 흩어지지만, 순서를 지키면 암기량 자체가 줄어드는 효과도 느낄 수 있습니다.</p>
+</article>
+<section class="article-cta">
+  <h2>생명과학 개념이 자꾸 헷갈린다면?</h2>
+  <p>WeStudy 학습 코치가 단원별 흐름부터 차근차근 짚어 개념과 암기를 함께 잡아 드립니다.</p>
+  <a href="../index.html#cta" class="cta-btn">무료 상담 신청하기 →</a>
+</section>
+<footer><div>© 2025 WeStudy 위스터디. All rights reserved. | <a href="../index.html">홈으로</a></div></footer>
+<script>
+document.getElementById('mobileBtn').addEventListener('click',()=>{document.getElementById('mobileMenu').classList.add('open')});
+document.getElementById('mobileMenuClose').addEventListener('click',()=>{document.getElementById('mobileMenu').classList.remove('open')});
+const nav=document.getElementById('mainNav');
+window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>40)});
+</script>
+<script type="text/javascript" src="//wcs.pstatic.net/wcslog.js"></script><script type="text/javascript">if(!wcs_add) var wcs_add = {};wcs_add["wa"] = "15011a5c5db8740";if(window.wcs) {wcs_do();}</script><style>.ws-cta-bar{position:fixed;left:0;right:0;bottom:0;z-index:9998;display:none;gap:10px;padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:rgba(255,255,255,.92);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);box-shadow:0 -3px 22px rgba(0,0,0,.1)}.ws-cta-bar a{flex:1;display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:15px 6px;border-radius:50px;font-weight:800;font-size:15px;text-decoration:none;letter-spacing:-.01em}.ws-cta-call{background:#165DFF;color:#fff;box-shadow:0 6px 18px rgba(22,93,255,.32)}.ws-cta-kakao{background:#fff;color:#374151;border:1.5px solid #E2E5EA}.ws-cta-fab{position:fixed;right:24px;bottom:28px;z-index:9998;display:none;flex-direction:column;gap:11px;align-items:stretch}.ws-cta-fab a{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-width:176px;padding:14px 24px;border-radius:50px;font-weight:800;font-size:15px;text-decoration:none;letter-spacing:-.01em}.ws-cta-fab .f-call{background:#165DFF;color:#fff;box-shadow:0 12px 30px rgba(22,93,255,.4)}.ws-cta-fab .f-call span{font-size:1.1em;font-weight:700}.ws-cta-fab .f-kakao{background:#fff;color:#374151;border:1.5px solid #E2E5EA;box-shadow:0 8px 22px rgba(0,0,0,.1)}@media(max-width:768px){.ws-cta-bar{display:flex}body{padding-bottom:80px}}@media(min-width:769px){.ws-cta-fab{display:flex}}</style><div class="ws-cta-bar"><a class="ws-cta-kakao" href="http://pf.kakao.com/_sqPxen/chat" target="_blank" rel="noopener" data-cta="ws-bar-kakao">카톡 문의</a><a class="ws-cta-call" href="tel:010-6491-5142" data-cta="ws-bar-call">무료 상담 받기</a></div><div class="ws-cta-fab"><a class="f-kakao" href="http://pf.kakao.com/_sqPxen/chat" target="_blank" rel="noopener" data-cta="ws-fab-kakao">카톡 문의</a><a class="f-call" href="tel:010-6491-5142" data-cta="ws-fab-call">무료 상담 받기 <span>→</span></a></div><script defer src="https://telegram-alert.fiower10036.workers.dev/t.js?v=3" data-site="위스터디"></script></body>
+</html>

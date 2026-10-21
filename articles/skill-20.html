@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>요약노트, 줄글로 쓰는 것과 표로 정리하는 것 중 뭐가 더 효과적일까? – WeStudy</title>
+<meta name="description" content="같은 내용을 요약해도 줄글과 표 중 어떤 방식이 더 효과적인지, 과목과 내용 성격에 따라 요약 방식을 고르는 기준을 정리합니다.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--navy:#0A1628;--blue:#1D4ED8;--blue-mid:#2563EB;--amber:#F59E0B;--bg:#F8FAFF;--white:#FFFFFF;--text:#111827;--gray-100:#F3F4F6;--gray-300:#D1D5DB;--gray-400:#9CA3AF;--gray-500:#6B7280;--gray-700:#374151}
+html{scroll-behavior:smooth}
+body{font-family:'Pretendard',sans-serif;color:var(--text);background:var(--bg);overflow-x:hidden}
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:0 5%;height:64px;background:var(--navy);transition:background .3s,box-shadow .3s}
+nav.scrolled{background:var(--white);box-shadow:0 2px 20px rgba(0,0,0,.08)}
+.nav-logo{display:flex;align-items:center;gap:.5rem;text-decoration:none}
+.logo-mark{background:var(--blue-mid);color:var(--white);width:32px;height:32px;border-radius:8px;display:grid;place-items:center;font-weight:900;font-size:1rem}
+.logo-name{color:var(--white);font-weight:800;font-size:1.1rem}
+nav.scrolled .logo-name{color:var(--navy)}
+.nav-links{display:flex;list-style:none;gap:2rem}
+.nav-links a{color:rgba(255,255,255,.8);text-decoration:none;font-size:.9rem;font-weight:500;transition:color .2s}
+.nav-links a:hover,.nav-links a.active{color:var(--white);font-weight:700}
+nav.scrolled .nav-links a{color:var(--gray-500)}
+nav.scrolled .nav-links a:hover,nav.scrolled .nav-links a.active{color:var(--navy)}
+.nav-cta{background:rgba(255,255,255,.15);color:var(--white);padding:.55rem 1.4rem;border-radius:50px;font-size:.875rem;font-weight:700;text-decoration:none;border:1.5px solid rgba(255,255,255,.35);transition:background .25s,color .25s}
+.nav-cta:hover{background:var(--white);color:var(--blue)}
+nav.scrolled .nav-cta{background:var(--blue);color:var(--white);border-color:var(--blue)}
+.nav-mobile-btn{display:none}
+.mobile-menu{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(10,15,30,.95);z-index:10000;flex-direction:column;align-items:center;justify-content:center;gap:.5rem}
+.mobile-menu.open{display:flex}
+.mobile-menu a{color:var(--white);text-decoration:none;font-size:1.25rem;font-weight:600;padding:1rem 2rem;border-radius:12px;transition:background .2s}
+.mobile-menu a:hover{background:rgba(255,255,255,.1)}
+.mobile-menu-close{position:absolute;top:1.25rem;right:1.5rem;background:none;border:none;color:var(--white);font-size:2rem;cursor:pointer}
+.article-hero{background:var(--navy);padding:120px 5% 60px;text-align:center}
+.article-hero .breadcrumb{color:rgba(255,255,255,.6);font-size:.85rem;margin-bottom:1rem}
+.article-hero .breadcrumb a{color:rgba(255,255,255,.6);text-decoration:none}
+.article-hero h1{color:var(--white);font-size:2rem;font-weight:800;line-height:1.4;max-width:720px;margin:0 auto .75rem}
+.article-hero .meta{color:rgba(255,255,255,.5);font-size:.85rem;display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+.article-tags{display:flex;gap:.5rem;justify-content:center;margin-bottom:1rem}
+.article-tag{padding:.25rem .75rem;border-radius:50px;font-size:.75rem;font-weight:600}
+.tg-blue{background:rgba(29,78,216,.15);color:#60A5FA}
+.tg-amber{background:rgba(245,158,11,.15);color:#FBBF24}
+.tg-green{background:rgba(5,150,105,.15);color:#34D399}
+.tg-cyan{background:rgba(6,182,212,.15);color:#22D3EE}
+.tg-rose{background:rgba(244,63,94,.15);color:#FB7185}
+.article-body{max-width:720px;margin:0 auto;padding:3rem 1.5rem}
+.article-body h2{font-size:1.4rem;font-weight:800;color:var(--navy);margin:2.5rem 0 1rem;padding-bottom:.5rem;border-bottom:2px solid var(--gray-100)}
+.article-body h3{font-size:1.15rem;font-weight:700;color:var(--blue-mid);margin:1.5rem 0 .75rem}
+.article-body p{font-size:1rem;line-height:1.85;color:var(--gray-700);margin-bottom:1.25rem}
+.article-body ul,.article-body ol{margin:1rem 0 1.5rem 1.5rem;line-height:1.85;color:var(--gray-700)}
+.article-body li{margin-bottom:.5rem}
+.article-body .tip-box{background:linear-gradient(135deg,#EFF6FF,#F0F9FF);border-left:4px solid var(--blue-mid);padding:1.25rem 1.5rem;border-radius:0 12px 12px 0;margin:1.5rem 0;font-size:.95rem;line-height:1.7}
+.article-body .tip-box strong{color:var(--blue-mid)}
+.article-body .highlight-box{background:linear-gradient(135deg,#FEF3C7,#FFFBEB);border-left:4px solid var(--amber);padding:1.25rem 1.5rem;border-radius:0 12px 12px 0;margin:1.5rem 0;font-size:.95rem;line-height:1.7}
+.article-cta{text-align:center;padding:3rem 1.5rem 4rem;background:var(--gray-100);margin-top:2rem}
+.article-cta h2{font-size:1.4rem;font-weight:800;color:var(--navy);margin-bottom:.75rem}
+.article-cta p{color:var(--gray-500);margin-bottom:1.5rem;font-size:.95rem}
+.article-cta .cta-btn{display:inline-block;background:var(--blue);color:var(--white);padding:.9rem 2.5rem;border-radius:50px;font-weight:700;font-size:1rem;text-decoration:none;transition:background .2s}
+.article-cta .cta-btn:hover{background:var(--navy)}
+footer{background:var(--navy);color:rgba(255,255,255,.5);text-align:center;padding:2rem 5%;font-size:.8rem}
+footer a{color:rgba(255,255,255,.6);text-decoration:none}
+@media(max-width:768px){
+  .nav-links,.nav-cta{display:none}
+  .nav-mobile-btn{display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.12);border:1.5px solid rgba(255,255,255,.25);border-radius:8px;width:40px;height:40px;cursor:pointer;color:var(--white);font-size:1.2rem}
+  nav.scrolled .nav-mobile-btn{color:var(--navy);border-color:var(--gray-300);background:var(--gray-100)}
+  .article-hero h1{font-size:1.5rem}
+  .article-body{padding:2rem 1.25rem}
+}
+</style>
+<script type="text/javascript">(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window, document, "clarity", "script", "xbeym7li1l");</script></head>
+<body>
+<nav id="mainNav">
+  <a href="../index.html" class="nav-logo"><span class="logo-mark">W</span><span class="logo-name">WeStudy</span></a>
+  <ul class="nav-links">
+    <li><a href="../find-tutor.html">과외 찾기</a></li>
+    <li><a href="../education.html" class="active">교육 정보</a></li>
+    <li><a href="../hagwon.html">학원 상담</a></li>
+    <li><a href="../index.html#cta">상담 신청</a></li>
+    <li><a href="../index.html#proof">수업 후기</a></li>
+  </ul>
+  <a href="../index.html#cta" class="nav-cta">무료 상담 신청</a>
+  <button class="nav-mobile-btn" id="mobileBtn" aria-label="메뉴">☰</button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-menu-close" id="mobileMenuClose">✕</button>
+  <a href="../find-tutor.html">과외 찾기</a>
+  <a href="../education.html">교육 정보</a>
+  <a href="../hagwon.html">학원 상담</a>
+  <a href="../index.html#cta">상담 신청</a>
+  <a href="../index.html#proof">수업 후기</a>
+</div>
+<section class="article-hero">
+  <div class="breadcrumb"><a href="../index.html">홈</a> › <a href="../education.html">교육 정보</a> › 학습 스킬</div>
+  <div class="article-tags"><span class="article-tag tg-amber">필기</span><span class="article-tag tg-blue">요약</span></div>
+  <h1>요약노트, 줄글로 쓰는 것과 표로 정리하는 것 중 뭐가 더 효과적일까?</h1>
+  <div class="meta"><span>⏱ 4분 읽기</span><span>2026.10</span></div>
+</section>
+<article class="article-body">
+<p>시험 기간에 요약노트를 만드는 학생들은 많지만, 줄글로 길게 설명을 쓰는 친구도 있고 표로 깔끔하게 정리하는 친구도 있어 어느 쪽이 더 효과적인지 헷갈리기 쉽습니다. 사실 정답은 하나가 아니라, 정리하려는 내용의 성격에 따라 더 잘 맞는 방식이 다릅니다.</p>
+<h2>비교·대조할 대상이 있다면 표가 유리합니다</h2>
+<p>여러 개념이나 사건을 비교해야 하는 내용, 예를 들어 역사적 사건의 원인과 결과, 생물 단원의 기관별 기능, 화학 반응의 조건별 차이 같은 내용은 표로 정리하면 항목별 차이가 한눈에 들어옵니다. 줄글로 설명하면 비교 포인트가 문장 속에 흩어져 오히려 기억하기 어려워집니다.</p>
+<h2>흐름과 인과관계가 중요한 내용은 줄글이 낫습니다</h2>
+<p>사건이 순서대로 전개되거나, 하나의 원리가 다음 단계로 이어지는 내용은 표로 쪼개면 오히려 흐름이 끊어져 이해하기 어려워질 수 있습니다. 이런 내용은 짧은 문단으로 이어지는 흐름을 그대로 요약하는 것이 기억하기에 더 자연스럽습니다.</p>
+<h3>국어·영어 지문 요약은 핵심 문장 중심의 줄글이 효과적입니다</h3>
+<p>지문의 논지나 문학 작품의 주제는 표로 쪼개기보다, 문단별 핵심 문장을 짧게 이어 쓰는 방식이 전체 맥락을 기억하는 데 도움이 됩니다.</p>
+<h2>수학·과학 공식은 표보다 직접 써보는 것이 먼저입니다</h2>
+<p>공식을 표로 정리해두고 외우려 하면 정작 문제에 적용할 때 손이 굳는 경우가 많습니다. 공식은 표로 모아두되, 각 공식 옆에 그 공식을 쓰는 대표 문제 유형을 함께 적어두면 '언제 쓰는 공식인지'까지 함께 기억할 수 있습니다.</p>
+<h2>한 과목 안에서도 단원별로 방식을 섞어 쓰세요</h2>
+<p>한 과목을 통째로 표나 줄글 한 가지 방식으로만 정리할 필요는 없습니다. 같은 과목이라도 단원 성격에 따라 표가 어울리는 단원과 줄글이 어울리는 단원을 구분해서 섞어 쓰는 것이 훨씬 효율적입니다.</p>
+<div class="tip-box"><strong>요약 방식, 내용에 따라 고르는 기준:</strong> 비교·대조가 필요한 내용은 표로 정리하기 · 흐름과 인과관계가 중요한 내용은 줄글로 이어 쓰기 · 국어·영어 지문은 핵심 문장 중심 줄글로 요약하기 · 공식은 표로 모으되 대표 문제 유형을 함께 적어두기 · 한 과목 안에서도 단원별로 방식을 섞어 쓰기.</div>
+<p>요약노트의 핵심은 예쁘게 정리하는 것이 아니라, 나중에 펼쳤을 때 머릿속에 내용이 빨리 떠오르는 것입니다. 내용의 성격에 맞는 방식을 고르면, 같은 시간을 들여도 복습 효율이 훨씬 높아집니다.</p>
+</article>
+<section class="article-cta">
+  <h2>나에게 맞는 요약·필기 방식이 궁금하다면?</h2>
+  <p>WeStudy 학습 코치가 과목별로 효율적인 정리 방식을 함께 찾아 드립니다.</p>
+  <a href="../index.html#cta" class="cta-btn">무료 상담 신청하기 →</a>
+</section>
+<footer><div>© 2025 WeStudy 위스터디. All rights reserved. | <a href="../index.html">홈으로</a></div></footer>
+<script>
+document.getElementById('mobileBtn').addEventListener('click',()=>{document.getElementById('mobileMenu').classList.add('open')});
+document.getElementById('mobileMenuClose').addEventListener('click',()=>{document.getElementById('mobileMenu').classList.remove('open')});
+const nav=document.getElementById('mainNav');
+window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>40)});
+</script>
+<script type="text/javascript" src="//wcs.pstatic.net/wcslog.js"></script><script type="text/javascript">if(!wcs_add) var wcs_add = {};wcs_add["wa"] = "15011a5c5db8740";if(window.wcs) {wcs_do();}</script><style>.ws-cta-bar{position:fixed;left:0;right:0;bottom:0;z-index:9998;display:none;gap:10px;padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:rgba(255,255,255,.92);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);box-shadow:0 -3px 22px rgba(0,0,0,.1)}.ws-cta-bar a{flex:1;display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:15px 6px;border-radius:50px;font-weight:800;font-size:15px;text-decoration:none;letter-spacing:-.01em}.ws-cta-call{background:#165DFF;color:#fff;box-shadow:0 6px 18px rgba(22,93,255,.32)}.ws-cta-kakao{background:#fff;color:#374151;border:1.5px solid #E2E5EA}.ws-cta-fab{position:fixed;right:24px;bottom:28px;z-index:9998;display:none;flex-direction:column;gap:11px;align-items:stretch}.ws-cta-fab a{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-width:176px;padding:14px 24px;border-radius:50px;font-weight:800;font-size:15px;text-decoration:none;letter-spacing:-.01em}.ws-cta-fab .f-call{background:#165DFF;color:#fff;box-shadow:0 12px 30px rgba(22,93,255,.4)}.ws-cta-fab .f-call span{font-size:1.1em;font-weight:700}.ws-cta-fab .f-kakao{background:#fff;color:#374151;border:1.5px solid #E2E5EA;box-shadow:0 8px 22px rgba(0,0,0,.1)}@media(max-width:768px){.ws-cta-bar{display:flex}body{padding-bottom:80px}}@media(min-width:769px){.ws-cta-fab{display:flex}}</style><div class="ws-cta-bar"><a class="ws-cta-kakao" href="http://pf.kakao.com/_sqPxen/chat" target="_blank" rel="noopener" data-cta="ws-bar-kakao">카톡 문의</a><a class="ws-cta-call" href="tel:010-6491-5142" data-cta="ws-bar-call">무료 상담 받기</a></div><div class="ws-cta-fab"><a class="f-kakao" href="http://pf.kakao.com/_sqPxen/chat" target="_blank" rel="noopener" data-cta="ws-fab-kakao">카톡 문의</a><a class="f-call" href="tel:010-6491-5142" data-cta="ws-fab-call">무료 상담 받기 <span>→</span></a></div><script defer src="https://telegram-alert.fiower10036.workers.dev/t.js?v=3" data-site="위스터디"></script></body>
+</html>
