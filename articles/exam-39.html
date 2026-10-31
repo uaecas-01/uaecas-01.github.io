@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>기말고사 과목이 한꺼번에 몰린 주, 공부 순서는 어떻게 정해야 할까? – WeStudy</title>
+<meta name="description" content="하루에 서너 과목씩 시험이 겹치는 기말고사 주간에, 무엇을 먼저 공부해야 시간을 낭비하지 않는지 과목별 순서를 정하는 기준을 정리합니다.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--navy:#0A1628;--blue:#1D4ED8;--blue-mid:#2563EB;--amber:#F59E0B;--bg:#F8FAFF;--white:#FFFFFF;--text:#111827;--gray-100:#F3F4F6;--gray-300:#D1D5DB;--gray-400:#9CA3AF;--gray-500:#6B7280;--gray-700:#374151}
+html{scroll-behavior:smooth}
+body{font-family:'Pretendard',sans-serif;color:var(--text);background:var(--bg);overflow-x:hidden}
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:0 5%;height:64px;background:var(--navy);transition:background .3s,box-shadow .3s}
+nav.scrolled{background:var(--white);box-shadow:0 2px 20px rgba(0,0,0,.08)}
+.nav-logo{display:flex;align-items:center;gap:.5rem;text-decoration:none}
+.logo-mark{background:var(--blue-mid);color:var(--white);width:32px;height:32px;border-radius:8px;display:grid;place-items:center;font-weight:900;font-size:1rem}
+.logo-name{color:var(--white);font-weight:800;font-size:1.1rem}
+nav.scrolled .logo-name{color:var(--navy)}
+.nav-links{display:flex;list-style:none;gap:2rem}
+.nav-links a{color:rgba(255,255,255,.8);text-decoration:none;font-size:.9rem;font-weight:500;transition:color .2s}
+.nav-links a:hover,.nav-links a.active{color:var(--white);font-weight:700}
+nav.scrolled .nav-links a{color:var(--gray-500)}
+nav.scrolled .nav-links a:hover,nav.scrolled .nav-links a.active{color:var(--navy)}
+.nav-cta{background:rgba(255,255,255,.15);color:var(--white);padding:.55rem 1.4rem;border-radius:50px;font-size:.875rem;font-weight:700;text-decoration:none;border:1.5px solid rgba(255,255,255,.35);transition:background .25s,color .25s}
+.nav-cta:hover{background:var(--white);color:var(--blue)}
+nav.scrolled .nav-cta{background:var(--blue);color:var(--white);border-color:var(--blue)}
+.nav-mobile-btn{display:none}
+.mobile-menu{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(10,15,30,.95);z-index:10000;flex-direction:column;align-items:center;justify-content:center;gap:.5rem}
+.mobile-menu.open{display:flex}
+.mobile-menu a{color:var(--white);text-decoration:none;font-size:1.25rem;font-weight:600;padding:1rem 2rem;border-radius:12px;transition:background .2s}
+.mobile-menu a:hover{background:rgba(255,255,255,.1)}
+.mobile-menu-close{position:absolute;top:1.25rem;right:1.5rem;background:none;border:none;color:var(--white);font-size:2rem;cursor:pointer}
+.article-hero{background:var(--navy);padding:120px 5% 60px;text-align:center}
+.article-hero .breadcrumb{color:rgba(255,255,255,.6);font-size:.85rem;margin-bottom:1rem}
+.article-hero .breadcrumb a{color:rgba(255,255,255,.6);text-decoration:none}
+.article-hero h1{color:var(--white);font-size:2rem;font-weight:800;line-height:1.4;max-width:720px;margin:0 auto .75rem}
+.article-hero .meta{color:rgba(255,255,255,.5);font-size:.85rem;display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+.article-tags{display:flex;gap:.5rem;justify-content:center;margin-bottom:1rem}
+.article-tag{padding:.25rem .75rem;border-radius:50px;font-size:.75rem;font-weight:600}
+.tg-blue{background:rgba(29,78,216,.15);color:#60A5FA}
+.tg-amber{background:rgba(245,158,11,.15);color:#FBBF24}
+.tg-green{background:rgba(5,150,105,.15);color:#34D399}
+.tg-cyan{background:rgba(6,182,212,.15);color:#22D3EE}
+.tg-rose{background:rgba(244,63,94,.15);color:#FB7185}
+.article-body{max-width:720px;margin:0 auto;padding:3rem 1.5rem}
+.article-body h2{font-size:1.4rem;font-weight:800;color:var(--navy);margin:2.5rem 0 1rem;padding-bottom:.5rem;border-bottom:2px solid var(--gray-100)}
+.article-body h3{font-size:1.15rem;font-weight:700;color:var(--blue-mid);margin:1.5rem 0 .75rem}
+.article-body p{font-size:1rem;line-height:1.85;color:var(--gray-700);margin-bottom:1.25rem}
+.article-body ul,.article-body ol{margin:1rem 0 1.5rem 1.5rem;line-height:1.85;color:var(--gray-700)}
+.article-body li{margin-bottom:.5rem}
+.article-body .tip-box{background:linear-gradient(135deg,#EFF6FF,#F0F9FF);border-left:4px solid var(--blue-mid);padding:1.25rem 1.5rem;border-radius:0 12px 12px 0;margin:1.5rem 0;font-size:.95rem;line-height:1.7}
+.article-body .tip-box strong{color:var(--blue-mid)}
+.article-body .highlight-box{background:linear-gradient(135deg,#FEF3C7,#FFFBEB);border-left:4px solid var(--amber);padding:1.25rem 1.5rem;border-radius:0 12px 12px 0;margin:1.5rem 0;font-size:.95rem;line-height:1.7}
+.article-cta{text-align:center;padding:3rem 1.5rem 4rem;background:var(--gray-100);margin-top:2rem}
+.article-cta h2{font-size:1.4rem;font-weight:800;color:var(--navy);margin-bottom:.75rem}
+.article-cta p{color:var(--gray-500);margin-bottom:1.5rem;font-size:.95rem}
+.article-cta .cta-btn{display:inline-block;background:var(--blue);color:var(--white);padding:.9rem 2.5rem;border-radius:50px;font-weight:700;font-size:1rem;text-decoration:none;transition:background .2s}
+.article-cta .cta-btn:hover{background:var(--navy)}
+footer{background:var(--navy);color:rgba(255,255,255,.5);text-align:center;padding:2rem 5%;font-size:.8rem}
+footer a{color:rgba(255,255,255,.6);text-decoration:none}
+@media(max-width:768px){
+  .nav-links,.nav-cta{display:none}
+  .nav-mobile-btn{display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.12);border:1.5px solid rgba(255,255,255,.25);border-radius:8px;width:40px;height:40px;cursor:pointer;color:var(--white);font-size:1.2rem}
+  nav.scrolled .nav-mobile-btn{color:var(--navy);border-color:var(--gray-300);background:var(--gray-100)}
+  .article-hero h1{font-size:1.5rem}
+  .article-body{padding:2rem 1.25rem}
+}
+</style>
+<script type="text/javascript">(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window, document, "clarity", "script", "xbeym7li1l");</script></head>
+<body>
+<nav id="mainNav">
+  <a href="../index.html" class="nav-logo"><span class="logo-mark">W</span><span class="logo-name">WeStudy</span></a>
+  <ul class="nav-links">
+    <li><a href="../find-tutor.html">과외 찾기</a></li>
+    <li><a href="../education.html" class="active">교육 정보</a></li>
+    <li><a href="../hagwon.html">학원 상담</a></li>
+    <li><a href="../index.html#cta">상담 신읒</a></li>
+    <li><a href="../index.html#proof">수업 후기</a></li>
+  </ul>
+  <a href="../index.html#cta" class="nav-cta">무류 상담 신읒</a>
+  <button class="nav-mobile-btn" id="mobileBtn" aria-label="막맴면">☰</button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-menu-close" id="mobileMenuClose">✕</button>
+  <a href="../find-tutor.html">과외 찾기</a>
+  <a href="../education.html">교육 정보</a>
+  <a href="../hagwon.html">학원 상담</a>
+  <a href="../index.html#cta">상담 신읒</a>
+  <a href="../index.html#proof">수업 후기</a>
+</div>
+<section class="article-hero">
+  <div class="breadcrumb"><a href="../index.html">홈</a> › <a href="../education.html">교육 정보</a> › 시험·내신</div>
+  <div class="article-tags"><span class="article-tag tg-blue">기말고사</span><span class="article-tag tg-green">계획</span></div>
+  <h1>기말고사 과목이 한꺼번에 몰린 주, 공부 순서는 어떻게 정해야 할까?</h1>
+  <div class="meta"><span>⏱ 5분 읽기</span><span>2026.10</span></div>
+</section>
+<article class="article-body">
+<p>기말고사는 중간고사보다 시험 범위가 넓은 데다, 하루에 두세 과목씩 몰려서 치르는 날이 많습니다. 과목별로 공부할 시간을 똑같이 나누면 시험 전날 밤까지도 다 못 본 과목이 남아 허둥대는 경우가 생깁니다. 시험 순서가 아니라 공부 순서를 먼저 정해두어야 이런 상황을 피할 수 있습니다.</p>
+<h2>시험 날짜보다 '남은 공부량'을 먼저 확인하세요</h2>
+<p>시험표에 적힌 날짜 순서대로 공부하면 뒤쪽 날짜 과목은 자연히 시간이 부족해집니다. 과목마다 시험 범위를 펼쳐놓고 아직 한 번도 안 본 단원이 몇 개인지, 이미 정리가 끝난 단원이 몇 개인지를 먼저 확인하세요. 날짜가 멀어도 범위가 넓은 과목은 지금부터 시간을 배정해야 합니다.</p>
+<h2>'누적형 과목'과 '단기 집중형 과목'을 구분하세요</h2>
+<p>수학이나 과학처럼 개념을 이해하고 문제를 풀어야 하는 과목은 하루 이틀 몰아서 봐도 이해가 따라오지 않습니다. 반면 사회나 암기 과목은 짧은 시간에 집중해서 외우는 방식이 더 잘 맞습니다. 시험 기간이 시작되기 전부터 누적형 과목에 시간을 먼저 투입하고, 암기 과목은 시험 직전 며칠로 당겨서 배치하는 것이 효율적입니다.</p>
+<h3>같은 날 시험이 겹치면 '먼저 보는 과목'에 더 많은 시간을 주세요</h3>
+<p>같은 날 두 과목을 본다면 나중 시간대 과목은 시험 당일 아침에도 한 번 더 볼 기회가 있습니다. 반면 첫 시간 과목은 전날 밤이 마지막 복습 기회이므로, 전날 공부 시간의 비중을 더 높게 잡아야 합니다. 특히 1교시 시험 과목은 아침에 일찍 일어나 긴장한 상태로 바로 치르게 되므로, 전날 밤에 충분히 정리해두지 않으면 당일 아침 짧은 시간으로는 부족함을 메우기 어렵습니다.</p>
+<div class="tip-box"><strong>순서를 정하는 기준:</strong> ① 범위가 넓은 과목 → ② 이해가 필요한 과목 → ③ 같은 날 먼저 보는 과목 → ④ 암기 위주 과목 순으로 공부 시간을 배정하면, 시험 전날 쫓기듯 몰아보는 과목을 줄일 수 있습니다.</div>
+<h2>하루 공부량은 과목 수가 아니라 '남은 날짜'로 나누세요</h2>
+<p>시험 기간이 시작되면 하루에 공부해야 할 과목이 보통 네다섯 개로 늘어납니다. 이때 모든 과목을 매일 조금씩 보려고 하면 어느 과목도 끝까지 정리하지 못한 채 시험일을 맞게 됩니다. 과목별로 "이 과목은 시험 며칠 전까지 1회독을 끝낸다"는 목표일을 먼저 정하고, 그 날짜를 기준으로 하루에 볼 분량을 거꾸로 계산하는 방식이 더 안전합니다.</p>
+<h3>이동식 공부 시간표보다 '체크리스트'가 낫습니다</h3>
+<p>시간표대로 "몇 시부터 몇 시까지 수학"을 지키려 하면, 하루라도 계획이 틀어지면 전체가 무너집니다. 대신 그날 끝내야 할 단원을 체크리스트로 만들어두면, 순서가 바뀌거나 시간이 조금 늦어져도 그날 안에 해야 할 일은 끝까지 확인할 수 있습니다.</p>
+<h2>시험이 끝난 과목은 그 시간에 바로 잊으세요</h2>
+<p>한 과목 시험이 끝나면 쉬는 시간이나 그날 저녁에 답을 맞춰보고 싶은 마음이 들지만, 그 시간은 다음 날 시험 과목을 위해 써야 합니다. 끝난 과목에 대한 생각을 접어두는 것도 기말고사 주간을 버티는 중요한 기술입니다.</p>
+<p>기말고사 주간은 하루 공부 시간이 평소보다 늘어나는 만큼, 순서를 잘못 정하면 체력도 시간도 금방 바닥납니다. 범위와 과목 특성을 기준으로 먼저 순서를 정해두면, 시험 전날 "어떤 과목부터 봐야 하지"라는 고민 없이 바로 공부를 시작할 수 있습니다.</p>
+</article>
+<section class="article-cta">
+  <h2>기말고사 공부 순서, 함께 짜볼까요?</h2>
+  <p>WeStudy 학습 코치가 과목별 남은 분량을 점검해 시험 기간 공부 순서를 함께 설계해 드립니다.</p>
+  <a href="../index.html#cta" class="cta-btn">무류 상담 신읒하기 →</a>
+</section>
+<footer><div>© 2025 WeStudy 위스턴다. All rights reserved. | <a href="../index.html">홈으로</a></div></footer>
+<script>
+document.getElementById('mobileBtn').addEventListener('click',()=>{document.getElementById('mobileMenu').classList.add('open')});
+document.getElementById('mobileMenuClose').addEventListener('click',()=>{document.getElementById('mobileMenu').classList.remove('open')});
+const nav=document.getElementById('mainNav');
+window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>40)});
+</script>
+<script type="text/javascript" src="//wcs.pstatic.net/wcslog.js"></script><script type="text/javascript">if(!wcs_add) var wcs_add = {};wcs_add["wa"] = "15011a5c5db8740";if(window.wcs) {wcs_do();}</script><style>.ws-cta-bar{position:fixed;left:0;right:0;bottom:0;z-index:9998;display:none;gap:10px;padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:rgba(255,255,255,.92);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);box-shadow:0 -3px 22px rgba(0,0,0,.1)}.ws-cta-bar a{flex:1;display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:15px 6px;border-radius:50px;font-weight:800;font-size:15px;text-decoration:none;letter-spacing:-.01em}.ws-cta-call{background:#165DFF;color:#fff;box-shadow:0 6px 18px rgba(22,93,255,.32)}.ws-cta-kakao{background:#fff;color:#374151;border:1.5px solid #E2E5EA}.ws-cta-fab{position:fixed;right:24px;bottom:28px;z-index:9998;display:none;flex-direction:column;gap:11px;align-items:stretch}.ws-cta-fab a{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-width:176px;padding:14px 24px;border-radius:50px;font-weight:800;font-size:15px;text-decoration:none;letter-spacing:-.01em}.ws-cta-fab .f-call{background:#165DFF;color:#fff;box-shadow:0 12px 30px rgba(22,93,255,.4)}.ws-cta-fab .f-call span{font-size:1.1em;font-weight:700}.ws-cta-fab .f-kakao{background:#fff;color:#374151;border:1.5px solid #E2E5EA;box-shadow:0 8px 22px rgba(0,0,0,.1)}@media(max-width:768px){.ws-cta-bar{display:flex}body{padding-bottom:80px}}@media(min-width:769px){.ws-cta-fab{display:flex}}</style><div class="ws-cta-bar"><a class="ws-cta-kakao" href="http://pf.kakao.com/_sqPxen/chat" target="_blank" rel="noopener" data-cta="ws-bar-kakao">유톡 문의</a><a class="ws-cta-call" href="tel:010-6491-5142" data-cta="ws-bar-call">무류 상담 받기</a></div><div class="ws-cta-fab"><a class="f-kakao" href="http://pf.kakao.com/_sqPxen/chat" target="_blank" rel="noopener" data-cta="ws-fab-kakao">유톡 문의</a><a class="f-call" href="tel:010-6491-5142" data-cta="ws-fab-call">무류 상담 받기 <span>→</span></a></div><script defer src="https://telegram-alert.fiower10036.workers.dev/t.js?v=3" data-site="위스턴다"></script></body>
+</html>
