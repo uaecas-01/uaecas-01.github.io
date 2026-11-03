@@ -5,7 +5,7 @@
     <link>https://westudymate.com/</link>
     <description>1:1 맞춤 학습 코칭 플랫폼. 교육 정보, 학습 가이드, 과외/학원 상담 콘텐츠를 제공합니다.</description>
     <language>ko</language>
-    <lastBuildDate>Sun, 01 Nov 2026 00:17:26 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 03 Nov 2026 00:17:48 GMT</lastBuildDate>
     <atom:link href="https://westudymate.com/rss.xml" rel="self" type="application/rss+xml"/>
     <item>
       <title>WeStudy 위스터디 – 1:1 맞춤 학습 코칭 전문</title>
@@ -48,6 +48,76 @@
       <guid isPermaLink="true">https://westudymate.com/reviews.html</guid>
       <pubDate>Sun, 19 Apr 2026 10:41:58 GMT</pubDate>
       <description>실제 수강생·학부모님들의 솔직한 후기와 학습 성과.</description>
+    </item>
+    <item>
+      <title>대학 입학 후 전공이 생각과 다르다면, 전과를 고민해도 될까? – WeStudy</title>
+      <link>https://westudymate.com/articles/admission-40.html</link>
+      <guid isPermaLink="true">https://westudymate.com/articles/admission-40.html</guid>
+      <pubDate>Tue, 03 Nov 2026 00:17:48 GMT</pubDate>
+      <description>대학에 입학한 뒤 전공이 생각했던 것과 다르게 느껴지는 경우가 있습니다. 전과(전공 변경) 제도가 무엇이고, 고민하기 전에 확인해야 할 것들을 정리합니다.</description>
+    </item>
+    <item>
+      <title>정시 지원할 때, 수능 반영 영역별 비율(가중치)은 어떻게 확인해야 할까? – WeStudy</title>
+      <link>https://westudymate.com/articles/admission-39.html</link>
+      <guid isPermaLink="true">https://westudymate.com/articles/admission-39.html</guid>
+      <pubDate>Tue, 03 Nov 2026 00:17:48 GMT</pubDate>
+      <description>정시 지원은 수능 총점만으로 결정되지 않습니다. 대학마다 국어·수학·영어·탐구 반영 비율이 다르다는 사실을 확인하는 방법과 활용법을 정리합니다.</description>
+    </item>
+    <item>
+      <title>개념 강의를 듣고 바로 문제를 풀면 왜 자꾸 틀릴까? – WeStudy</title>
+      <link>https://westudymate.com/articles/skill-27.html</link>
+      <guid isPermaLink="true">https://westudymate.com/articles/skill-27.html</guid>
+      <pubDate>Tue, 03 Nov 2026 00:17:48 GMT</pubDate>
+      <description>강의를 들을 때는 이해된 것 같았는데 혼자 문제를 풀면 자꾸 틀리는 경우가 있습니다. '들어서 아는 것'과 '풀어서 아는 것'의 차이와 이를 메우는 연습법을 정리합니다.</description>
+    </item>
+    <item>
+      <title>공부 계획을 매일 못 지키는 아이, 계획표를 통째로 다시 짜야 할까? – WeStudy</title>
+      <link>https://westudymate.com/articles/habit-33.html</link>
+      <guid isPermaLink="true">https://westudymate.com/articles/habit-33.html</guid>
+      <pubDate>Tue, 03 Nov 2026 00:17:48 GMT</pubDate>
+      <description>계획표를 매번 못 지키는 이유는 계획표 양식이 아니라 계획한 양을 잘못 추정했기 때문인 경우가 많습니다. 계획표를 바꾸기 전에 먼저 점검할 것들을 정리합니다.</description>
+    </item>
+    <item>
+      <title>중3, 겨울방학에 고등학교 선택과목 정보를 미리 알아봐야 할까? – WeStudy</title>
+      <link>https://westudymate.com/articles/grade-38.html</link>
+      <guid isPermaLink="true">https://westudymate.com/articles/grade-38.html</guid>
+      <pubDate>Tue, 03 Nov 2026 00:17:48 GMT</pubDate>
+      <description>중3 겨울방학은 배정된 고등학교의 교육과정을 미리 살펴볼 수 있는 시간입니다. 무엇을, 어디서 확인하면 되는지 정리합니다.</description>
+    </item>
+    <item>
+      <title>고1, 기말고사가 끝나면 바로 고2 선택과목을 정해야 할까? – WeStudy</title>
+      <link>https://westudymate.com/articles/grade-37.html</link>
+      <guid isPermaLink="true">https://westudymate.com/articles/grade-37.html</guid>
+      <pubDate>Tue, 03 Nov 2026 00:17:48 GMT</pubDate>
+      <description>고1 2학기 기말고사가 끝나면 학교마다 고2 선택과목 신청 절차가 이어집니다. 무엇을 기준으로 선택과목을 정해야 하는지 정리합니다.</description>
+    </item>
+    <item>
+      <title>영어 장문 독해, 문단별로 어떻게 읽어야 시간을 아낄 수 있을까? – WeStudy</title>
+      <link>https://westudymate.com/articles/subject-43.html</link>
+      <guid isPermaLink="true">https://westudymate.com/articles/subject-43.html</guid>
+      <pubDate>Tue, 03 Nov 2026 00:17:48 GMT</pubDate>
+      <description>영어 장문 독해에서 모든 문장을 꼼꼼히 해석하다 보면 시간이 부족해지기 쉽습니다. 문단의 역할에 따라 읽는 속도를 다르게 조절하는 방법을 정리합니다.</description>
+    </item>
+    <item>
+      <title>수학 로그·지수함수, 그래프가 눈에 안 그려져서 자꾸 틀린다면? – WeStudy</title>
+      <link>https://westudymate.com/articles/subject-42.html</link>
+      <guid isPermaLink="true">https://westudymate.com/articles/subject-42.html</guid>
+      <pubDate>Tue, 03 Nov 2026 00:17:48 GMT</pubDate>
+      <description>로그함수와 지수함수는 공식을 외워도 그래프 모양이 머릿속에 그려지지 않으면 응용 문제에서 자꾸 막힙니다. 그래프를 중심으로 접근하는 학습 순서를 정리합니다.</description>
+    </item>
+    <item>
+      <title>고3, 정시만 보기로 했는데 기말고사를 끝까지 봐야 하는 이유는? – WeStudy</title>
+      <link>https://westudymate.com/articles/exam-44.html</link>
+      <guid isPermaLink="true">https://westudymate.com/articles/exam-44.html</guid>
+      <pubDate>Tue, 03 Nov 2026 00:17:48 GMT</pubDate>
+      <description>수능이 끝나고 정시 지원을 준비하는 고3도 2학기 기말고사를 가볍게 넘기면 안 되는 이유가 있습니다. 내신과 생활기록부가 영향을 주는 상황을 짚어봅니다.</description>
+    </item>
+    <item>
+      <title>기말고사 평가 비율(지필고사 vs 수행평가), 학교마다 다른데 어떻게 확인해야 할까? – WeStudy</title>
+      <link>https://westudymate.com/articles/exam-43.html</link>
+      <guid isPermaLink="true">https://westudymate.com/articles/exam-43.html</guid>
+      <pubDate>Tue, 03 Nov 2026 00:17:48 GMT</pubDate>
+      <description>같은 기말고사라도 학교와 과목마다 지필고사와 수행평가 반영 비율이 다릅니다. 비율을 모른 채 공부 시간을 배분하면 비효율적일 수 있는 이유와 확인하는 방법을 정리합니다.</description>
     </item>
     <item>
       <title>정시 지원에서 '추가모집'이란 무엇이고, 어떤 경우에 고려해야 할까? – WeStudy</title>
