@@ -798,6 +798,23 @@
     .form-group select:focus,
     .form-group textarea:focus { border-color: var(--blue); }
     .form-group textarea { resize: vertical; min-height: 90px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0 0.75rem; }
+    .form-group label .req { color: var(--blue); }
+    .form-group input[readonly] { background: var(--gray-50); cursor: pointer; }
+    .form-group .addr-row { display: flex; gap: 0.5rem; }
+    .form-group .addr-row input { flex: 1; min-width: 0; }
+    .form-group .addr-btn {
+      flex: 0 0 auto; padding: 0 1.1rem;
+      border: 1.5px solid var(--blue); border-radius: 10px;
+      background: #EEF4FF; color: var(--blue);
+      font-family: inherit; font-size: 0.85rem; font-weight: 700;
+      cursor: pointer; white-space: nowrap; transition: background 0.2s, color 0.2s;
+    }
+    .form-group .addr-btn:hover { background: var(--blue); color: var(--white); }
+    .form-group .form-err { font-size: 0.74rem; color: #E8344E; display: none; }
+    .form-group .form-err.show { display: block; }
+    .form-group input.invalid { border-color: #E8344E; }
+    @media (max-width: 480px) { .form-row { grid-template-columns: 1fr; } }
     .form-submit {
       width: 100%;
       background: var(--blue);
@@ -1407,43 +1424,49 @@
     <div class="form-card">
       <h3>무료 학습 상담 신청</h3>
       <p>간단한 정보를 남겨주시면 빠르게 연락드립니다</p>
-      <form id="ctaForm" action="/api/consult" method="POST">
-        <div class="form-group">
-          <label>학부모 성함</label>
-          <input type="text" name="name" placeholder="이름을 입력해 주세요" required />
+      <form id="ctaForm" action="/api/consult" method="POST" novalidate>
+        <div class="form-row">
+          <div class="form-group">
+            <label>학부모 성함 <span class="req">*</span></label>
+            <input type="text" name="name" id="ctaName" placeholder="이름을 입력해 주세요" required />
+            <div class="form-err" id="ctaNameErr">이름이 올바르지 않습니다.</div>
+          </div>
+          <div class="form-group">
+            <label>연락처 <span class="req">*</span></label>
+            <input type="tel" name="phone" id="ctaPhone" placeholder="010-0000-0000" maxlength="13" required />
+            <div class="form-err" id="ctaPhoneErr">휴대폰 번호가 올바르지 않습니다.</div>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>자녀 학년 <span class="req">*</span></label>
+            <select name="grade" id="ctaGrade" required>
+              <option value="">선택해 주세요</option>
+              <option>초등학교 1~3학년</option>
+              <option>초등학교 4~6학년</option>
+              <option>중학교 1학년</option>
+              <option>중학교 2학년</option>
+              <option>중학교 3학년</option>
+              <option>고등학교 1학년</option>
+              <option>고등학교 2학년</option>
+              <option>고등학교 3학년</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>관심 과목</label>
+            <select name="subject">
+              <option value="">선택해 주세요</option>
+              <option>국어</option>
+              <option>수학</option>
+              <option>영어</option>
+              <option>과학</option>
+              <option>사회</option>
+              <option>전 과목</option>
+            </select>
+          </div>
         </div>
         <div class="form-group">
-          <label>연락처</label>
-          <input type="tel" name="phone" placeholder="010-0000-0000" required />
-        </div>
-        <div class="form-group">
-          <label>자녀 학년</label>
-          <select name="grade" required>
-            <option value="">선택해 주세요</option>
-            <option>초등학교 1~3학년</option>
-            <option>초등학교 4~6학년</option>
-            <option>중학교 1학년</option>
-            <option>중학교 2학년</option>
-            <option>중학교 3학년</option>
-            <option>고등학교 1학년</option>
-            <option>고등학교 2학년</option>
-            <option>고등학교 3학년</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label>관심 과목</label>
-          <select name="subject">
-            <option value="">선택해 주세요</option>
-            <option>국어</option>
-            <option>수학</option>
-            <option>영어</option>
-            <option>과학</option>
-            <option>사회</option>
-            <option>전 과목</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label>희망 수업 형태</label>
+          <label>희망 수업 형태 <span class="req">*</span></label>
           <select name="lesson_type" id="lessonType" required>
             <option value="">선택해 주세요</option>
             <option value="화상">화상 수업 (온라인)</option>
@@ -1451,13 +1474,15 @@
             <option value="학원">학원 연계 상담</option>
           </select>
         </div>
-        <div class="form-group" id="addressGroup" style="display:none;">
-          <label>수업 받을 주소</label>
-          <div style="display:flex; gap:0.5rem;">
-            <input type="text" name="address" id="addressField" placeholder="주소를 검색해 주세요" readonly style="flex:1; cursor:pointer; background:#F9FAFB;" />
-            <button type="button" id="addressSearchBtn" style="flex-shrink:0; padding:0 1.1rem; background:var(--navy); color:#fff; border:none; border-radius:10px; font-family:inherit; font-size:0.85rem; font-weight:700; cursor:pointer; white-space:nowrap;">주소 검색</button>
+        <div class="form-group" id="addressGroup">
+          <label>주소 <span id="addrNote">(선택)</span></label>
+          <div class="addr-row">
+            <input type="text" name="zonecode" id="addressZone" placeholder="우편번호" readonly />
+            <button type="button" class="addr-btn" id="addressSearchBtn">주소 검색</button>
           </div>
-          <input type="text" name="address_detail" id="addressDetail" placeholder="상세 주소를 입력해 주세요 (동·호수, 건물명 등)" style="margin-top:0.5rem;" />
+          <input type="text" name="address" id="addressField" placeholder="도로명 주소 (검색 클릭)" readonly />
+          <input type="text" name="address_detail" id="addressDetail" placeholder="상세주소 (동/호수 등)" />
+          <div class="form-err" id="ctaAddrErr">방문 수업은 수업 받을 주소가 필요합니다.</div>
         </div>
         <div class="form-group">
           <label>상담 내용 (선택)</label>
@@ -1613,13 +1638,16 @@
   }, { threshold: 0.5 });
   document.querySelectorAll('[data-target]').forEach(el => counterObserver.observe(el));
 
-  /* Form submit */
+  /* Form submit (검증 → /api/consult) */
   document.getElementById('ctaForm').addEventListener('submit', async (e) => {
     e.preventDefault();
     const form = e.target;
+    const v = window.__ctaValidate;
+    if (v && !v()) return;
     const btn = form.querySelector('.form-submit');
     btn.textContent = '신청 중...'; btn.disabled = true;
     try {
+      const zone = form.zonecode.value.trim();
       const payload = {
         center: '위스터디',
         student: form.name.value.trim(),
@@ -1627,9 +1655,10 @@
         grade: form.grade.value,
         subject: form.subject.value,
         lesson_type: form.lesson_type.value,
-        address: form.address.value.trim(),
+        address: (zone ? '[' + zone + '] ' : '') + form.address.value.trim(),
         address_detail: form.address_detail.value.trim(),
         message: form.message.value.trim(),
+        referer: document.referrer || '',
         page: location.href
       };
       Object.assign(payload, window.__telegramAttribution || {});
@@ -1651,35 +1680,40 @@
 
   // Problems carousel 제거됨 (수직 스택으로 변경)
 
-  /* 희망 수업 형태 → 주소 입력 조건부 표시 */
+  /* 상담폼: 입력 검증 + 카카오(다음) 우편번호 주소 검색 (토닥 상담폼과 동일 방식) */
   (function(){
+    const form = document.getElementById('ctaForm');
+    if(!form) return;
+    const nameEl = document.getElementById('ctaName'), nameErr = document.getElementById('ctaNameErr');
+    const phoneEl = document.getElementById('ctaPhone'), phoneErr = document.getElementById('ctaPhoneErr');
+    const gradeEl = document.getElementById('ctaGrade');
     const lessonType = document.getElementById('lessonType');
-    const addressGroup = document.getElementById('addressGroup');
+    const addrNote = document.getElementById('addrNote');
+    const zoneEl = document.getElementById('addressZone');
     const addressField = document.getElementById('addressField');
     const addressDetail = document.getElementById('addressDetail');
+    const addrErr = document.getElementById('ctaAddrErr');
     const searchBtn = document.getElementById('addressSearchBtn');
-    if(!lessonType) return;
 
-    lessonType.addEventListener('change', function(){
-      const needAddr = this.value !== '';
-      addressGroup.style.display = needAddr ? 'block' : 'none';
-      addressField.required = needAddr;
-      if(!needAddr){ addressField.value=''; addressDetail.value=''; }
-    });
-
+    /* 우편번호 스크립트는 폼이 있으면 미리 불러둔다 (키 불필요) */
     function loadDaum(cb){
-      if(window.daum && window.daum.Postcode){ cb(); return; }
+      if(window.daum && window.daum.Postcode){ if(cb) cb(); return; }
+      if(loadDaum._s){ if(cb) loadDaum._s.addEventListener('load', cb); return; }
       const s = document.createElement('script');
       s.src = 'https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js';
-      s.onload = cb;
+      s.async = true;
+      if(cb) s.onload = cb;
       document.head.appendChild(s);
+      loadDaum._s = s;
     }
+    loadDaum();
     function openSearch(){
       loadDaum(function(){
         new daum.Postcode({
           oncomplete: function(data){
-            addressField.value = data.roadAddress || data.jibunAddress;
-            addressDetail.style.display = 'block';
+            zoneEl.value = data.zonecode || '';
+            addressField.value = data.roadAddress || data.jibunAddress || '';
+            addressField.classList.remove('invalid'); addrErr.classList.remove('show');
             addressDetail.focus();
           }
         }).open();
@@ -1687,6 +1721,48 @@
     }
     searchBtn.addEventListener('click', openSearch);
     addressField.addEventListener('click', openSearch);
+    zoneEl.addEventListener('click', openSearch);
+
+    /* 방문 수업이면 주소 필수 */
+    function needAddr(){ return lessonType.value === '방문'; }
+    lessonType.addEventListener('change', function(){
+      addrNote.textContent = needAddr() ? '(방문 수업은 필수)' : '(선택)';
+      addrNote.style.color = needAddr() ? 'var(--blue)' : '';
+      if(!needAddr()){ addressField.classList.remove('invalid'); addrErr.classList.remove('show'); }
+    });
+
+    function validName(){
+      const v = nameEl.value.trim(); const jamo = /[ᄀ-ᇿㄱ-ㆎ]/;
+      const ok = v.length >= 2 && !jamo.test(v);
+      nameErr.classList.toggle('show', !ok); nameEl.classList.toggle('invalid', !ok); return ok;
+    }
+    function validPhone(){
+      const v = phoneEl.value.replace(/[^0-9]/g,'');
+      const ok = /^01[0-9]{8,9}$/.test(v);
+      phoneErr.classList.toggle('show', !ok); phoneEl.classList.toggle('invalid', !ok); return ok;
+    }
+    function validAddr(){
+      const ok = !needAddr() || addressField.value.trim() !== '';
+      addrErr.classList.toggle('show', !ok); addressField.classList.toggle('invalid', !ok); return ok;
+    }
+    nameEl.addEventListener('blur', function(){ if(this.value.trim()) validName(); });
+    nameEl.addEventListener('input', function(){ if(nameErr.classList.contains('show')) validName(); });
+    phoneEl.addEventListener('input', function(){
+      let v = this.value.replace(/[^0-9]/g,'').slice(0,11);
+      this.value = v.length <= 3 ? v : v.length <= 7 ? v.slice(0,3)+'-'+v.slice(3) : v.slice(0,3)+'-'+v.slice(3,7)+'-'+v.slice(7);
+      if(phoneErr.classList.contains('show') || v.length >= 10) validPhone();
+    });
+    phoneEl.addEventListener('blur', function(){ if(this.value.trim()) validPhone(); });
+    [gradeEl, lessonType].forEach(function(el){ el.addEventListener('change', function(){ el.classList.remove('invalid'); }); });
+
+    window.__ctaValidate = function(){
+      if(!validName()){ nameEl.focus(); return false; }
+      if(!validPhone()){ phoneEl.focus(); return false; }
+      if(!gradeEl.value){ gradeEl.classList.add('invalid'); gradeEl.focus(); return false; }
+      if(!lessonType.value){ lessonType.classList.add('invalid'); lessonType.focus(); return false; }
+      if(!validAddr()){ searchBtn.focus(); return false; }
+      return true;
+    };
   })();
 </script>
 <script>(function(){try{var el=document.getElementById('footerBc');if(!el)return;var labelMap={'지역':'지역','과목':'과목','학교':'학교','학원':'학원','학년':'학년','회화':'회화','기타':'기타 수업','과외':'과외','영어':'영어회화','일본어':'일본어회화','중국어':'중국어회화','hagwon.html':'학원 상담','contact.html':'문의하기','about.html':'소개','reviews.html':'수업 후기','education.html':'교육 정보','학습코칭':'학습 코칭','입시컨설팅':'입시 컨설팅','생기부컨설팅':'생기부 컨설팅','유학':'유학 프로그램','국제학교':'국제학교 상담','코딩':'코딩','검정고시':'검정고시','수행평가':'수행평가','비즈니스':'비즈니스','시험':'시험 대비','면접':'면접','입문':'입문','학생':'학생','여행':'여행'};var path=location.pathname.split('/').filter(function(p){return p}).map(decodeURIComponent);if(path.length===0){el.innerHTML='<span class="cur">홈</span>';return}var html='<a href="/">홈</a>';var acc='';path.forEach(function(seg,i){acc+='/'+encodeURIComponent(seg);var label=labelMap[seg]||seg;html+='<span class="sep">›</span>';if(i===path.length-1){html+='<span class="cur">'+label+'</span>'}else{html+='<a href="'+acc+'">'+label+'</a>'}});el.innerHTML=html}catch(e){}})();</script>
