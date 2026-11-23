@@ -1425,6 +1425,9 @@
       <h3>무료 학습 상담 신청</h3>
       <p>간단한 정보를 남겨주시면 빠르게 연락드립니다</p>
       <form id="ctaForm" action="/api/consult" method="POST" novalidate>
+        <!-- 스팸 방지: 허니팟(화면 밖) + 제출까지 걸린 시간 -->
+        <div aria-hidden="true" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden"><label>홈페이지<input type="text" name="website" value="" tabindex="-1" autocomplete="off"></label></div><input type="hidden" name="_elapsed" value="">
+        <script>(function(){var t0=Date.now();document.addEventListener("submit",function(e){var f=e.target,i=f&&f.querySelector&&f.querySelector("input[name=_elapsed]");if(i)i.value=String(Date.now()-t0);},true);})();</script>
         <div class="form-row">
           <div class="form-group">
             <label>학부모 성함 <span class="req">*</span></label>
@@ -1659,6 +1662,8 @@
         address_detail: form.address_detail.value.trim(),
         message: form.message.value.trim(),
         referer: document.referrer || '',
+        website: form.website.value,
+        _elapsed: form._elapsed.value,
         page: location.href
       };
       Object.assign(payload, window.__telegramAttribution || {});
