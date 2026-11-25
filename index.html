@@ -925,6 +925,71 @@
       #mainNav .nav-mobile-btn { display: flex !important; }
     }
 
+    /* ── 최신 학습 가이드 (홈 → 매거진 글 링크) ── */
+    .guide-latest-section { padding: 80px 5%; background: var(--white); }
+    .guide-latest-sub { color: var(--gray-7); word-break: keep-all; text-wrap: balance; }
+    .guide-latest-grid {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.25rem;
+    }
+    .guide-latest-item { display: flex; min-width: 0; }
+    .guide-latest-card {
+      display: flex; flex-direction: column; gap: 0.7rem;
+      width: 100%; min-width: 0;
+      padding: 1.5rem 1.5rem 1.6rem;
+      background: var(--gray-1);
+      border: 1px solid var(--gray-3);
+      border-radius: 16px;
+      color: var(--text);
+      text-decoration: none;
+      transition: background 0.25s, box-shadow 0.25s, transform 0.2s;
+    }
+    .guide-latest-card:hover {
+      background: var(--white);
+      box-shadow: 0 8px 28px rgba(0,0,0,.08);
+      transform: translateY(-2px);
+    }
+    .guide-latest-cat {
+      font-size: 0.8125rem; font-weight: 700;
+      color: var(--blue); line-height: 1.4;
+    }
+    .guide-latest-title {
+      font-size: 1.02rem; font-weight: 700;
+      color: var(--text);
+      letter-spacing: -0.02em; line-height: 1.55;
+      word-break: keep-all; overflow-wrap: anywhere;
+    }
+    .guide-latest-more-wrap { text-align: center; margin-top: 2.5rem; }
+    .guide-latest-more {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      min-height: 44px; padding: 0 0.5rem;
+      color: var(--blue); font-weight: 700; font-size: 0.95rem;
+      border-radius: 8px;
+    }
+    .guide-latest-more-arrow { font-size: 1.1rem; }
+    .guide-latest-card:focus-visible,
+    .guide-latest-more:focus-visible {
+      outline: 3px solid var(--blue);
+      outline-offset: 3px;
+    }
+    @media (max-width: 1024px) {
+      .guide-latest-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+    @media (max-width: 640px) {
+      .guide-latest-grid { grid-template-columns: 1fr; gap: 1rem; }
+      .guide-latest-card { padding: 1.35rem 1.25rem 1.45rem; }
+    }
+    /* 자바스크립트가 꺼져 있으면 등장 효과 없이 바로 보이게 */
+    @media (scripting: none) {
+      .guide-latest-section .reveal { opacity: 1; transform: none; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .guide-latest-card { transition: none; }
+      .guide-latest-card:hover { transform: none; }
+    }
+
   </style>
 <link rel="manifest" href="/manifest.json"><meta name="theme-color" content="#165DFF"><link rel="icon" href="/favicon-32.png" sizes="32x32"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="WeStudy"><meta name="mobile-web-app-capable" content="yes"><script type="text/javascript">(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window, document, "clarity", "script", "xbeym7li1l");</script></head>
 <body>
@@ -1406,6 +1471,133 @@
     </div>
   </div>
 </section>
+
+<!-- 최신 학습 가이드 -->
+<section class="guide-latest-section" id="guide-latest" aria-labelledby="guideLatestTitle">
+  <div class="section-inner">
+    <h2 class="section-title reveal" id="guideLatestTitle">최신 학습 가이드</h2>
+    <p class="section-sub guide-latest-sub reveal">시험·내신부터 입시·진로까지, 새로 올라온 글을 확인해 보세요.</p>
+    <ul class="guide-latest-grid" id="guideLatestList">
+      <li class="guide-latest-item reveal">
+        <a class="guide-latest-card" href="articles/admission-58.html">
+          <span class="guide-latest-cat">입시·진로</span>
+          <h3 class="guide-latest-title">고2, 겨울방학에 학생부 비교과(창의적 체험활동) 기록을 미리 점검해봐야 할까?</h3>
+        </a>
+      </li>
+      <li class="guide-latest-item reveal">
+        <a class="guide-latest-card" href="articles/admission-57.html">
+          <span class="guide-latest-cat">입시·진로</span>
+          <h3 class="guide-latest-title">정시 원서접수 직전, 수능 성적표와 모집요강을 비교할 때 가장 많이 하는 실수는 무엇일까?</h3>
+        </a>
+      </li>
+      <li class="guide-latest-item reveal">
+        <a class="guide-latest-card" href="articles/skill-39.html">
+          <span class="guide-latest-cat">학습 스킬</span>
+          <h3 class="guide-latest-title">문제를 풀 때 손으로 과정을 쓰는 것과 암산으로 푸는 것, 어떤 차이가 있을까?</h3>
+        </a>
+      </li>
+      <li class="guide-latest-item reveal">
+        <a class="guide-latest-card" href="articles/habit-50.html">
+          <span class="guide-latest-cat">학습 습관</span>
+          <h3 class="guide-latest-title">겨울방학을 앞두고, 학기 중 루틴과 방학 루틴을 어떻게 다르게 짜야 할까?</h3>
+        </a>
+      </li>
+      <li class="guide-latest-item reveal">
+        <a class="guide-latest-card" href="articles/grade-59.html">
+          <span class="guide-latest-cat">학년별 고민</span>
+          <h3 class="guide-latest-title">예비 고3(현재 고2), 겨울방학에 과목별 기출문제를 미리 풀어봐야 할까?</h3>
+        </a>
+      </li>
+      <li class="guide-latest-item reveal">
+        <a class="guide-latest-card" href="articles/grade-58.html">
+          <span class="guide-latest-cat">학년별 고민</span>
+          <h3 class="guide-latest-title">초등학생, 기말고사 대신 보는 '단원평가'는 어떻게 준비해야 할까?</h3>
+        </a>
+      </li>
+    </ul>
+    <div class="guide-latest-more-wrap reveal">
+      <a class="guide-latest-more" href="education.html">학습 가이드 전체 보기 <span class="guide-latest-more-arrow" aria-hidden="true">→</span></a>
+    </div>
+  </div>
+</section>
+<script>
+/* 최신 학습 가이드: rss.xml 의 최신 글 6편으로 위 목록을 갱신한다.
+   실패하거나 6편이 안 되면 HTML 에 들어 있는 목록을 그대로 둔다. */
+(function () {
+  var COUNT = 6;
+  var LINK_RE = /\/articles\/([a-z]+-\d{2,4})\.html$/;
+  var LABELS = {
+    exam: '시험·내신',
+    subject: '과목별 공부법',
+    grade: '학년별 고민',
+    habit: '학습 습관',
+    skill: '학습 스킬',
+    admission: '입시·진로'
+  };
+  var FALLBACK_LABEL = '학습 가이드';
+
+  var list = document.getElementById('guideLatestList');
+  if (!list) { console.warn('[guide-latest] 목록 요소를 찾지 못했습니다.'); return; }
+  if (!window.fetch || !window.DOMParser) { console.warn('[guide-latest] 이 브라우저는 자동 갱신을 지원하지 않습니다.'); return; }
+
+  function firstText(item, tag) {
+    var el = item.getElementsByTagName(tag)[0];
+    return el ? (el.textContent || '').trim() : '';
+  }
+
+  function pickLatest(xmlText) {
+    var doc = new DOMParser().parseFromString(xmlText, 'application/xml');
+    if (doc.getElementsByTagName('parsererror').length) throw new Error('rss.xml 을 읽지 못했습니다(XML 형식 오류).');
+    var items = doc.getElementsByTagName('item');
+    var picked = [];
+    for (var i = 0; i < items.length && picked.length < COUNT; i++) {
+      var m = LINK_RE.exec(firstText(items[i], 'link'));
+      if (!m) continue;
+      var title = firstText(items[i], 'title').replace(/\s*[–-]\s*WeStudy$/, '').trim();
+      if (!title) continue;
+      var slug = m[1];
+      picked.push({
+        href: 'articles/' + slug + '.html',
+        label: LABELS[slug.split('-')[0]] || FALLBACK_LABEL,
+        title: title
+      });
+    }
+    return picked;
+  }
+
+  function render(picked) {
+    var cards = list.querySelectorAll('a.guide-latest-card');
+    if (cards.length !== COUNT) throw new Error('카드 수가 ' + COUNT + '개가 아닙니다(' + cards.length + '개).');
+    var slots = [];
+    for (var i = 0; i < COUNT; i++) {
+      var cat = cards[i].querySelector('.guide-latest-cat');
+      var ttl = cards[i].querySelector('.guide-latest-title');
+      if (!cat || !ttl) throw new Error((i + 1) + '번째 카드의 구조가 예상과 다릅니다.');
+      slots.push({ a: cards[i], cat: cat, ttl: ttl });
+    }
+    /* 여기까지 문제가 없을 때만 한꺼번에 바꾼다 */
+    for (var j = 0; j < COUNT; j++) {
+      slots[j].a.setAttribute('href', picked[j].href);
+      slots[j].cat.textContent = picked[j].label;
+      slots[j].ttl.textContent = picked[j].title;
+    }
+  }
+
+  fetch('/rss.xml')
+    .then(function (res) {
+      if (!res.ok) throw new Error('rss.xml 응답 코드 ' + res.status);
+      return res.text();
+    })
+    .then(function (xmlText) {
+      var picked = pickLatest(xmlText);
+      if (picked.length < COUNT) throw new Error('rss.xml 의 글이 ' + COUNT + '편보다 적습니다(' + picked.length + '편).');
+      render(picked);
+    })
+    .catch(function (err) {
+      console.warn('[guide-latest] 최신 글 목록을 갱신하지 못해 기본 목록을 그대로 둡니다.', err);
+    });
+})();
+</script>
 
 <!-- CTA -->
 <section class="cta-section" id="cta">
